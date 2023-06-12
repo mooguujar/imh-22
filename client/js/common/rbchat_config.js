@@ -34,9 +34,9 @@
     var _PRODUCT_NAME = 'RainbowChat-Web 网页端产品';
 
     /* http服务根URL (注意：结尾不带反斜线！) */
-    var _HTTP_SERVER_ROOT_URL = "https://"+document.domain;
+    var _HTTP_SERVER_ROOT_URL = "https://8848.shuoqiudi.live/im-api";
     /* 实时通信websocket服务器地址 */
-    var _IM_SERVER_URL = "https://"+document.domain;                        // TODO: 【2】开发者请修改为您自已的 web im 服务端地址（即nodejs服务地址）
+    var _IM_SERVER_URL = "ws://127.0.0.1";                        // TODO: 【2】开发者请修改为您自已的 web im 服务端地址（即nodejs服务地址）
 
     // 文件地址
     var  _FILE_HTTPS_URL = 'https://oss.nongzhiw.cn'

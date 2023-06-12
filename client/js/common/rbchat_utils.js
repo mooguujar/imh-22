@@ -785,7 +785,7 @@
      * 判断是否是手机域名访问
      */
     var _isMobile = function () {
-        return window.location.host.indexOf('h5.imnono.net') != -1 || window.location.host.indexOf('h5.nongzhiw.cn') != -1;
+        return true;
     }
 
     /**
