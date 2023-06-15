@@ -673,6 +673,18 @@
                 , JSON.stringify(m), null
                 , logTAG?logTAG:'查询用户信息接口', fnForSucess, fnForFail, isShowLoadingToast);
         },
+
+        /**
+         * 【NEW 1008-3-8接口】获取用户/好友的个人信息接口调用.
+         */
+        newSubmitGetUserInfoToServer : function(myUid, fnForSucess, fnForFail, isShowLoadingToast, logTAG) {
+            // 要提交给服务端的参数
+            var m = {
+                'friend_uid'     : myUid                 // 查询发起人的uid，这个uid指的是客户端提起这个查询时的当前登陆者uid，指明此uid后本sql将同时提供被查询作为好友的额外信息。本参数可为null（表示不需要查询好友的额外信息）
+            };
+            _jsonpFromHttpRestServer(MyProcessorConst.PROCESSOR_LOGIC, JobDispatchConst.LOGIC_SNS, SysActionConst.ACTION_APPEND2, JSON.stringify(m), null, logTAG?logTAG:'查询用户信息接口', fnForSucess, fnForFail, isShowLoadingToast);
+        },
+
         /**
          * 创建分组
          * @param {*} groupName 
