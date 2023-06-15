@@ -36,29 +36,29 @@ var config = {
     name: 'Rainbowchat-Web-IMServer',
 
     // 开启或关闭与App产品的消息互通，true表示开启、false表示关闭，默认true（如您不知此为何物，请始终设为true即可）
-    IMMQ_BRIDGE_ENABLED		: true,
-    // 与App产品的消息互通时MQ的URI（本参数只在IMMQ_BRIDGE_ENABLED=true时有意义）// 18.167.110.125
-    IMMQ_IMBRIDGE_URL		: 'amqp://js:19844713@3.0.248.34', //
+    // IMMQ_BRIDGE_ENABLED		: true,
+    // // 与App产品的消息互通时MQ的URI（本参数只在IMMQ_BRIDGE_ENABLED=true时有意义）// 18.167.110.125
+    // IMMQ_IMBRIDGE_URL		: 'amqp://js:19844713@3.0.248.34', //
 
-    // 要插入DB的持久化数据消息队列服务器连接URI
-    IMMQ_2DB_URI			: 'amqp://js:19844713@3.0.248.34',
-    // 要插入DB的持久化数据消息队列名，用于配合IM服务器，从MQ中间件读取并处理离线消息等
-    IMMQ_2DB_MSG_WRITE_QNAME: 'q_im2db_msg',
+    // // 要插入DB的持久化数据消息队列服务器连接URI
+    // IMMQ_2DB_URI			: 'amqp://js:19844713@3.0.248.34',
+    // // 要插入DB的持久化数据消息队列名，用于配合IM服务器，从MQ中间件读取并处理离线消息等
+    // IMMQ_2DB_MSG_WRITE_QNAME: 'q_im2db_msg',
 
 
     // TODO: 用于MySQL数据库时，请启用以下配置项
-    DB_HOST      : '3.0.248.34',
-    DB_USER      : 'dbuser',
-    DB_PASSWORD  : 'Wolf..123',
-    DB_DBNAME    : 'im_data',
+    // DB_HOST      : '3.0.248.34',
+    // DB_USER      : 'dbuser',
+    // DB_PASSWORD  : 'Wolf..123',
+    // DB_DBNAME    : 'im_data',
 
     // DB_HOST      : 'im-rds.cf9fgaoib8bm.ap-east-1.rds.amazonaws.com',
     // DB_USER      : 'admin',
     // DB_PASSWORD  : 'd9op*R,]cvyy',
     // DB_DBNAME    : 'im_data',
 
-    REDIS_PORT: 6639,
-    REDIS_HOST: '127.0.0.1'
+    // REDIS_PORT: 6639,
+    // REDIS_HOST: '127.0.0.1'
 
     // TODO: 用于SQLServer数据库时，请启用以下配置项
     /*

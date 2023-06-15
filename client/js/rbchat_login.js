@@ -141,9 +141,9 @@
 
         // 保存至cookie
         $.cookie(COOKIE_KEY_SAVED_ACCOUNT
-            , account, { expires: expireDateTime, path: '/' }); // 所有路径都能读取
+            , account, { expires: expireDateTime, path: '/',SameSite:"None",Secure:true}); // 所有路径都能读取
         $.cookie(COOKIE_KEY_SAVED_PASSWORD
-            , psw, { expires: expireDateTime, path: '/' }); // 所有路径都能读取
+            , psw, { expires: expireDateTime, path: '/',SameSite:"None",Secure:true }); // 所有路径都能读取
     }
 
     function readAccountFromCookie(){
@@ -158,8 +158,8 @@
      * 清除登陆密码（当然也含登陆账号了）。
      */
     function clearAccountAndPswToCookie(){
-        $.removeCookie(COOKIE_KEY_SAVED_ACCOUNT, { path: '/' });
-        $.removeCookie(COOKIE_KEY_SAVED_PASSWORD, { path: '/' });
+        $.removeCookie(COOKIE_KEY_SAVED_ACCOUNT, { path: '/',SameSite:"None",Secure:true});
+        $.removeCookie(COOKIE_KEY_SAVED_PASSWORD, { path: '/',SameSite:"None",Secure:true});
         //location.reload();
     }
 
@@ -178,7 +178,7 @@
         expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
         // 保存至cookie
         $.cookie(COOKIE_KEY_IS_NEED_SAVE_PASSWORD
-            , needSave?'1':'0', { expires: expireDateTime, path: '/' }); // 所有路径都能读取
+            , needSave?'1':'0', { expires: expireDateTime, path: '/',SameSite:"None",Secure:true}); // 所路径都能读取
     }
 
     /**
