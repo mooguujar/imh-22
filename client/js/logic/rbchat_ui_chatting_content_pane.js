@@ -28,7 +28,7 @@ var RBChatChattingContentPaneUI = (function () {
     var FILE_ICON_DIR = RBChatConfig.IM_STATIC_SERVER_ROOT_URL + 'images/im_fileicons/';
 
     // 常量定义：表情图标所在的http相对目录
-    var EMOJI_DIR = RBChatConfig.IM_STATIC_SERVER_ROOT_URL + 'images/face/emoji/';
+    var EMOJI_DIR = RBChatConfig.IM_STATIC_SERVER_ROOT_URL.replace('ws:','http:') + 'images/face/emoji/';
     // 常量定义：表情占位符和表示图片的映射表
     var EMOJI_MAP = {};
 

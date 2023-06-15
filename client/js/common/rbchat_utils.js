@@ -356,11 +356,11 @@
             expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_AUTHED_LOCAL_USER_INFO_$EXPIRETIME);
             // 保存至cookie
             $.cookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID
-                , JSON.stringify(userInfoObj), { expires: expireDateTime, path: '/' }); // 所有路径都能读取
+                , JSON.stringify(userInfoObj), { expires: expireDateTime, path: '/',SameSite:"None",Secure:true}); // 所有路径都能读取
         }
         // 清除本地用户信息
         else {
-            $.removeCookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID, { path: '/' });
+            $.removeCookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID, { path: '/',SameSite:"None",Secure:true });
             //location.reload();
         }
 
@@ -401,7 +401,7 @@
         var expireDateTime = new Date();
         expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_MSG_TONE_$EXPIRETIME);
         // 保存至cookie
-        $.cookie(COOKIE_KEY_MSG_TONE_ID, msgToneOpen ? '1' : '0', { expires: expireDateTime, path: '/' }); // 所有路径都能读取
+        $.cookie(COOKIE_KEY_MSG_TONE_ID, msgToneOpen ? '1' : '0', { expires: expireDateTime, path: '/',SameSite:"None",Secure:true }); // 所有路径都能读取
     }
 
     /**
