@@ -91,7 +91,7 @@
 				options.path    ? '; path=' + options.path : '',
 				options.domain  ? '; domain=' + options.domain : '',
 				options.secure  ? '; secure' : '',
-				options.sameSite  ? '; sameSite' : ''
+				options.sameSite  ? '; sameSite='+options.sameSite : ''
 			].join(''));
 		}
 
