@@ -725,15 +725,15 @@
                 RBChatUtils.updateGroupAvatar(obj.id, obj.type.toLowerCase() == 'group')
             }
 
-            //群管下的会员上线通知
-            if (typeu == 83) {
-                showMemberLoginTIpsUI(obj)
-            }
+            // //群管下的会员上线通知
+            // if (typeu == 83) {
+            //     showMemberLoginTIpsUI(obj)
+            // }
 
-            // 新任务提示
-            if(typeu == 104){
-                showTaskTipsUI(obj)
-            }
+            // // 新任务提示
+            // if(typeu == 104){
+            //     showTaskTipsUI(obj)
+            // }
 
             //更新红包状态ui
             if (typeu == 87) {
