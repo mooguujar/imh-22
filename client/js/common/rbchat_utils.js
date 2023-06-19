@@ -1494,13 +1494,13 @@
             // 2张内
             if(imgs_list.length == 1 || imgs_list.length == 2){
                 content_html =
-                    "<div class='item' style='justify-content: center;'>"+ imgs_list.map((item,index) =>{return ""+get_img_url(item.fileMd5, 'width:100%;height:250px;'+(index!=0 ? 'margin-left:5px':''),  imgs_list.length == 2 ? 'width:50%' : '')+""}).join('')
+                    "<div class='item' style='justify-content: center;'>"+ imgs_list.map((item,index) =>{return ""+get_img_url(item.fileMd5, 'width:100%;height:200px;'+(index!=0 ? 'margin-left:5px':''),  imgs_list.length == 2 ? 'width:50%' : '')+""}).join('')
                     +"</div>"
             // 3张
             }else if(imgs_list.length == 3){
 
-                var img_left = "<div style='display:flex;width: 60%'>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:370px;', 'width:100%')+"</div>"
-                var right_per_height = (370-5)/2; 
+                var img_left = "<div style='display:flex;width: 60%'>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:270px;', 'width:100%')+"</div>"
+                var right_per_height = 135;
                 var img_right = "<div style='display:flex;flex-direction: column;margin-left:5px;width: 40%''>"+get_img_url(imgs_list[1].fileMd5, 'width:100%;height:'+right_per_height+'px;margin-bottom:5px', 'width:100%')+get_img_url(imgs_list[2].fileMd5, 'width:100%;height:'+right_per_height+'px;', 'width:100%')+"</div>"
 
                 content_html ="<div class='item' style='display:flex;'>"+img_left+img_right+"</div>"
@@ -1513,7 +1513,7 @@
             // 5张
             }else if(imgs_list.length == 5){
                 var right_per_width = (350-5)/2
-                var img_top = "<div style='display:flex;width: 100%'>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:200px;', 'width:50%;margin-right:5px')+get_img_url(imgs_list[1].fileMd5, 'width:100%;height:200px;', 'width:50%;margin-right:5px')+"</div>"
+                var img_top = "<div style='display:flex;width: 100%'>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:150px;', 'width:50%;margin-right:5px')+get_img_url(imgs_list[1].fileMd5, 'width:100%;height:150px;', 'width:50%;margin-right:5px')+"</div>"
                 right_per_width = (350-10)/3
                 var img_bottom = "<div style='display:flex;margin-top:5px;width: 100%'>"+get_img_url(imgs_list[2].fileMd5, 'width:100%;height:120px;margin-right:5px', 'width:33%;margin-right:5px')+get_img_url(imgs_list[3].fileMd5, 'width:100%;height:120px;margin-right:5px', 'width:33%;margin-right:5px')+get_img_url(imgs_list[4].fileMd5, 'width:100%;height:120px;','width:33%;margin-right:5px')+"</div>"
                 content_html ="<div class='item' style='display:flex;flex-direction: column'>"+img_top+img_bottom+"</div>"
@@ -1543,11 +1543,11 @@
                     if(len == 2){
                         var right_per_width = (350-5)/2
                         imgs_html = item.map((item_,index)=>{
-                            return  get_img_url(item_.fileMd5, 'width:100%;height:200px;' , 'width:33%;' +(index != 0 ? '':'margin-right:5px'))
+                            return  get_img_url(item_.fileMd5, 'width:100%;height:150px;' , 'width:33%;' +(index != 0 ? '':'margin-right:5px'))
                         }).join('')
                     }else{
                         imgs_html = item.map((item_,index)=>{
-                            return  get_img_url(item_.fileMd5, 'width:100%;height:'+(len == 4? 120:200)+'px;', 'width:33%;'+(index != 0 ? 'margin-left:5px':''))
+                            return  get_img_url(item_.fileMd5, 'width:100%;height:'+(len == 4? 120:150)+'px;', 'width:33%;'+(index != 0 ? 'margin-left:5px':''))
                         }).join('')
                     }
                    

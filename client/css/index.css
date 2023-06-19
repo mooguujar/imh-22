@@ -718,7 +718,7 @@ input[type=checkbox].switch:checked:after { -webkit-transform: translateX(26px);
 .lightbox .scrollbar-box { max-height: 400px }
 .lightbox .scrollbar-box .footer:after { display: none }
 .lightbox .scrollbar-box .footer { padding-bottom: 20px }
-.lightbox .body { padding: 20px 20px 5px 20px; max-height: 480px;/*max-height: 580px;*/ overflow: auto }
+.lightbox .body { padding: 20px 20px 5px 20px; /*max-height: 580px;*/ overflow: auto }
 .lightbox p { line-height: 1.8em; margin-bottom: 5px }
 .lightbox p:last-child { margin-bottom: 0 }
 .lightbox .alert { margin-bottom: 5px }
@@ -2435,7 +2435,7 @@ lesshat-selector { -lh-property: 0 }
 	box-sizing: border-box;
 	border: 0;
 	max-width: 100%;
-	padding: 10px 10px 0 10px;
+	padding: 8px 10px 0 10px;
 	box-shadow: none;
 	font-size: 14px;
 	background: #f5f5f5;
@@ -2444,10 +2444,18 @@ lesshat-selector { -lh-property: 0 }
 	height: 36px;
 	min-height: 36px;
 	max-height: 300px;
+	width: 75%;
 }
 /* 20200317由原“border-top: 1px solid #e2e4e8”改为现值 */
 /* 20210324由原“background::FBFCFD”改为了现值 */
-.kchat-im-panel-main-chat-textarea .bottom-bar {position: relative; z-index: 5; /*background:#f7f9fc;*/padding: 0 20px; /*border-top: 1px solid #f6f6f6*/ }
+.kchat-im-panel-main-chat-textarea .bottom-bar {
+	position: relative;
+	z-index: 5; /*background:#f7f9fc;*/
+	padding: 0 20px; /*border-top: 1px solid #f6f6f6*/
+	position: absolute;
+	right: 0;
+	top: 4px;
+}
 .kchat-im-panel-main-chat-textarea .bottom-bar:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
 .kchat-im-panel-main-chat-textarea .bottom-bar .btn { margin-top: 8px }
 .kchat-im-panel-main-chat-textarea .bottom-bar .left li { float: left; margin-right: 20px; line-height: 50px; position: relative }
@@ -2463,9 +2471,9 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main-chat-textarea .bottom-bar .transfer-chat .group:before { content: "\e6db"; display: inline-block; font-family: rbchat; font-size: 15px; margin-right: 3px; color: #888; position: relative; top: 2px }
 /* 20200315由原“padding-top: 9px”改为了现值 */
 .kchat-im-panel-main-chat-textarea .bottom-bar .send { float: right; position: relative; padding-top: 10px }
-.kchat-im-panel-main-chat-textarea .bottom-bar .send a { float: left; padding: 0 15px; height: 30px; line-height: 30px; background: #1648a0/*#255aad*//*#53B4E2*/; /*border-radius: 3px 0 0 3px; border: 1px solid rgb(118,187,53);*//*#49A2CD*/ color: #fff;border-radius: 6px 0 0 6px;}
+.kchat-im-panel-main-chat-textarea .bottom-bar .send a { float: left; padding: 0 15px; height: 30px; line-height: 30px; background: #1648a0/*#255aad*//*#53B4E2*/; /*border-radius: 3px 0 0 3px; border: 1px solid rgb(118,187,53);*//*#49A2CD*/ color: #fff;border-radius: 6px 6px;}
 .kchat-im-panel-main-chat-textarea .bottom-bar .send a:hover { background: #49aad8 }
-.kchat-im-panel-main-chat-textarea .bottom-bar .send span { color: #fff; height: 30px; line-height: 30px; padding: 0 5px; border-radius: 0 6px 6px 0;background:#1648a0/*#255aad*//*#53B4E2*/; float: left;border-left: 1px solid #063890 !important;/*border-left: 1px solid #154a9d !important;*//*border: 1px solid rgb(118,187,53); *//*#49A2CD*/border-left: 0; cursor: pointer }
+.kchat-im-panel-main-chat-textarea .bottom-bar .send span {display: none; color: #fff; height: 30px; line-height: 30px; padding: 0 5px; border-radius: 0 6px 6px 0;background:#1648a0/*#255aad*//*#53B4E2*/; float: left;border-left: 1px solid #063890 !important;/*border-left: 1px solid #154a9d !important;*//*border: 1px solid rgb(118,187,53); *//*#49A2CD*/border-left: 0; cursor: pointer }
 .kchat-im-panel-main-chat-textarea .bottom-bar .send span:hover { background: #49aad8 }
 .kchat-im-panel-main-chat-textarea .bottom-bar .send span .icon-expand-more {font-size: 20px;vertical-align: sub;}
 .kchat-im-panel-main-chat-textarea .bottom-bar .send .send-pop { bottom: 45px; left: 50%; margin-left: -88px; width: 230px; display: none;box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px;border-radius: 12px;border: 1px solid rgb(231, 231, 231); }
@@ -6734,4 +6742,5 @@ div.caption {
 
 .top-bar-ul{display: flex;align-items: center;justify-content: space-between}
 .input_box{display: flex;flex-direction: column;}
+.input_box_{display: flex;align-items: center;justify-content: space-between;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/

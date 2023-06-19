@@ -255,7 +255,7 @@ var RBChatDialogHelper = (function () {
                 "                    <img id=\'dialog-header-closebtn-" + dialogId + "\' src='images/im_b_img/left_jt_3.png' alt=''/>" +
                 "                    <span id=\'dialog-header-title-" + dialogId + "\'>" + (title ? title : "提示") + "</span>" +
                 "                </header>" +
-                "                <div id=\'dialog-body-" + dialogId + "\' class=\'body\' style='margin: 0 15px'>" +
+                "                <div id=\'dialog-body-" + dialogId + "\' class=\'body\'>" +
                 (bodyHTML ? bodyHTML : "") +
                 "                </div>" +
                 "                <div id=\'dialog-footer-" + dialogId + "\' class=\'footer\' " + (isShowFooter ? "style='margin: 0 15px'" : "style=\'display:none;\'") + ">" +
@@ -348,7 +348,7 @@ var RBChatDialogHelper = (function () {
         var file_html = RBChatUtils.draw_mul_pic(files, !is_img,isMoive)
         // 要显示于对话框中的html内容
         var bodyHTML =
-            "<div class=\'mul-img-send\' style='margin-left:10px;height:600px'>" +
+            "<div class=\'mul-img-send\' style='height:600px'>" +
             "  <div class='row-1'>" + file_html + "</div>" +
             "  <div class='row-3'> <input name='hb-send' id='hb-send' type='checkbox' value='' /><span>合并发送</span></div>" +
             " <div class='row-2'><textarea id=\'dialog-info-" + dialogId + "\' rows='5' style='padding:3px;width:350px'  placeholder=\'说点什么 ...\' /> </div>" +
