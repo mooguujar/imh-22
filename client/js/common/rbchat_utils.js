@@ -1488,7 +1488,7 @@
             // 获取一个图片 
             var get_img_url = function(fileMd5, style, a_style){
                 if(isVideo){
-                    return "<a target=\"_blank\" href=\"javascript:void(0)\" onclick=\"javascript:videoSwiperListUI('" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "');return false\"><div style='display: flex;position: relative;justify-content: center;align-items: center;'><img src='" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "?ci-process=snapshot&time=0.01" + "' style='"+style+"'/><img class='play' src='images/common_short_video_player_continue_play_ico_nor.png'/></div></a>"
+                    return "<a target=\"_blank\" href=\"javascript:void(0)\" onclick=\"javascript:videoSwiperListUI('" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "');return false\"><div style='display: flex;position: relative;justify-content: center;align-items: center;"+a_style+"'><img src='" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "?ci-process=snapshot&time=0.01" + "' style='"+style+"'/><img class='play' src='images/common_short_video_player_continue_play_ico_nor.png'/></div></a>"
                 }
                 return "<a target=\"_blank\" href=\"javascript:void(0)\" onclick=\"javascript:imgSwiperListUI('" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "');return false\" style='"+a_style+"'><img src='" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "?imageView2/2/w/500" + "' style='"+style+"'/></a>"
             }
@@ -2267,7 +2267,6 @@
     };
 
     window.AudioPromptHelper = audioPromptHelper;
-
 })();
 
 

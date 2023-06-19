@@ -2450,7 +2450,7 @@ lesshat-selector { -lh-property: 0 }
 /* 20210324由原“background::FBFCFD”改为了现值 */
 .kchat-im-panel-main-chat-textarea .bottom-bar {
 	position: relative;
-	z-index: 5; /*background:#f7f9fc;*/
+	z-index: 0; /*background:#f7f9fc;*/
 	padding: 0 20px; /*border-top: 1px solid #f6f6f6*/
 	position: absolute;
 	right: 0;
