@@ -2435,14 +2435,13 @@ lesshat-selector { -lh-property: 0 }
 	box-sizing: border-box;
 	border: 0;
 	max-width: 100%;
-	padding: 0 10px;
+	padding: 5px 10px 0 10px;
 	box-shadow: none;
 	font-size: 14px;
 	background: #f5f5f5;
 	margin:10px;
 	border-radius: 36px;
 	height: 36px;
-	line-height: 36px;
 	min-height: 36px;
 	max-height: 300px;
 }
