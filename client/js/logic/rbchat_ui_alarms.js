@@ -726,38 +726,6 @@ var RBChatAlarmsUI = (function () {
         let level_css = '';
         let level_html = '';
         var l_html = '';
-        if(isLevel){
-            var haveV =false;
-            level_html = "<p class='other-tip-"+dataId+"' style='font-size:8px !important;' cmoney='"+(amd.cmoney || '')+"' noPayDate='"+(amd.noPayDate || '')+"' noTime='"+(amd.noTime || '')+"' level='"+(amd.level == undefined ? '': amd.level) +"' lastloginTime='"+(amd.lastLoginTime || '')+"' >"
-            
-            if(amd.noPayDate && amd.noPayDate.length > 0){
-                level_html = level_html+ "<span><font color='red'>"+ RBChatUtils.dateDiff(amd.noTime, amd.noPayDate)+"</font></span>"
-                haveV = true;
-            }
-            
-            if(amd.level  && amd.level .length > 0 && amd.level - 0 > -1){
-                level_html = level_html+ " <span><font color='black'>"+RBChatUtils.leveName(amd.level)+"</font></span>"
-                haveV = true;
-            }
-
-            if(amd.cmoney  && amd.cmoney.length > 0){
-                level_html = level_html+ " <span><font color='black'>"+RBChatUtils.formatMoney(amd.cmoney)+"</font></span>"
-                haveV = true;
-            }
-
-            if(amd.lastLoginTime && amd.lastLoginTime.length > 0 && !amd.online){
-                level_html = level_html + " <span>" + RBChatUtils.dateDiff(amd.noTime, amd.lastLoginTime)+'前</span>'
-                haveV = true;
-            }
-
-            if(!haveV && amd.online){
-                level_html = level_html+ " <span><font color='#57dc2d'>在线</font></span>"
-                haveV = true;
-            }
-            
-            level_css = " style = 'height:50px !important;'"
-            l_html = level_html+'</p>'
-        }
 
         // 被删除得class
         let  beDelClass = 'be-del-hide';
@@ -775,7 +743,7 @@ var RBChatAlarmsUI = (function () {
             + (canDelete ? " <a class=\'close\' title=\'删除消息\' id=\'alarms_li_del_" + alarmMessageType + "_" + dataId + "\'></a>" : "")
             + "            <div class=\'avatar-source human\'>"
             + "                 <div  id=\'" + avId + "default\' style='background:" + defaultColor + "'>" + show_t + " </div>"
-            + (false ? "        <img id=\'" + avId + "\' src=\'" + iconUrl + "\' onerror='javascript:$(this).remove()' >" : "")
+            + (true ? "        <img id=\'" + avId + "\' src=\'" + iconUrl + "\' onerror='javascript:$(this).remove()' >" : "")
             + "    <div  class='lixian-tip  "+beDelClass+"' bd-flag='bd-"+dataId+"'>删</div>"
 
             + "                 <span id=\'alarms_li_unreadflag_" + alarmMessageType + "_" + dataId + "\' class=\'"+noTipclass+" \' style=\'display:none;\'>0</span>"

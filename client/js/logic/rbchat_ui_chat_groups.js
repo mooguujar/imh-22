@@ -157,7 +157,7 @@ var RBChatGroupsUI = (function () {
             "	<a class=\'top-tag\' title=\'Current Tag\'></a>"+
             "	<div class=\'avatar-source human\'>"+
             "        <div style='background:"+defaultColor+"'>"+show_t+" </div>"+
-            // "	    <img id=\'"+_gg_id+"\' src=\'"+avatarUrl+"\' onerror='javascript:$(this).remove()'>"+
+            "	    <img id=\'"+_gg_id+"\' src=\'"+avatarUrl+"\' onerror='javascript:$(this).remove()'>"+
             "	    <img "+(localUserIsGroupOwner?"":"style=\'display:none;\'")+" title=\'我是该群的群主!\' id=\'li-group-ownerflag_"+gid+"\' class=\'group-ownerflag\' src=\'../images/groupchat_grous_list_item_owner2.png\'>"+
             "	</div>"+
             "	<div class=\'info\'>"+
