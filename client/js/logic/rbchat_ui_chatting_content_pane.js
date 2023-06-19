@@ -25,7 +25,7 @@
 var RBChatChattingContentPaneUI = (function () {
 
     // 常量定义：大文件图标所在的http相对目录
-    var FILE_ICON_DIR = RBChatConfig.IM_STATIC_SERVER_ROOT_URL + 'images/im_fileicons/';
+    var FILE_ICON_DIR =location.protocol + '//'+location.host + '/images/im_fileicons/';
 
     // 常量定义：表情图标所在的http相对目录
     var EMOJI_DIR = location.protocol + '//'+location.host + '/images/face/emoji/';
@@ -1956,7 +1956,7 @@ var RBChatChattingContentPaneUI = (function () {
                 "<div  id=\'" + fp_id + "\'" + (parentFp ? " parentfp=\'" + parentFp + "\'" : "") + " class=\'chat-item\'>"
                 + "    <div class=\'chat-item-avatar " + (isMe ? "chat-item-avatar-r" : "chat-item-avatar-l") + "\'>"
                 + "    <div onclick='javascript:RBChatDialogHelper.showUserInfoFromServer(false, null, " + uid + ", null," + !isMe + ");' style='background:"+defaultColor+"'>" + show_t + " </div>"
-                + ""
+                + usr_dom
                 + "    </div>"
                 + "    <div class=\'" + (isMe ? 'chat-right' : 'chat-left') + "\'>"
                 + "        <div class=\'chat-item-info\'>"
