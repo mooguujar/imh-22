@@ -56,24 +56,26 @@ var RBChatRosterUI = (function () {
      */
     UIModule3.prototype.initButtonsEvent = function(){
         const that = this;
-        const pop = $('#im-panel-userlist-wrap-restore-add-popup');
+        const pop = $('#im-panel-userlist-wrap-roster-add-popup-phone');
+
+        var menuItem1Obj = $('#im-panel-userlist-wrap-roster-add-popup-addfriend-phone');
+        var menuItem2Obj = $('#im-panel-userlist-wrap-roster-add-popup-addgroup-phone');
+
         // 点击添加好友按钮的事件处理
         this.$addFriendBtn.click(function(event){
             pop.show();
             event.stopPropagation();  //阻止冒泡
         });
         // 添加好友
-        $('#im-panel-userlist-wrap-roster-add-popup-addfriend').click(function(event){
+        menuItem1Obj.click(function(event){
              // 显示查找用户对话框
              RBChatDialogHelper.showQueryUserForm();
              pop.hide();
-             event.stopPropagation();  //阻止冒泡
         })
         // 创建分组
-        $('#im-panel-userlist-wrap-roster-add-popup-addgroup').click(function(event){
+        menuItem2Obj.click(function(event){
             pop.hide();
             RBChatDialogHelper.showGroupCreateForm();
-            event.stopPropagation();  //阻止冒泡
         })
 
         // 添加搜索事件
@@ -125,6 +127,10 @@ var RBChatRosterUI = (function () {
             }
         })
 
+
+        $("body").click(function (event) {
+            pop.hide();
+        });
     };
 
     UIModule3.prototype.reloadFromCache = function () {

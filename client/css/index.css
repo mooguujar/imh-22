@@ -2743,6 +2743,8 @@ lesshat-selector { -lh-property: 0 }
 #im-panel-userlist-wrap-alarms-add-popup li:last-child {margin-bottom: 0px;}
 #im-panel-userlist-wrap-alarms-add-popup-phone li:last-child {margin-bottom: 0px;}
 
+#im-panel-userlist-wrap-roster-add-popup-phone li:last-child {margin-bottom: 0px;}
+
 #im-panel-userlist-wrap-roster .kchat-queue .kchat-pop {left: 62%;}
 #im-panel-userlist-wrap-roster .kchat-queue .kchat-pop:after {left: 67px;}
 #im-panel-userlist-wrap-restore-add-popup li:last-child {margin-bottom: 0px;}

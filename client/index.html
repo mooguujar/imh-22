@@ -197,11 +197,23 @@
                 </ul>
             </div>
             <div class="container_i kchat-talk-list-group offline flex-d" id="phone-friends-list" style="display:none">
-                   <!-- 当列表数据为空时要显示的提示信息 -->
-                   <div id="kchat-im-panel-userlist-empty-roster-phone" class="kchat-talk-list-empty">
+                <div class="kchat-queue" style="position:initial !important">
+                    <style type="text/css">.kchat-pop.db { display: block; }
+                    a.f-list-toggle-label:focus { outline: none; }</style>
+                    <div id="im-panel-userlist-wrap-roster-add-popup-phone" class="kchat-pop" style="left: unset !important;
+                    right: 0px;
+                    top: 45px;">
+                        <ul>
+                            <li id="im-panel-userlist-wrap-roster-add-popup-addfriend-phone" class="bottom_border">添加好友</li><!--active-->
+                            <li id="im-panel-userlist-wrap-roster-add-popup-addgroup-phone">创建群聊</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div  id="kchat-im-panel-userlist-empty-roster-phone" class="kchat-talk-list-empty">
                     <i class="icon-talk1" style="font-size: 60px;"></i>
                     <p>
-                        还没有添加好友
+                        暂无消息数据
                     </p>
                 </div>
 

@@ -1485,38 +1485,37 @@
 
             var  content_html = ''
             // 获取一个图片 
-            var get_img_url = function(fileMd5, style){
+            var get_img_url = function(fileMd5, style, a_style){
                 if(isVideo){
                     return "<a target=\"_blank\" href=\"javascript:void(0)\" onclick=\"javascript:videoSwiperListUI('" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "');return false\"><div style='display: flex;position: relative;justify-content: center;align-items: center;'><img src='" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "?ci-process=snapshot&time=0.01" + "' style='"+style+"'/><img class='play' src='images/common_short_video_player_continue_play_ico_nor.png'/></div></a>"
                 }
-                return "<a target=\"_blank\" href=\"javascript:void(0)\" onclick=\"javascript:imgSwiperListUI('" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "');return false\"><img src='" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "?imageView2/2/w/500" + "' style='"+style+"'/></a>"
+                return "<a target=\"_blank\" href=\"javascript:void(0)\" onclick=\"javascript:imgSwiperListUI('" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "');return false\" style='"+a_style+"'><img src='" + RBChatUtils.getImageDownloadURL(fileMd5, false) + "?imageView2/2/w/500" + "' style='"+style+"'/></a>"
             }
             // 2张内
             if(imgs_list.length == 1 || imgs_list.length == 2){
-                content_html = "<div class='item' style='justify-content: center;'>"+ imgs_list.map((item,index) =>{
-                    return ""+get_img_url(item.fileMd5, 'width:170px;height:250px;'+(index!=0 ? 'margin-left:5px':''))+""
-                }).join('')
-                +"</div>"
+                content_html =
+                    "<div class='item' style='justify-content: center;'>"+ imgs_list.map((item,index) =>{return ""+get_img_url(item.fileMd5, 'width:100%;height:250px;'+(index!=0 ? 'margin-left:5px':''),  imgs_list.length == 2 ? 'width:50%' : '')+""}).join('')
+                    +"</div>"
             // 3张
             }else if(imgs_list.length == 3){
 
-                var img_left = "<div style='display:flex;'>"+get_img_url(imgs_list[0].fileMd5, 'width:250px;height:370px;')+"</div>"
+                var img_left = "<div style='display:flex;width: 60%'>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:370px;', 'width:100%')+"</div>"
                 var right_per_height = (370-5)/2; 
-                var img_right = "<div style='display:flex;flex-direction: column;margin-left:5px;'>"+get_img_url(imgs_list[1].fileMd5, 'width:100px;height:'+right_per_height+'px;margin-bottom:5px')+get_img_url(imgs_list[2].fileMd5, 'width:100px;height:'+right_per_height+'px;')+"</div>"
+                var img_right = "<div style='display:flex;flex-direction: column;margin-left:5px;width: 40%''>"+get_img_url(imgs_list[1].fileMd5, 'width:100%;height:'+right_per_height+'px;margin-bottom:5px', 'width:100%')+get_img_url(imgs_list[2].fileMd5, 'width:100%;height:'+right_per_height+'px;', 'width:100%')+"</div>"
 
                 content_html ="<div class='item' style='display:flex;'>"+img_left+img_right+"</div>"
             // 4张
             }else if(imgs_list.length == 4){
-                var img_left = "<div style='display:flex;'>"+get_img_url(imgs_list[0].fileMd5, 'width:250px;height:370px;')+"</div>"
+                var img_left = "<div style='display:flex;width: 60%''>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:370px;', 'width:100%;')+"</div>"
                 var right_per_height = (370-10)/3
-                var img_right = "<div style='display:flex;flex-direction: column;margin-left:5px;'>"+get_img_url(imgs_list[1].fileMd5, 'width:100px;height:'+right_per_height+'px;margin-bottom:5px')+get_img_url(imgs_list[2].fileMd5, 'width:100px;height:'+right_per_height+'px;margin-bottom:5px')+get_img_url(imgs_list[3].fileMd5, 'width:100px;height:'+right_per_height+'px;')+"</div>"
+                var img_right = "<div style='display:flex;flex-direction: column;margin-left:5px;width: 40%''>"+get_img_url(imgs_list[1].fileMd5, 'width:100%;height:'+right_per_height+'px;margin-bottom:5px', 'width:100%;')+get_img_url(imgs_list[2].fileMd5, 'width:100%;height:'+right_per_height+'px;margin-bottom:5px', 'width:100%;')+get_img_url(imgs_list[3].fileMd5, 'width:100%;height:'+right_per_height+'px;', 'width:100%;')+"</div>"
                 content_html ="<div class='item' style='display:flex;'>"+img_left+img_right+"</div>"
             // 5张
             }else if(imgs_list.length == 5){
                 var right_per_width = (350-5)/2
-                var img_top = "<div style='display:flex;'>"+get_img_url(imgs_list[0].fileMd5, 'width:'+right_per_width+'px;height:200px;margin-right:5px')+get_img_url(imgs_list[1].fileMd5, 'width:'+right_per_width+'px;height:200px;')+"</div>"
+                var img_top = "<div style='display:flex;width: 100%'>"+get_img_url(imgs_list[0].fileMd5, 'width:100%;height:200px;', 'width:50%;margin-right:5px')+get_img_url(imgs_list[1].fileMd5, 'width:100%;height:200px;', 'width:50%;margin-right:5px')+"</div>"
                 right_per_width = (350-10)/3
-                var img_bottom = "<div style='display:flex;margin-top:5px;'>"+get_img_url(imgs_list[2].fileMd5, 'width:'+right_per_width+'px;height:120px;margin-right:5px')+get_img_url(imgs_list[3].fileMd5, 'width:'+right_per_width+'px;height:120px;margin-right:5px')+get_img_url(imgs_list[4].fileMd5, 'width:'+right_per_width+'px;height:120px;')+"</div>"
+                var img_bottom = "<div style='display:flex;margin-top:5px;width: 100%'>"+get_img_url(imgs_list[2].fileMd5, 'width:100%;height:120px;margin-right:5px', 'width:33%;margin-right:5px')+get_img_url(imgs_list[3].fileMd5, 'width:100%;height:120px;margin-right:5px', 'width:33%;margin-right:5px')+get_img_url(imgs_list[4].fileMd5, 'width:100%;height:120px;','width:33%;margin-right:5px')+"</div>"
                 content_html ="<div class='item' style='display:flex;flex-direction: column'>"+img_top+img_bottom+"</div>"
             }else{
                 //剩下了多少个,再最后一个数组
@@ -1544,11 +1543,11 @@
                     if(len == 2){
                         var right_per_width = (350-5)/2
                         imgs_html = item.map((item_,index)=>{
-                            return  get_img_url(item_.fileMd5, 'width:'+right_per_width+'px;height:200px;' +(index != 0 ? '':'margin-right:5px'))        
+                            return  get_img_url(item_.fileMd5, 'width:100%;height:200px;' , 'width:33%;' +(index != 0 ? '':'margin-right:5px'))
                         }).join('')
                     }else{
                         imgs_html = item.map((item_,index)=>{
-                            return  get_img_url(item_.fileMd5, 'width:'+perWidth+'px;height:'+(len == 4? 120:200)+'px;'+(index != 0 ? 'margin-left:5px':''))         
+                            return  get_img_url(item_.fileMd5, 'width:100%;height:'+(len == 4? 120:200)+'px;', 'width:33%;'+(index != 0 ? 'margin-left:5px':''))
                         }).join('')
                     }
                    
