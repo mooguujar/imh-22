@@ -332,23 +332,7 @@
         gotoLoginPage();
     }
 
-    // 声音及biaoti改变title
-    var timer = null;
-    //全局检测
-    setInterval(function(){
-        if($("div[uOnline='1']") && $("div[uOnline='1']").length > 0){
-
-        }else{
-              // 提醒
-              if(timer){
-                clearInterval(timer)
-                timer = null;
-              }
-              document.title = '元友-在元友,去畅聊'
-        }
-
-    },1000); //执行一次   
-
+ 
     window.minappJump = function (url, appId) {
         if (confirm("您所选小程序即将在浏览器新窗口打开")) {
             var localUserUid = LocalUserInfo.getUid();
@@ -724,16 +708,6 @@
                 // 更头像
                 RBChatUtils.updateGroupAvatar(obj.id, obj.type.toLowerCase() == 'group')
             }
-
-            // //群管下的会员上线通知
-            // if (typeu == 83) {
-            //     showMemberLoginTIpsUI(obj)
-            // }
-
-            // // 新任务提示
-            // if(typeu == 104){
-            //     showTaskTipsUI(obj)
-            // }
 
             //更新红包状态ui
             if (typeu == 87) {

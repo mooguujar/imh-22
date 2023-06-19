@@ -688,7 +688,7 @@ var RBChatRosterUI = (function () {
             +"            <a class=\'close\' title=\'删除好友\' id=\'roster_del_uid_"+uid+ree.lastBit+"\'></a>"
             +"            <div class=\'avatar-source human\'>"
             +"                 <div style='background:"+defaultColor+"'>"+show_t+" </div>"
-            +                (false ?"<img onerror='javascript:$(this).remove()' src=\'"+avatarUrl+"\'>":"")
+            +                (true ?"<img onerror='javascript:$(this).remove()' src=\'"+avatarUrl+"\'>":"")
             + "    <div  class='lixian-tip "+beDelClass+"' bd-flag='bd-"+uid+"'>删</div>"
             +"                 <span id=\'roster_li_unreadflag_"+uid+"\' class=\'im-left-unreadmsg-flagnum\' style=\'display:none;\'>0</span>"
             +"                  <div  class='online_status_"+uid+"' style='height:10px;width:10px;background: "+(ree.online ? '#57dc2d':'#f26c4f')+"; border-radius: 50%;'></div>"
