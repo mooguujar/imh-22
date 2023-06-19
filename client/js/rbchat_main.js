@@ -680,7 +680,7 @@
             if (window.groupInfo && obj.t == window.groupInfo.g_id) {
                 if (obj.m == '群禁言已解封') {
                     $('#kchat-im-panel-main-chat-textarea').css('pointer-events', '');
-                    $('#im-panel-inputcontent').attr('placeholder', '输入聊天信息，按 Enter 键快速发送 …')
+                    $('#im-panel-inputcontent').attr('placeholder', '请输入消息')
                     $('#im-panel-inputcontent').removeAttr("disabled");
                 } else if (obj.m == '群已被禁言') {
                     var myUserId = LocalUserInfo.getUid()

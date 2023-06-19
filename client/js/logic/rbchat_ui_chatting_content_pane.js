@@ -3772,7 +3772,7 @@ var RBChatChattingContentPaneUI = (function () {
         // 去掉单聊不禁言
         if (!isGroupChatting) {
             $('#kchat-im-panel-main-chat-textarea').css('pointer-events', '');
-            $('#im-panel-inputcontent').attr('placeholder', '输入聊天信息，按 Enter 键快速发送 …')
+            $('#im-panel-inputcontent').attr('placeholder', '请输入消息')
             $('#im-panel-inputcontent').removeAttr("disabled");
         }
 

@@ -908,7 +908,7 @@ var RBChatRightDetailUI = (function () {
                         // 判断是否群属于禁言中
                         // 禁言初始
                         $('#kchat-im-panel-main-chat-textarea').css('pointer-events','');
-                        $('#im-panel-inputcontent').attr('placeholder','输入聊天信息，按 Enter 键快速发送 …')
+                        $('#im-panel-inputcontent').attr('placeholder','请输入消息')
                         $('#im-panel-inputcontent').removeAttr("disabled"); 
                         //禁言中
                         if(groupInfo.forbid_status - 0 == 1){
