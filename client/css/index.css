@@ -5318,6 +5318,8 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	position: absolute;
 	width:30px;
 	height:30px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .mul-img-send .row-2{
@@ -6742,5 +6744,5 @@ div.caption {
 
 .top-bar-ul{display: flex;align-items: center;justify-content: space-between}
 .input_box{display: flex;flex-direction: column;}
-.input_box_{display: flex;align-items: center;justify-content: space-between;}
+.input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/
