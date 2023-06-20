@@ -3215,6 +3215,8 @@ var RBChatChattingContentPaneUI = (function () {
      * 发送普通文本聊天消息的实施方法。
      */
     UIModule5.prototype.doSendTextMessage4IM = function () {
+        $("#im-panel-inputcontent").height(28)
+
         //var message = this.$inputMessage.val().trim();
         var message = this.getInputContent().trim();
         var that = this;
