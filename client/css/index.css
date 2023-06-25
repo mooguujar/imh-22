@@ -5575,7 +5575,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	position: fixed;
 	z-index: 13;
 	width: 100%;
-	top: 0;
+	top: 60px;
 	left: 0;
 	min-width: 328px;
 	background: #FFFFFF;
@@ -5738,35 +5738,37 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 }
 #footer_i {
 	position: fixed;
+	padding: 0 18px;
 	z-index: 13;
 	width: 100%;
-	height: 82px;
-	bottom: 0;
+	height: 60px;
+	top: 0;
 	left: 0;
 	min-width: 328px;
 	background: #FFFFFF;
-	box-shadow: 0 2px 3px 0 rgb(4 5 13 / 23%);
 	border-top: 1px solid #F1F3F6;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
 	display: none;
 }
 .footer_dom{
 	width: 100%;
-	margin-top: 12px;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
 }
 .dom_item{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	width: 25%;
-	height: 100%;
 	font-family: PingFangSC-Semibold;
 	font-size: 10px;
 	font-weight: 600;
 	color: #999999;
+	width: auto;
+	padding: 0 20px;
+	height: 24px;
 
 }
 .dom_item img{
@@ -5779,9 +5781,13 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 .active{
 	font-family: PingFangSC-Medium;
 	font-size: 10px;
-	color: #4ACCF0;
+	color: #ffffff;
 	font-weight: 500;
 	letter-spacing: 0;
+	border-radius: 24px;
+	width: auto;
+	padding: 0 20px;
+	height: 24px;
 }
 .hidden{
 	display: none;
@@ -6745,4 +6751,5 @@ div.caption {
 .top-bar-ul{display: flex;align-items: center;justify-content: space-between}
 .input_box{display: flex;flex-direction: column;}
 .input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
+#dk_img{width: 56px;height: 24px;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/

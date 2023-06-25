@@ -594,7 +594,7 @@ var RBChatMainWindowUI = (function () {
     // 判断是否是手机
     if (_isMobile()) {
         $('#header_i').css({ 'display': 'block' })
-        $('#footer_i').css({ 'display': 'block' })
+        $('#footer_i').css({ 'display': 'flex' })
         $('#pc-kchat-im-panel-main').empty();
         $('#im-panel-header-setup-popup').empty();
         $('.chat-user-info').css({ 'padding-top': '70px' });
@@ -677,6 +677,15 @@ var RBChatMainWindowUI = (function () {
         RBChatDialogHelper.showMyMinAppInfo();
     })
 
+    const im_pid = getUrlKey('pid');
+    $("#dk_img").attr('src', `images/logo_${im_pid}.png`)
+    if(im_pid == 1){
+        $('.active').css({ 'background': '#ffdc30' })
+    } else {
+        $('.active').css({ 'background': '#2e8aff' })
+    }
+
+
     // 移动端footer点击效果
     $('.dom_item').click(function () {
         var _index = $(this).index();
@@ -702,22 +711,31 @@ var RBChatMainWindowUI = (function () {
         } else {
             $('#phone_center').css({ 'display': 'block' })
         }
+
         window.tab_select = _index;
         showCenter(_index);
         $('#cancel').click();
 
+
         // 选中字体颜色
         $('.dom_item').removeClass('active');
+        $('.dom_item').css({ 'background': 'none' })
         $(this).addClass('active');
+        if(im_pid == 1){
+            $('.active').css({ 'background': '#ffdc30' })
+        } else {
+            $('.active').css({ 'background': '#2e8aff' })
+        }
+
 
         // 切换图标
-        $.each($('.dom_item'), function (index, value) {
-            if (_index == index) {
-                $(`#img_${index}`).attr('src', `images/im_b_img/tab_${index}_1.png`)
-            } else {
-                $(`#img_${index}`).attr('src', `images/im_b_img/tab_${index}_0.png`)
-            }
-        });
+        // $.each($('.dom_item'), function (index, value) {
+        //     if (_index == index) {
+        //         $(`#img_${index}`).attr('src', `images/im_b_img/tab_${index}_1.png`)
+        //     } else {
+        //         $(`#img_${index}`).attr('src', `images/im_b_img/tab_${index}_0.png`)
+        //     }
+        // });
         // 控制顶部导航栏右侧按钮
         $.each($('.nav_bar_r'), function (index, value) {
             if (_index == index) {
