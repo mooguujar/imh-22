@@ -686,7 +686,7 @@ var RBChatMainWindowUI = (function () {
     if(im_pid == 1){
         $('.active').css({ 'background': '#ffdc30' })
     } else {
-        $('.active').css({ 'background': '#2e8aff' })
+        $('.active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
     }
 
 
@@ -728,18 +728,10 @@ var RBChatMainWindowUI = (function () {
         if(im_pid == 1){
             $('.active').css({ 'background': '#ffdc30' })
         } else {
-            $('.active').css({ 'background': '#2e8aff' })
+            $('.active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
         }
 
 
-        // 切换图标
-        // $.each($('.dom_item'), function (index, value) {
-        //     if (_index == index) {
-        //         $(`#img_${index}`).attr('src', `images/im_b_img/tab_${index}_1.png`)
-        //     } else {
-        //         $(`#img_${index}`).attr('src', `images/im_b_img/tab_${index}_0.png`)
-        //     }
-        // });
         // 控制顶部导航栏右侧按钮
         $.each($('.nav_bar_r'), function (index, value) {
             if (_index == index) {
