@@ -339,102 +339,45 @@ var RBChatAlarmsUI = (function () {
         if (offlineMessagesList && offlineMessagesList.length > 0) {
 
             RBChatUtils.logToConsole("【refreshOfflineMessagesToUI】离线消息读取成功，共有消息条数：" + offlineMessagesList.length);
-
-            // 标准的for循环：遍历 Array[OfflineMsgDTO] 1维数组，
-            // 数组内各单元的数据意义，详见http rest 接口“【接口1008-4-8】”的文档说明（或对照服务端代码）
-            for (var i = 0; i < offlineMessagesList.length; i++) {
-
-                // 取出一条离线消息原始数据对象(详见：http://docs.52im.net/extend/docs/api/rainbowchatserver4_pro/com/x52im/rainbowchat/http/logic/dto/OfflineMsgDTO.html)
-                var offlineMessage = offlineMessagesList[i];
-
-                RBChatUtils.logToConsole("【refreshOfflineMessagesToUI】正在处理离线消息数据DTO->" + JSON.stringify(offlineMessage));
-
+            // 会话列表数量
+            sessions_count={};
+            // 循环遍历
+            offlineMessagesList.forEach(item=>{
                 // 聊天模式
-                var chatType = offlineMessage.chat_type;
-                // 消息类型
-                var msgType = offlineMessage.msg_type;
-                var fromUid = offlineMessage.user_uid;
-                var fromNickname = offlineMessage.nickName;
-                var msgContent = offlineMessage.msg_content;
-                var msgTimestamp = offlineMessage.history_time2;
-                // 根据约定，该字段当前存放的是消息的指纹码
-                var fingerPrint = offlineMessage.msg_content2;
-                // 父指纹码（仅对群聊消息有意义）
-                var fingerPrintOfParent = offlineMessage.parent_fp;
-
-                // 普通群组离线聊天消息
-                if (chatType == ChatModeType.CHAT_TYPE_GROUP$CHAT) {
-                    var toGid = offlineMessage.group_id;
-                    var toGname = offlineMessage.group_name;
-
-                    // 如果是消息"撤回指令"，则需要单独特殊处理（因为"撤回"指令不是普通的聊天消息哦）
-                    // 【补充说明】：因离线消息不是全量消息（服务端只存的是该次未上线前的离线），所以服务端无法对撤回消息指令在服务端存储时就对原消息进行处
-                    //              理（因为可能原消息早就是在客户端了，比如本次客户端掉前），因此目前离线撤回指令就是在客户收到后再进行撤回逻辑的处理的哦
-                    if (msgType == MsgType.TYPE_REVOKE) {
-                        // 进行消息撤回指令的处理逻辑
-                        RBChatMainUI.processRecivedRevokeCMD(ChatModeType.CHAT_TYPE_GROUP$CHAT, fingerPrint, toGid, msgContent);
-                        // 撤回消息时，也同步更新首页“消息”列表中的显示，这样从体验上来说更合理一些
-                        var alarmMessageDTO = AlarmsProvider.createAGroupChatMsgAlarmForLocal(msgType, msgContent, toGname, toGid);
-                        RBChatAlarmsUI.insertOrUpdate(alarmMessageDTO, true);
+                var chatType = item.chat_type;
+                // 群聊
+                if (chatType == ChatModeType.CHAT_TYPE_GROUP$CHAT){
+                    var toGid = item.group_id;
+                    var gobj = sessions_count[toGid];
+                    if(gobj){
+                        gobj.unread_num = gobj.unread_num + 1;
+                    }else{
+                        gobj = {
+                            alram_type: AlarmMessageType.groupChatMessage,
+                            unread_num : 1
+                        };
+                        sessions_count[toGid] = gobj;
                     }
-                    // 是正常的聊天消息等
-                    else {
-                        var alarmMessageDTO = AlarmsProvider.createAGroupChatMsgAlarm(msgType, msgContent, toGname, toGid, fromNickname, msgTimestamp);
-                        var chatMsgEntity = ChatMsgEntity.prepareRecievedMessage(fromUid, fromNickname, msgContent, msgTimestamp, msgType, fingerPrint);
-
-                        chatMsgEntity.fingerPrintOfParent = fingerPrintOfParent;
-
-                        // 处理该离线消息在ui上的显示逻辑
-                        RBChatMainUI.processRecivedMessage(false, true, alarmMessageDTO, chatMsgEntity);
+                // 私聊
+                }else{
+                    var fromUid = item.user_uid;
+                    var gobj = sessions_count[fromUid];
+                    if(gobj){
+                        gobj.unread_num = gobj.unread_num + 1;
+                    }else{
+                        var  isTemp = RosterProvider.isUserInRoster(fromUid)? AlarmMessageType.reviceMessage:AlarmMessageType.tempChatMessage;
+                        gobj = {
+                            alram_type: isTemp,
+                            unread_num : 1
+                        };
+                        sessions_count[fromUid] = gobj;
                     }
                 }
-                // 普通一对一离线聊天消息（好友聊天或陌生人聊天）
-                else {
-                    // 【正式聊天消息】该离线消息的发送者在好友列表中（是我的好友消息）
-                    if (RosterProvider.isUserInRoster(fromUid)) {
-
-                        // 如果是消息"撤回指令"，则需要单独特殊处理（因为"撤回"指令不是普通的聊天消息哦）
-                        // 【补充说明】：因离线消息不是全量消息（服务端只存的是该次未上线前的离线），所以服务端无法对撤回消息指令在服务端存储时就对原消息进行处
-                        //              理（因为可能原消息早就是在客户端了，比如本次客户端掉前），因此目前离线撤回指令就是在客户收到后再进行撤回逻辑的处理的哦
-                        if (msgType == MsgType.TYPE_REVOKE) {
-                            // 进行消息撤回指令的处理逻辑
-                            RBChatMainUI.processRecivedRevokeCMD(ChatModeType.CHAT_TYPE_FRIEND$CHAT, fingerPrint, fromUid, msgContent);
-                            // 撤回消息时，也同步更新首页“消息”列表中的显示，这样从体验上来说更合理一些
-                            var alarmMessageDTO = AlarmsProvider.createChatMsgAlarmForLocal(msgType, msgContent, fromNickname, fromUid);
-                            RBChatAlarmsUI.insertOrUpdate(alarmMessageDTO, true);
-                        }
-                        // 是正常的聊天消息等
-                        else {
-                            var alarmMessageDTO = AlarmsProvider.createChatMessageAlarm(msgType, msgContent, fromNickname, fromUid, msgTimestamp);
-                            var chatMsgEntity = ChatMsgEntity.prepareRecievedMessage(fromUid, fromNickname, msgContent, msgTimestamp, msgType, fingerPrint);
-
-                            // 处理该离线消息在ui上的显示逻辑
-                            RBChatMainUI.processRecivedMessage(false, false, alarmMessageDTO, chatMsgEntity);
-                        }
-                    }
-                    // 【临时聊天消息】只在该人不在好友列表中，即判定该消息是临时聊天消息（即陌生人消息）
-                    else {
-
-                        // 如果是消息"撤回指令"，则需要单独特殊处理（因为"撤回"指令不是普通的聊天消息哦）
-                        // 【补充说明】：因离线消息不是全量消息（服务端只存的是该次未上线前的离线），所以服务端无法对撤回消息指令在服务端存储时就对原消息进行处
-                        //              理（因为可能原消息早就是在客户端了，比如本次客户端掉前），因此目前离线撤回指令就是在客户收到后再进行撤回逻辑的处理的哦
-                        if (msgType == MsgType.TYPE_REVOKE) {
-                            // 进行消息撤回指令的处理逻辑
-                            RBChatMainUI.processRecivedRevokeCMD(ChatModeType.CHAT_TYPE_GUEST$CHAT, fingerPrint, fromUid, msgContent);
-                            // 撤回消息时，也同步更新首页“消息”列表中的显示，这样从体验上来说更合理一些
-                            var alarmMessageDTO = AlarmsProvider.createATempChatMsgAlarmForLocal(msgType, msgContent, fromNickname, fromUid);
-                            RBChatAlarmsUI.insertOrUpdate(alarmMessageDTO, true);
-                        }
-                        // 是正常的聊天消息等
-                        else {
-                            var alarmMessageDTO = AlarmsProvider.createATempChatMsgAlarm(msgType, msgContent, fromNickname, fromUid, msgTimestamp);
-                            var chatMsgEntity = ChatMsgEntity.prepareRecievedMessage(fromUid, fromNickname, msgContent, msgTimestamp, msgType, fingerPrint);
-
-                            // 处理该离线消息在ui上的显示逻辑
-                            RBChatMainUI.processRecivedMessage(false, false, alarmMessageDTO, chatMsgEntity);
-                        }
-                    }
-                }
+            });
+            // 设置未读消息
+            for(key in sessions_count){
+                var obj = sessions_count[key];
+                this.setUnread(obj.alram_type, key, obj.unread_num);
             }
         }
     };
