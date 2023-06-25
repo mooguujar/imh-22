@@ -677,7 +677,7 @@ var RBChatMainWindowUI = (function () {
         RBChatDialogHelper.showMyMinAppInfo();
     })
 
-    const im_pid = getUrlKey('pid');
+    const im_pid = Number(sessionStorage.getItem('im_pid'))
     if(!im_pid){
         $("#dk_img").remove()
     } else {

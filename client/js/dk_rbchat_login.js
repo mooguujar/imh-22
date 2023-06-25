@@ -69,6 +69,8 @@
     }
 
     if(_isMobile()){
+        const im_pid = getUrlKey('pid');
+        sessionStorage.setItem('im_pid', im_pid);
         doLogin();
     }
 
