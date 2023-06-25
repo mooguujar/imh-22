@@ -754,7 +754,7 @@ var RBChatDialogHelper = (function () {
                 "		<dt>基本信息</dt>" +
                 (hasRemark ?
                     "      <dd><span class=\'label\'>昵称：</span><span class=\'content\'>" + nickname + "</span></dd>" : "") +
-                "		<dd><span class=\'label\'>ID号：</span><span class=\'content\'>" + uid + "</span></dd>" +
+                "		<dd><span class=\'label\'>ID号：</span><span class=\'content\'>" + uid+(ree.lastBit ? ree.lastBit : '') + "</span></dd>" +
                 // "		<dd><span class=\'label\'>手机号：</span><span class=\'content\'>" + mail + "</span></dd>" +
                 "		<dd><span class=\'label\'>注册时间：</span><span class=\'content\'>" + register_time + "</span></dd>" +
                 "		<dd><span class=\'label\'>最近上线：</span><span class=\'content\'>" + latest_login_time + "</span></dd>" +
