@@ -706,7 +706,7 @@ var RBChatMainWindowUI = (function () {
             $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
             $('#phone_center').css({ 'display': 'none' })
             $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('联系')
+            $('.nav_bar_t').html('联系人')
         } else if (_index == 2) {
             $('#kchat-im-panel-userlist-groups-phone li').css('display', '')
             $('#phone_center').css({ 'display': 'none' })
