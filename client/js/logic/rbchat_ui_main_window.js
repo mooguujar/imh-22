@@ -695,6 +695,11 @@ var RBChatMainWindowUI = (function () {
         var _index = $(this).index();
         $('.first-my-minapp').hide();
         if (_index == 0) {
+            $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
+            $('#phone_center').css({ 'display': 'none' })
+            $('.search').css({ 'display': 'block' })
+            $('.nav_bar_t').html('联系人')
+        } else if (_index == 1) {
             $('#phone_center').css({ 'display': 'none' })
             $('.search').css({ 'display': 'block' })
             $('.nav_bar_t').html('消息')
@@ -702,11 +707,6 @@ var RBChatMainWindowUI = (function () {
                 $('.first-my-minapp').show();
             }
             RBChatUtils.showFirstPageMinApp();
-        } else if (_index == 1) {
-            $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('联系人')
         } else if (_index == 2) {
             $('#kchat-im-panel-userlist-groups-phone li').css('display', '')
             $('#phone_center').css({ 'display': 'none' })
