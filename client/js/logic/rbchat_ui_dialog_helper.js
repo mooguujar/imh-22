@@ -675,6 +675,83 @@ var RBChatDialogHelper = (function () {
 
     };
 
+
+    UIModule7.prototype.showUserInfoFromServer_for_search = function (use_mail, user_mail, user_uid, fn_callback_after_sucess, isGroup = false) {
+        var that = this;
+        // 查询用户信息
+        var searchUserInfo = function () {
+            // 调用HTTP REST接口：“【接口1008-3-8】获取用户/好友的个人信息”，接口返回值详细情况，详见接口文档或服务端代码。
+            // 开始从服务端查询指定uid的用户基本信息，同时尝试在对话框上显示之
+            RBChatRestHelper.submitGetUserInfoToServer_for_search(use_mail, user_mail, user_uid
+                // 数据读取成功后的回调
+                , function (returnValue) {
+                    if(returnValue == 'null'){
+
+                        alert('没有查到该用户的信息数据，请确认您输入的UID或邮箱是否正确后再试！');
+                        return;
+                    }
+                    // 关闭加载中提示
+                    //that.closeDialog(loadingDialogId);
+                    //RBChatToastHelper.closeToast(loadingToastId);
+
+                    // 服务端返回的是java对象RosterElementEntity的JSON文本
+                    var ree = JSON.parse(returnValue);
+
+                    if (ree) {
+
+                        if (fn_callback_after_sucess)
+                            fn_callback_after_sucess();
+
+                        that.showUserInfo(ree);
+                    }
+                    else {
+                        RBChatUtils.logToConsole('[前端-GET-【接口1008-3-8】用户/好友的个人信息获取接口返回值解析后] 数据为空，' +
+                            '无需进入ui处理代码。(returnValue=' + returnValue + ')', true);
+
+                        //alert('没有该用户的信息数据！');
+                        alert('没有查到该用户的信息数据，请确认您输入的UID或邮箱是否正确后再试！');
+                    }
+                }
+                // 数据读取失败后的回调
+                , function (errorThrownStr) {
+                    // 关闭加载中提示
+                    //that.closeDialog(loadingDialogId);
+                    //RBChatToastHelper.closeToast(loadingToastId);
+
+                    //alert('用户的基本信息数据加载出错，原因是：'+errorThrownStr);
+                    RBChatDialogHelper.showAlertDialog_WARN('加载失败', '用户的基本信息数据加载出错，可能是网络故障，请稍后再试！');
+                }
+                , true
+                , null
+            );
+        }
+        // 群内打开头像
+        if (window.groupInfo && isGroup) {
+            var myUserId = LocalUserInfo.getUid()
+            RBChatRestHelper.submitGetGroupInfoToServer(window.groupInfo.g_id, myUserId
+                // 数据读取成功后的回调
+                , function (returnValue) {
+                    var groupInfo = JSON.parse(returnValue);
+                    // 判断是否是群主或者管理员
+                    if (groupInfo.g_owner_user_uid == myUserId || groupInfo.manage_mark - 0 == 1) {
+                        searchUserInfo()
+                    }
+                }
+                // 数据读取失败后的回调
+                , function (errorThrownStr) {
+                }
+            );
+        } else {
+            searchUserInfo()
+        }
+
+        // 显示加载中提示
+        //var loadingDialogId = this.showLoadingDialog(null, null);
+        //var loadingToastId = RBChatToastHelper.showToast_Loading(null);
+
+
+    };
+
     /**
      * 显示用户信息内容（UI用弹出Dialog的方式）.
      *
@@ -2035,7 +2112,7 @@ var RBChatDialogHelper = (function () {
             //alert("输入的内容是："+uidOrMail+', isUseMail='+isUseMail);
 
             // 提交服务端查询并显示结果
-            that.showUserInfoFromServer(isUseMail, uidOrMail, uidOrMail, function () {
+            that.showUserInfoFromServer_for_search(isUseMail, uidOrMail, uidOrMail, function () {
                 // 用户信息加载成后，关闭当前查询对话框
                 that.closeDialog(dialogId);
             });

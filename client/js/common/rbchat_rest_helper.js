@@ -673,6 +673,29 @@
                 , JSON.stringify(m), null
                 , logTAG?logTAG:'查询用户信息接口', fnForSucess, fnForFail, isShowLoadingToast);
         },
+        submitGetUserInfoToServer_for_search: function(use_mail, user_mail, user_uid, fnForSucess, fnForFail, isShowLoadingToast, logTAG) {
+
+            var myUid = null;
+
+            // 读取本地用户信息
+            var localUserInfo = LocalUserInfo.getObj();
+            if(localUserInfo){
+                // 本地用户的uid
+                myUid = localUserInfo.user_uid;
+            }
+
+            // 要提交给服务端的参数
+            var m = {
+                'use_mail'   : use_mail ? "1" : "0", // "1"表示用好友的mail地址查找，否则表示用好友的uid查找
+                'friend_mail': user_mail,            // 用户或好友的mail地址（use_mail为true时本参数必须不为空哦）
+                'friend_uid' : user_uid,             // 用户或好友的uid（use_mail为false时本参数必须不为空哦）
+                // 'my_uid'     : myUid                 // 查询发起人的uid，这个uid指的是客户端提起这个查询时的当前登陆者uid，指明此uid后本sql将同时提供被查询作为好友的额外信息。本参数可为null（表示不需要查询好友的额外信息）
+            };
+
+            _jsonpFromHttpRestServer(1008, 3, 88
+                , JSON.stringify(m), null
+                , logTAG?logTAG:'查询用户信息接口', fnForSucess, fnForFail, isShowLoadingToast);
+        },
 
         /**
          * 【NEW 1008-3-8接口】获取用户/好友的个人信息接口调用.
