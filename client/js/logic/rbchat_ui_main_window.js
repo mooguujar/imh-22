@@ -678,7 +678,10 @@ var RBChatMainWindowUI = (function () {
     })
 
     const im_pid = getUrlKey('pid');
-    $("#dk_img").attr('src', `images/logo_${im_pid}.png`)
+    if(!im_pid){
+        $("#dk_img").remove()
+    }
+    $("#dk_img").attr('src', `/images/logo_${im_pid}.png`)
     if(im_pid == 1){
         $('.active').css({ 'background': '#ffdc30' })
     } else {
