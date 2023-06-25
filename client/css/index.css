@@ -5763,7 +5763,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	flex-direction: column;
 	justify-content: center;
 	font-family: PingFangSC-Semibold;
-	font-size: 10px;
+	font-size: 15px;
 	font-weight: 600;
 	color: #999999;
 	width: auto;
@@ -5780,7 +5780,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 }
 .active{
 	font-family: PingFangSC-Medium;
-	font-size: 10px;
+	font-size: 15px;
 	color: #ffffff;
 	font-weight: 500;
 	letter-spacing: 0;
@@ -6751,5 +6751,5 @@ div.caption {
 .top-bar-ul{display: flex;align-items: center;justify-content: space-between}
 .input_box{display: flex;flex-direction: column;}
 .input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
-#dk_img{width: 56px;height: 24px;}
+#dk_img{width: 76px;height: 26px;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/
