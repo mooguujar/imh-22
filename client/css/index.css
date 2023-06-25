@@ -5780,6 +5780,13 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 }
 .active{
 	font-family: PingFangSC-Medium;
+	font-size: 10px;
+	color: #ffffff;
+	font-weight: 500;
+	letter-spacing: 0;
+}
+.nav_active{
+	font-family: PingFangSC-Medium;
 	font-size: 15px;
 	color: #ffffff;
 	font-weight: 500;

@@ -141,7 +141,7 @@
             <div class="nav_bar">
                 <div class="nav_bar_l">                    
                 </div>
-                <div class="nav_bar_t">消息</div>
+                <div class="nav_bar_t">联系人</div>
                 <div id="nav_bar_r_0" class="nav_bar_r">
                     <img class="head_geng" src="images/im_b_img/geng_3.png" alt="">
                 </div>
@@ -170,32 +170,7 @@
                     <div class="first-my-minapp-row2">
                     </div>
             </div>
-            <div class="container_i  kchat-talk-list-group flex-d" id="phone-conversation-list">
-                <div class="kchat-queue" style="position:initial !important">
-                    <style type="text/css">.kchat-pop.db { display: block; }
-                    a.f-list-toggle-label:focus { outline: none; }</style>
-                    <div id="im-panel-userlist-wrap-alarms-add-popup-phone" class="kchat-pop" style="left: unset !important;
-                    right: 0px;
-                    top: 45px;">
-                        <ul>
-                            <li id="im-panel-userlist-wrap-alarms-add-popup-addfriend-phone" class="bottom_border">添加好友</li><!--active-->
-                            <li id="im-panel-userlist-wrap-alarms-add-popup-addgroup-phone">创建群聊</li>
-                        </ul>
-                    </div>
-                </div>
-                <div  id="kchat-im-panel-userlist-empty-alarms-phone" class="kchat-talk-list-empty">
-                    <i class="icon-talk1" style="font-size: 60px;"></i>
-                    <p>
-                        暂无消息数据
-                    </p>
-                </div>
-
-                <!-- 动态组织的数据UI -->
-                <ul id="kchat-im-panel-userlist-alarms-phone">
-                    <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
-                </ul>
-            </div>
-            <div class="container_i kchat-talk-list-group offline flex-d" id="phone-friends-list" style="display:none">
+            <div class="container_i kchat-talk-list-group offline flex-d" id="phone-friends-list">
                 <div class="kchat-queue" style="position:initial !important">
                     <style type="text/css">.kchat-pop.db { display: block; }
                     a.f-list-toggle-label:focus { outline: none; }</style>
@@ -219,6 +194,31 @@
                 <!-- 动态组织的数据UI -->
                 <ul id="kchat-im-panel-userlist-roster-phone">
                     <!-- jQuery动态添加 --><!-- TODO 好友列表   -->
+                </ul>
+            </div>
+            <div class="container_i  kchat-talk-list-group flex-d" id="phone-conversation-list" style="display:none">
+                <div class="kchat-queue" style="position:initial !important">
+                    <style type="text/css">.kchat-pop.db { display: block; }
+                    a.f-list-toggle-label:focus { outline: none; }</style>
+                    <div id="im-panel-userlist-wrap-alarms-add-popup-phone" class="kchat-pop" style="left: unset !important;
+                    right: 0px;
+                    top: 45px;">
+                        <ul>
+                            <li id="im-panel-userlist-wrap-alarms-add-popup-addfriend-phone" class="bottom_border">添加好友</li><!--active-->
+                            <li id="im-panel-userlist-wrap-alarms-add-popup-addgroup-phone">创建群聊</li>
+                        </ul>
+                    </div>
+                </div>
+                <div  id="kchat-im-panel-userlist-empty-alarms-phone" class="kchat-talk-list-empty">
+                    <i class="icon-talk1" style="font-size: 60px;"></i>
+                    <p>
+                        暂无消息数据
+                    </p>
+                </div>
+
+                <!-- 动态组织的数据UI -->
+                <ul id="kchat-im-panel-userlist-alarms-phone">
+                    <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
                 </ul>
             </div>
             <div class="container_i kchat-talk-list-group offline flex-d" id="phone-group-list" style="display:none">
@@ -1121,7 +1121,7 @@
         <!-- ***************************************** 手机版底部导航栏 START ************************************ -->
         <footer id="footer_i">
            <div class="footer_dom">
-               <div class="dom_item active">
+               <div class="dom_item nav_active">
                    <div>联系人</div>
                </div>
                <div class="dom_item">

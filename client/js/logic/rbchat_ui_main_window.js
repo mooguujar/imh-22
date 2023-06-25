@@ -617,8 +617,8 @@ var RBChatMainWindowUI = (function () {
      * @param {*} index 
      */
     function showCenter(index) {
-        index == 0 ? $('#phone-conversation-list').show() : $('#phone-conversation-list').hide();
-        index == 1 ? $('#phone-friends-list').show() : $('#phone-friends-list').hide();
+        index == 0 ? $('#phone-friends-list').show() : $('#phone-friends-list').hide();
+        index == 1 ? $('#phone-conversation-list').show() : $('#phone-conversation-list').hide();
         index == 2 ? $('#phone-group-list').show() : $('#phone-group-list').hide();
     }
 
@@ -684,9 +684,9 @@ var RBChatMainWindowUI = (function () {
         $("#dk_img").attr('src', `/images/logo_${im_pid}.png`)
     }
     if(im_pid == 1){
-        $('.active').css({ 'background': '#ffdc30' })
+        $('.nav_active').css({ 'background': '#ffdc30' })
     } else {
-        $('.active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+        $('.nav_active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
     }
 
 
@@ -722,13 +722,13 @@ var RBChatMainWindowUI = (function () {
 
 
         // 选中字体颜色
-        $('.dom_item').removeClass('active');
+        $('.dom_item').removeClass('nav_active');
         $('.dom_item').css({ 'background': 'none' })
-        $(this).addClass('active');
+        $(this).addClass('nav_active');
         if(im_pid == 1){
-            $('.active').css({ 'background': '#ffdc30' })
+            $('.nav_active').css({ 'background': '#ffdc30' })
         } else {
-            $('.active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+            $('.nav_active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
         }
 
 
