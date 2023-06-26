@@ -338,6 +338,38 @@
         return fileURL;
     }
 
+    // 本地存储
+    const foowwLocalStorage = {
+        set: function (key, value, ttl_ms) {
+            var data = { value: value};
+            if(ttl_ms){
+                data = { value: value, expirse: new Date().getTime() + ttl_ms };
+            }
+            localStorage.setItem(key, JSON.stringify(data));
+        },
+        get: function (key) {
+            var o = localStorage.getItem(key);
+            if(o){
+                var data = JSON.parse(o);
+                if (data !== null) {
+                    if (data.expirse != null && data.expirse < new Date().getTime()) {
+                        console.log()
+                        localStorage.removeItem(key);
+                    } else {
+                        return data.value;
+                    }
+                }
+            }
+            return null;
+        },
+        remove: function (key){
+            var obj = localStorage.getItem(key);
+            if(obj){
+                localStorage.removeItem(key);
+            }
+        }
+    }
+
     /**
      * 保存或清空本地用户的完整个人信息到cookie中。
      *
@@ -352,14 +384,18 @@
     function _saveAuthedLocalUserInfoToCookie(userInfoObj) {
         // 保存本地用户完整认证信息
         if (userInfoObj) {
-            var expireDateTime = new Date();
-            expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_AUTHED_LOCAL_USER_INFO_$EXPIRETIME);
-            // 保存至cookie
-            $.cookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID, JSON.stringify(userInfoObj), { expires: expireDateTime, path: '/',sameSite:"None",secure:true}); // 所有路径都能读取
+            console.log('userInfoObj',userInfoObj);
+            // 数据存储
+            foowwLocalStorage.set(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID,JSON.stringify(userInfoObj),COOKIE_KEY_AUTHED_LOCAL_USER_INFO_$EXPIRETIME);
+            // var expireDateTime = new Date();
+            // expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_AUTHED_LOCAL_USER_INFO_$EXPIRETIME);
+            // // 保存至cookie
+            // $.cookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID, JSON.stringify(userInfoObj), { expires: expireDateTime, path: '/',sameSite:"None",secure:true}); // 所有路径都能读取
         }
         // 清除本地用户信息
         else {
-            $.removeCookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID, { path: '/',sameSite:"None",secure:true });
+            foowwLocalStorage.remove(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID);
+            // $.removeCookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID, { path: '/',sameSite:"None",secure:true });
             //location.reload();
         }
 
@@ -381,9 +417,13 @@
      *                          /com/x52im/rainbowchat/http/logic/dto/RosterElementEntity.html)
      */
     function _getAuthedLocalUserInfoFromCookie() {
-        var localUserInfoJSONString = $.cookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID);
-        if (localUserInfoJSONString)
+        var localUserInfoJSONString = foowwLocalStorage.get(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID);
+        if(localUserInfoJSONString){
             return JSON.parse(localUserInfoJSONString);
+        }
+        // var localUserInfoJSONString = $.cookie(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID);
+        // if (localUserInfoJSONString)
+        //     return JSON.parse(localUserInfoJSONString);
 
         // 读取本地用户完整认证信息
         return null;
@@ -396,11 +436,14 @@
      * @param {boolean} msgToneOpen true表示开启，false表示关闭
      */
     function _setMsgToneOpenToCookie(msgToneOpen) {
-        // 保存配置信息
-        var expireDateTime = new Date();
-        expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_MSG_TONE_$EXPIRETIME);
-        // 保存至cookie
-        $.cookie(COOKIE_KEY_MSG_TONE_ID, msgToneOpen ? '1' : '0', { expires: expireDateTime, path: '/',sameSite:"None",secure:true }); // 所有路径都能读取
+        //数据存储
+        foowwLocalStorage.set(COOKIE_KEY_MSG_TONE_ID,msgToneOpen ? '1' : '0',COOKIE_KEY_MSG_TONE_$EXPIRETIME);
+
+        // // 保存配置信息
+        // var expireDateTime = new Date();
+        // expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_MSG_TONE_$EXPIRETIME);
+        // // 保存至cookie
+        // $.cookie(COOKIE_KEY_MSG_TONE_ID, msgToneOpen ? '1' : '0', { expires: expireDateTime, path: '/',sameSite:"None",secure:true }); // 所有路径都能读取
     }
 
     /**
@@ -410,9 +453,12 @@
      * @return {boolean} YES表示已开启，否则表示已关闭，未设置则默认返回true
      */
     function _isMsgToneOpenFromCookie() {
-        var toneString = $.cookie(COOKIE_KEY_MSG_TONE_ID);
+        var toneString = foowwLocalStorage.get(COOKIE_KEY_MSG_TONE_ID);
         if (toneString)
             return '1' == toneString;
+        // var toneString = $.cookie(COOKIE_KEY_MSG_TONE_ID);
+        // if (toneString)
+        //     return '1' == toneString;
 
         // 读取本地用户完整认证信息
         return true;
@@ -1989,6 +2035,7 @@
         logToConsole_ERROR: _logToConsole_ERROR,
         stringIsEmail: _stringIsEmail,
         stringIsInt: _stringIsInt,
+        foowwLocalStorage: foowwLocalStorage,
         saveAuthedLocalUserInfoToCookie: _saveAuthedLocalUserInfoToCookie,
         getAuthedLocalUserInfoFromCookie: _getAuthedLocalUserInfoFromCookie,
         setMsgToneOpenToCookie: _setMsgToneOpenToCookie,
