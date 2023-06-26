@@ -5622,6 +5622,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 }
 
 .search{
+	width: 80%;
 	margin: 0 4.8%;
 	margin-bottom: 10px;
 	height: 36px;
@@ -6759,4 +6760,5 @@ div.caption {
 .input_box{display: flex;flex-direction: column;}
 .input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
 #dk_img{width: 76px;height: 26px;}
+.new-search-dom{display: flex;align-items: center;justify-content: space-between;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/
