@@ -29,7 +29,7 @@ var RBChatRosterUI = (function () {
 
         if(RBChatUtils.isMobile()){
              // 添加好友按钮
-            this.$addFriendBtn = $('#nav_bar_r_0');
+            this.$addFriendBtn = $('#nav_bar_r_1');
             // 没有数据时显示的空数据提示ui根对象
             this.$emptyUIRoot = $('#kchat-im-panel-userlist-empty-roster-phone');
             // 有数据时正常显示数据的ui根对象
