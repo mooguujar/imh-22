@@ -5584,8 +5584,9 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	height: 100%;
 }
 .container_i{
-	height: 80%;
+	height: 100%;
 	overflow: auto;
+	margin-bottom: 60px;
 }
 .nav_bar_t{
 	text-align: center;
