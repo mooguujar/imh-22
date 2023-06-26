@@ -1339,7 +1339,8 @@ var RBChatAlarmsUI = (function () {
             unReadNum : cnt > 0 ? cnt:0,
             from:'chat'
         }
-        // 发送聊天消息
+        console.log('发送message-',obj)
+        // 发送聊天消息，
         window.postMessage(JSON.stringify(obj),'*');
     };
 
