@@ -1341,7 +1341,7 @@ var RBChatAlarmsUI = (function () {
         }
         console.log('发送message-',obj)
         // 发送聊天消息，
-        window.postMessage(JSON.stringify(obj),'*');
+        window.parent.postMessage(JSON.stringify(obj),'*');
     };
 
     /**
