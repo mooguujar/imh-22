@@ -58,7 +58,7 @@ var RBChatAlarmsUI = (function () {
             // 有数据时正常显示数据的ui根对象
             this.$notEmptyUIRoot = $('#kchat-im-panel-userlist-alarms-phone');
              // 更多按钮
-             this.$moreBtn = $('#nav_bar_r_0');
+             this.$moreBtn = $('#nav_bar_r_1');
         }else{
             // 没有数据时显示的空数据提示ui根对象
             this.$emptyUIRoot = $('#kchat-im-panel-userlist-empty-alarms');
