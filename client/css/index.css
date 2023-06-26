@@ -722,7 +722,7 @@ input[type=checkbox].switch:checked:after { -webkit-transform: translateX(26px);
 .lightbox p { line-height: 1.8em; margin-bottom: 5px }
 .lightbox p:last-child { margin-bottom: 0 }
 .lightbox .alert { margin-bottom: 5px }
-.lightbox .footer { border-top: 1px dashed #e8e8e8; padding: 10px 20px; margin-bottom: 0; background: rgba(255, 255, 255, .97); border-radius: 0 0 10px 10px }
+.lightbox .footer { position: absolute;border-top: 1px dashed #e8e8e8; padding: 10px 20px; margin-bottom: 0; border-radius: 0 0 10px 10px;top: -5px;right: -20px; }
 .lightbox .footer:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
 .lightbox form > ul > li { margin-bottom: 15px; position: relative }
 .lightbox form > ul > li:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
