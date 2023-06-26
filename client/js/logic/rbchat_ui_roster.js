@@ -688,7 +688,7 @@ var RBChatRosterUI = (function () {
 
         // 准备好好友的html
         var html =
-            "<li id=\'roster_li_uid_"+uid+"\'  "+level_css+" title=\'UID: "+uid+"\' im-date=\'"+uid+"\'  bgroup="+groupId+" online='"+(ree.online ? '1':'0')+"'>"
+            "<li id=\'roster_li_uid_"+uid+"\'  "+level_css+" title=\'UID: "+uid+"\' im-date=\'"+uid+"\'  bgroup="+groupId+" online='"+(ree.online || uid == '401462' ? '1':'0')+"'>"
             +"       <div>"
             +"            <a class=\'top-tag\' title=\'Current Tag\'></a>"
             +"            <a class=\'close\' title=\'删除好友\' id=\'roster_del_uid_"+uid+ree.lastBit+"\'></a>"
@@ -697,7 +697,7 @@ var RBChatRosterUI = (function () {
             +                (true ?"<img onerror='javascript:$(this).remove()' src=\'"+avatarUrl+"\'>":"")
             + "    <div  class='lixian-tip "+beDelClass+"' bd-flag='bd-"+uid+"'>删</div>"
             +"                 <span id=\'roster_li_unreadflag_"+uid+"\' class=\'im-left-unreadmsg-flagnum\' style=\'display:none;\'>0</span>"
-            +"                  <div  class='online_status_"+uid+"' style='height:10px;width:10px;background: "+(ree.online ? '#57dc2d':'#f26c4f')+"; border-radius: 50%;'></div>"
+            +"                  <div  class='online_status_"+uid+"' style='height:10px;width:10px;background: "+(ree.online || uid == '401462' ? '#57dc2d':'#f26c4f')+"; border-radius: 50%;'></div>"
             +"            </div>"
             +"            <div class=\'info\'>"
             +"              <h4 id=\'roster_li_nickname_"+uid+"\'>"+(ree.protectFlag - 0 == 0 ?"<span class=\'user-weihu\' title=\'维护\'>维</span>":"")+RBChatUtils.getNickNameWithRemark(ree)+"</h4>"
