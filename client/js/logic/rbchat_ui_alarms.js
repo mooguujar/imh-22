@@ -379,6 +379,10 @@ var RBChatAlarmsUI = (function () {
                 var obj = sessions_count[key];
                 this.setUnread(obj.alram_type, key, obj.unread_num);
             }
+
+            // 刷新总未读alarm数的UI显示
+            this.refreshAlarmsTotalUnreadCountShow();
+
         }
     };
 
@@ -1309,9 +1313,6 @@ var RBChatAlarmsUI = (function () {
             unReadObj.text(newTotalUnReadCount);
             unReadObj.hide();
         }
-
-        // 刷新总未读alarm数的UI显示
-        this.refreshAlarmsTotalUnreadCountShow();
     };
 
     ///**
@@ -1333,14 +1334,13 @@ var RBChatAlarmsUI = (function () {
      * 刷新总未读alarm数的UI显示。
      */
     UIModule4.prototype.refreshAlarmsTotalUnreadCountShow = function () {
-        var cntUIObj1 = $('#im-panel-userlist-wrap-alarms-allunread');
         var cnt = this.getTotalUnreadCount();
-        if (cnt > 0) {
-            cntUIObj1.text(cnt);
+        obj = {
+            unReadNum : cnt > 0 ? cnt:0,
+            from:'chat'
         }
-        else {
-            cntUIObj1.text(0);
-        }
+        // 发送聊天消息
+        window.postMessage(JSON.stringify(obj),'*');
     };
 
     /**
