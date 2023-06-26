@@ -127,6 +127,9 @@
 
     //--------------------------------------------------------------------------- 登陆相关 START
 
+     // 本地存储
+     const foowwLocalStorage = RBChatUtils.foowwLocalStorage;
+
 
     /**
      * 保存登陆密码（当然也含登陆账号了）。
@@ -136,30 +139,47 @@
      */
     // FIXME: 注意，为了安全，保存密码到本地cookie的功能建议在生产环境下停用！本工程中为了简单直观地演示此功能，是直接明文保存的
     function saveAccountAndPswToCookie(account, psw){
-        var expireDateTime = new Date();
-        expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
+        // var expireDateTime = new Date();
+        // expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
 
-        // 保存至cookie
-        $.cookie(COOKIE_KEY_SAVED_ACCOUNT
-            , account, { expires: expireDateTime, path: '/',sameSite:"None",secure:true}); // 所有路径都能读取
-        $.cookie(COOKIE_KEY_SAVED_PASSWORD
-            , psw, { expires: expireDateTime, path: '/',sameSite:"None",secure:true }); // 所有路径都能读取
+        // // 保存至cookie
+        // $.cookie(COOKIE_KEY_SAVED_ACCOUNT
+        //     , account, { expires: expireDateTime, path: '/',sameSite:"None",secure:true}); // 所有路径都能读取
+        // $.cookie(COOKIE_KEY_SAVED_PASSWORD
+        //     , psw, { expires: expireDateTime, path: '/',sameSite:"None",secure:true }); // 所有路径都能读取
+
+        foowwLocalStorage.set(COOKIE_KEY_SAVED_ACCOUNT,account,COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
+        foowwLocalStorage.set(COOKIE_KEY_SAVED_PASSWORD,psw,COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
     }
 
+    // function readAccountFromCookie(){
+    //     // return $.cookie(COOKIE_KEY_SAVED_ACCOUNT);
+    // }
+
+    // function readPswFromCookie(){
+    //     return $.cookie(COOKIE_KEY_SAVED_PASSWORD);
+    // }
+
     function readAccountFromCookie(){
-        return $.cookie(COOKIE_KEY_SAVED_ACCOUNT);
+        // return $.cookie(COOKIE_KEY_SAVED_ACCOUNT);
+        return foowwLocalStorage.get(COOKIE_KEY_SAVED_ACCOUNT);
     }
 
     function readPswFromCookie(){
-        return $.cookie(COOKIE_KEY_SAVED_PASSWORD);
+        // return $.cookie(COOKIE_KEY_SAVED_PASSWORD);
+        return foowwLocalStorage.get(COOKIE_KEY_SAVED_PASSWORD);
     }
 
     /**
      * 清除登陆密码（当然也含登陆账号了）。
      */
     function clearAccountAndPswToCookie(){
-        $.removeCookie(COOKIE_KEY_SAVED_ACCOUNT, { path: '/',sameSite:"None",secure:true});
-        $.removeCookie(COOKIE_KEY_SAVED_PASSWORD, { path: '/',sameSite:"None",secure:true});
+        // $.removeCookie(COOKIE_KEY_SAVED_ACCOUNT, { path: '/',sameSite:"None",secure:true});
+        // $.removeCookie(COOKIE_KEY_SAVED_PASSWORD, { path: '/',sameSite:"None",secure:true});
+
+        foowwLocalStorage.remove(COOKIE_KEY_SAVED_ACCOUNT);
+        foowwLocalStorage.remove(COOKIE_KEY_SAVED_PASSWORD);
+
         //location.reload();
     }
 
@@ -174,11 +194,13 @@
         if(!needSave)
             clearAccountAndPswToCookie();
 
-        var expireDateTime = new Date();
-        expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
-        // 保存至cookie
-        $.cookie(COOKIE_KEY_IS_NEED_SAVE_PASSWORD
-            , needSave?'1':'0', { expires: expireDateTime, path: '/',sameSite:"None",secure:true}); // 所路径都能读取
+        // var expireDateTime = new Date();
+        // expireDateTime.setTime(expireDateTime.getTime() + COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
+        // // 保存至cookie
+        // $.cookie(COOKIE_KEY_IS_NEED_SAVE_PASSWORD
+        //     , needSave?'1':'0', { expires: expireDateTime, path: '/',sameSite:"None",secure:true}); // 所路径都能读取
+
+        foowwLocalStorage.set(COOKIE_KEY_IS_NEED_SAVE_PASSWORD,needSave?'1':'0',COOKIE_KEY_NEED_SAVE_PASSWORD_$EXPIRETIME);
     }
 
     /**
@@ -187,7 +209,8 @@
      * @returns {boolean}
      */
     function readIsNeedRememberPasswordFromCookie(){
-        return ('1' == $.cookie(COOKIE_KEY_IS_NEED_SAVE_PASSWORD))?true:false;
+        // return ('1' == $.cookie(COOKIE_KEY_IS_NEED_SAVE_PASSWORD))?true:false;
+        return ('1' == foowwLocalStorage.get(COOKIE_KEY_IS_NEED_SAVE_PASSWORD))?true:false;
     }
 
     /**

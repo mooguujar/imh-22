@@ -51,6 +51,7 @@ var LocalUserInfo = (function () {
      */
     Cache1.prototype.initFromCookie = function(){
         this.localUserInfo = RBChatUtils.getAuthedLocalUserInfoFromCookie();;
+        console.log('this.localUserInfo',this.localUserInfo);
     };
 
     /**
