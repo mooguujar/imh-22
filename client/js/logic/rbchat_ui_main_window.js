@@ -672,6 +672,10 @@ var RBChatMainWindowUI = (function () {
 
     window.tab_select = 1;
 
+    if(window.tab_select == 1){
+        $(".nav_bar").addClass('hidden');
+    }
+
     // 查看全部点击
     $('#query-my-minapp-all').click(function(){
         RBChatDialogHelper.showMyMinAppInfo();
@@ -685,8 +689,10 @@ var RBChatMainWindowUI = (function () {
     }
     if(im_pid == 1){
         $('.nav_active').css({ 'background': '#ffdc30' })
+        $('.nav_bar').css({ 'background': '#ffdc30' })
     } else {
         $('.nav_active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+        $('.nav_bar').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
     }
 
 
@@ -735,6 +741,11 @@ var RBChatMainWindowUI = (function () {
         // 控制顶部导航栏右侧按钮
         $.each($('.nav_bar_r'), function (index, value) {
             if (_index == index) {
+                if(_index == 1 || window.tab_select == 1){
+                    $(".nav_bar").addClass('hidden');
+                } else {
+                    $(".nav_bar").removeClass('hidden');
+                }
                 $(`#nav_bar_r_${index}`).removeClass('hidden');
             } else {
                 $(`#nav_bar_r_${index}`).addClass('hidden');
