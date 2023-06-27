@@ -628,7 +628,7 @@ var RBChatMainWindowUI = (function () {
      */
     function showSearchResult(val) {
         //会话搜索
-        if (window.tab_select - 0 == 0) {
+        if (window.tab_select - 0 == 1) {
             if (val.length > 0) {
                 //匹配值
                 $('#kchat-im-panel-userlist-alarms-phone li').each(function (i, item) {
@@ -642,7 +642,7 @@ var RBChatMainWindowUI = (function () {
         }
 
         // 好友搜索
-        if (window.tab_select - 0 == 1) {
+        if (window.tab_select - 0 == 0) {
             if (val.length > 0) {
                 //匹配值
                 $('#kchat-im-panel-userlist-roster-phone li').each(function (i, item) {
@@ -670,7 +670,7 @@ var RBChatMainWindowUI = (function () {
         }
     }
 
-    window.tab_select = 0;
+    window.tab_select = 1;
 
     // 查看全部点击
     $('#query-my-minapp-all').click(function(){
