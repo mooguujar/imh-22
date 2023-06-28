@@ -3845,7 +3845,7 @@ var RBChatChattingContentPaneUI = (function () {
                 // 如果返回数据大于0行
                 if (chattingHistoryList && chattingHistoryList.length > 0) {// 正常处理完成的情况下接口约定为本字段存放Vector<Vector>结果
                     var chatHistoryDatas = [];
-                    console.log('历史消息', chattingHistoryList)
+                    // console.log('历史消息', chattingHistoryList)
                     //标准的for循环：遍历 Array[Array对象] 2维数组
                     for (var i = 0; i < chattingHistoryList.length; i++) {
                         // 遍历内层数组
@@ -3867,7 +3867,7 @@ var RBChatChattingContentPaneUI = (function () {
                             , cmoney = row.length > 14 ? row[14] : ''
                             , groupName = row[8]
                             , redStatus = getReadStatus(row[5]),
-                            user_photo = row.length > 15 ? row[15] : '';
+                            user_photo = row.length > 16 ? row[16] : '';
                         remarkName = row.length > 10 ? row[10] : ''
 
                         // 备注名
