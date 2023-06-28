@@ -1926,7 +1926,6 @@ var RBChatChattingContentPaneUI = (function () {
 
             const show_t = nickName.length > 0 ? nickName.substr(0, 1).toUpperCase() : '';
             const aurl = chatMsgEntity.user_photo;
-            console.log('aurl',aurl)
             const defaultColor = RBChatUtils.getBgColor(uid)
 
             window.fnotFound = function (obj, uid) {
@@ -2403,7 +2402,7 @@ var RBChatChattingContentPaneUI = (function () {
 
 
             const show_t = '';
-            const aurl = RBChatUtils.getUserAvatarDownloadURL(uid, false);
+            const aurl = chatMsgEntity.user_photo;
 
             window.fnotFound = function (obj, uid) {
                 const defaultColor = RBChatUtils.getBgColor(uid)

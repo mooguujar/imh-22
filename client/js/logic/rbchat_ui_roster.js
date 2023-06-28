@@ -645,7 +645,7 @@ var RBChatRosterUI = (function () {
 
         var that = this;
 
-        var  avatarUrl = RBChatUtils.getUserAvatarDownloadURL(uid, true);
+        var  avatarUrl = ree.headUrl + '?imageView2/1/w/256/h/256';
         const defaultColor = RBChatUtils.getBgColor(uid)
         const show_t = RBChatUtils.getNickNameWithRemark(ree).substr(0, 1).toUpperCase();
         let isLevel =  !RBChatUtils.isMobile(); //

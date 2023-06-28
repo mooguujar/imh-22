@@ -384,7 +384,7 @@
     function _saveAuthedLocalUserInfoToCookie(userInfoObj) {
         // 保存本地用户完整认证信息
         if (userInfoObj) {
-            console.log('userInfoObj',userInfoObj);
+            // console.log('userInfoObj',userInfoObj);
             // 数据存储
             foowwLocalStorage.set(COOKIE_KEY_AUTHED_LOCAL_USER_INFO_ID,JSON.stringify(userInfoObj),COOKIE_KEY_AUTHED_LOCAL_USER_INFO_$EXPIRETIME);
             // var expireDateTime = new Date();

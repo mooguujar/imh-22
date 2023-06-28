@@ -814,8 +814,8 @@ var RBChatDialogHelper = (function () {
                 "	<div class=\'chat-user-info-headinfo\'>" +
                 "		<div class=\'avatar-wrapper\' style=\'position: relative;\'>" +
                 "                 <div class='avator' style='background:" + defaultColor + "'>" + show_t + " </div>" +
-                "			<a id=\'im-panel-main-rightdetail-content-user-avatar_a-root" + dialogId + "\' target='_blank' href=\'" + RBChatUtils.getUserAvatarDownloadURL2(uid, true) + "\'>" +
-                "               <img id=\'im-panel-main-rightdetail-content-user-avatar_" + dialogId + "\' src=\'" + RBChatUtils.getUserAvatarDownloadURL(uid, true) + "\' onerror='javascript:$(this).remove()'>" +
+                "			<a id=\'im-panel-main-rightdetail-content-user-avatar_a-root" + dialogId + "\' target='_blank' href=\'" + ree.headUrl + "\'>" +
+                "               <img id=\'im-panel-main-rightdetail-content-user-avatar_" + dialogId + "\' src=\'" + ree.headUrl+ '?imageView2/1/w/256/h/256' + "\' onerror='javascript:$(this).remove()'>" +
                 "           </a>" +
                 (isMe ? "<input type=\'file\' name=\'im-panel-main-rightdetail-content-user-uploadavatar_" + dialogId + "\' id=\'im-panel-main-rightdetail-content-user-uploadavatar_" + dialogId + "\' />" : "") +
                 "		</div>" +
@@ -850,8 +850,8 @@ var RBChatDialogHelper = (function () {
                 "	<div class=\'chat-user-info-headinfo\'>" +
                 "		<div class=\'avatar-wrapper\' style=\'position: relative;\'>" +
                 "                 <div class='avator' style='background:" + defaultColor + "'>" + show_t + " </div>" +
-                "			<a id=\'im-panel-main-rightdetail-content-user-avatar_a-root" + dialogId + "\' target='_blank' href=\'" + RBChatUtils.getUserAvatarDownloadURL2(uid, true) + "\'>" +
-                "               <img id=\'im-panel-main-rightdetail-content-user-avatar_" + dialogId + "\' src=\'" + RBChatUtils.getUserAvatarDownloadURL(uid, true) + "\' onerror='javascript:$(this).remove()'>" +
+                "			<a id=\'im-panel-main-rightdetail-content-user-avatar_a-root" + dialogId + "\' target='_blank' href=\'" + ree.headUrl + "\'>" +
+                "               <img id=\'im-panel-main-rightdetail-content-user-avatar_" + dialogId + "\' src=\'" +ree.headUrl+ '?imageView2/1/w/256/h/256' + "\' onerror='javascript:$(this).remove()'>" +
                 "           </a>" +
                 (isMe ? "<input type=\'file\' name=\'im-panel-main-rightdetail-content-user-uploadavatar_" + dialogId + "\' id=\'im-panel-main-rightdetail-content-user-uploadavatar_" + dialogId + "\' />" : "") +
                 "		</div>" +

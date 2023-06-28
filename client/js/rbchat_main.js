@@ -676,7 +676,6 @@
         // 判断消息指令
         if (dataContent) {
             obj = JSON.parse(dataContent);
-            console.log('dataContent',obj)
             // 选择了当前的群
             if (window.groupInfo && obj.t == window.groupInfo.g_id) {
                 if (obj.m == '群禁言已解封') {

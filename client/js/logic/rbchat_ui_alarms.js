@@ -262,6 +262,7 @@ var RBChatAlarmsUI = (function () {
                 var cmoney = row[16]
                 var state = row.length > 17 ? row[17]:''
                 var weihu = row.length > 18 ? row[18]:''
+                var photo_url = row.length > 19 ? row[19]:''
                 // 群聊消息
                 if (chatType == ChatModeType.CHAT_TYPE_GROUP$CHAT) {
 
@@ -296,6 +297,7 @@ var RBChatAlarmsUI = (function () {
                 alarmData.cmoney = cmoney
                 alarmData.state = state;
                 alarmData.weihu = weihu;
+                alarmData.photo_url = photo_url;
 
                 // 将数据插入到UI界面中显示之
                 this.insertItem(alarmData, false);
@@ -579,7 +581,6 @@ var RBChatAlarmsUI = (function () {
 
         // 是否可以被删除
         var canDelete = false;
-
         //** 按照提示类型的不同进行各自的数据设置逻辑
         if (alarmMessageType == AlarmMessageType.addFriendBeReject
             || alarmMessageType == AlarmMessageType.reviceMessage) {
@@ -599,14 +600,14 @@ var RBChatAlarmsUI = (function () {
             }
 
             // 尝试拼接真正的头像加载url（即使该用户未设置头像，此url也会返回1像素透明图片，也就不会挡住默认头像的显示了）
-            iconUrl = RBChatUtils.getUserAvatarDownloadURL(dataId, true);
+            iconUrl = amd.photo_url? amd.photo_url: RBChatUtils.getUserAvatarDownloadURL(dataId, true);
         }
         // 陌生人/临时聊天
         else if (alarmMessageType == AlarmMessageType.tempChatMessage) {
             // 先设定一个默认图标
             iconUrl_default = '../images/main_alarms_tenpchat_message_icon.png';
             // 尝试拼接真正的头像加载url（即使该用户未设置头像，此url也会返回1像素透明图片，也就不会挡住默认头像的显示了）
-            iconUrl = RBChatUtils.getUserAvatarDownloadURL(dataId, true);
+            iconUrl = amd.photo_url? amd.photo_url: RBChatUtils.getUserAvatarDownloadURL(dataId, true);
 
             //## 额外的代码逻辑：
             // 既然现在要显示的陌生人首页"消息"，则首先尝试删除之前正式聊天时在首页留
