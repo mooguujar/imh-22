@@ -600,14 +600,14 @@ var RBChatAlarmsUI = (function () {
             }
 
             // 尝试拼接真正的头像加载url（即使该用户未设置头像，此url也会返回1像素透明图片，也就不会挡住默认头像的显示了）
-            iconUrl = amd.photo_url? amd.photo_url: RBChatUtils.getUserAvatarDownloadURL(dataId, true);
+            iconUrl = amd.photo_url? amd.photo_url+'?imageView2/1/w/256/h/256': RBChatUtils.getUserAvatarDownloadURL(dataId, true);
         }
         // 陌生人/临时聊天
         else if (alarmMessageType == AlarmMessageType.tempChatMessage) {
             // 先设定一个默认图标
             iconUrl_default = '../images/main_alarms_tenpchat_message_icon.png';
             // 尝试拼接真正的头像加载url（即使该用户未设置头像，此url也会返回1像素透明图片，也就不会挡住默认头像的显示了）
-            iconUrl = amd.photo_url? amd.photo_url: RBChatUtils.getUserAvatarDownloadURL(dataId, true);
+            iconUrl = amd.photo_url? amd.photo_url+'?imageView2/1/w/256/h/256': RBChatUtils.getUserAvatarDownloadURL(dataId, true);
 
             //## 额外的代码逻辑：
             // 既然现在要显示的陌生人首页"消息"，则首先尝试删除之前正式聊天时在首页留

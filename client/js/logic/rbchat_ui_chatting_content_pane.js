@@ -1925,7 +1925,7 @@ var RBChatChattingContentPaneUI = (function () {
             contentHTML = RBChatUtils.translate_minapp(contentHTML)
 
             const show_t = nickName.length > 0 ? nickName.substr(0, 1).toUpperCase() : '';
-            const aurl = chatMsgEntity.user_photo;
+            const aurl = chatMsgEntity.user_photo && chatMsgEntity.user_photo.length > 0 ? chatMsgEntity.user_photo: RBChatUtils.getUserAvatarDownloadURL(uid, false);
             const defaultColor = RBChatUtils.getBgColor(uid)
 
             window.fnotFound = function (obj, uid) {
@@ -2402,7 +2402,7 @@ var RBChatChattingContentPaneUI = (function () {
 
 
             const show_t = '';
-            const aurl = chatMsgEntity.user_photo;
+            const aurl = chatMsgEntity.user_photo && chatMsgEntity.user_photo.length > 0 ? chatMsgEntity.user_photo: RBChatUtils.getUserAvatarDownloadURL(uid, false);
 
             window.fnotFound = function (obj, uid) {
                 const defaultColor = RBChatUtils.getBgColor(uid)
