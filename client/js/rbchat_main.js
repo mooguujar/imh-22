@@ -676,6 +676,7 @@
         // 判断消息指令
         if (dataContent) {
             obj = JSON.parse(dataContent);
+            console.log('dataContent',obj)
             // 选择了当前的群
             if (window.groupInfo && obj.t == window.groupInfo.g_id) {
                 if (obj.m == '群禁言已解封') {
@@ -854,6 +855,8 @@
                     alarmMessageDTO.cmoney = _obj.uedMoney
                     chatMsgEntity.cmoney = _obj.uedMoney
                 }
+                alarmMessageDTO.user_photo = obj.h;
+                chatMsgEntity.user_photo = obj.h;
                 processRecivedMessage(false, false, alarmMessageDTO, chatMsgEntity);
                 const flag = alarmMessageDTO.dataId
                 let _notip = RBChatUtils.isKeyVal('noTipStr', flag);
@@ -917,7 +920,8 @@
                         alarmMessageDTO.cmoney = _obj.uedMoney
                         chatMsgEntity.cmoney =_obj.uedMoney
                     }
-
+                    alarmMessageDTO.user_photo = obj.h;
+                    chatMsgEntity.user_photo = obj.h;
                     // 将数据放入并在UI上显示
                     processRecivedMessage(false, true, alarmMessageDTO, chatMsgEntity);
                     const flag =  alarmMessageDTO.dataId ;
@@ -1353,6 +1357,8 @@
                         alarmMessageDTO.cmoney = _obj.uedMoney
                         chatMsgEntity.cmoney = _obj.uedMoney
                     }
+                    alarmMessageDTO.user_photo = obj.h;
+                    chatMsgEntity.user_photo = obj.h;
                     processRecivedMessage(false, false, alarmMessageDTO, chatMsgEntity);
                     const flag = alarmMessageDTO.dataId
                     let _notip = RBChatUtils.isKeyVal('noTipStr', flag);

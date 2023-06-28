@@ -326,7 +326,7 @@
             // 要发送的聊天消息内容，实际上是一个MsgBody4Friend对象
             // （详见：http://docs.52im.net/extend/docs/api/rainbowchatserver4_pro/com/x52im/rainbowchat/im/dto/MsgBody4Friend.html）
             msgBody = _constructFriendChatMsgBody(fromUid, friendUID, msgContent, msgType);
-            msgBody.g="";
+            msgBody.g=""; 
             msgBody.n = LocalUserInfo.getObj().nickname;
             // 构建建IM协议报文包（即Protocal对象，详见：http://docs.52im.net/extend/docs/api/mobileimsdk/server/net/openmob/mobileimsdk/server/protocal/Protocal.html）
             // var p = createCommonData2(JSON.stringify(msgBody), fromUid, friendUID, UserProtocalsType.MT03_OF_CHATTING_MESSAGE);
@@ -359,6 +359,7 @@
         var tcmd = {};
         tcmd.cy = ChatModeType.CHAT_TYPE_FRIEND$CHAT; // 聊天模式类型：一对一好友聊天
         tcmd.f = f;
+        tcmd.h = 'https://oss.nongzhiw.cn/head/'+f+'_pic.jpg';
         tcmd.t = t;
         tcmd.m = m;
         tcmd.ty = ty;
@@ -503,6 +504,7 @@
         var tcmd = {};
         tcmd.cy = ChatModeType.CHAT_TYPE_GUEST$CHAT; // 聊天模式类型：一对一临时聊天(陌生人聊天)
         tcmd.f = srcUserUid;
+        tcmd.h = 'https://oss.nongzhiw.cn/head/'+srcUserUid+'_pic.jpg';
         tcmd.nickName = srcNickName;
         tcmd.t = friendUid;
         tcmd.m = msg;
@@ -661,6 +663,7 @@
         tcmd.cy = ChatModeType.CHAT_TYPE_GROUP$CHAT; // 聊天模式类型：群组聊天
         tcmd.f = srcUserUid;
         tcmd.nickName = srcNickName;
+        tcmd.h = 'https://oss.nongzhiw.cn/head/'+srcUserUid+'_pic.jpg';
         tcmd.t = toGid;
         tcmd.m = msg;
         tcmd.ty = msgType;

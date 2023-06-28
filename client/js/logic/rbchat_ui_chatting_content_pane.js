@@ -1925,7 +1925,8 @@ var RBChatChattingContentPaneUI = (function () {
             contentHTML = RBChatUtils.translate_minapp(contentHTML)
 
             const show_t = nickName.length > 0 ? nickName.substr(0, 1).toUpperCase() : '';
-            const aurl = RBChatUtils.getUserAvatarDownloadURL(uid, false);
+            const aurl = chatMsgEntity.user_photo;
+            console.log('aurl',aurl)
             const defaultColor = RBChatUtils.getBgColor(uid)
 
             window.fnotFound = function (obj, uid) {
@@ -3666,7 +3667,7 @@ var RBChatChattingContentPaneUI = (function () {
             // 校验好友是否被删除
             if (!this.checkFriendIsValid(currentSelectedAlarmDataId)) {
                 return;
-            }
+            } 
 
             // 回调中的msgBody值，详见：http://docs.52im.net/extend/docs/api/rainbowchatserver4_pro/com/x52im/rainbowchat/im/dto/MsgBody4Guest.html
             TMessageHelper.sendGuestMessage(msgType, currentSelectedAlarmDataId, msgContent, function (isSucess, msgBody) {
@@ -3844,7 +3845,7 @@ var RBChatChattingContentPaneUI = (function () {
                 // 如果返回数据大于0行
                 if (chattingHistoryList && chattingHistoryList.length > 0) {// 正常处理完成的情况下接口约定为本字段存放Vector<Vector>结果
                     var chatHistoryDatas = [];
-                    // console.log('历史消息', chattingHistoryList)
+                    console.log('历史消息', chattingHistoryList)
                     //标准的for循环：遍历 Array[Array对象] 2维数组
                     for (var i = 0; i < chattingHistoryList.length; i++) {
                         // 遍历内层数组
@@ -3865,7 +3866,8 @@ var RBChatChattingContentPaneUI = (function () {
                             , nowTime = row.length > 13 ? row[13] : ''
                             , cmoney = row.length > 14 ? row[14] : ''
                             , groupName = row[8]
-                            , redStatus = getReadStatus(row[5]);
+                            , redStatus = getReadStatus(row[5]),
+                            user_photo = row.length > 15 ? row[15] : '';
                         remarkName = row.length > 10 ? row[10] : ''
 
                         // 备注名
@@ -3930,6 +3932,7 @@ var RBChatChattingContentPaneUI = (function () {
                         chatMsgEntity.nowTime = nowTime
                         chatMsgEntity.cmoney = cmoney
                         chatMsgEntity.groupName = groupName
+                        chatMsgEntity.user_photo = user_photo;
 
                         if (msg_type - 0 == 9) {
                             chatMsgEntity.msgType = 9;
