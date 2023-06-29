@@ -359,7 +359,7 @@
         var tcmd = {};
         tcmd.cy = ChatModeType.CHAT_TYPE_FRIEND$CHAT; // 聊天模式类型：一对一好友聊天
         tcmd.f = f;
-        tcmd.h = 'https://oss.nongzhiw.cn/head/'+f+'_pic.jpg';
+        tcmd.h =  LocalUserInfo.getObj().headUrl;
         tcmd.t = t;
         tcmd.m = m;
         tcmd.ty = ty;
@@ -504,7 +504,7 @@
         var tcmd = {};
         tcmd.cy = ChatModeType.CHAT_TYPE_GUEST$CHAT; // 聊天模式类型：一对一临时聊天(陌生人聊天)
         tcmd.f = srcUserUid;
-        tcmd.h = 'https://oss.nongzhiw.cn/head/'+srcUserUid+'_pic.jpg';
+        tcmd.h = LocalUserInfo.getObj().headUrl;
         tcmd.nickName = srcNickName;
         tcmd.t = friendUid;
         tcmd.m = msg;
@@ -663,7 +663,7 @@
         tcmd.cy = ChatModeType.CHAT_TYPE_GROUP$CHAT; // 聊天模式类型：群组聊天
         tcmd.f = srcUserUid;
         tcmd.nickName = srcNickName;
-        tcmd.h = 'https://oss.nongzhiw.cn/head/'+srcUserUid+'_pic.jpg';
+        tcmd.h = LocalUserInfo.getObj().headUrl;
         tcmd.t = toGid;
         tcmd.m = msg;
         tcmd.ty = msgType;
