@@ -2096,8 +2096,6 @@ var RBChatDialogHelper = (function () {
 
         // 点击保存按钮要执行的回调函数
         var fn_submitCallback = function () {
-            console.log('dialogId', dialogId)
-
             // 取出界面上form表单字段内容
             var uidOrMail = $.trim($("#dialog-queryuser-form-uidormail-" + dialogId).val());
 

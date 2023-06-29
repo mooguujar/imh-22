@@ -718,7 +718,7 @@ input[type=checkbox].switch:checked:after { -webkit-transform: translateX(26px);
 .lightbox .scrollbar-box { max-height: 400px }
 .lightbox .scrollbar-box .footer:after { display: none }
 .lightbox .scrollbar-box .footer { padding-bottom: 20px }
-.lightbox .body { padding: 20px 20px 5px 20px; /*max-height: 580px;*/ overflow: auto }
+.lightbox .body { padding: 20px 20px 5px 20px; /*max-height: 580px;*/ overflow: auto;height: 100%; }
 .lightbox p { line-height: 1.8em; margin-bottom: 5px }
 .lightbox p:last-child { margin-bottom: 0 }
 .lightbox .alert { margin-bottom: 5px }
@@ -6767,4 +6767,5 @@ div.caption {
 .input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
 #dk_img{width: 76px;height: 26px;}
 .new-search-dom{display: flex;align-items: center;justify-content: space-between;}
+#im-group-member-list-content{padding-bottom: 200px;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/
