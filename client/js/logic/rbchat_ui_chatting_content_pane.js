@@ -1955,7 +1955,7 @@ var RBChatChattingContentPaneUI = (function () {
             html =
                 "<div  id=\'" + fp_id + "\'" + (parentFp ? " parentfp=\'" + parentFp + "\'" : "") + " class=\'chat-item\'>"
                 + "    <div class=\'chat-item-avatar " + (isMe ? "chat-item-avatar-r" : "chat-item-avatar-l") + "\'>"
-                + "    <div onclick='javascript:RBChatDialogHelper.showUserInfoFromServer(false, null, " + uid + ", null," + !isMe + ");' style='background:"+defaultColor+"'>" + show_t + " </div>"
+                + "    <div onclick='javascript:RBChatDialogHelper.showUserInfoFromServer(false, null, " + uid + ", null," + !isMe + ");' style='background:"+defaultColor+"'>" + (isMe ? '我': show_t) + " </div>"
                 + usr_dom
                 + "    </div>"
                 + "    <div class=\'" + (isMe ? 'chat-right' : 'chat-left') + "\'>"
@@ -2431,7 +2431,7 @@ var RBChatChattingContentPaneUI = (function () {
             html =
                 "<div  id=\'msg-d-" + id + "\'" + " class=\'chat-item\'>"
                 + "    <div class=\'chat-item-avatar " + (isMe ? "chat-item-avatar-r" : "chat-item-avatar-l") + "\'>"
-                + "    <div onclick='javascript:RBChatDialogHelper.showUserInfoFromServer(false, null, " + uid + ", null," + !isMe + ");'>" + show_t + " </div>"
+                + "    <div onclick='javascript:RBChatDialogHelper.showUserInfoFromServer(false, null, " + uid + ", null," + !isMe + ");'>" +  (isMe ? '我': show_t) + " </div>"
                 + usr_dom
                 + "    </div>"
                 + "    <div class=\'" + (isMe ? 'chat-right' : 'chat-left') + "\'>"
