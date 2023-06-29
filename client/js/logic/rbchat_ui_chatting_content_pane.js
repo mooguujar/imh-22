@@ -3623,8 +3623,7 @@ var RBChatChattingContentPaneUI = (function () {
             currentSelectedAlarmDataId = sendUser.currentSelectedAlarmDataId
         }
 
-        console.log('发送的消息', msgContent)
-
+        var localuser = LocalUserInfo.getObj()
         // 发送的是好友聊天类型的消息
         if (currentSelectedAlarmType == AlarmMessageType.reviceMessage) {
 
@@ -3632,7 +3631,6 @@ var RBChatChattingContentPaneUI = (function () {
             if (!this.checkFriendIsValid(currentSelectedAlarmDataId)) {
                 return;
             }
-
             // 回调中的msgBody值，详见：http://docs.52im.net/extend/docs/api/rainbowchatserver4_pro/com/x52im/rainbowchat/im/dto/MsgBody4Friend.html
             MessageHelper.sendMessage(msgType, currentSelectedAlarmDataId, msgContent, function (isSucess, msgBody) {
                 if (isSucess) {
@@ -3647,6 +3645,9 @@ var RBChatChattingContentPaneUI = (function () {
                     // 自已发出的消息，也要显示在相应的UI界面上
                     var alarmMessageDTO = AlarmsProvider.createChatMsgAlarmForLocal(msgBody.ty, msgBody.m, ree.nickname, friendUid);
                     var chatMsgEntity = ChatMsgEntity.prepareSendedMessage(msgBody.m, 0, fingerPrint, msgType);
+
+                    alarmMessageDTO.user_photo = localuser.headUrl;
+                    chatMsgEntity.user_photo =  localuser.headUrl;
 
                     // 将此条消息存入缓存并在UI上显示
                     RBChatMainUI.processRecivedMessage(true, false, alarmMessageDTO, chatMsgEntity, isGroupSend);
@@ -3685,6 +3686,9 @@ var RBChatChattingContentPaneUI = (function () {
                         , guestUid);
                     var chatMsgEntity = ChatMsgEntity.prepareSendedMessage(msgBody.m, 0, fingerPrint, msgType);
 
+                    alarmMessageDTO.user_photo = localuser.headUrl;
+                    chatMsgEntity.user_photo =  localuser.headUrl;
+
                     // 将此条消息存入缓存并在UI上显示
                     RBChatMainUI.processRecivedMessage(true, false, alarmMessageDTO, chatMsgEntity);
 
@@ -3713,6 +3717,9 @@ var RBChatChattingContentPaneUI = (function () {
                     var alarmMessageDTO = AlarmsProvider.createAGroupChatMsgAlarmForLocal(msgBody.ty, msgBody.m, currentChattingGe.g_name, gid);
                     // 消息数据对象
                     var chatMsgEntity = ChatMsgEntity.prepareSendedMessage(msgBody.m, 0, fingerPrint, msgType);
+
+                    alarmMessageDTO.user_photo = localuser.headUrl;
+                    chatMsgEntity.user_photo =  localuser.headUrl;
 
                     // 本地发出的群聊消息作为到服务端被扩散写为其它群员消息的"父"消息，是没有"父"指纹码的，为了
                     // 让处理本地发出的和收到的群聊消息在撤回逻辑上的代码，所以把自身的这条消息的指纹码也填到了
