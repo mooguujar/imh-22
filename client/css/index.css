@@ -687,7 +687,7 @@ input[type=checkbox].switch:checked:after { -webkit-transform: translateX(26px);
 .lightbox-img-box img { display: block }
 .lightbox {box-shadow: 0px 2px 30px 10px rgb(0 0 0 / 12%);-moz-box-shadow: 0px 2px 30px 10px rgb(0 0 0 / 12%);background: #fff; max-width: 850px; min-width: 400px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-radius: 10px;font-size: 12px; /*-webkit-box-shadow: 0 4px 12px rgba(0,0,0,0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.15);*/ }
 .lightbox:hover {box-shadow: 0 0 15px rgba(0, 0, 0, .6); position: relative }
-.lightbox header { height: 48px; line-height: 48px; /*border-bottom: 1px solid #e8e8e8;*/ background: #f9f9fa; border-radius: 10px 10px 0 0; padding: 0 20px; font-size: 16px;color: rgba(0,0,0,0.65);}
+.lightbox header { height: 56px; line-height: 56px; /*border-bottom: 1px solid #e8e8e8;*/ background: #f9f9fa; border-radius: 10px 10px 0 0; padding: 0 20px; font-size: 16px;color: rgba(0,0,0,0.65);}
 .lightbox header:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
 .lightbox header h4 { float: left;font-weight: bold !important; }
 .lightbox header .close { color: #333; float: right; font-size: 18px }
@@ -1000,13 +1000,13 @@ input[type=checkbox].switch:checked:after { -webkit-transform: translateX(26px);
 .notification-menu > li > a > i { text-shadow: 0 0 6px rgba(0, 0, 0, .06); padding: 5px; border: 1px solid transparent }
 .notification-menu > li > a > span { position: absolute; height: 12px; width: 12px; border-radius: 100%; background: #ff4d4f; font-size: 12px; color: #fff; line-height: 18px; text-align: center; right: 0; top: 12px }
 .new-msg { animation: new-msg-key 1s; -moz-animation: new-msg-key 1s; -webkit-animation: new-msg-key 1s; -o-animation: new-msg-key 1s; -webkit-animation-iteration-count: 3; -moz-animation-iteration-count: 3; -o-animation-iteration-count: 3; animation-iteration-count: 3 }
-@keyframes new-msg-key {
-	0% { opacity: 1 }
-	25% { opacity: 0 }
-	50% { opacity: 1 }
-	75% { opacity: 0 }
-	100% { opacity: 1 }
-}
+/*@keyframes new-msg-key {*/
+/*	0% { opacity: 1 }*/
+/*	25% { opacity: 0 }*/
+/*	50% { opacity: 1 }*/
+/*	75% { opacity: 0 }*/
+/*	100% { opacity: 1 }*/
+/*}*/
 .header-avatar { float: left; position: relative }
 .header-avatar.active > a { background: rgba(0, 0, 0, .05); box-shadow: 0 1px 4px rgba(0, 0, 0, .2) inset }
 .header-avatar > a { color: #fff; display: block; height: 50px; line-height: 50px; padding-left: 20px; padding-right: 25px; -webkit-transition: all ease .2s; -moz-transition: all ease .2s; -o-transition: all ease .2s; transition: all ease .2s; position: relative; border-radius: 0 }
@@ -3163,7 +3163,7 @@ lesshat-selector { -lh-property: 0 }
 .chat-style1 .chat-item-avatar {height: 40px;width: 40px;line-height: 40px;position: absolute;top: 4px;text-align: center;border-radius: 100%;}
 .chat-style1 .chat-item-avatar-l {left: 0px;}
 .chat-style1 .chat-item-avatar-r {right: 0px;}
-.chat-style1 .chat-item-avatar img {position: absolute;height: 40px;width: 40px;border-radius: 100%;right: 0px;bottom: 0px;cursor: pointer;}
+.chat-style1 .chat-item-avatar img {object-fit:cover; position: absolute;height: 40px;width: 40px;border-radius: 100%;right: 0px;bottom: 0px;cursor: pointer;}
 .chat-style1 .chat-item-avatar div {position: absolute;height: 40px;width: 40px;border-radius: 100%;right: 0px;bottom: 0px;cursor: pointer; display: flex; justify-content: center; align-items: center;color:#fff}
 
 .chat-style1 .chat-left, .chat-style1 .chat-right { clear: both }
@@ -5939,8 +5939,9 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 .chat_top{
 	display: flex;
 	align-items: center;
-	padding: 4.3% 4.8% 4.3% 4.8%;
+	padding: 0 4.8% 0 4.8%;
 	border-bottom: 0.5px solid rgba(215,219,220,1);
+	height: 56px;
 }
 .chat_top div{
 	width: 33%;
@@ -6763,9 +6764,10 @@ div.caption {
 
 
 .top-bar-ul{display: flex;align-items: center;justify-content: space-between}
-.input_box{display: flex;flex-direction: column;}
+.input_box{display: flex;flex-direction: column;z-index: 999;}
 .input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
 #dk_img{width: 76px;height: 26px;}
 .new-search-dom{display: flex;align-items: center;justify-content: space-between;}
 #im-group-member-list-content{padding-bottom: 200px;}
+#upload-mul-video img{width: 21px;height: 21px;object-fit: cover;margin-top: 5px;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/

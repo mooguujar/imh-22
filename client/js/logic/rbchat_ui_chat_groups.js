@@ -180,6 +180,12 @@ var RBChatGroupsUI = (function () {
 
         // 点击事件
         $("#group_li_gid_"+gid).click(function(){
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
             // 取出uid值
             //var vid = $("#online_li_vid_"+visitorId).attr('im-date');
 

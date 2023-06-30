@@ -841,6 +841,12 @@ var RBChatAlarmsUI = (function () {
 
         //** 为“消息”列表的item添加点击事件处理
         $("#alarms_li_" + alarmMessageType + "_" + dataId).click(function () {
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展示，
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
             //// 取出vid值
             ////var vid = $("#online_li_vid_"+visitorId).attr('im-date');
            
@@ -1337,8 +1343,9 @@ var RBChatAlarmsUI = (function () {
     UIModule4.prototype.refreshAlarmsTotalUnreadCountShow = function () {
         var cnt = this.getTotalUnreadCount();
         obj = {
-            unReadNum : cnt > 0 ? cnt:0,
-            from:'chat'
+            unReadNum : cnt > 0 ? cnt: '',
+            from:'chat',
+            isReadNum: 1
         }
         // 发送聊天消息，
         window.parent.postMessage(JSON.stringify(obj),'*');

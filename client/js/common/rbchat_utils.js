@@ -1049,6 +1049,12 @@
             $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
+                var obj_show = {
+                    isShowBar : 'true',
+                    from:'chat'
+                }
+                // 底部tab展示，
+                window.parent.postMessage(JSON.stringify(obj_show),'*');
                 $('#phone_chat').hide();
             })
 

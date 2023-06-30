@@ -737,6 +737,12 @@ var RBChatRosterUI = (function () {
 
         // item点击事件
         $("#roster_li_uid_"+uid).click(function(){
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
             // 取出uid值
             //var vid = $("#online_li_vid_"+visitorId).attr('im-date');
 
