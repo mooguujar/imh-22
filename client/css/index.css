@@ -2407,7 +2407,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main-chat { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-right: 1px solid #e2e4e8; /*width: 470px;*/width: 540px; position: relative; background: #fff }
 /* add by js 20190302：增加了以下行，目的是实现聊天窗口全屏时，聊天消息区能自动占满余下宽度 */
 #kchat-im-panel.expand .kchat-im-panel-main-chat {width: 100% !important;}
-.kchat-im-panel-main-chat.list1 { padding-bottom: 170px }
+/*.kchat-im-panel-main-chat.list1 { padding-bottom: 170px }*/
 .kchat-im-panel-main-chat.list1 > .scrollbar-box, .kchat-im-panel-main-chat.list1 .scrollbar-auto { position: absolute; left: 0; right: 0; top: 0; bottom: 0px; height: auto }
 .kchat-im-panel-main-chat.list2 { padding-bottom: 51px }
 .kchat-im-panel-main-chat.list2 > .scrollbar-box, .kchat-im-panel-main-chat.list2 .scrollbar-auto { position: absolute; left: 0; right: 0; top: 0; bottom: 51px; height: auto }
@@ -2418,9 +2418,9 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main-chat-content { background: #f5f7fa; box-sizing: border-box }
 .kchat-im-panel-main-chat-content.history { height: -webkit-calc(100% - 50px); height: -moz-calc(100% - 50px); height: calc(100% - 50px); border-bottom: 0 }
 .kchat-im-panel-main-chat-content.empty { height: 100%; border-bottom: 0 }
-.kchat-im-panel-main-chat-textarea { background: #fff; position: absolute; bottom: 0; left: 0; right: 0; border-top: 1px solid #e2e4e8 }
+.kchat-im-panel-main-chat-textarea { background: #fff; position: fixed; bottom: 0; left: 0; right: 0; border-top: 1px solid #e2e4e8 }
 /* 20170112 modifide by js 由原“height: 35px; line-height: 35px;”改为现值 */
-.kchat-im-panel-main-chat-textarea .top-bar { position: relative; z-index: 1; padding: 0 20px; height: 26px; line-height: 26px; background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9InJnYigyMzgsIDIzOCwgMjM4KSIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9InJnYigyMzgsIDIzOCwgMjM4KSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=); background-image: -webkit-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: -moz-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: -o-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: linear-gradient(to bottom, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%) }
+.kchat-im-panel-main-chat-textarea .top-bar { position: relative; z-index: 1; padding: 0 20px 20px 20px; height: 26px; line-height: 26px; background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9InJnYigyMzgsIDIzOCwgMjM4KSIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9InJnYigyMzgsIDIzOCwgMjM4KSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=); background-image: -webkit-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: -moz-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: -o-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: linear-gradient(to bottom, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%) }
 /* 20170112 modifide by js 由原“line-height: 35px;”改为现值 */
 /** 20200315 由原color: #999; 改为了现值 */
 .kchat-im-panel-main-chat-textarea .top-bar li { float: left; font-size: 18px; line-height: 19px; color: #999b9f; margin-right: 18px; cursor: pointer }
@@ -5929,12 +5929,14 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	z-index: 16;
 	width: 100%;
 	top: 0;
+	bottom: 0;
 	left: 0;
 	min-width: 328px;
 	background: #FFFFFF;
 	padding-bottom: 12px;
 	display: none;
 	height: 100%;
+	overflow-y: hidden;
 }
 .chat_top{
 	display: flex;
@@ -5971,7 +5973,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	text-overflow: ellipsis;
 }
 .container_chat{
-	height: 90%;
+	height: calc(100% - 57px);
 }
 
 .container_info{
@@ -6459,9 +6461,10 @@ body {
 	background-color: #2A2A2A;
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 13px;
-	line-height: 18px;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
 	color: #555;
+	overflow-y: hidden;
+	height: 100%;
 }
 
 h4 {

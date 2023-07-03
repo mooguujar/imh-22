@@ -3166,7 +3166,7 @@ var RBChatChattingContentPaneUI = (function () {
             if (t) {
                 t.scrollTop = t.scrollHeight;
             }
-        }, 50)
+        }, 800)
 
         this.$chatBox[0].scrollTop = this.$chatBox[0].scrollHeight; // [0]是何意？待考证
     };
