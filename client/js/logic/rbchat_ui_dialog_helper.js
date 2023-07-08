@@ -275,6 +275,12 @@ var RBChatDialogHelper = (function () {
             window.showCopyPic = false;
             //$("#dialog-"+dialogId).hide();
             that.closeDialog(dialogId);
+            var obj_show = {
+                isShowBar : 'true',
+                from:'chat'
+            }
+            // 底部tab展示，
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
         };
 
         // 关闭按钮点击事件处理

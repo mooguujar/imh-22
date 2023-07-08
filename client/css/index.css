@@ -2367,7 +2367,7 @@ lesshat-selector { -lh-property: 0 }
 #im-verification-reminders-list-wrapper .kchat-talk-list-empty {position: inherit;}
 /*#im-verification-reminders-list-wrapper .icon-talk1 {font-size: 60px;}*/
 #im-verification-reminders-list-wrapper .kchat-talk-list-group li {border-bottom: 1px solid #eef0f5;}
-#im-verification-reminders-list-wrapper .kchat-talk-list-group li .info p span{ max-width: 300px; display: inline-block; white-space: nowrap;text-overflow: ellipsis; overflow: hidden;}
+#im-verification-reminders-list-wrapper .kchat-talk-list-group li .info p span{ max-width: 50%; display: inline-block; white-space: nowrap;text-overflow: ellipsis; overflow: hidden;}
 #im-verification-reminders-list-wrapper .kchat-talk-list-group li .info a.reject {float: right;color: #ff4d4f;margin-right: 0px;padding: 0 10px;height: 18px;line-height: 18px;}
 #im-verification-reminders-list-wrapper .kchat-talk-list-group li .info a.agree {float: right;margin-right: 10px;color: #21d376;padding: 0 10px;height: 18px;line-height: 18px;}
 /* 20190108: 以下css样式专为优化在dialog中显示的好友验证请求列表的UI END */
