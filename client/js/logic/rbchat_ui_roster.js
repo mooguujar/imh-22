@@ -63,6 +63,12 @@ var RBChatRosterUI = (function () {
 
         // 点击添加好友按钮的事件处理
         this.$addFriendBtn.click(function(event){
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
             RBChatDialogHelper.showQueryUserForm();
             event.stopPropagation();  //阻止冒泡
         });

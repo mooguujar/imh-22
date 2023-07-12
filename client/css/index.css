@@ -2640,7 +2640,7 @@ lesshat-selector { -lh-property: 0 }
 /* 20161227 by js: 为美化item样式修改了“height:24px;”为现值 */
 /* 20210327：因美华未读数ui，将原“padding: 10px 15px;”改为了现值 */
 .kchat-talk-list-group li { position: relative; padding: 10px 13px; cursor: default; height: 40px; margin-bottom: 1px; -webkit-box-sizing:initial !important;-moz-box-sizing: initial !important; box-sizing: initial !important; }
-/*.kchat-talk-list-group li:last-child { margin-bottom: 35px }*/
+.kchat-talk-list-group li:last-child { padding-bottom: 135px; }
 .kchat-talk-list-group li:hover {cursor: pointer; background: #dcf1fe;/*#eff2f6*/ }
 .kchat-talk-list-group li:hover .info time { background: #eff2f6 }
 .kchat-talk-list-group li.active { background: #dcf1fe;/*#eff2f6*/ }
@@ -5575,7 +5575,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	position: fixed;
 	z-index: 13;
 	width: 100%;
-	top: 60px;
+	top: 0px;
 	left: 0;
 	min-width: 328px;
 	background: #FFFFFF;
@@ -6770,7 +6770,7 @@ div.caption {
 .input_box{display: flex;flex-direction: column;z-index: 999;}
 .input_box_{position: relative; display: flex;align-items: center;justify-content: space-between;}
 #dk_img{width: 76px;height: 26px;}
-.new-search-dom{display: flex;align-items: center;justify-content: space-between;}
+.new-search-dom{display: flex;align-items: center;justify-content: space-between;padding: 15px 0 10px 0}
 #im-group-member-list-content{padding-bottom: 200px;}
 #upload-mul-video img{width: 21px;height: 21px;object-fit: cover;margin-top: 5px;}
 /*-------------------------- 以下样式引用自webui END -----------------------*/

@@ -76,6 +76,12 @@ var RBChatGroupsUI = (function () {
 
         // 点击添加好友按钮的事件处理
         this.$createGroupBtn.click(function(event){
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
             // 显示创建群聊对话框
             RBChatDialogHelper.showCreateGroupDialog();
             // 阻止事件冒泡
