@@ -70,7 +70,9 @@
 
     if(_isMobile()){
         const im_pid = getUrlKey('pid');
+        const usertype = getUrlKey('usertype');
         sessionStorage.setItem('im_pid', im_pid);
+        sessionStorage.setItem('usertype', usertype);
         doLogin();
     }
 

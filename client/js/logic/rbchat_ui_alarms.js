@@ -847,6 +847,7 @@ var RBChatAlarmsUI = (function () {
             }
             // 底部tab展示，
             window.parent.postMessage(JSON.stringify(obj_show),'*');
+            $(".bootQuestion").css({ 'display': 'none' })
             //// 取出vid值
             ////var vid = $("#online_li_vid_"+visitorId).attr('im-date');
            

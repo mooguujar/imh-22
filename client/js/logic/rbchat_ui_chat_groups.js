@@ -76,6 +76,15 @@ var RBChatGroupsUI = (function () {
 
         // 点击添加好友按钮的事件处理
         this.$createGroupBtn.click(function(event){
+            const usertype =  Number(sessionStorage.getItem('usertype'))
+            if(usertype){
+                const showSqdLOgin = {
+                    isNeedLogon : 'true',
+                    from:'chat'
+                }
+                window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+                return
+            }
             var obj_show = {
                 isShowBar : 'false',
                 from:'chat'
@@ -192,6 +201,7 @@ var RBChatGroupsUI = (function () {
             }
             // 底部tab展
             window.parent.postMessage(JSON.stringify(obj_show),'*');
+            $(".bootQuestion").css({ 'display': 'none' })
             // 取出uid值
             //var vid = $("#online_li_vid_"+visitorId).attr('im-date');
 

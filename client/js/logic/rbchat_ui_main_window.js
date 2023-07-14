@@ -688,6 +688,7 @@ var RBChatMainWindowUI = (function () {
     })
 
     const im_pid = Number(sessionStorage.getItem('im_pid'))
+    const usertype =  Number(sessionStorage.getItem('usertype'))
     if(!im_pid){
         $("#dk_img").remove()
     } else {
@@ -701,8 +702,37 @@ var RBChatMainWindowUI = (function () {
         $('.nav_bar').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
     }
 
+    if(usertype){
+        $(".bootQuestion").css({ 'display': 'block' })
+        $(".sqd_need_login").css({ 'display': 'block' })
+        $(".input_box_").css({ 'opacity': '0' })
+        $(".top-bar").css({ 'pointer-events': 'none' })
+        if(im_pid == 1){
+            $('.bootQuestion').css({ 'background': '#ffdc30' })
+            $('.sqd_need_login').css({ 'background': '#ffdc30' })
+        } else {
+            $('.bootQuestion').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+            $('.sqd_need_login').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+        }
+    }
 
-    window.addEventListener('message', function (e) {  // 监听 message 事件
+    $('.bootQuestion').click(function () {
+        var showSqdLOgin = {
+            isNeedLogon : 'true',
+            from:'chat'
+        }
+        window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+    })
+    $('.sqd_need_login').click(function () {
+        var showSqdLOgin = {
+            isNeedLogon : 'true',
+            from:'chat'
+        }
+        window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+    })
+
+    // 监听 message 事件
+    window.addEventListener('message', function (e) {
         $('.first-my-minapp').hide();
         const e_data = JSON.parse(e.data).index
         if (e_data == 0) {
