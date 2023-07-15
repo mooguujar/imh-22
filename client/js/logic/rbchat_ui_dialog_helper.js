@@ -275,6 +275,13 @@ var RBChatDialogHelper = (function () {
             window.showCopyPic = false;
             //$("#dialog-"+dialogId).hide();
             that.closeDialog(dialogId);
+            var obj_show = {
+                isShowBar : 'true',
+                from:'chat'
+            }
+            // 底部tab展示，
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
+            $(".bootQuestion").css({ 'display': 'block' })
         };
 
         // 关闭按钮点击事件处理
@@ -1894,6 +1901,17 @@ var RBChatDialogHelper = (function () {
 
                             // 为每一行item里的“同意”、“拒绝”按钮添加点击事件（必须要等到html是示到页面里后才能加事件，否则无法操作DOM对象哟）
                             var fn_clickButton = function (event) {
+                                const usertype =  Number(sessionStorage.getItem('usertype'))
+                                if(usertype){
+                                    const showSqdLOgin = {
+                                        isNeedLogon : 'true',
+                                        from:'chat',
+                                        isPopUps: 'true',
+                                        message: '请登录后再操作'
+                                    }
+                                    window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+                                    return
+                                }
                                 // 取出uid值
                                 var srcUid = $(this).attr('srcuid');
                                 // 取出action类型(见上方的html拼接内容， 0-表示同意、1-表示拒绝)

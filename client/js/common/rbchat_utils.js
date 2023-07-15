@@ -1051,6 +1051,16 @@
             $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
+                var obj_show = {
+                    isShowBar : 'true',
+                    from:'chat'
+                }
+                // 底部tab展示，
+                window.parent.postMessage(JSON.stringify(obj_show),'*');
+                const usertype =  Number(sessionStorage.getItem('usertype'))
+                if(usertype){
+                    $(".bootQuestion").css({ 'display': 'block' })
+                }
                 $('#phone_chat').hide();
             })
 

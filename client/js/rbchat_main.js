@@ -691,7 +691,10 @@
                             var groupInfo = JSON.parse(returnValue);
                             // 判断是否是群主或者管理员
                             if (!(groupInfo.g_owner_user_uid == myUserId || groupInfo.manage_mark - 0 == 1)) {
-                                $('#kchat-im-panel-main-chat-textarea').css('pointer-events', 'none');
+                                const usertype =  Number(sessionStorage.getItem('usertype'))
+                                if(!usertype){
+                                    $('#kchat-im-panel-main-chat-textarea').css('pointer-events', 'none');
+                                }
                                 $('#im-panel-inputcontent').attr('placeholder', '禁言中 …')
                                 $('#im-panel-inputcontent').attr('disabled', true)
                                 $('#im-panel-inputcontent').val('');

@@ -1252,6 +1252,7 @@ var RBChatChattingContentPaneUI = (function () {
     }
 
 
+
     /**
      * 刷新表情面板.
      * 
@@ -1984,6 +1985,17 @@ var RBChatChattingContentPaneUI = (function () {
         // 红包点击事件
         if (red_obj) {
             $("#" + red_obj.walletId + "_id_clck").click(function () {
+                const usertype =  Number(sessionStorage.getItem('usertype'))
+                if(usertype){
+                    const showSqdLOgin = {
+                        isNeedLogon : 'true',
+                        from:'chat',
+                        isPopUps: 'true',
+                        message: '请登录后后再领取红包'
+                    }
+                    window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+                    return
+                }
                 // 点击领取红包
                 var localUserUid = LocalUserInfo.getUid();
                 //领取红包详情
@@ -3166,7 +3178,7 @@ var RBChatChattingContentPaneUI = (function () {
             if (t) {
                 t.scrollTop = t.scrollHeight;
             }
-        }, 50)
+        }, 800)
 
         this.$chatBox[0].scrollTop = this.$chatBox[0].scrollHeight; // [0]是何意？待考证
     };

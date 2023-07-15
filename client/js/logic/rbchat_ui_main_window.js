@@ -594,7 +594,7 @@ var RBChatMainWindowUI = (function () {
     // 判断是否是手机
     if (_isMobile()) {
         $('#header_i').css({ 'display': 'block' })
-        $('#footer_i').css({ 'display': 'flex' })
+        $('#footer_i').css({ 'display': 'none' })
         $('#pc-kchat-im-panel-main').empty();
         $('#im-panel-header-setup-popup').empty();
         $('.chat-user-info').css({ 'padding-top': '70px' });
@@ -678,10 +678,17 @@ var RBChatMainWindowUI = (function () {
 
     // 查看全部点击
     $('#query-my-minapp-all').click(function(){
+        var obj_show = {
+            isShowBar : 'false',
+            from:'chat'
+        }
+        // 底部tab展
+        window.parent.postMessage(JSON.stringify(obj_show),'*');
         RBChatDialogHelper.showMyMinAppInfo();
     })
 
     const im_pid = Number(sessionStorage.getItem('im_pid'))
+    const usertype =  Number(sessionStorage.getItem('usertype'))
     if(!im_pid){
         $("#dk_img").remove()
     } else {
@@ -695,6 +702,91 @@ var RBChatMainWindowUI = (function () {
         $('.nav_bar').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
     }
 
+    if(usertype){
+        $(".bootQuestion").css({ 'display': 'block' })
+        $(".sqd_need_login").css({ 'display': 'block' })
+        $(".input_box_").css({ 'opacity': '0' })
+        $(".top-bar").css({ 'pointer-events': 'none' })
+        if(im_pid == 1){
+            $('.bootQuestion').css({ 'background': '#ffdc30' })
+            $('.sqd_need_login').css({ 'background': '#ffdc30' })
+        } else {
+            $('.bootQuestion').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+            $('.sqd_need_login').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+        }
+    }
+
+    $('.bootQuestion').click(function () {
+        var showSqdLOgin = {
+            isNeedLogon : 'true',
+            from:'chat'
+        }
+        window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+    })
+    $('.sqd_need_login').click(function () {
+        var showSqdLOgin = {
+            isNeedLogon : 'true',
+            from:'chat'
+        }
+        window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+    })
+
+    // 监听 message 事件
+    window.addEventListener('message', function (e) {
+        $('.first-my-minapp').hide();
+        const e_data = JSON.parse(e.data).index
+        if (e_data == 0) {
+            $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
+            $('#phone_center').css({ 'display': 'none' })
+            $('.search').css({ 'display': 'block' })
+            $('.nav_bar_t').html('联系人')
+        } else if (e_data == 1) {
+            $('#phone_center').css({ 'display': 'none' })
+            $('.search').css({ 'display': 'block' })
+            $('.nav_bar_t').html('消息')
+            if($('.first-my-minapp-row2').children().length > 0){
+                $('.first-my-minapp').show();
+            }
+            RBChatUtils.showFirstPageMinApp();
+        } else if (e_data == 2) {
+            $('#kchat-im-panel-userlist-groups-phone li').css('display', '')
+            $('#phone_center').css({ 'display': 'none' })
+            $('.search').css({ 'display': 'block' })
+            $('.nav_bar_t').html('群组')
+        } else {
+            $('#phone_center').css({ 'display': 'block' })
+        }
+
+        window.tab_select = e_data;
+        showCenter(e_data);
+        $('#cancel').click();
+
+
+        // 选中字体颜色
+        $('.dom_item').removeClass('nav_active');
+        $('.dom_item').css({ 'background': 'none' })
+        $(this).addClass('nav_active');
+        if(im_pid == 1){
+            $('.nav_active').css({ 'background': '#ffdc30' })
+        } else {
+            $('.nav_active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+        }
+
+
+        // 控制顶部导航栏右侧按钮
+        $.each($('.nav_bar_r'), function (index, value) {
+            if (e_data == index) {
+                if(e_data == 1 || window.tab_select == 1){
+                    $(".nav_bar").addClass('hidden');
+                } else {
+                    $(".nav_bar").removeClass('hidden');
+                }
+                $(`#nav_bar_r_${index}`).removeClass('hidden');
+            } else {
+                $(`#nav_bar_r_${index}`).addClass('hidden');
+            }
+        });
+    });
 
     // 移动端footer点击效果
     $('.dom_item').click(function () {

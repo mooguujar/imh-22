@@ -63,6 +63,21 @@ var RBChatRosterUI = (function () {
 
         // 点击添加好友按钮的事件处理
         this.$addFriendBtn.click(function(event){
+            const usertype =  Number(sessionStorage.getItem('usertype'))
+            if(usertype){
+                const showSqdLOgin = {
+                    isNeedLogon : 'true',
+                    from:'chat'
+                }
+                window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
+                return
+            }
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
             RBChatDialogHelper.showQueryUserForm();
             event.stopPropagation();  //阻止冒泡
         });
@@ -737,6 +752,13 @@ var RBChatRosterUI = (function () {
 
         // item点击事件
         $("#roster_li_uid_"+uid).click(function(){
+            var obj_show = {
+                isShowBar : 'false',
+                from:'chat'
+            }
+            // 底部tab展
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
+            $(".bootQuestion").css({ 'display': 'none' })
             // 取出uid值
             //var vid = $("#online_li_vid_"+visitorId).attr('im-date');
 

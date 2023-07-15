@@ -914,7 +914,11 @@ var RBChatRightDetailUI = (function () {
                         if(groupInfo.forbid_status - 0 == 1){
                             // 群主和管理不受禁言控制
                             if(!(groupInfo.manage_mark - 0 == 1 || groupInfo.g_owner_user_uid == myUserId)){
-                                $('#kchat-im-panel-main-chat-textarea').css('pointer-events','none');
+                                const usertype =  Number(sessionStorage.getItem('usertype'))
+                                if(!usertype){
+                                    $('#kchat-im-panel-main-chat-textarea').css('pointer-events','none');
+
+                                }
                                 $('#im-panel-inputcontent').attr('placeholder','禁言中 …')
                                 $('#im-panel-inputcontent').attr('disabled',true)
                                 $('#im-panel-inputcontent').val('');

@@ -193,7 +193,7 @@
                 </div>
 
                 <!-- 动态组织的数据UI -->
-                <ul id="kchat-im-panel-userlist-alarms-phone" style="padding-bottom: 300px;overflow-x: hidden">
+                <ul id="kchat-im-panel-userlist-alarms-phone" style="padding-bottom: 200px;overflow-x: hidden">
                     <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
                 </ul>
             </div>
@@ -240,7 +240,7 @@
                 </ul>
             </div>
 
-
+            <div class='bootQuestion'>点击登录后解锁更多群聊</div>
         </header>
         <!-- ***************************************** 手机版顶部导航栏 END ************************************** -->
 
@@ -651,7 +651,7 @@
                                         </li> -->
 
                                         <li id="upload-mul-video" >
-                                            <i class="icon-chat2" onclick="$('#upload-mul-video-input').click();" title="发送多个视频"></i>
+                                            <i class="icon-chat2" onclick="$('#u   pload-mul-video-input').click();" title="发送多个视频"></i>
                                             <input type="file" multiple id="upload-mul-video-input" style="display: none;">
                                         </li>
 <!-- 
@@ -934,7 +934,7 @@
                 <div class="chat_top_r" id="chat_top_detail"><img class="head_san" src="images/im_b_img/geng_3.png" alt=""></div>
             </div>
             <div class="container_chat">
-                <div class="kchat-im-panel-main" style="height: 100%;width: auto !important">
+                <div class="kchat-im-panel-main" id="viewer_img" style="height: 100%;width: auto !important">
                     <!-- 中间聊天内容显示区（也是IM中最重要的信息区） -->
                     <div id="im-panel-main-chatcontentpane-toplevel" class="kchat-im-panel-main-chat list1">
                         <div class="tip-my-root" id="im-panel-main-chat-tip-me"
@@ -1037,7 +1037,7 @@
                                         </li> -->
 
                                         <li id="upload-mul-video" >
-                                            <i class="icon-chat2" onclick="$('#upload-mul-video-input').click();" title="发送多个视频"></i>
+                                            <img class="icon-chat2" src="images/ic_send_video.png" onclick="$('#upload-mul-video-input').click();" title="发送多个视频">
                                             <input type="file" multiple id="upload-mul-video-input" style="display: none;">
                                         </li>
                                         <!--
@@ -1064,6 +1064,7 @@
 
                                     </ul>
                                 </div>
+                                <div class="sqd_need_login">登录后参与聊天</div>
                             </div>
 
                         </div>
