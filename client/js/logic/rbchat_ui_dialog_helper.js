@@ -1905,7 +1905,9 @@ var RBChatDialogHelper = (function () {
                                 if(usertype){
                                     const showSqdLOgin = {
                                         isNeedLogon : 'true',
-                                        from:'chat'
+                                        from:'chat',
+                                        isPopUps: 'true',
+                                        message: '请登录后再操作'
                                     }
                                     window.parent.postMessage(JSON.stringify(showSqdLOgin),'*');
                                     return
