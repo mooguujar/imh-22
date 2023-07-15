@@ -1055,7 +1055,10 @@
                 }
                 // 底部tab展示，
                 window.parent.postMessage(JSON.stringify(obj_show),'*');
-                $(".bootQuestion").css({ 'display': 'block' })
+                const usertype =  Number(sessionStorage.getItem('usertype'))
+                if(usertype){
+                    $(".bootQuestion").css({ 'display': 'block' })
+                }
                 $('#phone_chat').hide();
             })
 
