@@ -735,6 +735,9 @@ var RBChatMainWindowUI = (function () {
     window.addEventListener('message', function (e) {
         $('.first-my-minapp').hide();
         const e_data = JSON.parse(e.data).index
+        if(!e_data){
+            return;
+        }
         if (e_data == 0) {
             $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
             $('#phone_center').css({ 'display': 'none' })
@@ -756,7 +759,6 @@ var RBChatMainWindowUI = (function () {
         } else {
             $('#phone_center').css({ 'display': 'block' })
         }
-
         window.tab_select = e_data;
         showCenter(e_data);
         $('#cancel').click();
@@ -791,6 +793,9 @@ var RBChatMainWindowUI = (function () {
     // 移动端footer点击效果
     $('.dom_item').click(function () {
         var _index = $(this).index();
+        if(!_index){
+            return
+        }
         $('.first-my-minapp').hide();
         if (_index == 0) {
             $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
