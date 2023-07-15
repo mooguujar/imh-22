@@ -62,7 +62,7 @@ var RBChatChattingContentPaneUI = (function () {
                         // 获取到 
                         const t = $('#im-panel-main-chatcontentpane').children().eq(0);
                         RBChatChattingContentPaneUI.insertChatItems(temp_list.reverse(), true, false);
-                        $('#im-panel-main-chatcontentpane-wrap').animate({ scrollTop: t.offset().top }, 100);
+                        $('#im-panel-main-chatcontentpane-wrap').animate({ scrollTop: t.offset()? t.offset().top:0}, 100);
 
                     } else if (top > 0) {
                         var temp_list = list.slice(0, top)
@@ -70,7 +70,7 @@ var RBChatChattingContentPaneUI = (function () {
                         // 获取到 
                         const t = $('#im-panel-main-chatcontentpane').children().eq(0);
                         RBChatChattingContentPaneUI.insertChatItems(temp_list.reverse(), true, false);
-                        $('#im-panel-main-chatcontentpane-wrap').animate({ scrollTop: t.offset().top }, 100);
+                        $('#im-panel-main-chatcontentpane-wrap').animate({ scrollTop: t.offset() ? t.offset().top:0 }, 100);
                     }
                 }
             }

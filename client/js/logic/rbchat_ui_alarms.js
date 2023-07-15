@@ -1110,8 +1110,8 @@ var RBChatAlarmsUI = (function () {
 
         // ** 【补充说明】：
         // 1）当点击的是好友或陌生人聊天消息item时，跟 rbchat_ui_module.js中的RBChatRosterUI对象的.selectFriend(..)函数的代码逻辑是一致的！
-
         RBChatUtils.showChatDetail();
+        
 
         var _selectedAlarmType = RBChatMainUI.getCurrentSelectedAlarmType();
         var _selectecAlarmDataId = RBChatMainUI.getCurrentSelectedAlarmDataId();

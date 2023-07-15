@@ -1046,6 +1046,8 @@
      */
     var _showChatDetail = function () {
         if (_isMobile()) {
+            $('#chat_top_name').empty();
+            $('#im-panel-main-chatcontentpane').empty();
             $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
