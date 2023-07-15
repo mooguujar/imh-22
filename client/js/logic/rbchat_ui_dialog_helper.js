@@ -281,7 +281,10 @@ var RBChatDialogHelper = (function () {
             }
             // 底部tab展示，
             window.parent.postMessage(JSON.stringify(obj_show),'*');
-            $(".bootQuestion").css({ 'display': 'block' })
+            const usertype =  Number(sessionStorage.getItem('usertype'))
+            if(usertype) {
+                $(".bootQuestion").css({'display': 'block'})
+            }
         };
 
         // 关闭按钮点击事件处理
