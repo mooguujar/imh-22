@@ -637,14 +637,14 @@
     var _playAudio = function (audioUrl) {
 
         if ('../../audio/audio_msg.mp3' == audioUrl) {
-            if (msg_timer) {
-                clearTimeout(msg_timer)
-                msg_timer = null;
-            }
-            msg_timer = setTimeout(function () {
-                let msg = new SpeechSynthesisUtterance("您有新消息");
-                window.speechSynthesis.speak(msg)
-            }, 500)
+            // if (msg_timer) {
+            //     clearTimeout(msg_timer)
+            //     msg_timer = null;
+            // }
+            // msg_timer = setTimeout(function () {
+            //     let msg = new SpeechSynthesisUtterance("您有新消息");
+            //     window.speechSynthesis.speak(msg)
+            // }, 500)
 
         } else {
             var device = _device();

@@ -630,10 +630,10 @@
                 };
             }
             m['limit'] = '1000'
-            // 手机端，默认加载100条数据
-            if(RBChatUtils.isMobile()){
-                m['limit'] = '100'
-            }
+            // // 手机端，默认加载100条数据
+            // if(RBChatUtils.isMobile()){
+            //     m['limit'] = '100'
+            // }
 
             _jsonpFromHttpRestServer(MyProcessorConst.PROCESSOR_LOGIC, JobDispatchConst.LOGIC_COMMON_QUERY_MGR, SysActionConst.ACTION_APPEND2
                 , JSON.stringify(m), null
