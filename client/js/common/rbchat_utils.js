@@ -1041,6 +1041,7 @@
     });
 
 
+
     /**
      * 显示会话详情
      */
@@ -1063,7 +1064,6 @@
                 }
                 $('#phone_chat').hide();
             })
-
             $('#chat_top_detail').unbind('click');
             var open = false;
             $('#container_info').hide();
@@ -1102,6 +1102,25 @@
         }
     }
 
+    window.addEventListener('message',function (e){
+        if(e.data){
+            const obj =  JSON.parse(e.data)
+            if(obj.backPrevious == 'true'){
+                console.log('監聽上了')
+                var obj_show = {
+                    isShowBar : 'true',
+                    from:'chat'
+                }
+                // 底部tab展示，
+                window.parent.postMessage(JSON.stringify(obj_show),'*');
+                const usertype =  Number(sessionStorage.getItem('usertype'))
+                if(usertype){$(".bootQuestion").css({ 'display': 'block' })}
+                $('#phone_chat').hide();
+            }
+        }
+    })
+    window.removeEventListener('message',function (e){})
+
     /**
      * 显示iframe
      * @param {*} url 
@@ -1139,6 +1158,9 @@
                 + '   </div>'
                 + '</div>';
         }
+
+
+
 
 
 
