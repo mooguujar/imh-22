@@ -1125,8 +1125,7 @@ var RBChatAlarmsUI = (function () {
 
         // 如果当前item已经被选中过了，就不需要再次触发selected了
         //d.getElementById("IM-chat-visitorName").innerHTML = constructVisitorName(visitorId);
-        if ((_selectedAlarmType != -1 && alarmMessageType != -1 && _selectedAlarmType === alarmMessageType)
-            && (_selectecAlarmDataId && dataId && _selectecAlarmDataId === dataId)) {
+        if (false) {
             // console.log('【首页\"消息\"处理】当前item已处于selected状态，无需再次触发selected处理(当前已选中_selectedContentType='
             //     +_selectedAlarmType+' | _selectecContentId='
             //     + _selectecAlarmDataId+", 马上将要选中alarmMessageType="+alarmMessageType+"|dataId="+dataId+")");
