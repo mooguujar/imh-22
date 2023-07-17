@@ -735,56 +735,73 @@ var RBChatMainWindowUI = (function () {
     window.addEventListener('message', function (e) {
         $('.first-my-minapp').hide();
         const e_data = JSON.parse(e.data).index
-        if (e_data == 0) {
-            $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('联系人')
-        } else if (e_data == 1) {
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('消息')
-            if($('.first-my-minapp-row2').children().length > 0){
-                $('.first-my-minapp').show();
-            }
-            RBChatUtils.showFirstPageMinApp();
-        } else if (e_data == 2) {
-            $('#kchat-im-panel-userlist-groups-phone li').css('display', '')
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('群组')
-        } else {
-            $('#phone_center').css({ 'display': 'block' })
-        }
-        window.tab_select = e_data;
-        showCenter(e_data);
-        $('#cancel').click();
-
-
-        // 选中字体颜色
-        $('.dom_item').removeClass('nav_active');
-        $('.dom_item').css({ 'background': 'none' })
-        $(this).addClass('nav_active');
-        if(im_pid == 1){
-            $('.nav_active').css({ 'background': '#ffdc30' })
-        } else {
-            $('.nav_active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
-        }
-
-
-        // 控制顶部导航栏右侧按钮
-        $.each($('.nav_bar_r'), function (index, value) {
-            if (e_data == index) {
-                if(e_data == 1 || window.tab_select == 1){
-                    $(".nav_bar").addClass('hidden');
-                } else {
-                    $(".nav_bar").removeClass('hidden');
+        const obj =  JSON.parse(e.data)
+        if(e_data){
+            if (e_data == 0) {
+                $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
+                $('#phone_center').css({ 'display': 'none' })
+                $('.search').css({ 'display': 'block' })
+                $('.nav_bar_t').html('联系人')
+            } else if (e_data == 1) {
+                $('#phone_center').css({ 'display': 'none' })
+                $('.search').css({ 'display': 'block' })
+                $('.nav_bar_t').html('消息')
+                if($('.first-my-minapp-row2').children().length > 0){
+                    $('.first-my-minapp').show();
                 }
-                $(`#nav_bar_r_${index}`).removeClass('hidden');
+                RBChatUtils.showFirstPageMinApp();
+            } else if (e_data == 2) {
+                $('#kchat-im-panel-userlist-groups-phone li').css('display', '')
+                $('#phone_center').css({ 'display': 'none' })
+                $('.search').css({ 'display': 'block' })
+                $('.nav_bar_t').html('群组')
             } else {
-                $(`#nav_bar_r_${index}`).addClass('hidden');
+                $('#phone_center').css({ 'display': 'block' })
             }
-        });
+            window.tab_select = e_data;
+            showCenter(e_data);
+            $('#cancel').click();
+
+
+            // 选中字体颜色
+            $('.dom_item').removeClass('nav_active');
+            $('.dom_item').css({ 'background': 'none' })
+            $(this).addClass('nav_active');
+            if(im_pid == 1){
+                $('.nav_active').css({ 'background': '#ffdc30' })
+            } else {
+                $('.nav_active').css({ 'background': 'linear-gradient(to bottom right, #19abf5, #68ff87)' })
+            }
+
+
+            // 控制顶部导航栏右侧按钮
+            $.each($('.nav_bar_r'), function (index, value) {
+                if (e_data == index) {
+                    if(e_data == 1 || window.tab_select == 1){
+                        $(".nav_bar").addClass('hidden');
+                    } else {
+                        $(".nav_bar").removeClass('hidden');
+                    }
+                    $(`#nav_bar_r_${index}`).removeClass('hidden');
+                } else {
+                    $(`#nav_bar_r_${index}`).addClass('hidden');
+                }
+            });
+        }
+
+
+        if(!e_data && obj.backPrevious == 'true'){
+            window.removeEventListener('message',function (e){})
+            var obj_show = {
+                isShowBar : 'true',
+                from:'chat'
+            }
+            // 底部tab展示，
+            window.parent.postMessage(JSON.stringify(obj_show),'*');
+            const usertype =  Number(sessionStorage.getItem('usertype'))
+            if(usertype){$(".bootQuestion").css({ 'display': 'block' })}
+            $('#phone_chat').hide();
+        }
     });
 
     // 移动端footer点击效果
