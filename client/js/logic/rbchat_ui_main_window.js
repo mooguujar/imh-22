@@ -736,7 +736,7 @@ var RBChatMainWindowUI = (function () {
         $('.first-my-minapp').hide();
         const e_data = JSON.parse(e.data).index
         const obj =  JSON.parse(e.data)
-        if(e_data){
+        if(e_data !=null && e_data !=undefined){
             if (e_data == 0) {
                 $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
                 $('#phone_center').css({ 'display': 'none' })
