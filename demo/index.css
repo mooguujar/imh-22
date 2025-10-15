@@ -1,0 +1,75 @@
+*, *:before, *:after {-webkit-box-sizing: border-box;box-sizing: border-box;-webkit-text-size-adjust: none;-ms-text-size-adjust: none;text-size-adjust: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+*:focus {outline: none;}
+body { background: #f0f2f6;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, field set, legend, input, textarea, p, blockquote, th, td {margin: 0;padding: 0;-webkit-appearance: none;}
+input, textarea, select {font-family: inherit;font-size: inherit;font-weight: inherit;}
+input:password {ime-mode: disabled;}
+ul {margin: 0;list-style: none;}
+a {color: #2982e5;text-decoration: none;}
+a:active {color: #f60;}
+button:active, button[disabled] {color: #999;}
+
+#doc { height: 100%; line-height: 1.4;margin-top: 68px;}
+
+.message {border-bottom: 0; /*background-color:#efeff4;*/ /*min-height:300px;*/padding-bottom: 60px; }
+.message:after {display: block;clear: both;height: 0;content: "\0020";}
+
+section {padding: 10px;clear: both;}
+section.service{float: left;}
+section.service > div{max-width: 250px;display: inline-block;position: relative;padding: 12px;margin: 0 20px 0 10px;border-radius: 10px;background-color: #fff;box-shadow: inset 0 0 1px #fff;vertical-align: top;}
+section.service > div:before{content: "";position: absolute;left: -5px;top: 4px;width: 0;height: 0;border-top: solid transparent;border-right: 7px solid #fff;border-bottom: 4px solid transparent;}
+
+section.user {float: right;text-align: right;}
+section.user > div {max-width: 250px;position: relative;display: inline-block;padding: 10px;margin: 0 10px 0 7px;text-align: left;border-radius: 10px;color: #000;box-shadow: inset 0 0 1px #a9e99a;background-color: #a9e99a;vertical-align: top;word-break: break-all;}
+section.user > div:before {content: "";position: absolute;right: -5px;top: 4px;width: 0;height: 0;border-top: solid transparent;border-left: 7px solid #a9e99a;border-bottom: 4px solid transparent;}
+
+.system {text-align: center;color: #999;font-size: .8em;padding: 1px;margin: 10px 10px 10px 10px;}
+section .msg-system {/*color: #999;*/font-size: 12px;color: #979ca6;background: #e5e7ec;display: inline-block;padding: 5px 15px 5px 15px;border-radius: 12px;}
+section .msg-system .msg-system-time {color: #ccc;margin-left: 10px;display: inline-block;}
+section, section a {font-size: 16px;}
+section .msg-system a {font-size: 13px;}
+section .msg-system a.isClicked {color: #999;}
+
+.user > span {font-weight: normal;font-size: 14px;color: #f60;max-width: 60px;height: 36px;overflow: hidden;float: right;}
+.service > span {max-width: 60px;height: 36px;font-weight: normal;font-size: 14px;color: #999;overflow: hidden;float: left;}
+.service > time {display: none;}
+
+.action button {border: none;border-radius: 6px;color: #fff;height: 34px;width: 68px;text-align: center;background: #5bc668;box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 10%);}
+.action button:active,
+.action button[disabled] {color: #fff;background-color: #1F771C;}
+.action button:focus {outline: thin dotted #333;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+.action button[disabled] {cursor: default;background-color: #ccc;background-image: none;border-color: #ccc;box-shadow: none;}
+.input-box button {font-size: 15px;/*margin-left:11px;*/float: right;}
+.input-box {display: -webkit-box;display: -ms-flexbox;display: -moz-box;position: fixed;bottom: 0;padding: 10px 10px;width: 100%;background-color: #fff;height: 100px;border-top: 1px #e8e8e8 solid;box-shadow: 0px -20px 21px -22px rgb(0 0 0 / 10%);}
+.input-box .input {-webkit-box-flex: 1;-ms-flex: 1;-moz-box-flex: 1;background-color: #fff;-webkit-box-flex: 1;/*height: 28px;*/line-height: 25px;}
+.input input {margin: 0;float: left;padding: 0 8px;height: 34px;width: 80%;font-size: 14px;background-color: #f7f9fc;border: none;-webkit-border-radius: 6px;border-radius: 6px;color: #000;/*box-shadow:0 0 1px #000;*/border: 1px solid #e9e9e9;box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);}
+.input input[disabled] {background-color: #eee;}
+
+#chatbox #chatbox_header { /*background:#3d3d3d;*/height: 58px;width: 100%;font-size: 12px;background: linear-gradient(134deg, #2e3746, #0e1a26);box-shadow: 0 2px 3px 0 rgb(4 5 13 / 23%);position: fixed;top: 0px;z-index: 999;}
+#chatbox #chatbox_header #chatbox_headerwrapper {line-height: 58px;color: #fff;}
+#chatbox #chatbox_header .chatbox_header_pname {text-align: left;margin-left: 10px;font-size: 18px;}
+#chatbox #chatbox_header .chatbox_header_pversion {margin-left: 2px;color: #ccc;}
+#chatbox_header_userinfo {float: right; margin-right: 10px;text-shadow: 0 1px 0 rgb(0 0 0 / 30%);}
+#netstatusicon:before {content: ""; height: 11px; width: 11px; display: inline-block; border-radius: 100%; margin-right: 4px;vertical-align: middle;}
+#netstatusicon.light:before {background-color: #FFFF00 !important;box-shadow: 0px 0px 10px 10px rgb(255 255 255 / 35%);}
+.net_ok #netstatusicon:before {background-color: #91e43c;}
+.net_warn #netstatusicon:before {background-color: #ff8c6f;}
+#showusername {font-weight: bold;}
+#onlinecount { font-size: 12px; margin-top: 10px; margin-left: 10px; color: #666;}
+
+
+/*************** 对weui的一些样式进行覆盖 *****************/
+#loginbox {background: none;max-width: 420px;margin: auto;}
+#loginbox .weui-cells {border-radius: 12px;}
+#loginbox .weui-cells:before {border-top:none;}
+#loginbox .weui-cells:after {border-bottom:none;}
+#loginbox .weui-form__title {color: #0e1a26;}
+#loginbox .weui-form__desc {color: #0e1a26;}
+#loginbox .weui-badge {background:linear-gradient(150deg, #fdb394, #f16528);vertical-align: text-top;}
+#loginbox .weui-cell__hd .weui-label {color: #0e1a26;}
+#loginbox .weui-form__opr-area .weui-btn {background-color: #5bc668;padding-top:6px;padding-bottom:6px;font-weight:normal;}
+#loginbox .weui-form__tips {color:#e8ac4f;}
+#loginbox .weui-footer__text {font-size: 14px;color: #a0a0a0;}
+#loginbox .weui-footer__link {margin: 0 3px;}
+#chatbox .weui-icon-warn {color: rgb(255, 69, 58);width: 10px;height: 10px;padding: 10px;}
+#chatbox .weui-icon-success {color: rgb(52, 199, 89);width: 10px;height: 10px;padding: 10px;}

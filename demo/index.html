@@ -1,0 +1,117 @@
+<!-- 本文件是MobileIMSDK-Web版Demo的主页，为纯html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+    <title>MobileIMSDK-H5技术特征演示</title>
+    <link rel="stylesheet" type="text/css" href="./weui/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="./index.css?v=10" />
+  </head>
+
+  <body>
+
+    <!--【登录界面层（登陆UI的布局参考的是WeUI的范例，链接：https://weui.io/#form_page）】-->
+    <div id="loginbox" class="weui-form">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">欢迎使用</h2>
+        <div class="weui-form__desc">MobileIMSDK-H5端的技术特征演示程序，当前SDK版本 <span class="weui-badge">v6.4</span></div>
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <div class="weui-cells">
+            <label for="loginNameInput" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">登录账号</span></div>
+              <div class="weui-cell__bd">
+                <input id="loginNameInput" class="weui-input" placeholder="账号随意，唯一即可">
+              </div>
+            </label>
+            <label for="loginPswInput" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">登录密码</span></div>
+              <div class="weui-cell__bd">
+                <input id="loginPswInput" class="weui-input" placeholder="演示密码，随意输入">
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__opr-area">
+        <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="loginButton">确定</a>
+      </div>
+      <div class="weui-form__tips-area">
+        <p class="weui-form__tips login_hint"></p>
+      </div>
+      <div class="weui-form__extra-area">
+        <div class="weui-footer">
+          <p class="weui-footer__text">
+            Developed by<a href="https://gitee.com/jackjiang/MobileIMSDK/" class="weui-footer__link">Jack Jiang</a>
+          </p>
+          <p class="weui-footer__text">Copyright © 2023 52im.net</p>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------------- 登录和主界面代码分隔线 ------------------------------------->
+
+    <!--【整个聊天界面层（成功登录后显示）】-->
+    <div id="chatbox" style="display:none;">
+
+      <!--【头部提示信息区】-->
+      <div id="chatbox_header">
+        <div id="chatbox_headerwrapper">
+          <span class="chatbox_header_pname">MobileIMSDK-H5</span>
+          <span class="chatbox_header_pversion">v6.4</span>
+          <span id="chatbox_header_userinfo" class="net_warn">
+            <span id="netstatusicon" class=""></span>登陆名：<span id="showusername"></span>
+            <!-- |<a id="logoutButton" href="javascript:;" style="color:#fff;d">退出</a>-->
+          </span>
+        </div>
+      </div>
+
+      <!--【聊天消息区】-->
+      <div id="doc">
+        <div id="chat">
+
+          <!--【消息列表区】-->
+          <div id="message" class="message">
+            <section class="system"><div class="msg-system">当前通信层，基于标准HTML5的WebSocket</div></section>
+            <!-- TODO: 聊天消息将自动显示在本区域 -->
+          </div>
+
+          <!--【底部输入区】-->
+          <div class="input-box" style="height:auto;">
+            <div class="input">
+              <input type="text" maxlength="20" placeholder="接收者登陆名" id="receiver" style="width:15%;margin-right:8px;">
+              <input type="text" maxlength="140" placeholder="请输入聊天内容，按 Enter 键提交" id="content" name="content">
+            </div>
+            <div class="action">
+              <button type="button" id="sendMessageButton">发送</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../sdk/thirdpart/uuid.js"></script>
+    <script src="../sdk/thirdpart/hashmap.js"></script>
+    <script src="../sdk/module/mb_constants.js?101"></script>
+    <script src="../sdk/module/mb_core.js?99"></script>
+    <script src="../sdk/module/mb_daemon_auto_relogin.js?99"></script>
+    <script src="../sdk/module/mb_daemon_keep_alive.js?101"></script>
+    <script src="../sdk/module/mb_daemon_qos_recieve.js?99"></script>
+    <script src="../sdk/module/mb_daemon_qos_send.js?99"></script>
+    <script src="../sdk/module/mb_data_reciever.js?100"></script>
+    <script src="../sdk/module/mb_data_sender.js?99"></script>
+    <script src="../sdk/module/mb_socket_provider.js?99"></script>
+    <script src="../sdk/module/mb_utils.js?99"></script>
+    <script src="../sdk/mobileimsdk-client-sdk.js?100"></script>
+
+    <script src="./jquery/jquery-1.8.3.min.js"></script>
+    <script src="./index.js?119"></script>
+  </body>
+</html>
+
+<!-- 本页面在浏览器中的访问地址形如：http://192.168.0.191:3000/demo/index.html -->
