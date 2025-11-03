@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <!--<meta name="_csrf" value="54608fb909f4ba2a854e5cb2f975c56086af6a32">-->
+        <title>元友-在元友,去畅聊</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+        
+        
+        <!-- 20170112: im中的css为了兼容TkM的字体等专门作为兼容性调整，以下css专
+                门用于恢复这些特殊处理，以便本测试页成的样式不会变的很难看。合并到Tkmm
+                时，以下css是不需要合并过去的哦！！！ -->
+        <style>
+            /*.im-left-unreadmsg-flagnum {height: 12px;min-width: 12px;height: 12px;line-height: 12px;}*/
+            .kchat-im-panel-main-chat-textarea .top-bar {height: 35px; line-height: 35px;}
+            .kchat-im-panel-main-chat-textarea .top-bar li {line-height: 35px;}
+            #uploadifive-im-panel-main-chat-textarea-imagemsg-uploadify {line-height: 35px !important; height: 35px !important;padding-top: 1px;}
+            #uploadifive-im-panel-main-chat-textarea-filemsg-uploadify {line-height: 35px !important; height: 35px !important;}
+        </style>
+      <link rel="stylesheet" href="/assets/index-315965a3.css">
+    </head>
+
+    <body style="display: none">
+        <!--<body style="background: url(images/main_bg3.jpg) no-repeat;background-size:cover;">-->
+        <!-- 上方body中实现背景的方法，在IE Edge下无法实现全屏显示，20190809日改成了以下img的实现，可以兼容全部浏览器 -->
+        <img src='/assets/main_bg3-9c40eaaf.jpg' class='back-img' style="z-index:-1;position:fixed;width:100%;height:100%;left:0;top:0;"/>
+
+        <!-- header just for Jack Jiang Test START ! -->
+        <!--<div class="top-alert-box">
+          <div class="alert-bar alert-danger" style="display: block;">
+            当前没有其他客服在线
+            <a class="alert-bar-close"><i class="icon-close"></i></a>
+          </div>
+        </div>--> <!-- 信息提示UI -->
+
+
+        <!-- ***************************************** 整个网页头部区域 START ************************************ -->
+        <header id="header">
+            <h1 id="logo">
+                <a href="#" style="font-size: 22px;color: #fff;width: 244px;text-indent: 0;">
+                    <!--<img src="images/main_logo.png"/>-->
+                    <span id="logo_img"></span>
+                </a>
+            </h1>
+            <div class="header-flex-box">
+                <nav class="header-tag">
+                    <!--
+                    <ul class="header-tag-list">
+                      <li class="add-tag hover-dropdown"><a>+ 新工单</a>
+                        <div class="hover-dropdown-pane" style="display: none;">
+                          <ul>
+                            <li><a>添加新用户</a></li>
+                            <li><a>添加新公司组织</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>-->
+                </nav>
+                <div class="header-notification">
+                    <!--
+                    <div class="header-search">
+                      <label for="header-search">
+                        <input id="header-search" class="ember-text-field" type="search">
+                        <i class="icon-search"></i>
+                      </label>
+                      <nav class="search-menu" style="display:none;">
+                        <a class="active"> 在“工单”中搜索 </a>
+                        <a class=""> 在“用户”中搜索 </a>
+                        <a class=""> 在“社区”中搜索 </a>
+                        <a class=""> 在“公司组织”中搜索 </a>
+                        <a class=""> 在“知识库文档”中搜索 </a>
+                      </nav>
+                    </div>-->
+                    <ul class="notification-menu">
+                        <li class="active">
+                            <a class="cbutton cbutton--effect-jagoda" id="im-header-notification-menu-imbtn">
+                                <i class="icon-textsms"></i>
+                            </a>
+                            <div id="chat-section" class="plat-pane from-top at-right kca-pane"></div>
+                        </li>
+                        <!--
+                        <li>
+                          <a class="cbutton cbutton--effect-jagoda active" href="#/message">
+                            <i class="icon-notifications"></i>
+                          </a>
+                        </li>-->
+                    </ul>
+                    <!--
+                    <div class="header-avatar dropdown online">
+                      <a>
+                        <span class="pic">
+                          <img src="/images/icons/admin.jpg" data-bindattr-1656="1656" alt="">
+                        </span>
+                        <span>无名氏<i class="icon-expand-more"></i></span>
+                      </a>
+                      <div class="user-right-menu">
+                        <div class="user-right-menu-top">
+                          <a class="quit" href="/user/logout">退出登录</a>
+                          <a class="user-pic" href="#/user/7248877">
+                            <img src="/images/icons/admin.jpg" data-bindattr-1682="1682">
+                          </a>
+                          <div class="info">
+                            <h5><a href="#/user/7248877">无名氏</a></h5>
+                            <p> 创始人 </p>
+                          </div>
+                        </div>
+                        <div class="user-right-menu-list">
+                          <ul>
+                            <li><a href="#/user/7248877"> 个人信息 </a></li>
+                            <li><a href="/home">返回前台帮助中心</a></li>
+                          </ul>
+                          <ul>
+                            <li><a>在微信上处理工单</a></li>
+                            <li><a>快捷键指引</a></li>
+                            <li><a href="#/tutorial">新手向导</a></li>
+                            <li><a>反馈与建议</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="#/setting/account">企业平台账号</a></li>
+                            <li><a>试用高级服务</a></li>
+                          </ul>
+                        </div>
+                        <div class="user-right-menu-bottom">
+                          <ul>
+                            <li class="list1">
+                              <a onclick="javascript:window.open('https://support.52im.net/rbchat/4?from=rightkf&amp;group=12048','','height=500,width=350,top=0, left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')">客服</a>
+                            </li>
+                            <li class="list2"><a href="http://support.52im.net/hc" target="_blank">帮助</a></li>
+                            <li class="list3"><a href="http://support.52im.net/community" target="_blank">社区</a></li>
+                            <li class="list4"><a href="http://developer.52im.net" target="_blank">开发者</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>-->
+                </div>
+            </div>
+        </header>
+        <!-- ***************************************** 整个网页头部区域 END ************************************** -->
+
+        <!-- ***************************************** 手机版顶部导航栏 START ************************************ -->
+        <header id="header_i">
+            <div class="nav_bar">
+                <div class="nav_bar_l">                    
+                </div>
+                <div class="nav_bar_t">消息</div>
+                <div id="nav_bar_r_0" class="nav_bar_r">
+                    <img class="head_geng" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAAGUUzB+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQqADAAQAAAABAAAAQgAAAADorYEXAAAEF0lEQVR4Ae1aTWgTQRRO0pBqTT2YUjUHvalY9WCTpr1WD+amtwreWkW8KaLgRYog/uFNpFo9CaIePAZEQ/FS86cItlAPohRUiqmgFTQ0id/b7ltmpjtJLrVF3sIwb773zczbL7O7sy8bCKzRo7e3t06FwuPatNdo6KsfFgtmisj46kf4X0UQ5LOBvi9gD6LES6XSFwWnhVwB1m5gAWBO/xA7UNMAdDxYqgKBZDLZ49oRxtQ6lUptVNtiiwJrRwH1+nBu6LzmKcREIvGtXq/HVCydTrfPzc39DgaDM8VicZdzbeDi+ul3TtSZcPXmRp0Jg28n1c4AGKnhRRIKhYaI7B432JBaFBAFRAFR4F8o4D0saDLse47XarU75sTqw4J9eJAUcL9PcJtqPEDKuO13qRjZeFZUUal7LuKOgXuS/JoDAQwT2MphBkB9+AHl01+bx+UeY57mxBn3IzrCcigLeFid8FOBOhMeDoe3wPyIs/qKsrcRF2Olwf2OMt3Z2bke3ChsOUQBUUAUEAVEAVFAFBAFRIEVUUDb8mNrvhWzfFZmymJDekBpeya4h9F4ygA2uuexSb7GbbUG9y7aI4yBux/cN9zWdtsA1QCIM0jvIkw2ai8AwrHdvzowMLDJ4NC7TBKYF4DLfa3yzCBUn2PjXeSmCeLF56iJUbtSqVwwcQTnq05fX98O5jYNAsQpJnPd1ta2DCMfZJ5mDtcIYhlGvlgs9ok55prgvDr7A/QyhMGdfKIHwsDvTKk/L89OPtvLD7haf4w3i3G3UR86NCVoEdJbF/AFlJwtAOoI7jpUt1EqKI9tAcDHwT3D5JTwHFUDIL8cooAoIAqIAqKAKCAKiAKigCggCogCooAoIAqIAqKAKCAK6Apo+VPdtdRCEjaIrO+I+3ULf148hRTnvXw+P+6XW/Ubx8TwKfLmxcXFi8Dpo5I4xpnHXC9RX0Jq853Jb7WN7PkhxHoa49AnPh0Y8wPsJ9Fo9MrExITzuaffWFYhSACkzp+j06BfRwXLIvCDmExLFit+zUSgPQi0BFBLQmskNCD0UKFQeGTitjaS1dfhO2vzE44YZ5GJ35PL5X6YPKsQGPgVyCmzg6WdQzK73+LzYKyCfVgFbz2giYHAhyHy/SY0yu7fAudUM57r/9Xd3R3LZDJ/VL6W1VcdsPkyMGDfZkvcarXaEo9nwKrczXajGoK1xHPH2FAul7eb41mFwNI8Y5Jt7Va5+HUfIuiibRwVB68ciUQuq5jNBvccfDWbX8XBHcO97b2KkW0VAtcn/WkYR8kS0XKQL+5yLRQdhhj0X+AROlHd47Uq8NGfmV2Tk5PzHtrAwPwFLPcOUMZtNIw5g0J/fDrfOdp4gosCooAoIAqIAqKAKCAKiAKigCggCogCK6fAXyS5TzK8TyIMAAAAAElFTkSuQmCC" alt="">
+                </div>
+                <div id="nav_bar_r_1" class="nav_bar_r hidden">
+                    <img class="head_geng" src="data:image/png;base64,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" alt="">
+                </div>
+                <div id="nav_bar_r_2" class="nav_bar_r hidden">
+                    <img class="head_geng" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAAGUUzB+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQqADAAQAAAABAAAAQgAAAADorYEXAAAC7klEQVR4Ae2bPW8TQRCGcwYhgUsqJBdgCurIHz0NoqLCQkiIImkRBQ2/AAnq1ICEKCjo6Gjo/ZEfECRDY6elokns4124Oe0Nt77brE8+W2+a/bjZ2ZnnZvdmvcreXmV/nU4n1sobuiOvHUlnnoYoij6Px+OByKRlnnCp6VINdaxorwo9+gsPo+bw5ob2aDKZpHDTZ95TpCNrXjGOdbvds1VmFvI0g+M4vhysZJUC86yUJdujpMhSPk8I6OWnwQTHxQ4oyGxaRcBsgLkbni0g9SKlOwAx2AVhxZIE/hHA1/VhCIvMur6IInvZll7raqJarAsaIW/FGRODweDKdDr9CcH/ElsZ7FviNHGC08QdPe6S7pB2s9l8hXTwvrTXVF5vtVrH8/n8xNbnJGELrapzdayi4/tsN5YoIv5j4vlzXwKUJwES2AoCzg9YWeuR2u3jo3R1Npv9KjtGywXtmL1e7xG+tMeLxWLa7/dvaeVl20FGwIB7MtFyubwrdd8yyAjfyVzyNELIkARJCAEpndk2NqLXWPsvRXANZdxoNA5Ho9F7rcsZmGs2wMwbQec7bYBpO43IE66qz/k6ykyIj9dbbN0HRhYJ7yGOeLmeFumqBQkaIa+JJEhCCEgZGhO/RRFKu251V1zFRhWZX2qKriorNoPqSYAESIAESIAENkYg6NwTarVJRXDc/YDyidGFs9M56i9wtXoUqtt3/EZBIBc7guPPtNEA8hiHyU+6v8p2aIYbats1hwJXv0M8vHvTIMI9WJMGgkhAEgRBZNcUI4IRwYjIEkha3glVBRcfuYatqxOXKg9wqfKlSJ/3HoGLkqdFSuv0HJlrKXu9QbTb7Zug/AbOntbJYWWL+bej77DzIPcfhZSwaXovjRwdF+6yL6tsJSEXV7Yen7p3RPgo3yZZgkjeFkEQRHbhMiIYEYyILIE6RATyha/aKvMDLhKhb7q/6vZGEypxDonVPuq3AWAyHA5/SD9LEiABEiCBmhH4AzYNqQEe0Y5hAAAAAElFTkSuQmCC" alt="">
+                </div>
+            </div>
+            <div class="search">
+               <div class="search_n">
+                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAAGUUzB+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQqADAAQAAAABAAAAQgAAAADorYEXAAAInUlEQVR4Ae2ba2wVRRTH6YOKQIkgBCkKWGMUAglKCy0VbBBiFHloKFGCfDG+Q2LUxEeEYKLyMIAf9AMYDSSEqFXDwxiNEktEgdLqB0xAQyAg4WEMKC9Loa2/c7lnM7s7s3v3thfQ3E32zpkz55z5z5mzM7Ozc7t16/Jr3LhxVWPGjOkQw6Tt3F+FKlEBLTDzhcqMSjMSKjAtmFUIv7m52Vduyl5x2gRr0ilgMJ4OIoR3Qnjql3eCAuT7+nimWZP2OcUsuMoc5sOpLSP4Bl68ePGY5jUtKCh4rKmp6UPNO1NpcEVFxQWbAGWbTYfYZCTkO+KEbDLacSmjPXr0GGy1HmDSrHUmy+oTRYPwxt69ez98+vTphSi9kla8jn792zSSmLY1J7GR/6lCZI8E22x7wnxxIQranZDPiILc3bt3HxEok2z4IrT3GgZCArau9CHo6Oi4jUD6NaSZZlA2w1WW4kfVropBGR8CEaqrqytR4UzSkIH9+/efdynio23BMp+BoqKih0QAwZFBQfxTwF0Df69ZFooD2tiOQIpfWFhYg9Ip7t2qFIwFHwIRQkB4VUK3t7f/oMr0wDLhUcFfkmZ1VVZWzg32QlaG8kpXpwdC8RgHc+zYsfcSZusJs34O2QWE5BuOMis7IxCEYR3an1gtRDB5DrYy5ddGiKSKYkGYzwFGT2O0T5xRdASwAE9dMiyit0nzwTQShAmgvLy8uL6+vi1oICpv6gOkDiCf2uRDQ4wKYeCg0sXFxdVJAYiuOZ4RQ/VqL5g6QSA4RIV37ty5Q+lcpE4QuM97mWGMXJJN5dXV1ddmoucEQf/dpwZ4JF+ie57XfCZpTU1NaWtr6zmVLSkp6al0MI0MTBFmEjxKf96ginjoTQC+pvlgitcqAd1o8s3YMPlKx4JQQcAcAsxNmk+QdqTnU6dKxiBMCyxUig4cOLAYniwJ7uTeB8AmnqIFBPFhkcUho/HIz0LLhQe34MHJl3KX+RcwjxNPJydMmDDgMledry7vgbwHusYDiQcrRs61DEzzHNU3M2BNZcA67ii3sjMGQeX1VD7LaiXM/IOhemCYbedkBIIR7yzqzlnQbjrFHQCYPyPKU0WxIADQguQ1aog54DgeKce4N01rGbIfQ8/WvKSZLAsjQWD0e+zcpUZ5x53W2Nj4heZtKTriMfGcdwE4sh7noqa2trYYKx4A3omnxAGQWsVD06ZNK/IQQDCJPWHmg7QTxJkzZ340hPfs2rXrWyMfSS5atKidbpupQkzpq5S2pU4Q9HulKtC6EUpnmrJ22GjKpj1rsjzaCcKT6ByxQdXPnj3r7BIrCIKrvyqTxj5ihqyPJI68ty48W+ErNDJWEIx6ZYbMEYNOSh41FAYZtI+0gtixY4e3K4T0KJ9GggytH2OINxu0j7SCILJTX3TSkpHPuM9aIAOIVw2W8+mygkgrekCYN6YbxpKQ3lDP09LgUnSCIKieUiVa5HvclB+VEty/GeVmbBjsS6QTBIPTalMao6lPQCbPReO5lZTdquXMH5EvTU4QYoCnxFTuC5A2Bp3eatyWIrMbzz2nZcTXyrhthdigo1XzMLpWjUqK4X9I5gNyC/Sptra2Su4V8IIj6wlG2+tFJ+qKBSHKALkDID9FGXKVAfIRgvIjV7nwMwKhBgCzFTATNe9IZRr/nft2LQfIKID8ovlgmgiEKgOmFvpZAFVQQR/SJtJNVPSeISNb4aWaj1pTZAVCDcelBKm3R4/sUIAcitPJSTlA9uG59Tkxnjea90DeA3kP5D2Q98CV8kBOp3GzUekN+Qnw7ue+mbuMtUYZaxD5hCGbLUfIy5veEXhN7INs1I16eDm/cuYIlhDjaNAyGhe3EsykkbJaXF5aWvp2Q0PDmUwUksp0qSNkPQ6AjTTefFNJiilWHgevoo75LBStJ8hiDVgEusQROEDejNZgP9IeDZC3pW+4N0HvIfyPcBjt2Llz53qxoTWIF9/BvD3dTbkc8wm+QcEKXXvhVOGQzp0xw0gk8FC1AQYHA28E+C6c4H2qDIjI7t1iDsgtyTak2XasxP5q7tEB216WOlbyrpPoe62nnCaydgRnOB7ECZ8HDabzJwE3MeqNz6HnZOOIAnyygtR70Q8I72XnYWTci39Ax8tm5QjZHI7Ym32BUJXNgZxc8uW9paVFtt68rRejoqN8ib9l+/bt8ggmuhI7AiBlAJHvzyFdoiDyrEoiZDHCjEvbiA75Nu67wLCOSHzUx8wgE7lPZdM/f/78B/BDTmCgWwoAb+vYptuVPE5wTsFe6GMPzpmLk2qT1pXIEfKcck+yVNIxbNiwhRZ+zlgS/vT+W44KEp+KSOSIqqoq2V4vsVS+m0Gq1cLPKYsobLJVQGc5P2TY5IWXyBGcoZclsO0qszFzzaPB1nqJFBdOJ6REjmA2kE9PBy3W+ss/XSz8nLKYuabbKsAR1kixySovkSPSSktV2UxZU6wx87mmGRDFCTMt9Zzs1avXags/khUa/SOl04WAaCQsvU+1hs4eFjWjsl3UGHYiSeqfQf0bbEJEwyxmr89sZVG8bCKiG0vm8VRo+0vAcM6+tbDguieq0mzL+OBeyFvtZpcTGDyfzMYJgieriNCGAMp3lkL5KcMcIAbYnEyONph6Npp6esJfw11nKxceHdOpxVynHCEAZJBkNmmA9E63CN+8ACmnXV6Ht5YBN7QIMmWVZqoefuHChUXkZyvPkX7N4zi1s49jpx2h4Og16a013NJ7l/N6Eecu72yFXeYIBSL/2WMGeZcImKW8y5C2EnX3Mj40ZFtXlzsiCCT9l4s58B/AOf2C5TF5ecvcwGfv9+Xc3vjx44fyrrMdnvX0Cc44zGZPdTZ7nTl3RExDsypmVprMYupLlLvbDDBID+GEhXwRz/j6TzpCW8e49DL0Ys2n0+8YMyYFePls3gN5D+Q9kPdA3gNd6IF/AQkN8OAdR07fAAAAAElFTkSuQmCC" alt="">
+                   <span>搜索</span>
+               </div>
+               <div class="search_y">
+                   <input id="focus" type="text" placeholder="请输入...">
+                   <span id="cancel">取消</span>
+               </div>
+            </div>
+            <div class="first-my-minapp">
+                    <div class="first-my-minapp-row1">
+                        <span>我的小程序</span>
+                        <span id="query-my-minapp-all">查看全部 ></span>
+                    </div>
+                    <div class="first-my-minapp-row2">
+                    </div>
+            </div>
+            <div class="container_i  kchat-talk-list-group flex-d" id="phone-conversation-list">
+                <div class="kchat-queue" style="position:initial !important">
+                    <style type="text/css">.kchat-pop.db { display: block; }
+                    a.f-list-toggle-label:focus { outline: none; }</style>
+                    <div id="im-panel-userlist-wrap-alarms-add-popup-phone" class="kchat-pop" style="left: unset !important;
+                    right: 0px;
+                    top: 45px;">
+                        <ul>
+                            <li id="im-panel-userlist-wrap-alarms-add-popup-addfriend-phone" class="bottom_border">添加好友</li><!--active-->
+                            <li id="im-panel-userlist-wrap-alarms-add-popup-addgroup-phone">创建群聊</li>
+                        </ul>
+                    </div>
+                </div>
+                <div  id="kchat-im-panel-userlist-empty-alarms-phone" class="kchat-talk-list-empty">
+                    <i class="icon-talk1" style="font-size: 60px;"></i>
+                    <p>
+                        暂无消息数据
+                    </p>
+                </div>
+
+                <!-- 动态组织的数据UI -->
+                <ul id="kchat-im-panel-userlist-alarms-phone">
+                    <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
+                </ul>
+            </div>
+            <div class="container_i kchat-talk-list-group offline flex-d" id="phone-friends-list" style="display:none">
+                   <!-- 当列表数据为空时要显示的提示信息 -->
+                   <div id="kchat-im-panel-userlist-empty-roster-phone" class="kchat-talk-list-empty">
+                    <i class="icon-talk1" style="font-size: 60px;"></i>
+                    <p>
+                        还没有添加好友
+                    </p>
+                </div>
+
+                <!-- 动态组织的数据UI -->
+                <ul id="kchat-im-panel-userlist-roster-phone">
+                    <!-- jQuery动态添加 --><!-- TODO 好友列表   -->
+                </ul>
+            </div>
+            <div class="container_i kchat-talk-list-group offline flex-d" id="phone-group-list" style="display:none">
+                <!-- 当列表数据为空时要显示的提示信息 -->
+                <div  id="kchat-im-panel-userlist-empty-groups-phone" class="kchat-talk-list-empty">
+                    <i class="icon-talk1" style="font-size: 60px;"></i>
+                    <p>
+                        暂未加入群组
+                    </p>
+                </div>
+
+                <!-- 动态组织的数据UI -->
+                <ul id="kchat-im-panel-userlist-groups-phone">
+                    <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
+                </ul>
+            </div>
+        </header>
+        <!-- ***************************************** 手机版顶部导航栏 END ************************************** -->
+
+        <!-- ***************************************** IM可移动主体区 START ************************************* -->
+        <div id="kchat-im-panel" class="ui-draggable" style="display:none;">
+
+            <!-- For IM-网络连接提示UI START  -->
+            <div id="im-panel-loginbox">
+                <div style="width:390px;margin:200px auto;">
+                    <div style="text-align: center; padding: 20px;border: 1px solid #efefef;border-radius: 10px;background: #f7f7f7;">
+                  <span style="font-size: 16px;color: #00aef0;text-shadow: 0px 1px 0 rgba(255,255,255,1);text-align: center;">
+                    IM服务器连接中，请稍后... ...
+                  </span>
+                    </div>
+
+                    <div>
+                        <div class="login_hint"
+                             style="padding-top: 30px;text-align: left;margin: 0 auto 0 auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- For IM-网络连接提示UI END  -->
+
+            <!-- For IM-主功能区 UI START  -->
+            <div id="im-panel-around" style="height:100%;display:none;"><!---->
+
+                <!-- For IM-主功能区-头部 UI START  -->
+                <header id="im-panel-header" class="kchat-im-panel-header"><!--ember1946-->
+
+                    <!-- 聊天区顶部的信息提示显示区 -->
+                    <div id="im-panel-header-alert" class="kchat-alert warning" style="top: 0px;margin-left: -225px;display:none;">
+                        <!-- 目前有warning & success两种通知状态， js控制添加.show出现，效果点『转接客服』查看-->
+                        <p id="im-panel-header-alert_content">转接失败，请尝试转接其他客服。</p>
+                    </div>
+
+                    <!-- 聊天区顶部的本地用户信息显示区 -->
+                    <div class="kchat-im-panel-header-user">
+                        <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
+
+                        <!--<img id="im-panel-header-user-avatar" src="images/admin.jpg" data-bindattr-1976="1976" alt="">-->
+                        <div class="avatar-wrapper">
+                            <a id="im-panel-header-user-avatar-parent">
+                                <div id="im-panel-header-user-avatar-default"></div>
+                                <img id="im-panel-header-user-avatar" onerror='javascript:$(this).css("display","none")'>
+                            </a>
+                            <a id="im-panel-header-user-status" class="user-status offline"></a>
+                        </div>
+
+
+                        <div class="info">
+                            <h4><a id="im-panel-header-user-showname">-</a></h4>
+                            <div class="whatsup">
+                                <a id="im-panel-header-user-whatsup">-</a>
+                                <!--<span class="icon-edit"></span>-->
+                            </div>
+                            <div class="clear"></div>
+                            <!--
+                            <div class="state">
+                                <a id="im-panel-header-user-status-current" class="online">Online</a>
+                                <div id="im-panel-header-user-status-list" class="state-choice">
+                                    <ul>
+                                        <li id="im-panel-header-user-status-online" class="online">在线</li>
+                                        <li id="im-panel-header-user-status-away" class="busyline">Away</li>
+                                        <li class="offline" data-ember-action="1980">离线</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+
+                        <a id="im-panel-header-lixian" class="lixian" title="设置离线">
+                             设置离线
+                        </a>
+
+                        <a id="im-panel-header-setup" title="设置功能">
+                            <i class="icon-local-user-setup"></i>
+                        </a>
+
+                        <div id="im-panel-header-setup-popup" style="display: none">
+                            <div class="kchat-pop ">
+                                <ul>
+                                    <li id="im-panel-header-setup-popup-action-hs">帮助与支持</li>
+                                    <li id="im-panel-header-setup-popup-action-profile">个人信息</li>
+                                    <li id="im-panel-header-setup-popup-action-qb">我的钱包</li>
+                                    <!-- <li id="im-panel-header-setup-popup-action-hbjl">红包记录</li> -->
+                                    <li id="im-panel-header-setup-popup-action-minapp">我的小程序</li>
+                                    <li id="im-panel-header-setup-popup-action-modifypsw">修改密码</li>
+                                    <li id="im-panel-header-setup-popup-action-voice">设置提示音</li>
+                                    <li id="im-panel-header-setup-popup-action-welcome">设置提示语</li>
+                                    <li id="im-panel-header-setup-popup-action-other-set">其他设置</li>
+                                    <li id="im-panel-header-setup-popup-action-common-group">共同的群</li>
+                                    <li id="im-panel-header-setup-popup-action-auto-add-group">加群配置</li>
+                                    <li id="im-panel-header-setup-popup-action-fast-send">发送合集</li>
+                                    <li id="im-panel-header-setup-popup-action-kehu-weihu">客户维护</li>
+                                    <li id="im-panel-header-setup-popup-action-task-weihu">任务列表</li>
+                                    <!-- <li id="im-panel-header-setup-popup-action-group-msg-send">群发助手</li> -->
+                                    <li id="im-panel-header-setup-popup-action-friends-list">好友申请</li>
+                                    <li id="im-panel-header-setup-popup-action-batch-add-friend">批量加好友</li>
+                                    <li id="im-panel-header-setup-popup-action-set-friends-group">好友分组</li>
+                                    <li id="im-panel-header-setup-popup-action-exit" style="color:#ff3532;border-bottom: 1px solid #eff2f6;">退出登录</li><!--active-->
+                                    <!-- <li id="im-panel-header-setup-popup-action-about">关于我们</li>
+                                    <li id="im-panel-header-setup-popup-action-help">帮助中心</li> -->
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 聊天区顶部的IM浮动窗口功能控制区 -->
+                    <div class="kchat-im-panel-header-operation">
+                        <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
+
+                        <!--
+                        <div class="header-tool">
+                            <a class="fl btn btn-sm green" data-ember-action="" data-ember-action-969="969">
+                                <i class="icon-talk1"></i>发起对话
+                            </a>
+                            <a id="ember803" class="fl btn btn-sm green">
+                                <i class="icon-insert-drive-file"></i> 创建跟进GD
+                            </a>
+                        </div>-->
+
+                        <!-- 控制按钮 -->
+                        <div class="right-top-btn">
+                            <a class="audio-prompt-switch-ison" title="提示音：已打开（点击可关闭）" id="im-panel-header-operation-audioswitch-ison">
+                                <i class="icon-volume-up"></i>
+                            </a>
+                            <a class="audio-prompt-switch-isoff" title="提示音：已关闭（点击可打开）" id="im-panel-header-operation-audioswitch-isoff" style="display:none;">
+                                <i class="icon-volume-off"></i>
+                            </a>
+                            <a class="expand-open" title="展开"  id="im-panel-header-operation-open">
+                                <i class="icon-open-size"></i>
+                            </a>
+                            <a class="expand-mini" title="缩小" id="im-panel-header-operation-mini" style="display:none;">
+                                <i class="icon-mini-size"></i>
+                            </a>
+                            <a class="close" title="关闭窗口" id="im-panel-header-operation-close">
+                                <i class="icon-close"></i>
+                            </a>
+                        </div>
+
+                        <!-- IM内容区右侧的详情区tab切换按钮 -->
+                        <nav id="im-panel-header-righttabs" class="nav2 im-panel-main-rightdetail-content-nav"><!-- class="active" -->
+                            <!--<a id="im-panel-header-righttabs-singleuser-baseinfo">个人信息</a>
+                            <a id="im-panel-header-righttabs-singleuser-photos">个人相册</a>
+                            <a id="im-panel-header-righttabs-singleuser-voices">语音介绍</a>-->
+
+                            <!--<a id="im-panel-header-righttabs-group-baseinfo" tabident="0" class="active">群组信息</a>-->
+                        </nav>
+
+                    </div>
+                </header>
+                <!-- For IM-主功能区-头部 UI END  -->
+
+                <!-- For IM-主功能区-body UI START  -->
+                <div class="kchat-im-panel-body">
+
+                    <!-- IM-主功能区-body-左tab列表区 -->
+                    <div class="kchat-im-panel-body-left">
+
+                        <!-- 左侧tab列表切换按钮（有两件ui样式可选：文字tab和图标tab，默认启用的是图标tab） -->
+
+                        <!-- 【ui样式1："文字tab"】-->
+                        <!--
+                        <nav class="kchat-im-panel-userlist-nav">
+                            <a id="im-panel-userlist-nav-alarms" tabident="0" class="active">消息</a>
+                            <a id="im-panel-userlist-nav-roster" tabident="1" class="">好友</a>
+                            <a id="im-panel-userlist-nav-groups" tabident="2" class="">群聊</a>
+                        </nav>
+                        -->
+                        <!-- 【ui样式1："图标tab"】-->
+                        <nav class="kchat-im-panel-userlist-nav">
+                            <a id="im-panel-userlist-nav-alarms" tabident="0" class="active" title="消息"><i class="icon-alarms"></i></a>
+                            <a id="im-panel-userlist-nav-alarms-threeDays" tabident="1" title="3天内会话"><i class="icon-alarms"></i></a>
+                            <a id="im-panel-userlist-nav-roster" tabident="2" class="" title="好友"><i class="icon-frends"></i></a><!-- has-msg -->
+                            <a id="im-panel-userlist-nav-groups" tabident="3" class="" title="群聊"><i class="icon-groups"></i></a>
+                        </nav>
+
+
+                        <!-- 左侧tab对应的数据列表 -->
+                        <div id="ember1963" class="kchat-im-panel-userlist scrollbar-auto">
+                            <div>
+
+                                <!-- 首页"消息"列表 -->
+                                <div id="im-panel-userlist-wrap-alarms" class="kchat-talk-list-group flex-d">
+
+                                    <!-- 列表上部的数据汇总信息、操作按钮区 -->
+                                    <div class="kchat-queue">
+                                        <style type="text/css">.kchat-pop.db { display: block; }
+                                        a.f-list-toggle-label:focus { outline: none; }</style>
+
+                                        <!-- 列表上部的数据汇总信息、操作按钮区 -->
+                                        <h3>
+                                            <a class="f-list-toggle-label" tabindex="-1">交谈 <span id="im-panel-userlist-wrap-alarms-allitems" class="f-list-number-label">0</span></a><span class="pipe">/</span><a class="f-list-toggle-label" tabindex="-1">未读 <span id="im-panel-userlist-wrap-alarms-allunread"   class="f-list-number-label">0</span></a>
+                                            <a id="im-panel-userlist-wrap-alarms-more" title="更多功能..." class="f-list-iconbtn">
+                                                <i class="icon-add-box"></i>
+                                            </a>
+                                        </h3>
+                                        <div id="im-panel-userlist-wrap-alarms-add-popup" class="kchat-pop">
+                                            <ul>
+                                                <li id="im-panel-userlist-wrap-alarms-add-popup-addfriend" class="bottom_border">添加好友</li><!--active-->
+                                                <li id="im-panel-userlist-wrap-alarms-add-popup-addgroup">创建群聊</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="im-panel-userlist-wrap-alarms-search">
+                                        <input id = 'im-panel-userlist-wrap-alarms-search-input' placeholder="请输入用户昵称或群名称或ID"/>
+                                    </div>
+
+                                    <!-- 当列表数据为空时要显示的提示信息 -->
+                                    <div  id="kchat-im-panel-userlist-empty-alarms" class="kchat-talk-list-empty">
+                                        <i class="icon-talk1" style="font-size: 60px;"></i>
+                                        <p>
+                                            暂无消息数据
+                                        </p>
+                                    </div>
+
+                                    <!-- 动态组织的数据UI -->
+                                    <ul id="kchat-im-panel-userlist-alarms">
+                                        <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
+                                    </ul>
+
+                                </div>
+
+                                <!-- "好友"列表 -->
+                                <div id="im-panel-userlist-wrap-roster" class="kchat-talk-list-group offline flex-d" style="display:none;">
+                                    <!-- 列表上部的数据汇总信息、操作按钮区 -->
+                                    <div class="kchat-queue">
+                                        <h3>
+                                            <a class="f-list-toggle-label" tabindex="-1">总好友 <span id="im-panel-userlist-wrap-roster-allcount" class="f-list-number-label">0</span> 在线好友 <span id="im-panel-userlist-wrap-roster-allcount-online" class="f-list-number-label">0</span></a>
+                                            <a id="im-panel-userlist-wrap-roster-addfriend" class="f-list-iconbtn" title="添加好友">
+                                                <i class="icon-add-box"></i>
+                                            </a>
+                                        </h3>
+                                        <div id="im-panel-userlist-wrap-restore-add-popup" class="kchat-pop" >
+                                            <ul>
+                                                <li id="im-panel-userlist-wrap-roster-add-popup-addfriend" class="bottom_border">添加好友</li><!--active-->
+                                                <li id="im-panel-userlist-wrap-roster-add-popup-addgroup">创建分组</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="im-panel-userlist-wrap-alarms-search">
+                                        <input id = 'kchat-im-panel-userlist-empty-roster-input' placeholder="请输入好友昵称"/>
+                                    </div>
+
+                                    <!-- 当列表数据为空时要显示的提示信息 -->
+                                    <div id="kchat-im-panel-userlist-empty-roster" class="kchat-talk-list-empty">
+                                        <i class="icon-talk1" style="font-size: 60px;"></i>
+                                        <p>
+                                            还没有添加好友
+                                        </p>
+                                    </div>
+
+                                    <!-- 动态组织的数据UI -->
+                                    <ul id="kchat-im-panel-userlist-roster" style="padding-bottom:50px;">
+                                        <!-- jQuery动态添加 --><!-- TODO 好友列表   -->
+                                    </ul>
+                                </div>
+
+                                <!-- "群组"列表 -->
+                                <div id="im-panel-userlist-wrap-groups" class="kchat-talk-list-group offline flex-d" style="display:none;">
+                                    <!-- 列表上部的数据汇总信息、操作按钮区 -->
+                                    <div class="kchat-queue">
+                                        <h3>
+                                            <a class="f-list-toggle-label" tabindex="-1">群聊数 <span id="im-panel-userlist-wrap-groups-allcount" class="f-list-number-label">0</span></a>
+
+                                            <a id="im-panel-userlist-wrap-groups-creategroup" class="f-list-iconbtn" title="创建群组">
+                                                <i class="icon-groupslist-add2"></i>
+                                            </a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="im-panel-userlist-wrap-alarms-search">
+                                        <input id = 'kchat-im-panel-userlist-groups-input' placeholder="请输入群昵称"/>
+                                    </div>
+
+                                    <!-- 当列表数据为空时要显示的提示信息 -->
+                                    <div  id="kchat-im-panel-userlist-empty-groups" class="kchat-talk-list-empty">
+                                        <i class="icon-talk1" style="font-size: 60px;"></i>
+                                        <p>
+                                            暂未加入群组
+                                        </p>
+                                    </div>
+
+                                    <!-- 动态组织的数据UI -->
+                                    <ul id="kchat-im-panel-userlist-groups">
+                                        <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 左侧tab列表下方的网络连接信息提示区 -->
+                        <div id="im-panel-userlist-bottom" class="im-panel-userlist-bottom_warn">
+                            <p class="fl">网络：
+                                <span id="im-panel-userlist-bottom-imnetworkstatusicon"></span>
+                                <span id="im-panel-userlist-bottom-imnetworkstatusdesc">-</span>
+                            </p>
+                            <!--<a class="fr im-panel-userlist-bottom-nextbtn" id="im-panel-userlist-getnextvisitor">添加好友</a>-->
+                        </div>
+
+                    </div>
+
+                    <!-- IM-主功能区-body-中间聊天内容显示区和右边的详情显示区 -->
+                    <div class="kchat-im-panel-main" id="pc-kchat-im-panel-main">
+
+                        <!-- 中间聊天内容显示区（也是IM中最重要的信息区） -->
+                        <div id="im-panel-main-chatcontentpane-toplevel" class="kchat-im-panel-main-chat list1">
+                            <div class="im-panel-main-toBottom-content">
+                                <img class="im-panel-main-toBottom-content-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAgCAYAAAB6kdqOAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAJKADAAQAAAABAAAAIAAAAAD8RmcGAAACxUlEQVRYCe1XvYsTURB3d/MFW5wcqCSFEImFp4bNJmZJYQQrRZQDD0sLu0Pw4w8QG3uPw9rS5lIcfqawOo25hOwmldaHgnhF8AMR82H8zd7bY1Gys/m8KzLw3rw3Mzvze/N29r2VDgjKZDIXMbzV6/V08MOOfMJ8W5IkCzFWa7XaK4olUQcwDwHkDo33igBsBaDuSgBzFWAKAkgL/AXm29MABhC0E5fQQhQP86UA+DJNQG20vGmaFXs2pS6dThsI9QYtiLYsIxsZEXtz2mAoroi5SWPCIoPP0QT0bYftSe/EniNA+4pmgLjtoCrzJMMwjnQ6nTUYnfA0ZJQo6feKolyrVCpfvExZQO12+xycnfVy4keHCspjYXnY0uL6EgsoHA4/a7VaD+Bw1Ax9CIVCz/siEQoWULlc/gXbe5yjcelnVcZlct9liH2HcPgdxaqKaNxLbQYCgfMo6+9cFrz0bIZQ8md8gKEYaVTjSa9gfnRshlDuT+HoNviCl0MAr9Xr9bKXjR8dCwjXA7onrfpxNg4bdsvGEWQQHzNAXLYoQ1vC6BhnPEG9E3tLiUajBirkFIIdisViiqqq75rNZneCwXddJxKJcDwevw/BEglRyUVJ07TjuKfUMVdJCKKqcu64tkB0f8ALqLqbbiGNU6nUgizLjzA8/a+OmdN9nv42iH4CkGb/KOq6fgFZegxh1Fb17zqRSGS+VCr9cEyy2Wy82+2+xTzmyIbgnwHmhmVZRRsQOUCmDiJTlDodyv9+pQGYMrSODD0heyIcK7QAAuO8A1U8+5F0fgg+6YfUwoIKjUbjKz2zC8iPA7dNLpebx1GxAZlzXLzEeFF8SN2mA42VgayFcTKZVJGJ11ihRiLwDdwGr1Sr1d/D+HM/wx4dbmNnHAwGr2NMhy6Ria2+LG6WO5IR+qEAITslZOUT4tI3bHHUK4cb/1+a89K2tgm7aAAAAABJRU5ErkJggg==">
+                                <span class="im-panel-main-toBottom-nums">7条新消息</span>
+                                <img class="im-panel-main-toBottom-content-icon2"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAFKADAAQAAAABAAAADgAAAAC7RV3kAAABsUlEQVQ4Eb2SwUvCYBjG3YYrGJgGEVjQzS4dZBoRCNmlgvASSRYILkVHYNcuHTwH/QFaSJfCMBLrUhEoBXXSc//H6DKa63nXN5lmIBG9h73v87zf9/vebZ/L9cfBEU9V1Win0ymaptkyDCNXLpe1Yc/JZDLTgiCcYu8kcoKnjYDlkAIcx23DvEmlUqPDABVFmeB5/hGwVawPgrNjASEubQCgUVEUr7LZrNv2BmX0x9xu9wN6s6yvA1gTSLRarTdZlt8BW2HNAHIgFotdN5tNk3ndlEwmJcDuYMwz08DeRKlUalhAMtvt9ksoFCK9xBbNaZo2hcNumbZSPp8fQVGnN2E+HbgLWIV0F0gCmxuAjqNcII3A4LIHh9GrueLxuIDPQZ9nnTSLfcBObNEDJBPQ+3A4PIMySBqTLAJqAvoUiUTOYG2Rz+IQsGNbULaujdOgmibxer0VwDYdvVfUiw59BNiBQ1vlQCB1ABV9Pl8d5Zq1svdRBEzttb6UfW2+9arVqi5J0gamfO5rXvj9/r0+ryt/nNBegb/q0XW9hsu7DO8cMKVQKHzY/V/ndDpNf///4xO3aIWCEY+4vAAAAABJRU5ErkJggg==">
+                            </div>
+                            <div class="tip-my-root" id="im-panel-main-chat-tip-me"
+                            >
+                                <div id="tip-num" class="tip-num">0</div>
+                                <img src="/assets/group-tip-8327ebd7.png"/>
+                            </div>
+                            <div id="im-chat-top-msg" class="im-chat-top-msg" style="display:none;">
+                                <div class="lines">
+                                    <div class="top-line-item line-0"></div>
+                                    <div class="top-line-item line-1"></div>
+                                    <div class="top-line-item line-2"></div>
+                                </div>
+                                <div class="left"  id="im-chat-top-msg-left">
+                                    <div class="title" id="im-chat-top-msg-title">置顶消息</div>
+                                    <div class="content" id="im-chat-top-msg-content"></div>
+                                </div>
+                                <div class="right"  id="im-chat-top-msg-right">
+                                    <img src="/assets/msg-top-show-bd69f55a.png"/>
+                                </div>
+                            </div>
+                            <!-- 聊天内容显示列表 -->
+                            <div id="im-panel-main-chatcontentpane-wrap" class="kchat-im-panel-main-chat-content scrollbar-auto">
+
+                                <!-- add by jackjiang 20170712: 此div仅为了兼容为了Angurlar里改过的html而加，只是确保im_c_main.js代码不出错而已 -->
+                                <div id="IM-chat-visitorName" class="IM-chat-navbar-title" style="display:none;"></div>
+                                <!-- 动态组织的数据UI -->
+                                <div id="im-panel-main-chatcontentpane" class="chat-box chat-style1">
+                                    <!-- jQuery动态添加 --><!-- TODO 聊天消息列表   -->
+
+                                    <!--
+                                    <div class="system-info" style="font-size: 13px;">
+                                        <a data-ember-action="" data-ember-action-969="969">加载更多</a>
+                                    </div>-->
+
+                                    <!--
+                                    <div class="table-box">
+                                        <div class="empty-block">暂无GD</div>
+                                    </div>-->
+
+                                    <!-- ## 一个平坦提示信息组件
+                                    <div class="alert alert-warning">
+                                        注意： 如果您开启单点登录后被锁在了您的云客服平台外，您可以访问以下地址来登录云客服平台
+                                        <p><a href="#" target="_blank">http://b7833b6c3d8b7012.52im.net/user/access/</a></p>
+                                    </div>
+                                    -->
+                                </div>
+
+                            </div>
+
+                            <!-- 整个消息发送区域布局 -->
+                            <div class="kchat-im-panel-main-chat-textarea"  id="kchat-im-panel-main-chat-textarea">
+                                <div class="chat-box_alert" id="im-panel-main-chat-replay-ui"
+                                style="display:none;font-size: 18px;color: #fff;padding: 5px;"></div>
+
+                                <!-- 发送区上方的信息提示ui，可用于文件上传进度提示等 -->
+                                <div class="chat-box_alert im-panel-main-chat-textarea_fileuphint"
+                                     style="display:none;background: #5bc648;font-size: 12px;color: #fff;padding: 5px;">文件上传中...</div>
+
+                                <!-- 各消息功能按钮，比如：表情、文件等 -->
+                                <div class="top-bar">
+                                    <ul style="">
+
+                                         <!-- 收藏表情按钮及表示内容 -->
+                                         <li id="love-emoji-face-btn">
+                                            <i class="im-panel-main-chat-textarea_love_emojiopenbtn icon-chat4"></i>
+                                            <div class="im-panel-main-chat-textarea_love_emojipopup kchat-pop emoji-face-box" style="left: 2.3%" tabindex="-1">
+                                                <div class="emoji-nav" id="emoji-nav"></div>
+                                                <div class="emoji-operation">
+                                                    <span class="batch-delete">批量删除</span>
+                                                    <span class="select-nums"></span>
+                                                    <span class="delete">删除</span>
+                                                    <span class="cancel">取消</span>
+                                                </div>
+                                                <div class="emoji-content" id="emoji-content" style='min-height:360px;'>
+
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <!-- 普通大文文件发送按钮 -->
+                                        <li id="upload-file">
+                                            <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                            <i class="icon-chat2" onclick="$('#upload-file-input').click();" title="发送文件"></i>
+                                            <input type="file" name="upload-file-input" id="upload-file-input" style="display: none;">
+
+                                            <!-- <input type="file" name="im-panel-main-chat-textarea-filemsg-uploadify"
+                                                   id="im-panel-main-chat-textarea-filemsg-uploadify" /> -->
+                                            <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                        </li>
+
+                                        <!-- 图片文件发送按钮 -->
+                                        <!-- <li id="upload-image">
+                                            <i class="icon-chat2" onclick="$('#upload-image-input').click();" title="发送图片"></i>
+                                            <input type="file" name="upload-image-input" id="upload-image-input" style="display: none;">
+                                        </li> -->
+
+                                         <!-- 多张图片文件发送按钮 -->
+                                         <li id="upload-mul-image">
+                                            <i class="icon-chat2" onclick="window.userList=null;$('#upload-image-mul-input').click();" title="发送多张图片"></i>
+                                            <input type="file" name="upload-image-mul-input" multiple id="upload-image-mul-input" style="display: none;">
+                                        </li>
+
+                                        <!-- <li id="upload-video" >
+                                            <i class="icon-chat2" onclick="$('#upload-video-input').click();" title="发送视频"></i>
+                                            <input type="file" id="upload-video-input" style="display: none;">
+                                        </li> -->
+
+                                        <li id="upload-mul-video" >
+                                            <i class="icon-chat2" onclick="window.userList=null;$('#upload-mul-video-input').click();" title="发送多个视频"></i>
+                                            <input type="file" multiple id="upload-mul-video-input" style="display: none;">
+                                        </li>
+<!-- 
+                                        <li id="upload-mul-moive" >
+                                            <i class="icon-chat2" title="发送多个影片"></i>
+                                        </li> -->
+
+                                        <li id="send-redpag" style="display:none">
+                                            <i class="icon-chat2"  id="send-redpag-pack" title="发送红包" ></i>
+
+                                            <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                            <!-- <input type="file" name="im-panel-main-chat-textarea-imagemsg-uploadify"
+                                                   id="im-panel-main-chat-textarea-imagemsg-uploadify" /> -->
+                                            <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                        </li>
+
+
+                                        <li id="send-redpag-friend" style="display: none;">
+                                            <i class="icon-chat2"  id="send-redpag-pack-friend" title="发送红包" ></i>
+                                        </li>
+
+                                        <li style="font-size: 21px;margin-right: 10px;">
+                                            <i id="im-panel-main-chat-textarea_contactmsgbtn" class="icon-person" title="发送名片消息..."></i>
+                                        </li>
+
+                                        <li id="send-feedbackLink" style="font-size: 21px;margin-right: 10px; display:none;">
+                                            <i id="im-panel-main-chat-textarea_feedbackLinkmsgbtn" class="icon-feedbacklink" title="发送反馈链接..."><img style="width: 20px; height: 18px;" src="data:image/png;base64,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" alt="" srcset=""></i>
+                                        </li>
+                                        <li id="im-panel-main-chat-textarea_fastSend" style="font-size: 21px;margin-right: 10px;">
+                                            <i class="icon-fastSend" title="发送合集"></i>
+                                        </li>
+                                        <li id="im-panel-main-chat-textarea_reCall" style="display: none;font-size: 21px;margin-right: 10px;">
+                                            <i class="icon-reCall" title="查看撤回消息记录"></i>
+                                        </li>
+                                        <!-- <li style="font-size: 21px;margin-right: 13px;">
+                                            <i id="im-panel-main-chat-textarea_locationmsgbtn" class="icon-place" title="发送位置消息..."></i>
+                                        </li>  -->
+
+                                        <!-- <li>
+                                            <i id="im-panel-main-chat-textarea_clearbtn" class="icon-talk3" title="点击清空聊天界面！"></i>
+                                        </li> -->
+
+                                    </ul>
+                                </div>
+
+                                <!-- 聊天消息文本输入框 -->
+                                <textarea class="im-panel-inputcontent ember-text-area js-message-content"  placeholder="输入聊天信息，按 Enter 键快速发送 …"></textarea>
+                                <textarea id="pic-copy-input" style="display:none"></textarea>
+                                <!-- 聊天消息输入框下方的发送按钮功能区 -->
+                                <div class="bottom-bar js-drag-handle ui-draggable-handle" style="height: 50px;">
+
+                                    <!--<ul class="left">
+                                      <li>
+                                        <a data-ember-action="2408">转接客服</a></li>
+                                      <li>
+                                        <a data-ember-action="2409">请求评价</a></li>
+                                    </ul>--><!-- 20161018：为了简化代码，非主要功能暂不实现了 -->
+
+                                    <!-- "发送"按钮功能 -->
+                                    <div class="send">
+                                        <a id="im-panel-sendbutton">发送</a>
+
+                                        <!-- 快捷消息下拉小箭头 -->
+                                        <span id="im-panel-main-chatcontentpane-shortwordsbtn">
+                                            <i class="icon-expand-more"></i>
+                                        </span>
+
+                                        <!-- 快快捷消息菜单项 -->
+                                        <div id="im-panel-main-chatcontentpane-shortwords" class="send-pop kchat-pop" style="display:none;" tabindex="-1">
+                                            <ul>
+                                                <li id="im-panel-main-chatcontentpane-shortwords-1">快捷回复：“正在处理紧急事情”</li>
+                                                <li id="im-panel-main-chatcontentpane-shortwords-2">快捷回复：“有事先离开一会儿”</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="send_hint">
+                                        <span>按 Ctrl+Enter 换行，按 Enter 发送</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div id="im-panel-main-chatcontentpane-toplevel_offline"class="kchat-im-panel-main-chat list1" style="display:none;padding-bottom: 0px;">
+                            <div id="im-panel-main-chatcontentpane-wrap_offline" class="kchat-im-panel-main-chat-content scrollbar-auto">
+                                <div id="im-panel-main-chatcontentpane_offline" class="chat-box chat-style1">-->
+                                    <!-- jQuery动态添加 --><!-- TODO 离线聊天记录显示面板   -->
+                        <!--    </div>
+                            </div>
+                        </div>-->
+
+                        <!-- 右侧详情信息显示区（可以显示一些附加信息，比如好友个人信息等等） -->
+                        <div id="im-panel-main-rightdetail-toplevel" class="kchat-im-panel-main-info" style="">
+                            <style type="text/css">.fix-full-height { height: 100%; }</style>
+
+                            <div id="im-panel-main-rightdetail-contentwrap" class="fix-full-height" style="display: block;">
+                                <div id="im-panel-main-rightdetail-content" class="chat-user-info scrollbar-auto">
+
+
+                                    <!--<div class="chat-user-info-headinfo">
+                                        <div class="avatar-wrapper">
+                                            <img src="images/default_local_avatar.png">
+                                            <img id="im-panel-main-rightdetail-content-user-avatar" src="http://192.168.0.190:8080/rainbowchat_pro/BinaryDownloader?action=gavartar_d&file_name=0000000228.jpg&one_pixel_transparent_if_no=1">
+                                        </div>
+                                        <div class="info">
+                                            <h4 id="im-panel-main-rightdetail-content-user-showname" title="Jack Jiang">吹牛扯蛋群</h4>
+                                            <span class="gray">群ID: 2000000044</span>
+                                        </div>
+                                        <a>
+                                            <img id="im-panel-main-rightdetail-content-sexicon" class="sex" title="消息提示默认是开启的！" src="images/main_alarms_list_item_icon_notify_n.png">
+                                        </a>
+                                        <div class="clear" style="clear: both;"></div>
+                                    </div>
+                                    <dl>
+                                        <dt>基本信息</dt>
+                                        <dd><span class="label">当前群主：</span><span class="content"><a style="color: #999b9f" id="im-panel-main-rightdetail-content-viewowner4group-btn">Jack Jiang</a></span><span class="flag" title="我是此群的群主！">我</span></dd>
+                                        <dd><span class="label">群内昵称：</span><span class="content"><a id="im-panel-main-rightdetail-content-viewnick4group-btn">老哥一枚</a><i id="im-panel-main-rightdetail-content-editnick-btn" class="icon-edit"></i></span></dd>
+                                        <dd><span class="label">群创建者：</span><span class="content">Jack Jiang</span></dd>
+                                        <dd><span class="label">建群时间：</span><span class="content">2018-10-13 09:11</span></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>本群公告</dt>
+                                        <dd><span class="content"><a id="im-panel-main-rightdetail-content-viewnotice-btn">只想好好地聊个天，无聊者不要加我，谢谢！</a><i id="im-panel-main-rightdetail-content-editnotice-btn" class="icon-edit"></i></span></dd>
+                                    </dl>
+                                    <dl class="kf5-chat-tag">
+                                        <dt>群员信息</dt>
+                                        <dd class="add-tag" style="margin-top: 5px;">
+                                            <a class="btn btn-sm btn-blue blue btn-hollow" id="im-panel-main-rightdetail-bottom-viewmembers4group-btn">查看群员<span>(5人)</span></a>
+                                            <a class="btn btn-sm btn-blue blue btn-hollow" id="im-panel-main-rightdetail-bottom-invitemember4group-btn" style="margin-left: 10px;">邀请入群</a>
+                                        </dd>
+                                    </dl>-->
+
+                                </div>
+
+                                <div id="im-panel-main-rightdetail-bottom" class="prohibition">
+                                    <!--
+                                    <p><a class="link transfer_group">转让本群</a><span class="pipe">/</span><a class="link_red">解散本群</a></p>
+                                    -->
+                                </div>
+
+                            </div>
+
+                            <!--
+                            <div class="scrollbar-auto" style="display:none;">
+                                <div class="app-panel chat-user-info">
+                                    <div>
+                                        <div class="app-box-empty">
+                                            <i class="icon-api-box"></i>
+                                            <p>还没有添加应用</p>
+                                            <a class="btn btn-green" href="#/function/apps">应用商店</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="scrollbar-auto" style="display:none;">
+                                <div class="chat-user-info">
+                                    <dl>
+                                        <dt>工单跟进
+                                            <a class="btn">创建工单</a></dt>
+                                    </dl>
+                                </div>
+                            </div>-->
+                        </div>
+                        <div class="kchat-im-panel-main-chat list3" style="display:none;">
+                            <div class="kchat-im-panel-main-chat-content empty scrollbar-auto">
+                                <div class="chat-box chat-style1">
+                                    <div class="empty-block">暂无轨迹</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- For IM-主功能区-body UI END  -->
+
+            </div>
+            <!-- For IM-主功能区 UI END  -->
+
+
+            <!--
+            <div class="tourbus-container" id="tourbus-0">
+                <div class="tourbus-leg tourbus-arrow-centered" id="tourbus-leg-0-0"
+                     style="z-index: 9999;width: 350px;top: 314px;left: 544.5px; visibility: visible;opacity: 1;">
+                    <div class="tourbus-leg-inner">
+                        <p>这就是一张工单，她记录了从各个客服渠道来的问题处理的全过程以及沟通内容，让任何客服接手处理都得心应手。</p>
+                        <a href="javascript:void(0);" class="tourbus-next">下一步</a>
+                    </div>
+                </div>
+
+                <div class="tourbus-leg tourbus-arrow tourbus-arrow-right" id="tourbus-leg-0-1"
+                     style="z-index: 9999; width: 350px; top: 100px; left: 66px;visibility: hidden;opacity: 1;">
+                    <div class="tourbus-leg-inner">
+                        <p>您和您的客服妹子可以点击这里管理和定位工单</p>
+                        <a href="javascript:void(0);" class="tourbus-next">下一步</a>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+        <!-- ***************************************** IM可移动主体区 START ************************************* -->
+
+        <!-- ***************************************** 整个背景网页空白区 START ********************************** -->
+        <!-- <div id="ember64" class="kchat-talk-list-empty">
+            <i class="icon-talk1" style="color: #a7acb6;"></i>
+            <p style="color: #887196;">
+                RainbowChat-Web目前的设计是可灵活嵌入到中大型的项目使用的。<br>
+                界面对接时，您可以在此空白区布置您的项目界面和功能。<br>
+                默认状态下，此区无其它作用，仅作为美化装饰。
+            </p>
+        </div> -->
+        <!-- ***************************************** 整个背景网页空白区 END ************************************ -->
+
+        <!--        个人中心-->
+        <div id="phone_center">
+<!--            我的-->
+            <div class="mine">
+                <div class="mine_top">
+                    <div class="main_header">
+                        <img src="data:image/png;base64,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" alt="">
+                    </div>
+                    <div class="user_info">
+                        <div class="user_info_l">
+                            <div class="kchat-im-panel-header-user" style="box-shadow: none;background-color:transparent !important">
+                                <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
+                                <div class="avatar-wrapper">
+                                    <a id="im-panel-header-user-avatar-parent-phone">
+                                        <div id="im-panel-header-user-avatar-default"></div>
+                                        <img id="im-panel-header-user-avatar-phone" onerror='javascript:$(this).css("display","none")'>
+                                    </a>
+                                    <a id="im-panel-header-user-status-phone" class="user-status offline"></a>
+                                </div>
+        
+        
+                                <div class="info">
+                                    <h4><a id="im-panel-header-user-showname-phone" style="color:#333">-</a></h4>
+                                    <div class="whatsup">
+                                        <a id="im-panel-header-user-whatsup-phone">-</a>
+                                        <!--<span class="icon-edit"></span>-->
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_info_r">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAqDuP8AAACO0lEQVRYCe2Xv0sDMRTHk14V3ZzEIkIPBHXvJAgOIig6SEUUJ0cdnFz8B1xcHfwDrir9oUiLRUQchE6dXVuh7k4q2F7Ms7yS9n4l8a6DNEty7yWf981LLrkjJKhk8qW6ax+Hw8oVmWtPf+NV7m7Z0QOMMdE6bY4/ic/eba6r5u0VPBADJ0EFu6MJE5s1E8MOBxjAWa1Wh1yd0sZMrvgo1Vk6ycodu9ItpUXsFBgusINIC73tu74YLVMoLTGbPVBKX3c315JoF2spEA6AHdYkrXs3oBJIBoh9lGpYFVwZLUU4GN6PVCr1DdGVQG4AnIIUyMqVGoSwSVEBAgZ1OwOQ5MubctIvH5LvP/1qNZs1P5jUqoESvnKffOVGjHjc3NlYqfeqkwYFwZRAfjBlkBdMCyTCRmPGVDq92pBcNRjaXSglZ2D5su09qLUU8evzlDF2xA+4a35iprVAbhBlkBdECeQHkQYFQQAktWq9iYWBWiXLmKE18F8M0trYbjPPViqj9tv7Qmxy7Hlrfp4fXXolNEFWvvRCGJsDGfCJETOMRbdzNEhmaIIgUPubx76Fgx2edYSFKghEQPmLsEgEtWXpCYtUkI6wvghSEdZXQd3CWmX+/HvE80v2fHdzfR/8Umc+gsKo4SKCvw+MDZf0TDJxiOy+ZQhvxE7gXyET2/i/0LFjI6paVgjGjyxDqkIiE6QrJHRBVqF4TGxy0gF77BH0e9VxL4eyndERQtkHZeRixkwc9G5WZd5ggEcGfgCTmDhqBc/+JAAAAABJRU5ErkJggg==" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="mine_box">
+                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-qb">
+                        <div class="mine_box_item_l" >
+                            <img src="data:image/png;base64,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" alt="">
+                            我的钱包
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAqDuP8AAACO0lEQVRYCe2Xv0sDMRTHk14V3ZzEIkIPBHXvJAgOIig6SEUUJ0cdnFz8B1xcHfwDrir9oUiLRUQchE6dXVuh7k4q2F7Ms7yS9n4l8a6DNEty7yWf981LLrkjJKhk8qW6ax+Hw8oVmWtPf+NV7m7Z0QOMMdE6bY4/ic/eba6r5u0VPBADJ0EFu6MJE5s1E8MOBxjAWa1Wh1yd0sZMrvgo1Vk6ycodu9ItpUXsFBgusINIC73tu74YLVMoLTGbPVBKX3c315JoF2spEA6AHdYkrXs3oBJIBoh9lGpYFVwZLUU4GN6PVCr1DdGVQG4AnIIUyMqVGoSwSVEBAgZ1OwOQ5MubctIvH5LvP/1qNZs1P5jUqoESvnKffOVGjHjc3NlYqfeqkwYFwZRAfjBlkBdMCyTCRmPGVDq92pBcNRjaXSglZ2D5su09qLUU8evzlDF2xA+4a35iprVAbhBlkBdECeQHkQYFQQAktWq9iYWBWiXLmKE18F8M0trYbjPPViqj9tv7Qmxy7Hlrfp4fXXolNEFWvvRCGJsDGfCJETOMRbdzNEhmaIIgUPubx76Fgx2edYSFKghEQPmLsEgEtWXpCYtUkI6wvghSEdZXQd3CWmX+/HvE80v2fHdzfR/8Umc+gsKo4SKCvw+MDZf0TDJxiOy+ZQhvxE7gXyET2/i/0LFjI6paVgjGjyxDqkIiE6QrJHRBVqF4TGxy0gF77BH0e9VxL4eyndERQtkHZeRixkwc9G5WZd5ggEcGfgCTmDhqBc/+JAAAAABJRU5ErkJggg==" alt="">
+                        </div>
+                    </div>
+                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-minapp">
+                        <div class="mine_box_item_l" >
+                            <img src="/assets/xiaochengxu-80bc7403.png" alt="">
+                            我的小程序
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAqDuP8AAACO0lEQVRYCe2Xv0sDMRTHk14V3ZzEIkIPBHXvJAgOIig6SEUUJ0cdnFz8B1xcHfwDrir9oUiLRUQchE6dXVuh7k4q2F7Ms7yS9n4l8a6DNEty7yWf981LLrkjJKhk8qW6ax+Hw8oVmWtPf+NV7m7Z0QOMMdE6bY4/ic/eba6r5u0VPBADJ0EFu6MJE5s1E8MOBxjAWa1Wh1yd0sZMrvgo1Vk6ycodu9ItpUXsFBgusINIC73tu74YLVMoLTGbPVBKX3c315JoF2spEA6AHdYkrXs3oBJIBoh9lGpYFVwZLUU4GN6PVCr1DdGVQG4AnIIUyMqVGoSwSVEBAgZ1OwOQ5MubctIvH5LvP/1qNZs1P5jUqoESvnKffOVGjHjc3NlYqfeqkwYFwZRAfjBlkBdMCyTCRmPGVDq92pBcNRjaXSglZ2D5su09qLUU8evzlDF2xA+4a35iprVAbhBlkBdECeQHkQYFQQAktWq9iYWBWiXLmKE18F8M0trYbjPPViqj9tv7Qmxy7Hlrfp4fXXolNEFWvvRCGJsDGfCJETOMRbdzNEhmaIIgUPubx76Fgx2edYSFKghEQPmLsEgEtWXpCYtUkI6wvghSEdZXQd3CWmX+/HvE80v2fHdzfR/8Umc+gsKo4SKCvw+MDZf0TDJxiOy+ZQhvxE7gXyET2/i/0LFjI6paVgjGjyxDqkIiE6QrJHRBVqF4TGxy0gF77BH0e9VxL4eyndERQtkHZeRixkwc9G5WZd5ggEcGfgCTmDhqBc/+JAAAAABJRU5ErkJggg==" alt="">
+                        </div>
+                    </div>
+                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-modifypsw">
+                        <div class="mine_box_item_l" >
+                            <img src="/assets/xiugaimima01-28c54eee.png" alt="">
+                            修改密码
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAqDuP8AAACO0lEQVRYCe2Xv0sDMRTHk14V3ZzEIkIPBHXvJAgOIig6SEUUJ0cdnFz8B1xcHfwDrir9oUiLRUQchE6dXVuh7k4q2F7Ms7yS9n4l8a6DNEty7yWf981LLrkjJKhk8qW6ax+Hw8oVmWtPf+NV7m7Z0QOMMdE6bY4/ic/eba6r5u0VPBADJ0EFu6MJE5s1E8MOBxjAWa1Wh1yd0sZMrvgo1Vk6ycodu9ItpUXsFBgusINIC73tu74YLVMoLTGbPVBKX3c315JoF2spEA6AHdYkrXs3oBJIBoh9lGpYFVwZLUU4GN6PVCr1DdGVQG4AnIIUyMqVGoSwSVEBAgZ1OwOQ5MubctIvH5LvP/1qNZs1P5jUqoESvnKffOVGjHjc3NlYqfeqkwYFwZRAfjBlkBdMCyTCRmPGVDq92pBcNRjaXSglZ2D5su09qLUU8evzlDF2xA+4a35iprVAbhBlkBdECeQHkQYFQQAktWq9iYWBWiXLmKE18F8M0trYbjPPViqj9tv7Qmxy7Hlrfp4fXXolNEFWvvRCGJsDGfCJETOMRbdzNEhmaIIgUPubx76Fgx2edYSFKghEQPmLsEgEtWXpCYtUkI6wvghSEdZXQd3CWmX+/HvE80v2fHdzfR/8Umc+gsKo4SKCvw+MDZf0TDJxiOy+ZQhvxE7gXyET2/i/0LFjI6paVgjGjyxDqkIiE6QrJHRBVqF4TGxy0gF77BH0e9VxL4eyndERQtkHZeRixkwc9G5WZd5ggEcGfgCTmDhqBc/+JAAAAABJRU5ErkJggg==" alt="">
+                        </div>
+                    </div>
+                    <div class="mine_box_item"  id="im-panel-header-setup-popup-action-exit">
+                        <div class="mine_box_item_l">
+                            <img src="data:image/png;base64,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" alt="">
+                            退出登录
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJKADAAQAAAABAAAAJAAAAAAqDuP8AAACO0lEQVRYCe2Xv0sDMRTHk14V3ZzEIkIPBHXvJAgOIig6SEUUJ0cdnFz8B1xcHfwDrir9oUiLRUQchE6dXVuh7k4q2F7Ms7yS9n4l8a6DNEty7yWf981LLrkjJKhk8qW6ax+Hw8oVmWtPf+NV7m7Z0QOMMdE6bY4/ic/eba6r5u0VPBADJ0EFu6MJE5s1E8MOBxjAWa1Wh1yd0sZMrvgo1Vk6ycodu9ItpUXsFBgusINIC73tu74YLVMoLTGbPVBKX3c315JoF2spEA6AHdYkrXs3oBJIBoh9lGpYFVwZLUU4GN6PVCr1DdGVQG4AnIIUyMqVGoSwSVEBAgZ1OwOQ5MubctIvH5LvP/1qNZs1P5jUqoESvnKffOVGjHjc3NlYqfeqkwYFwZRAfjBlkBdMCyTCRmPGVDq92pBcNRjaXSglZ2D5su09qLUU8evzlDF2xA+4a35iprVAbhBlkBdECeQHkQYFQQAktWq9iYWBWiXLmKE18F8M0trYbjPPViqj9tv7Qmxy7Hlrfp4fXXolNEFWvvRCGJsDGfCJETOMRbdzNEhmaIIgUPubx76Fgx2edYSFKghEQPmLsEgEtWXpCYtUkI6wvghSEdZXQd3CWmX+/HvE80v2fHdzfR/8Umc+gsKo4SKCvw+MDZf0TDJxiOy+ZQhvxE7gXyET2/i/0LFjI6paVgjGjyxDqkIiE6QrJHRBVqF4TGxy0gF77BH0e9VxL4eyndERQtkHZeRixkwc9G5WZd5ggEcGfgCTmDhqBc/+JAAAAABJRU5ErkJggg==" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        聊天详情-->
+        <div id="phone_chat">
+            <div class="chat_top">
+                <div class="chat_top_l" id="chat_top_back"><img id="left_jt" src="data:image/png;base64,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" alt=""></div>
+                <div class="chat_top_c" id="chat_top_name"></div>
+                <div class="chat_top_r" id="chat_top_detail"><img class="head_san" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAAGUUzB+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQqADAAQAAAABAAAAQgAAAADorYEXAAAEF0lEQVR4Ae1aTWgTQRRO0pBqTT2YUjUHvalY9WCTpr1WD+amtwreWkW8KaLgRYog/uFNpFo9CaIePAZEQ/FS86cItlAPohRUiqmgFTQ0id/b7ltmpjtJLrVF3sIwb773zczbL7O7sy8bCKzRo7e3t06FwuPatNdo6KsfFgtmisj46kf4X0UQ5LOBvi9gD6LES6XSFwWnhVwB1m5gAWBO/xA7UNMAdDxYqgKBZDLZ49oRxtQ6lUptVNtiiwJrRwH1+nBu6LzmKcREIvGtXq/HVCydTrfPzc39DgaDM8VicZdzbeDi+ul3TtSZcPXmRp0Jg28n1c4AGKnhRRIKhYaI7B432JBaFBAFRAFR4F8o4D0saDLse47XarU75sTqw4J9eJAUcL9PcJtqPEDKuO13qRjZeFZUUal7LuKOgXuS/JoDAQwT2MphBkB9+AHl01+bx+UeY57mxBn3IzrCcigLeFid8FOBOhMeDoe3wPyIs/qKsrcRF2Olwf2OMt3Z2bke3ChsOUQBUUAUEAVEAVFAFBAFRIEVUUDb8mNrvhWzfFZmymJDekBpeya4h9F4ygA2uuexSb7GbbUG9y7aI4yBux/cN9zWdtsA1QCIM0jvIkw2ai8AwrHdvzowMLDJ4NC7TBKYF4DLfa3yzCBUn2PjXeSmCeLF56iJUbtSqVwwcQTnq05fX98O5jYNAsQpJnPd1ta2DCMfZJ5mDtcIYhlGvlgs9ok55prgvDr7A/QyhMGdfKIHwsDvTKk/L89OPtvLD7haf4w3i3G3UR86NCVoEdJbF/AFlJwtAOoI7jpUt1EqKI9tAcDHwT3D5JTwHFUDIL8cooAoIAqIAqKAKCAKiAKigCggCogCooAoIAqIAqKAKCAK6Apo+VPdtdRCEjaIrO+I+3ULf148hRTnvXw+P+6XW/Ubx8TwKfLmxcXFi8Dpo5I4xpnHXC9RX0Jq853Jb7WN7PkhxHoa49AnPh0Y8wPsJ9Fo9MrExITzuaffWFYhSACkzp+j06BfRwXLIvCDmExLFit+zUSgPQi0BFBLQmskNCD0UKFQeGTitjaS1dfhO2vzE44YZ5GJ35PL5X6YPKsQGPgVyCmzg6WdQzK73+LzYKyCfVgFbz2giYHAhyHy/SY0yu7fAudUM57r/9Xd3R3LZDJ/VL6W1VcdsPkyMGDfZkvcarXaEo9nwKrczXajGoK1xHPH2FAul7eb41mFwNI8Y5Jt7Va5+HUfIuiibRwVB68ciUQuq5jNBvccfDWbX8XBHcO97b2KkW0VAtcn/WkYR8kS0XKQL+5yLRQdhhj0X+AROlHd47Uq8NGfmV2Tk5PzHtrAwPwFLPcOUMZtNIw5g0J/fDrfOdp4gosCooAoIAqIAqKAKCAKiAKigCggCogCK6fAXyS5TzK8TyIMAAAAAElFTkSuQmCC" alt=""></div>
+            </div>
+            <div class="container_chat">
+                <div class="kchat-im-panel-main" style="height: 100%;width: auto !important">
+                    <!-- 中间聊天内容显示区（也是IM中最重要的信息区） -->
+                    <div id="im-panel-main-chatcontentpane-toplevel" class="kchat-im-panel-main-chat list1">
+                        <div class="im-panel-main-toBottom-content">
+                            <img class="im-panel-main-toBottom-content-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAgCAYAAAB6kdqOAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAJKADAAQAAAABAAAAIAAAAAD8RmcGAAACxUlEQVRYCe1XvYsTURB3d/MFW5wcqCSFEImFp4bNJmZJYQQrRZQDD0sLu0Pw4w8QG3uPw9rS5lIcfqawOo25hOwmldaHgnhF8AMR82H8zd7bY1Gys/m8KzLw3rw3Mzvze/N29r2VDgjKZDIXMbzV6/V08MOOfMJ8W5IkCzFWa7XaK4olUQcwDwHkDo33igBsBaDuSgBzFWAKAkgL/AXm29MABhC0E5fQQhQP86UA+DJNQG20vGmaFXs2pS6dThsI9QYtiLYsIxsZEXtz2mAoroi5SWPCIoPP0QT0bYftSe/EniNA+4pmgLjtoCrzJMMwjnQ6nTUYnfA0ZJQo6feKolyrVCpfvExZQO12+xycnfVy4keHCspjYXnY0uL6EgsoHA4/a7VaD+Bw1Ax9CIVCz/siEQoWULlc/gXbe5yjcelnVcZlct9liH2HcPgdxaqKaNxLbQYCgfMo6+9cFrz0bIZQ8md8gKEYaVTjSa9gfnRshlDuT+HoNviCl0MAr9Xr9bKXjR8dCwjXA7onrfpxNg4bdsvGEWQQHzNAXLYoQ1vC6BhnPEG9E3tLiUajBirkFIIdisViiqqq75rNZneCwXddJxKJcDwevw/BEglRyUVJ07TjuKfUMVdJCKKqcu64tkB0f8ALqLqbbiGNU6nUgizLjzA8/a+OmdN9nv42iH4CkGb/KOq6fgFZegxh1Fb17zqRSGS+VCr9cEyy2Wy82+2+xTzmyIbgnwHmhmVZRRsQOUCmDiJTlDodyv9+pQGYMrSODD0heyIcK7QAAuO8A1U8+5F0fgg+6YfUwoIKjUbjKz2zC8iPA7dNLpebx1GxAZlzXLzEeFF8SN2mA42VgayFcTKZVJGJ11ihRiLwDdwGr1Sr1d/D+HM/wx4dbmNnHAwGr2NMhy6Ria2+LG6WO5IR+qEAITslZOUT4tI3bHHUK4cb/1+a89K2tgm7aAAAAABJRU5ErkJggg==">
+                            <span class="im-panel-main-toBottom-nums">7条新消息</span>
+                            <img class="im-panel-main-toBottom-content-icon2"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAFKADAAQAAAABAAAADgAAAAC7RV3kAAABsUlEQVQ4Eb2SwUvCYBjG3YYrGJgGEVjQzS4dZBoRCNmlgvASSRYILkVHYNcuHTwH/QFaSJfCMBLrUhEoBXXSc//H6DKa63nXN5lmIBG9h73v87zf9/vebZ/L9cfBEU9V1Win0ymaptkyDCNXLpe1Yc/JZDLTgiCcYu8kcoKnjYDlkAIcx23DvEmlUqPDABVFmeB5/hGwVawPgrNjASEubQCgUVEUr7LZrNv2BmX0x9xu9wN6s6yvA1gTSLRarTdZlt8BW2HNAHIgFotdN5tNk3ndlEwmJcDuYMwz08DeRKlUalhAMtvt9ksoFCK9xBbNaZo2hcNumbZSPp8fQVGnN2E+HbgLWIV0F0gCmxuAjqNcII3A4LIHh9GrueLxuIDPQZ9nnTSLfcBObNEDJBPQ+3A4PIMySBqTLAJqAvoUiUTOYG2Rz+IQsGNbULaujdOgmibxer0VwDYdvVfUiw59BNiBQ1vlQCB1ABV9Pl8d5Zq1svdRBEzttb6UfW2+9arVqi5J0gamfO5rXvj9/r0+ryt/nNBegb/q0XW9hsu7DO8cMKVQKHzY/V/ndDpNf///4xO3aIWCEY+4vAAAAABJRU5ErkJggg==">
+                        </div>
+                        <div class="tip-my-root" id="im-panel-main-chat-tip-me"
+                        >
+                            <div id="tip-num" class="tip-num">0</div>
+                            <img src="/assets/group-tip-8327ebd7.png"/>
+                        </div>
+                        <!-- 聊天内容显示列表 -->
+                        <div id="im-panel-main-chatcontentpane-wrap" class="kchat-im-panel-main-chat-content scrollbar-auto">
+                            <div id="IM-chat-visitorName" class="IM-chat-navbar-title" style="display:none;"></div>
+                            <!-- 动态组织的数据UI -->
+                            <div id="im-panel-main-chatcontentpane" class="chat-box chat-style1">
+                            </div>
+                        </div>
+                        <!-- 整个消息发送区域布局 -->
+                        <div class="kchat-im-panel-main-chat-textarea"  id="kchat-im-panel-main-chat-textarea">
+                            <div class="chat-box_alert" id="im-panel-main-chat-replay-ui"
+                            style="display:none;font-size: 18px;color: #fff;padding: 5px;"></div>
+
+                            <!-- 发送区上方的信息提示ui，可用于文件上传进度提示等 -->
+                            <div class="chat-box_alert im-panel-main-chat-textarea_fileuphint"
+                                 style="display:none;background: #5bc648;font-size: 12px;color: #fff;padding: 5px;">文件上传中...</div>
+
+                            <!-- 各消息功能按钮，比如：表情、文件等 -->
+                            <div class="top-bar">
+                                <ul style="">
+
+                                    <!-- 表情按钮及表示内容 -->
+                                    <li id="emoji-face-btn">
+                                        <i id="im-panel-main-chat-textarea_emojiopenbtn" class="icon-chat1"></i>
+                                        <div id="im-panel-main-chat-textarea_emojipopup" class="kchat-pop emoji-face-box" tabindex="-1">
+                                            <!--
+                                            <ul>
+                                                <li class="emoji_li" id="[emoji_angry]"><span class="emoji emoji1f47f"></span></li>
+                                                <li class="emoji_li" id="[emoji_blush]"><span class="emoji emoji1f60a"></span></li>
+                                                <li class="emoji_li" id="[emoji_tongue]"><span class="emoji emoji1f60b"></span></li>
+                                                <li class="emoji_li" id="[emoji_sleep]"><span class="emoji emoji1f60c"></span></li>
+                                                <li class="emoji_li" id="[emoji_love]"><span class="emoji emoji1f60d"></span></li>
+                                                <li class="emoji_li" id="[emoji_cool]"><span class="emoji emoji1f60e"></span></li>
+                                                <li class="emoji_li" id="[emoji_smirk]"><span class="emoji emoji1f60f"></span></li>
+                                                <li class="emoji_li" id="[emoji_shame]"><span class="emoji emoji1f61a"></span></li>
+                                                <li class="emoji_li" id="[emoji_cute]"><span class="emoji emoji1f61b"></span></li>
+                                                <li class="emoji_li" id="[emoji_cute2]"><span class="emoji emoji1f61c"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f61d]"><span class="emoji emoji1f61d"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f61e]"><span class="emoji emoji1f61e"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f61f]"><span class="emoji emoji1f61f"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f62a]"><span class="emoji emoji1f62a"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f62b]"><span class="emoji emoji1f62b"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f62c]"><span class="emoji emoji1f62c"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f62d]"><span class="emoji emoji1f62d"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f62e]"><span class="emoji emoji1f62e"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f62f]"><span class="emoji emoji1f62f"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f600]"><span class="emoji emoji1f600"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f601]"><span class="emoji emoji1f601"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f602]"><span class="emoji emoji1f602"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f603]"><span class="emoji emoji1f603"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f604]"><span class="emoji emoji1f604"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f605]"><span class="emoji emoji1f605"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f606]"><span class="emoji emoji1f606"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f607]"><span class="emoji emoji1f607"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f608]"><span class="emoji emoji1f608"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f609]"><span class="emoji emoji1f609"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f610]"><span class="emoji emoji1f610"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f611]"><span class="emoji emoji1f611"></span></li>
+                                                <li class="emoji_li" id="[emoji_1f612]"><span class="emoji emoji1f612"></span></li>
+                                            </ul>
+                                            -->
+                                        </div>
+                                    </li>
+
+                                    <!-- 普通大文文件发送按钮 -->
+                                    <li id="upload-file">
+                                        <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                        <i class="icon-chat2" onclick="$('#upload-file-input').click();" title="发送文件"></i>
+                                        <input type="file" id="upload-file-input" style="display: none;">
+
+                                        <!-- <input type="file" name="im-panel-main-chat-textarea-filemsg-uploadify"
+                                               id="im-panel-main-chat-textarea-filemsg-uploadify" /> -->
+                                        <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                    </li>
+
+                                    <!-- 图片文件发送按钮 -->
+                                    <li id="upload-image">
+                                        <i class="icon-chat2" onclick="$('#upload-image-input').click();" title="发送图片"></i>
+                                        <input type="file" id="upload-image-input" style="display: none;">
+
+                                        <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                        <!-- <input type="file" name="im-panel-main-chat-textarea-imagemsg-uploadify"
+                                               id="im-panel-main-chat-textarea-imagemsg-uploadify" /> -->
+                                        <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                    </li>
+
+                                    <li id="upload-video" >
+                                        <i class="icon-chat2" onclick="$('#upload-video-input').click();" title="发送视频"></i>
+                                        <input type="file" id="upload-video-input" style="display: none;">
+
+                                        <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                        <!-- <input type="file" name="im-panel-main-chat-textarea-imagemsg-uploadify"
+                                               id="im-panel-main-chat-textarea-imagemsg-uploadify" /> -->
+                                        <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                    </li>
+
+                                    <li id="send-redpag" style="display:none">
+                                        <i class="icon-chat2"  id="send-redpag-pack" title="发送红包" ></i>
+                                    </li>
+                                    <li>
+                                        <i id="im-panel-main-chat-textarea_clearbtn" class="icon-talk3" title="点击清空聊天界面！"></i>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- 聊天消息文本输入框 -->
+                            <textarea class="im-panel-inputcontent ember-text-area js-message-content"  placeholder="输入聊天信息，按 Enter 键快速发送 …"></textarea>
+                            <textarea id="pic-copy-input" style="display:none"></textarea>
+                            <!-- 聊天消息输入框下方的发送按钮功能区 -->
+                            <div class="bottom-bar js-drag-handle ui-draggable-handle" style="height: 50px;">
+                                <!-- "发送"按钮功能 -->
+                                <div class="send">
+                                    <a id="im-panel-sendbutton">发送</a>
+
+                                    <!-- 快捷消息下拉小箭头 -->
+                                    <span id="im-panel-main-chatcontentpane-shortwordsbtn">
+                                        <i class="icon-expand-more"></i>
+                                    </span>
+
+                                    <!-- 快快捷消息菜单项 -->
+                                    <div id="im-panel-main-chatcontentpane-shortwords" class="send-pop kchat-pop" style="display:none;" tabindex="-1">
+                                        <ul>
+                                            <li id="im-panel-main-chatcontentpane-shortwords-1">快捷回复：“正在处理紧急事情”</li>
+                                            <li id="im-panel-main-chatcontentpane-shortwords-2">快捷回复：“有事先离开一会儿”</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                                <div class="send_hint">
+                                    <span>按 Ctrl+Enter 换行，按 Enter 发送</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_info" id="container_info">
+                <div class="right_con">
+                    <!-- 右侧详情信息显示区（可以显示一些附加信息，比如好友个人信息等等） -->
+                    <div id="im-panel-main-rightdetail-toplevel" class="kchat-im-panel-main-info" style="position:unset !important">
+                        <style type="text/css">.fix-full-height { height: 100%; }</style>
+
+                        <div id="right_con_closure">
+                            <img src="/assets/guanbi-c75485e6.png" alt="">
+                        </div>
+
+                        <div id="im-panel-main-rightdetail-contentwrap" class="fix-full-height" style="display: block;">
+                            <div id="im-panel-main-rightdetail-content" class="chat-user-info scrollbar-auto">
+
+                            </div>
+
+                            <div id="im-panel-main-rightdetail-bottom" class="prohibition">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="left_con"></div>
+                </div>
+        </div>
+        <!--弹窗-->
+        <div id="pop_ups">
+            <div class="chat_top">
+                <div class="chat_top_l" id="pop_ups_back"><img id="left_jt" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAEi0lEQVR4nO3VzY3dVBjHYZuv7TAV0EIQw541KzqAlEAnlBA6YDPZQgFIiA7oIBSQaOIT5UqT0b3vXNvH9vl4Hukv2V4dyfrpjANwkUAgIBAICAQCAoGAQCAgEAgIBAICgYBAICAQCAgEAgKBgEAgIBAICAQCAoGAQCAgEAgIBAICgYBAICAQCAgEAgKBgEAgIBAICAQCAoGAQCAgEAgIBAICacCP/7x5Mb797Of7729+nV7JSCCV+xDHu/HPh2H4evqdr17f3bycPpPJOI1KfRrHiUhyGqdRofNxnIgkl3EalYnjOBFJDuM0KnJdHCciWWucRiXmxXEikjXGaVRgWRwnIllqnEbh1sUxGR9evv7u9tXAbAIpnDiOJZCCieN4AimUOMogkAKJoxwCKYw4yiKQgoijPAIphDjKJJACiKNcAjmYOMomkAOJo3wCOYg46iCQA4ijHgLZmTjqIpAdiaM+AtmJOOokkB2Io14C2Zg46iaQDYmjfgLZiDjaIJANiKMdAslMHG0RSEbiaI9AMhFHmwSSgTjaJZCVxNE2gawgjvYJZCFx9EEgC4ijHwKZSRx9EcgM4uiPQK4kjj4J5Ari6JdAniGOvgkkIA4EcoE4SARyhjg4EcgT4uAxgTwiDp4SyEfi4ByBTMTBJd0HIg4iXQciDp7TbSDi4BpdBiIOrtVdIOJgjq4CEQdzdROIOFiii0DEwVLNByIO1mg6EHGwVrOBiIMcmgxEHOTSXCDiIKemAhEHuTUTiDjYQhOBiIOtVB+IONhS1YGIg61VG4g42EOVgYiDvVQXiDjYU1WBiIO91RXI32/+m478zbDAODz8fn93+8sAM9QVyHSDDO+Gv6Zj3wxLuEGYqapAEpGwp+oCSUTCXqoMJBEJe6g2kEQkbK3qQBKRsKXqA0lEwlaaCCQRCVtoJpBEJOTWVCCJSMipuUASkZBLk4EkIiGHZgNJRMJaTQeSiIQ1mg8kEQlLdRFIIhKW6CaQRCTM1VUgiUiYo7tAEpFwrS4DSUTCNboNJBEJz+k6kEQkRLoPJBEJlwjkI5FwjkAeEQlPCeQJkfCYQM4QCScCuUAkJAIJiASBPEMkfRPIFUTSL4FcSSR9EsgMIumPQGYSSV8EsoBI+iGQhUTSB4GsIJL2CWQlkbRNIBmIpF0CyUQkbRJIRiJpj0AyE0lbBLIBkbRDIBsRSRsEsiGR1E8gGxNJ3QSyA5HUSyA7EUmdBLIjkdRHIDsTSV0EcgCR1EMgBxFJHQRyIJGUTyAHE0nZBFIAkZRLIIUQSZkEUhCRlEcghRFJWQRSIJGUQyCFEkkZBFIwkRxPIIUTybEEUgGRHEcglVgTyTg8/Ht/d/tiemQmgVRkSSQpji8/H37449vb/6dXZhJIZeZEIo71BFKhayIRRx4CqVQUiTjyEUjFzkUijrwEUrnHkYgjP4E04EMkb4ffvvpi+EkceQkEAgKBgEAgIBAICAQCAoGAQCAgEAgIBAICgYBAICAQCAgEAgKBgEAgIBAICAQCAoGAQCAgEAgIBAICgYBAICAQCAgEAu8BLWIrBd7aK0gAAAAASUVORK5CYII=" alt=""></div>
+                <div class="chat_top_c" id="pop_ups_name"></div>
+                <div class="chat_top_r"></div>
+            </div>
+            <div class="container_pop_ups"></div>
+        </div>
+
+        <!-- 小窗模版 -->
+        <div class="small-window-box" id="small-window-0" style="display: none;">
+            <div class="popup-resizer top-left" id="top-left"></div>
+            <div class="popup-resizer top-right" id="top-right"></div>
+            <div class="popup-resizer bottom-left" id="bottom-left"></div>
+            <div class="popup-resizer bottom-right" id="bottom-right"></div>
+            <div class="small-window-box-header">
+                <h3 class="small-window-box-header-title"></h3>
+                <a class="expand-open" title="展开" onclick="RBChatSmallWindowUI.handleExpand(this)">
+                    <i class="icon-open-size"></i>
+                </a>
+                <a class="expand-mini" title="缩小" style="display:none;" onclick="RBChatSmallWindowUI.handleMini(this)">
+                    <i class="icon-mini-size"></i>
+                </a>
+                <a class="close" title="关闭窗口" onclick="RBChatSmallWindowUI.handleClose(this)">
+                    <i class="icon-close"></i>
+                </a>
+            </div>
+            <!-- IM-主功能区-body-中间聊天内容显示区和右边的详情显示区 -->
+        <div class="kchat-im-panel-main" id="pc-kchat-im-panel-main">
+
+            <!-- 中间聊天内容显示区（也是IM中最重要的信息区） -->
+            <div id="im-panel-main-chatcontentpane-toplevel" class="kchat-im-panel-main-chat list1">
+    
+                <div class="tip-my-root" id="im-panel-main-chat-tip-me"
+                >
+                    <div id="tip-num" class="tip-num">0</div>
+                    <img src="/assets/group-tip-8327ebd7.png"/>
+                </div>
+                <div id="im-chat-top-msg" class="im-chat-top-msg" style="display:none;">
+                    <div class="lines">
+                        <div class="top-line-item line-0"></div>
+                        <div class="top-line-item line-1"></div>
+                        <div class="top-line-item line-2"></div>
+                    </div>
+                    <div class="left"  id="im-chat-top-msg-left">
+                        <div class="title" id="im-chat-top-msg-title">置顶消息</div>
+                        <div class="content" id="im-chat-top-msg-content"></div>
+                    </div>
+                    <div class="right"  id="im-chat-top-msg-right">
+                        <img src="/assets/msg-top-show-bd69f55a.png"/>
+                    </div>
+                </div>
+                <!-- 聊天内容显示列表 -->
+                <div id="im-panel-main-chatcontentpane-wrap" class="kchat-im-panel-main-chat-content scrollbar-auto kchat-im-panel-main-chat-content_smallWindow">
+    
+                    <!-- add by jackjiang 20170712: 此div仅为了兼容为了Angurlar里改过的html而加，只是确保im_c_main.js代码不出错而已 -->
+                    <div id="IM-chat-visitorName" class="IM-chat-navbar-title" style="display:none;"></div>
+                    
+                    <!-- 动态组织的数据UI -->
+                    <div id="im-panel-main-chatcontentpane" class="im-panel-main-chatcontentpane chat-box chat-style1">
+                            <!-- jQuery动态添加 --><!-- TODO 聊天消息列表   -->
+    
+                            <!--
+                            <div class="system-info" style="font-size: 13px;">
+                                <a data-ember-action="" data-ember-action-969="969">加载更多</a>
+                            </div>-->
+    
+                            <!--
+                            <div class="table-box">
+                                <div class="empty-block">暂无GD</div>
+                            </div>-->
+    
+                            <!-- ## 一个平坦提示信息组件
+                            <div class="alert alert-warning">
+                                注意： 如果您开启单点登录后被锁在了您的云客服平台外，您可以访问以下地址来登录云客服平台
+                                <p><a href="#" target="_blank">http://b7833b6c3d8b7012.52im.net/user/access/</a></p>
+                            </div>
+                            -->
+                        </div>
+    
+                    </div>
+            
+                    <!-- 整个消息发送区域布局 -->
+                    <div class="kchat-im-panel-main-chat-textarea"  id="kchat-im-panel-main-chat-textarea">
+    
+                        <div class="chat-box_alert" id="im-panel-main-chat-replay-ui"
+                        style="display:none;font-size: 18px;color: #fff;padding: 5px;"></div>
+    
+                        <!-- 发送区上方的信息提示ui，可用于文件上传进度提示等 -->
+                        <div class="chat-box_alert im-panel-main-chat-textarea_fileuphint"
+                                style="display:none;background: #5bc648;font-size: 12px;color: #fff;padding: 5px;">文件上传中...</div>
+    
+                        <!-- 各消息功能按钮，比如：表情、文件等 -->
+                        <div class="top-bar">
+                            <ul style="">
+            
+                            <!-- 收藏表情按钮及表示内容 -->
+                            <li id="love-emoji-face-btn">
+                            <i class="im-panel-main-chat-textarea_love_emojiopenbtn icon-chat4"></i>
+                            <div class="im-panel-main-chat-textarea_love_emojipopup kchat-pop emoji-face-box" style="left: 2.3%" tabindex="-1">
+                                <div class="emoji-nav" id="emoji-nav"></div>
+                                <div class="emoji-operation">
+                                    <span class="batch-delete">批量删除</span>
+                                    <span class="select-nums"></span>
+                                    <span class="delete">删除</span>
+                                    <span class="cancel">取消</span>
+                                </div>
+                                <div class="emoji-content" id="emoji-content" style='min-height:360px;'>
+    
+                                </div>
+                            </div>
+                        </li>
+            
+                        <!-- 普通大文文件发送按钮 -->
+                        <li id="upload-file">
+                            <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                            <i class="icon-chat2" onclick="RBChatSmallWindowUI.handleUploadFile(this)" title="发送文件"></i>
+                            <input type="file" name="upload-file-input" id="upload-file-input" style="display: none;">
+                        </li>
+    
+                            <!-- 多张图片文件发送按钮 -->
+                        <li id="upload-mul-image">
+                            <i class="icon-chat2" onclick="RBChatSmallWindowUI.handleUploadImg(this)" title="发送多张图片"></i>
+                            <input type="file" name="upload-image-mul-input" multiple id="upload-image-mul-input" style="display: none;">
+                        </li>
+    
+                        <li id="upload-mul-video" >
+                            <i class="icon-chat2" onclick="RBChatSmallWindowUI.handleUploadVideo(this)" title="发送多个视频"></i>
+                            <input type="file" multiple id="upload-mul-video-input" style="display: none;">
+                        </li>
+    
+                        <li class="window-send-redpag" style="display:none">
+                            <i class="icon-chat2"  id="send-redpag-pack" title="发送红包" ></i>
+                        </li>
+    
+                        <li class="window-send-redpag-friend" style="display: none;">
+                            <i class="icon-chat2"  id="send-redpag-pack-friend" title="发送红包" ></i>
+                        </li>
+            
+                        <li style="font-size: 21px;margin-right: 10px;">
+                            <i id="im-panel-main-chat-textarea_contactmsgbtn" class="icon-person" title="发送名片消息..."></i>
+                        </li>
+    
+                        <li class="window-send-feedbackLink" style="font-size: 21px;margin-right: 10px; display:none;">
+                            <i id="im-panel-main-chat-textarea_feedbackLinkmsgbtn" class="icon-feedbacklink" title="发送反馈链接..."><img style="width: 20px; height: 18px;" src="data:image/png;base64,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" alt="" srcset=""></i>
+                        </li>
+
+                        <li id="im-panel-main-chat-textarea_fastSend" style="font-size: 21px;margin-right: 10px;">
+                            <i class="icon-fastSend" title="发送合集"></i>
+                        </li>
+
+                        <li id="im-panel-main-chat-textarea_reCall" style="display: none;font-size: 21px;margin-right: 10px;">
+                            <i class="icon-reCall" title="查看撤回消息记录"></i>
+                        </li>
+    
+                    </ul>
+                </div>
+            
+                <!-- 聊天消息文本输入框 -->
+                <textarea class="im-panel-inputcontent ember-text-area js-message-content"  placeholder="输入聊天信息，按 Enter 键快速发送 …"></textarea>
+                <textarea id="pic-copy-input" style="display:none"></textarea>
+                <!-- 聊天消息输入框下方的发送按钮功能区 -->
+                <div class="bottom-bar js-drag-handle ui-draggable-handle" style="height: 50px;">
+            
+                    <!--<ul class="left">
+                        <li>
+                        <a data-ember-action="2408">转接客服</a></li>
+                        <li>
+                        <a data-ember-action="2409">请求评价</a></li>
+                    </ul>--><!-- 20161018：为了简化代码，非主要功能暂不实现了 -->
+            
+                    <!-- "发送"按钮功能 -->
+                    <div class="send">
+                        <a id="im-panel-sendbutton">发送</a>
+    
+                        <!-- 快捷消息下拉小箭头 -->
+                        <span id="im-panel-main-chatcontentpane-shortwordsbtn">
+                            <i class="icon-expand-more"></i>
+                        </span>
+    
+                        <!-- 快快捷消息菜单项 -->
+                        <div id="im-panel-main-chatcontentpane-shortwords" class="send-pop kchat-pop" style="display:none;" tabindex="-1">
+                            <ul>
+                                <li id="im-panel-main-chatcontentpane-shortwords-1">快捷回复：“正在处理紧急事情”</li>
+                                <li id="im-panel-main-chatcontentpane-shortwords-2">快捷回复：“有事先离开一会儿”</li>
+                            </ul>
+                        </div>
+    
+                    </div>
+    
+                    <div class="send_hint">
+                        <span>按 Ctrl+Enter 换行，按 Enter 发送</span>
+                    </div>
+    
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    <!--<div id="im-panel-main-chatcontentpane-toplevel_offline"class="kchat-im-panel-main-chat list1" style="display:none;padding-bottom: 0px;">
+        <div id="im-panel-main-chatcontentpane-wrap_offline" class="kchat-im-panel-main-chat-content scrollbar-auto">
+            <div id="im-panel-main-chatcontentpane_offline" class="chat-box chat-style1">-->
+                <!-- jQuery动态添加 --><!-- TODO 离线聊天记录显示面板   -->
+    <!--    </div>
+        </div>
+    </div>-->
+        
+        <!-- 右侧详情信息显示区（可以显示一些附加信息，比如好友个人信息等等） -->
+        <div id="im-panel-main-rightdetail-toplevel" class="kchat-im-panel-main-info" style="">
+        <style type="text/css">.fix-full-height { height: 100%; }</style>
+
+        <div id="im-panel-main-rightdetail-contentwrap" class="fix-full-height" style="display: block;">
+            <div class="im-panel-main-rightdetail-content-nav"></div>
+            <div class="im-panel-main-rightdetail-content chat-user-info scrollbar-auto">
+
+                    </div>
+
+                    <!-- <div id="im-panel-main-rightdetail-bottom" class="prohibition">
+                    </div> -->
+
+                </div>
+
+                <!--
+                <div class="scrollbar-auto" style="display:none;">
+                    <div class="app-panel chat-user-info">
+                        <div>
+                            <div class="app-box-empty">
+                                <i class="icon-api-box"></i>
+                                <p>还没有添加应用</p>
+                                <a class="btn btn-green" href="#/function/apps">应用商店</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scrollbar-auto" style="display:none;">
+                    <div class="chat-user-info">
+                        <dl>
+                            <dt>工单跟进
+                                <a class="btn">创建工单</a></dt>
+                        </dl>
+                    </div>
+                </div>-->
+            </div>
+            <div class="kchat-im-panel-main-chat list3" style="display:none;">
+                <div class="kchat-im-panel-main-chat-content empty scrollbar-auto">
+                    <div class="chat-box chat-style1">
+                        <div class="empty-block">暂无轨迹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        轮播图-->
+        <div class="container_z">
+            <div class="container"></div>
+            
+            <div class="featured_c">
+                <img src="data:image/png;base64,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" alt="">
+            </div>
+            <div class="slider-nav">
+                <span class="left prev"></span>
+                <span class="right next"></span>
+            </div>
+            <div class="container_controls">
+                <img class="suoxiao" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAALKADAAQAAAABAAAALAAAAADfpsWZAAAEaUlEQVRYCcWZWYhOYRiA50cjsoxs2bKMZClLSWTNDWZIyXInkQsXLsSVG5GLIeNKkkJkiQtRiCLJTMqaFMUwmMmSfRnLWMbzcr7f979n///zn3nr6fve93u3Of+Z72yZkjylpaWlDaEToRKGQl/o4/CD8Rk8d8ZbjCczmcxDxnSFRmfAHngJceUOAZthQNG7psg4OAdJyFeSbIGyxBsnaTc4BL8hivyM4uT4vGVclVjTJBsBD5zkXsNDjNuhEsZAT8hAJxgG02ENXIKgP2Qv66UFNU6CufABtMiRPgij4xTAvweshTfgJTUYe8XJmfUlUJr95ZH1ArZxWcc8JsSXQRV8By13MXSJlZaAUfBRZ0LfCJlYyQKcyTUFvHaa09hlywwXHOVnewS2fEFZHB4d34O8A+E2aNkaKRtRx3QkelGaNQ2Rvzc89ag70/h4jgRM8Aja5OmcsJG6Y6FJ1b+G7n8Ksihbjy3yD+YfkHzTy+3iznyJZxkWZytn2boK2g08CwUYqdcG9Plch8190DDKvmrLoYDcRVuigTl2E858Uk5BjO1ALpG2xLoo5CQsUKEJfZSrclLiMNPulHn6t4BWR9SX/d6We9ZyiWzQFbaB+Umlp63q+sPpfpBpQhoebBRnvKD0VFVu8m9S8J0qOsTo0rA8KdjSYCutNG9UdeVJ5q94NSyPNr7CzyNboFy+5eYlH+QGZ4xvgX8Luof/B5Xgb2BE7lnd+56VnfUG41zAKM94vkLe/Sp3tXGWI/zJKIxtoYOlF2vaIyRxZ7XeZHRpWB/+7PlinNS4Er0emvNEYiVHkOgeXmadOfRn1eGfml1spQn9PFE9LTSteB3hVO8hTCNmpFE5Xfob3RnrjC4N1xrFGecrPW11HgWlLyNvmNw2Sgl/US+wn99+oHfLOqQ8ofYJsOWoqwVWa20P5qtdTikYqNsX5CWLLctcpVldZ3swl4dDvbW44pI2UHO36uM1unubxdgVZNGWjUk3FJSPwvLSRr9s2eQbg/Mau1vm8tOM9w1IcIE67eEK2CLPeL19y7AoQfVgSyOK3sR9c+S7QA19KZYe1oXmw0nekcnznC1XUYq2a5B7g13MmV9nlNuEcMFxvUeC+9iGh0dH9yBfKewDL1kRPROeZDjskeU9tkWxEvk4k2co6K3ULvkZZZpPuNuMcwc4Y2ew5lJosjsq3EKcXKR2QDOESeym25KxOiBrDWuyf8v3DV9hvQssgSMgTcQR8c+5GQu8WZcuCFjGsAvag5/IY5UgH2FegLwylacEoRyCXlbLO5CdcBy8trHP2Ct41rvMGE1oeiAcAPueA7UgkavpAtMBc7lwvPDJ+Al7zpE2cYEjQfJZ4BToKxKmyCI7ziroqIthC2t6go6JpJO4OyyF4xB2XsqvcgO2wSywbx1d9VgParo29Bx2ZVQGp4GemM05K+fhF3gFr+Ex598HxsgiTeN8EfQ5nX22i5wsLUeaHgn6nD6fVv286tBwOZwH+eYi3z76/QEdC5nJ2gAk7gAAAABJRU5ErkJggg==" alt="">
+                <img class="fangda" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAALKADAAQAAAABAAAALAAAAADfpsWZAAAEsUlEQVRYCcWZW6iUVRTHm6MoipmHvGAaVopYQSaIKGVGL5omgVS+iETRg4+ST72E0oNK+iQiQkWhhT6IQmmBEqIHo7KwwAcvxyulpal5Ka+n31+/Pa1Zs7/bzJxxwZ+919pr/deaPXv23t83lQcalJ6eng5Cp4I5YBx4BIxMcJP2N/B70v5Mu61SqRylba9Q6IvgI3AWlJVfCfgAPNrrVZNkEvgGtEL+gWQFGNLywiHtBBvBHVBEbhVxSnz+ol3UsqIhexIcTshjzVGMq8EcMBEMAxUwCIwHM8BisBtkfZCPGe/XVOEQvAIuAS+a6Q3gmTIJ8B8K3gXnQUz2YhxehrPqS6CKvR1h3YVtUtWxgQ7xQ8BycB14OYhhcClaAp4Gf3sm9KWgUooswxmu50Fsp/kKu7bMfMFRX1s3sHIN5Y386PIe8I4BB4CXlYXYiNrsI9F7pdhQEPwjwMlI3peCT7QlYEokaFnUucVG8j4Lrrr8P6CnL0EGtfVY0Q8sPaD1Rb9lkyf9+dE0DM5yztq6Su8GCc8pWmFWNFmKEf8O4NfzEWz1k4ZR+6qVjSm8mWYI7A+2O9M5Mkj8y7aIpD+txhVjX6Aj0kqpQyEQQmD31uvBXqaFw8/ychuv/e4F0GmM3VwDfzF6u7tbXcJXra6CZ1sD/W1Ob7fq809g1h8LRajgx4OStLuc3laVb/cnEl5wSZ8IugrWk4KVU1a5T/3TLq+eZO5KrGA92qQKX4+2QO0G+oHVgCB7ReznxxNdF5yJqQnuDfga/p9Ugv8FQXRnrd/3DDvj2mObFT3jpQrkn7oEq4KzZvhyUGj7gAFG763u0BziB9341aCrYD/91fUSnFz7DvoxcCMC5xr1Uaw4ssTXcLbqzNR/7aZ/enWwZAeepg8OpYTnhKvptVBKbIZL3yECWStaCtVyGe24jgRdBXcFJWlrThY31g51LklUV5DzdA4ERdM/HNjnt5vonVWHEh3iml4ScGwFVjbZEjo4Wf7A8J0x9qW/wOht61Kl9tuZLuEOp99d5EvsR6Kvh0O/tdTFeQMxzV4v17s6zqHXb7MYHwIatLLUF5SnE6xTsNELvF7a+Jcty1Jz4rwYWNH7r8mpAS0cIE9/sM8mp69nvBGpaRhU0DFg5TSK38RTORodIIc/ilXDklw+nPSO7I68jXxPv6FdIzchDnC/b3KF7o90dE3IFxzfC1GmPUR/Qn50cQ/4dJv7BMTk7eJMeMLweYTlIrbXSxGlOMMzDnRFcgTTFTp6dCsmOA8A20O0a5XouWJMtV7E6ZBaA26APClddB8YV2Ww7mVM+7f+30gVxgeD+eALoCLKiPxrLmOZl3VVQcCbNOtAf5AmeqwS9CfMGaBXpjq1hLHAPomg1ojegawFW0BsG7uCfTYn8h7aYkLRY8BnwN45UJsSnabzQgX0dXCcSWG8jL1mpkNcZkuQ/hb4EvgTCVNh0Y6zCAz0ybDlFT3FxxTSIX4YLARbQN661LeyH3wIZgJ7dazLx3hW0V25a7iO0RmSAoZhDmtW6/Aa+BOcA8dZf5doC4uKxvlb4Nd09dmuMFm7HCn6KeDX9M525W8oDwWPBTuB/nPRfx+j/gNDuKsRCLOQswAAAABJRU5ErkJggg==" alt="">
+            </div>
+        </div>
+        <!--        轮播視頻-->
+        <div class="container_z_v">
+            <div id="container_z_video"></div>
+            <div class="featured_c">
+                <img src="data:image/png;base64,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" alt="">
+            </div>
+            <div class="slider-nav">
+                <span class="left prev_video"></span>
+                <span class="right next_video"></span>
+            </div>
+        </div>
+
+        <!-- ***************************************** 手机版底部导航栏 START ************************************ -->
+        <footer id="footer_i">
+           <div class="footer_dom">
+               <div class="dom_item active">
+                   <img id="img_0" src="data:image/png;base64,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" alt="">
+                   <div>消息</div>
+               </div>
+               <div class="dom_item">
+                   <img id="img_1" src="data:image/png;base64,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" alt="">
+                   <div>联系</div>
+               </div>
+               <div class="dom_item">
+                   <img id="img_2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAAHfgQuIAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAOKADAAQAAAABAAAAOAAAAAANV2hTAAAJ0UlEQVRoBe2afWxeVR3H265dGwqzlenIHA6QDYlkuAmDIcEsmcBU0Bj2onaWum4TUFFMDHEKMl8SDZm8bMF1a7t2bTRjf7gxhwuS+QJIEEYQUNxWmYzXOW2x1vVlferne3t/l3Pvc5/7PJenWYx5TnL6+53f+++83XPO07KyQktLS8szkt20adMbIR0Iz/qMMWNUGFJeXv6K4QgGAkYrw+y1ahiz0hpofn716tXbTHLz5s3XGV4kxNfd5i9kCh/fNAKBPS08SGVsbOwcYxLY3CjzLDNpsFwSaqxZs8bwAdLahaXlZmlioecmatKP5yro36EuUDjQHiOJywknI/ksRTduCdAdXYAHqf3UIZT3ArMVRTTlLVu2fHh0dPSRSZMmLQI+iec3xVfxBnocHf+Lkix7BeGNQjKZTKUpMTjfo702CFVexsWT/1r3J0v973PpgEvJ+Z+KlOF4IC7/oHMsHQT/ynw7u6amZurg4OCx2bNnVy1cuPCElN2OyRoOKTkCmjHq7SwHwfowj4XCREW8e3zCf4I5el6iUQkpTwlZpxh0FbM8MonnK09XCG83SJm6yeihzmlraztnZGSkx5iCeNeKqAb9idoyEHSecvEtZs1X6Je7POEy4HWzrKI8WYSkEnhKEvr/4WVNwbSp0cm3orOWeriysnL1ypUrf59ko2CHGO7D0DuixphTFzA9nhedQb2NQb0D2uPQFkRl1c7rkK1gGnvh6xKOjj5BdEP+LLUX3jslo6KphdN1OL19nPLW36yV8RZrHMvlTFycfA5wmFpPdh8EumWx2zA8r0MTTIBTxePT4i0YZac22c0XjJa8Dq0bzZBrgKyO0j6V2sJkecaXecR0XFnD846hCZpDIp/E+GSsTWaXNDc3P7F9+/ZTe3t7++ENMHFm4fQ103VhaJNyGVEcQ4MYqmESnQvvgPEnT57szdClS5f+G5qXAJl/goB20NbmVobuGIHNoBdejc0QheUY/6mEraC0g+yWWFsQOW8ZuDTk9tbV1V1LAMOit7e3zxoeHr4K9F51dcghUT0FYx71PyjOxUGQCbSCCkHcQ7BflnDcWEa79DbkdlNPQekvBCC9VAU9T17dmEqxJFzqgVw9EFoWuYSS6CyDPzEz34NMN8vgxiRZ8VI5xHgLxpeh18PHtkn7Z2dnZ+3x48e1y1iZg2PvGmkEFxbkED+X4ehRV1E4a+0NNoczhMOvQG5UeH19fSU7jYer7Za8XwttyuYMBw+xd9ZXVFR8SkagT/N3JznPaGMXnU38z4JxJa/Dvr6+f0gRg+sxeGVTU1PfqlWrdjrb1jycnuLLZJB7GXyW2nElr0Oy8A6eOPt61ADGN4gG3Gk88C2Gx8FEh1wUr5YSRh6PUyYIb5MmqEXG50jyLsPjYKJDLpgfkJKNYZyBGNpNMbSAlOgQqRckSYZepoGWj/Ctq3FpjOU31Eb+Yy7dxRMdMjF+IWEy9DJ1FYVzhXlSEAcbmM2aoT+kHqerdcmPLYkOfY3nBFlj97sWOjo6TrdANJYshRfFB9ehKmfJ6xADc6SN8ets+qs9NDT0d0Gyu12Qcqb+0PbeO4THlbwOMaBT9HopAw8Kku1iAtAupcW+TjR4dlH/rtq5Sl6HUsSotwZxMt035E0O8BV+WzKn47QfmW/RE2ME1Uu9zPgGC3LI0fDTpuDDIUEcLHXpOJ2iFwXoO3BcR31Uzqk/M7nEzRvBuxH8SiBcXn4NRnfv2bOn+siRI4NGB94PfTmOQuNHhrNx+hD898JrRaY5y+G+ffsqDx48+BiCF5tBhLXzX4jC80YjmCrwY9QpRgNm2NiXsdfqEFzW2tp6Gu0zOJd6x03tvyGHRNSOo+sl7Be9I16C4IgR4iDOt0JvdHkEF7oS4PhrBHJXyCGKdpa8Dyd5v96uA+GM9RwC/g21juZ+bHwoKhM9CBtfLyU3WKNQyMYdiDIMFwQNBwnNUoQsQ0fk7aFkGZ3Zb89QSavUA6UeKPVAuh4I7dzpVCdGmu/X9BMnTjyANT2dhAr77M7q6uqbGhsbXwkxUjQmPEGe28/krKq7xZV54tCR80Y+X/qAl+lM29/fP5evzTzqFyF5P9mJR9FlSt/kHq+V4s+EJchBQaeRh/kinZbCv85g+gH2Cg4HWQ9e2Ay9qnFgWMOBoSWV/TTCuWQJ5F4S+5LLJ/BbCVq3jFDRSHG9/RHyt7gMgl9L8D9wacI5c2gm7DU6clcg9ztr54NFjyDJ3UGweg200ltbW3tWQ0PDv4wQBzlpzWAqHoLnPab6Mpqy90XlSXIbtAbR6bi9dFzsvTGqp3bo8BQnkETD8VT433ZkRni3mZkvOckzCi/zEvJ+R1fondjUwTpUGLWnHEJUx2Flo0UliLmPM3ruLOjiUao/2008hZeXw3B+6XD16rLQaes6WsFIB9OfdjBdXblceFEJMl1qI4Z11UlborcV72lJRnSdYirrov8+3+h+pqd22IJLUQnSm90k6SbVzAtS7EUiLiKm4xLo1zi8oySwS20SO5+7oq7R5/v83+pGhL9Ud5CiEsThmwQQevjhxeppgjvbCToWJTndIbcbk8CHq6qqLgJm2LhuZlrqsbfG59+Cr4+YbBrorp80eiFZEmogIO10QeHnpcX87uWur4BHAu0Ef31A4KVHG47WJDNgJp102HjYWYSdh62dFhY1guaMHbGL3fNid7oS5IOM0jqTESQp/YfF/khyz/FIPcXfcMrQc58lpOa+j6idqkzICJpH/0lf58bg52/7BVMyJHcnwHvGUpsO2cqaaxLuFkZ4BZ3Q6dL8ztMO2sFU3kWHFJT4hCaogAju5wT3SQuOb9gSRniH2iT4B8BFxiPoj5Lgr6wdhXTYu/mHnK9C/wI2p0X5amNDh4UO/GxjKv8tKlN0grw613G4biQAjcSFEQc9JDCLILydT5sHcndFZF4nuPWs4XY2kmMRXlazu7u7fmBgYBkM+bw0KoCvF6kL6FSdcdP90iQF/z/OdI7UbzGxaxgHo9SbcbJROm7x/7lHN4l5Lj2Cv0TSbX7SL0V4WU3/+bGNhFf4zNforOnCE0cQhXJ2SI2MTvUzfeUsQDKvQtzA3a0zzd2NKau12kxdRT2PmlSOwvw+G9JG+9XMnz3PEtsMV5F4DmnmiJYzQSVGD7a5ip4C042yG/zH9NK+KL/YdldX1xSm4Gewo8SD9eraZXSbmR2tomn0Dhw4cARUnfUCyd1DclvBvZIzQXpXu5R70j+XhHp8vZMK/Eu0O1WHiMUOAYmx5Hr71e70R0ZKl1grh0ja8JMK2cRC/hRbiJDQiN0kJM8wz9cpAmO/pvYl2DgpLMWgWBSTYjspTktOSj1Q6oGie+C/VjpVsyqBaOoAAAAASUVORK5CYII=" alt="">
+                   <div>群组</div>
+               </div>
+               <div class="dom_item">
+                   <img id="img_3" src="data:image/png;base64,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" alt="">
+                   <div>我的</div>
+               </div>
+           </div>
+        </footer>
+        <!-- ***************************************** 手机版底部导航栏 END ************************************** -->
+
+
+        <!-- 在此测试一些前端html样式 -->
+        <script src="https://testchat.imnono.net/socket.io/socket.io.js"></script>
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
+        <script src="js/common/crypto-js.min.js"></script>
+        <script src="js/common/base64.js"></script>
+        <script src="js/common/hls.min.js"></script>
+        <script src="js/common/flv.min.js"></script>
+        <script src="js/common/DPlayer.min.js"></script>
+        <script src="js/common/cos-js-sdk-v5.min.js"></script>
+
+        <script src="js/libs/mobileimsdk_web_client/thirdpart/jquery-1.8.3.min.js"></script>
+        <script src="js/common/jquery.pagebar.1.0.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/thirdpart/uuid.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/thirdpart/hashmap.js"></script>
+      
+        <script src="js/libs/mobileimsdk_web_client/core/mbw-constants.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/core/mbw-utils.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/core/mbw_daemon_qos_send.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/core/mbw_daemon_qos_recieve.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/mobileimsdk-client-sdk.js"></script>
+        <script src="js/libs/jquery.qrcode.js"></script>
+        <script src="js/libs/html2canvas.js"></script>
+        <script src="js/libs/jquery.cookie.js"></script>
+        <script src="js/libs/jquery.jsonp-2.4.0.js"></script>
+        <!--<script src="js/libs/jquery.contextmenu.r2.js"></script>-->
+        <script src="js/libs/uploadify5/jquery.uploadifive.js" type="text/javascript"></script>
+        <!-- 高德地图 -->
+        <!-- <script src="//webapi.amap.com/maps?v=2.0&key=d72a65ae137a7980d49870d08191357f&plugin=AMap.ToolBar,AMap.Scale,AMap.ControlBar,AMap.Geolocation,AMap.Geocoder"></script> -->
+
+        <script src="js/common/rbchat_config.js"></script>
+        <script src="js/common/rbchat_cache.js"></script>
+        <script src="js/common/rbchat_rest_helper.js"></script>
+        <script src="js/common/rbchat_message_helper.js"></script>
+        <script src="js/common/rbchat_utils.js"></script>
+        <script src="js/common/rbchat_widgets.js"></script>
+
+        <script src="js/logic/rbchat_ui_main_window.js"></script>
+        <script src="js/logic/rbchat_ui_local_user.js"></script>
+        <script src="js/logic/rbchat_ui_roster.js"></script>
+        <script src="js/logic/rbchat_ui_chat_groups.js"></script>
+        <script src="js/logic/rbchat_ui_alarms.js"></script>
+        <script src="js/logic/rbchat_ui_chatting_content_pane.js"></script>
+        <script src="js/logic/rbchat_ui_right_detail_pane.js"></script>
+        <script src="js/logic/rbchat_ui_dialog_helper.js"></script>
+        <script src="js/logic/rbchat_ui_group_member_chooser.js"></script>
+        <script src="js/logic/rbchat_ui_user_chooser.js"></script>
+        <script src="js/logic/rbchat_ui_msg_location_chooser.js"></script>
+        <script src="js/logic/rhchat_ui_module.js"></script>
+        <script src="js/logic/rbchat_revoke_msg.js"></script>
+        <script src="js/logic/rbchat_ui_small_window.js"></script>
+        <script src="js/logic/rbchat_ui_msg_cache.js"></script>
+        <script src="js/logic/rbchat_ui_group_send.js"></script>
+
+        <!-- <script src="js/rbchat_main.js?v=969"></script> -->
+           <script src="js/rbchat_main.js"></script>
+
+        <!-- 启动IM START -->
+        <script type="text/javascript">
+            /* 启动Web端IM */
+            window.RBChatMainUI.doLoginIMServer();
+        </script>
+        <!-- 启动IM END -->
+
+    </body>
+</html>
