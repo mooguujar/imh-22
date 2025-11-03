@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <!--<meta name="_csrf" value="54608fb909f4ba2a854e5cb2f975c56086af6a32">-->
+        <title>元友-在元友,去畅聊</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/DPlayer.min.css">
+        <!-- 20170112: im中的css为了兼容TkM的字体等专门作为兼容性调整，以下css专
+                门用于恢复这些特殊处理，以便本测试页成的样式不会变的很难看。合并到Tkmm
+                时，以下css是不需要合并过去的哦！！！ -->
+        <style>
+            /*.im-left-unreadmsg-flagnum {height: 12px;min-width: 12px;height: 12px;line-height: 12px;}*/
+            .kchat-im-panel-main-chat-textarea .top-bar {height: 35px; line-height: 35px;}
+            .kchat-im-panel-main-chat-textarea .top-bar li {line-height: 35px;}
+            #uploadifive-im-panel-main-chat-textarea-imagemsg-uploadify {line-height: 35px !important; height: 35px !important;padding-top: 1px;}
+            #uploadifive-im-panel-main-chat-textarea-filemsg-uploadify {line-height: 35px !important; height: 35px !important;}
+        </style>
+    </head>
+
+    <body>
+        <!-- ***************************************** IM可移动主体区 START ************************************* -->
+        <!-- <div id="kchat-im-panel" class="ui-draggable"> -->
+            <!-- For IM-网络连接提示UI START  -->
+            <div id="im-panel-loginbox">
+                <div style="width:390px;margin:200px auto;">
+                    <div style="text-align: center; padding: 20px;border: 1px solid #efefef;border-radius: 10px;background: #f7f7f7;">
+                  <span style="font-size: 16px;color: #00aef0;text-shadow: 0px 1px 0 rgba(255,255,255,1);text-align: center;">
+                    IM服务器连接中，请稍后... ...
+                  </span>
+                    </div>
+
+                    <div>
+                        <div class="login_hint"
+                             style="padding-top: 30px;text-align: left;margin: 0 auto 0 auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- For IM-网络连接提示UI END  -->
+
+            <!-- For IM-主功能区 UI START  -->
+            <!-- <div id="im-panel-around" style="height:100%;display:none;"> -->
+
+                <!-- For IM-主功能区-头部 UI START  -->
+                <header id="im-panel-header" class="kchat-im-panel-header">
+                    <div style="border: 1px solid #ddd; padding: 5px 10px; border-radius: 15px;color:#4ACCF0;">一键已读</div>
+                    <p style="color: #323038; font-size: 18px;position: absolute; margin: auto; top:20px; left: 0; right: 0;text-align: center;font-weight: 500;" id="title_name">消息</p>
+                     <div style="display: flex; align-items: center;gap: 10px;">
+                        <span style="background-image: url('/images/sousuo.png'); width: 16px; height: 16px;"></span>
+                         <div class="kchat-queue">
+                                <h3>
+                                   <a id="im-panel-userlist-wrap-roster-addfriend" class="f-list-iconbtn" title="添加好友">
+                                    <i style="color: #333; font-size: 28px;margin-top: 15px;">+</i>
+                                    </a>
+                                </h3>
+                                <div id="im-panel-userlist-wrap-restore-add-popup" class="kchat-pop" >
+                                    <ul>
+                                    <li id="im-panel-userlist-wrap-roster-add-popup-addfriend" class="bottom_border">添加好友</li><!--active-->
+                                        <li id="im-panel-userlist-wrap-roster-add-popup-addgroup">创建分组</li>
+                                    </ul>
+                                </div>
+                         </div>
+                    </div>
+                </header>
+                <!-- For IM-主功能区-头部 UI END  -->
+                <div class="mine_box_item" id="im-panel-header-setup-popup-action-minapp">
+                    <div class="mine_box_item_l" >
+                        <img src="images/im_b_img/xiaochengxu.png" alt="">
+                         我的小程序
+                    </div>
+                    <div class="mine_box_item_r">
+                         查看全部
+                         <img src="images/im_b_img/right_3.png" alt="">
+                    </div>
+                </div>
+                <!-- For IM-主功能区-body UI START  -->
+                <div class="kchat-im-panel-body">
+
+                    <!-- IM-主功能区-body-左tab列表区 -->
+                    <div class="kchat-im-panel-body-left">
+                        
+                       
+                        <!-- 【ui样式1："图标tab"】-->
+                        <nav class="kchat-im-panel-userlist-nav">
+                            <a id="im-panel-userlist-nav-alarms" tabident="0" class="active" title="消息">消息<i class="icon-alarms"></i></a>
+                            <a id="im-panel-userlist-nav-roster" tabident="1" class="" title="好友">好友<i class="icon-frends"></i></a><!-- has-msg -->
+                            <a id="im-panel-userlist-nav-groups" tabident="2" class="" title="群聊">群聊<i class="icon-groups"></i></a>
+                            <a id="im-panel-userlist-nav-my" tabident="3" class="" title="我的">我的<i class="icon-groups"></i></a>
+                        </nav>
+                        <!-- 左侧tab对应的数据列表 -->
+                        <div id="ember1963" class="kchat-im-panel-userlist scrollbar-auto">
+                            <div>
+
+                                <!-- 首页"消息"列表 -->
+                                <div id="im-panel-userlist-wrap-alarms" class="kchat-talk-list-group flex-d">
+                                    <!-- 当列表数据为空时要显示的提示信息 -->
+                                    <div  id="kchat-im-panel-userlist-empty-alarms" class="kchat-talk-list-empty">
+                                        <i class="icon-talk1" style="font-size: 60px;"></i>
+                                        <p>
+                                            暂无消息数据
+                                        </p>
+                                    </div>
+
+                                    <!-- 动态组织的数据UI -->
+                                    <ul id="kchat-im-panel-userlist-alarms">
+                                        <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
+                                    </ul>
+
+                                </div>
+
+                                <!-- "好友"列表 -->
+                                <div id="im-panel-userlist-wrap-roster" class="kchat-talk-list-group offline flex-d" style="display:none;">
+                                    <!-- 列表上部的数据汇总信息、操作按钮区 -->
+                                    <div class="kchat-queue">
+                                        <h3>
+                                            <a class="f-list-toggle-label" tabindex="-1">总好友 <span id="im-panel-userlist-wrap-roster-allcount" class="f-list-number-label">0</span> 在线好友 <span id="im-panel-userlist-wrap-roster-allcount-online" class="f-list-number-label">0</span></a>
+                                            <a id="im-panel-userlist-wrap-roster-addfriend" class="f-list-iconbtn" title="添加好友">
+                                                <i class="icon-add-box"></i>
+                                            </a>
+                                        </h3>
+                                        <div id="im-panel-userlist-wrap-restore-add-popup" class="kchat-pop" >
+                                            <ul>
+                                                <li id="im-panel-userlist-wrap-roster-add-popup-addfriend" class="bottom_border">添加好友</li><!--active-->
+                                                <li id="im-panel-userlist-wrap-roster-add-popup-addgroup">创建分组</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="im-panel-userlist-wrap-alarms-search">
+                                        <input id = 'kchat-im-panel-userlist-empty-roster-input' placeholder="请输入好友昵称"/>
+                                    </div>
+
+                                    <!-- 当列表数据为空时要显示的提示信息 -->
+                                    <div id="kchat-im-panel-userlist-empty-roster" class="kchat-talk-list-empty">
+                                        <i class="icon-talk1" style="font-size: 60px;"></i>
+                                        <p>
+                                            还没有添加好友
+                                        </p>
+                                    </div>
+
+                                    <!-- 动态组织的数据UI -->
+                                    <ul id="kchat-im-panel-userlist-roster" style="padding-bottom:50px;">
+                                        <!-- jQuery动态添加 --><!-- TODO 好友列表   -->
+                                    </ul>
+                                </div>
+
+                                <!-- "群组"列表 -->
+                                <div id="im-panel-userlist-wrap-groups" class="kchat-talk-list-group offline flex-d" style="display:none;">
+                                    <!-- 列表上部的数据汇总信息、操作按钮区 -->
+                                    <div class="kchat-queue">
+                                        <h3>
+                                            <a class="f-list-toggle-label" tabindex="-1">群聊数 <span id="im-panel-userlist-wrap-groups-allcount" class="f-list-number-label">0</span></a>
+
+                                            <a id="im-panel-userlist-wrap-groups-creategroup" class="f-list-iconbtn" title="创建群组">
+                                                <i class="icon-groupslist-add2"></i>
+                                            </a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="im-panel-userlist-wrap-alarms-search">
+                                        <input id = 'kchat-im-panel-userlist-groups-input' placeholder="请输入群昵称"/>
+                                    </div>
+
+                                    <!-- 当列表数据为空时要显示的提示信息 -->
+                                    <div  id="kchat-im-panel-userlist-empty-groups" class="kchat-talk-list-empty">
+                                        <i class="icon-talk1" style="font-size: 60px;"></i>
+                                        <p>
+                                            暂未加入群组
+                                        </p>
+                                    </div>
+
+                                    <!-- 动态组织的数据UI -->
+                                    <ul id="kchat-im-panel-userlist-groups">
+                                        <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
+                                    </ul>
+
+                                </div>
+                                 <!-- "我的"列表 -->
+                                 <div id="im-panel-userlist-wrap-mine" style="display:none;">
+                                        <div class="user_info">
+                                                <div class="user_info_l">
+                                                    <div class="kchat-im-panel-header-user" style="box-shadow: none;background-color:transparent !important">
+                                                        <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
+                                                        <div class="avatar-wrapper">
+                                                            <a id="im-panel-header-user-avatar-parent-phone">
+                                                                <div id="im-panel-header-user-avatar-default"></div>
+                                                                <img id="im-panel-header-user-avatar-phone" onerror='javascript:$(this).css("display","none")'>
+                                                            </a>
+                                                            <a id="im-panel-header-user-status-phone" class="user-status offline"></a>
+                                                        </div>
+                                                        <div class="info">
+                                                            <h4><a id="im-panel-header-user-showname-phone" style="color:#333">-</a></h4>
+                                                            <div class="whatsup">
+                                                                <a id="im-panel-header-user-whatsup-phone">-</a>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="user_info_r">
+                                                    <img src="images/im_b_img/right_3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="mine_box_item" id="im-panel-header-setup-popup-action-qb">
+                                                <div class="mine_box_item_l" >
+                                                    <img src="images/im_b_img/hotbac_3.png" alt="">
+                                                    我的钱包
+                                                </div>
+                                                <div class="mine_box_item_r">
+                                                    <img src="images/im_b_img/right_3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="mine_box_item" id="im-panel-header-setup-popup-action-minapp">
+                                                <div class="mine_box_item_l" >
+                                                    <img src="images/im_b_img/xiaochengxu.png" alt="">
+                                                    我的小程序
+                                                </div>
+                                                <div class="mine_box_item_r">
+                                                    <img src="images/im_b_img/right_3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="mine_box_item" id="im-panel-header-setup-popup-action-modifypsw">
+                                                <div class="mine_box_item_l" >
+                                                    <img src="images/im_b_img/xiugaimima01.png" alt="">
+                                                    修改密码
+                                                </div>
+                                                <div class="mine_box_item_r">
+                                                    <img src="images/im_b_img/right_3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="mine_box_item"  id="im-panel-header-setup-popup-action-exit">
+                                                <div class="mine_box_item_l">
+                                                    <img src="images/im_b_img/tuichudenglu.png" alt="">
+                                                    退出登录
+                                                </div>
+                                                <div class="mine_box_item_r">
+                                                    <img src="images/im_b_img/right_3.png" alt="">
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IM-主功能区-body-中间聊天内容显示区和右边的详情显示区 -->
+                    <div class="kchat-im-panel-main" id="pc-kchat-im-panel-main">
+                        <!-- 右侧详情信息显示区（可以显示一些附加信息，比如好友个人信息等等） -->
+                        <div id="im-panel-main-rightdetail-toplevel" class="kchat-im-panel-main-info" style="">
+                            <style type="text/css">.fix-full-height { height: 100%; }</style>
+
+                            <div id="im-panel-main-rightdetail-contentwrap" class="fix-full-height" style="display: block;">
+                                <div id="im-panel-main-rightdetail-content" class="chat-user-info scrollbar-auto">
+                                </div>
+
+                                <div id="im-panel-main-rightdetail-bottom" class="prohibition">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="kchat-im-panel-main-chat list3" style="display:none;">
+                            <div class="kchat-im-panel-main-chat-content empty scrollbar-auto">
+                                <div class="chat-box chat-style1">
+                                    <div class="empty-block">暂无轨迹</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- For IM-主功能区-body UI END  -->
+
+            </div>
+            <!-- For IM-主功能区 UI END  -->
+
+        </div>
+        <!-- ***************************************** IM可移动主体区 START ************************************* -->
+        <!--        个人中心-->
+        <div id="phone_center">
+            <div class="mine">
+                <div class="mine_top">
+                    <div class="main_header">
+                        <img src="images/im_b_img/she_3.png" alt="">
+                    </div>
+                    <div class="user_info">
+                        <div class="user_info_l">
+                            <div class="kchat-im-panel-header-user" style="box-shadow: none;background-color:transparent !important">
+                                <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
+                                <div class="avatar-wrapper">
+                                    <a id="im-panel-header-user-avatar-parent-phone">
+                                        <div id="im-panel-header-user-avatar-default"></div>
+                                        <img id="im-panel-header-user-avatar-phone" onerror='javascript:$(this).css("display","none")'>
+                                    </a>
+                                    <a id="im-panel-header-user-status-phone" class="user-status offline"></a>
+                                </div>
+        
+        
+                                <div class="info">
+                                    <h4><a id="im-panel-header-user-showname-phone" style="color:#333">-</a></h4>
+                                    <div class="whatsup">
+                                        <a id="im-panel-header-user-whatsup-phone">-</a>
+                                        <!--<span class="icon-edit"></span>-->
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_info_r">
+                            <img src="images/im_b_img/right_3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="mine_box">
+                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-qb">
+                        <div class="mine_box_item_l" >
+                            <img src="images/im_b_img/hotbac_3.png" alt="">
+                            我的钱包
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="images/im_b_img/right_3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-minapp">
+                        <div class="mine_box_item_l" >
+                            <img src="images/im_b_img/xiaochengxu.png" alt="">
+                            我的小程序
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="images/im_b_img/right_3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-modifypsw">
+                        <div class="mine_box_item_l" >
+                            <img src="images/im_b_img/xiugaimima01.png" alt="">
+                            修改密码
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="images/im_b_img/right_3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="mine_box_item"  id="im-panel-header-setup-popup-action-exit">
+                        <div class="mine_box_item_l">
+                            <img src="images/im_b_img/tuichudenglu.png" alt="">
+                            退出登录
+                        </div>
+                        <div class="mine_box_item_r">
+                            <img src="images/im_b_img/right_3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        聊天详情-->
+        <div id="phone_chat">
+            <div class="chat_top">
+                <div class="chat_top_l" id="chat_top_back"><img id="left_jt" src="images/im_b_img/left_jt_3.png" alt=""></div>
+                <div class="chat_top_c" id="chat_top_name"></div>
+                <div class="chat_top_r" id="chat_top_detail"><img class="head_san" src="images/im_b_img/geng_3.png" alt=""></div>
+            </div>
+            <div class="container_chat">
+                <div class="kchat-im-panel-main" style="height: 100%;width: auto !important">
+                    <!-- 中间聊天内容显示区（也是IM中最重要的信息区） -->
+                    <div id="im-panel-main-chatcontentpane-toplevel" class="kchat-im-panel-main-chat list1">
+                        <div class="im-panel-main-toBottom-content">
+                            <img class="im-panel-main-toBottom-content-icon" src="/images/new_msg.png">
+                            <span class="im-panel-main-toBottom-nums">7条新消息</span>
+                            <img class="im-panel-main-toBottom-content-icon2"  src="/images/arrow_bottom.png">
+                        </div>
+                        <div class="tip-my-root" id="im-panel-main-chat-tip-me"
+                        >
+                            <div id="tip-num" class="tip-num">0</div>
+                            <img src="/images/group-tip.png"/>
+                        </div>
+                        <!-- 聊天内容显示列表 -->
+                        <div id="im-panel-main-chatcontentpane-wrap" class="kchat-im-panel-main-chat-content scrollbar-auto">
+                            <div id="IM-chat-visitorName" class="IM-chat-navbar-title" style="display:none;"></div>
+                            <!-- 动态组织的数据UI -->
+                            <div id="im-panel-main-chatcontentpane" class="chat-box chat-style1">
+                            </div>
+                        </div>
+                        <!-- 整个消息发送区域布局 -->
+                        <div class="kchat-im-panel-main-chat-textarea"  id="kchat-im-panel-main-chat-textarea">
+                            <div class="chat-box_alert" id="im-panel-main-chat-replay-ui"
+                            style="display:none;font-size: 18px;color: #fff;padding: 5px;"></div>
+
+                            <!-- 发送区上方的信息提示ui，可用于文件上传进度提示等 -->
+                            <div class="chat-box_alert im-panel-main-chat-textarea_fileuphint"
+                                 style="display:none;background: #5bc648;font-size: 12px;color: #fff;padding: 5px;">文件上传中...</div>
+
+                            <!-- 各消息功能按钮，比如：表情、文件等 -->
+                            <div class="top-bar">
+                                <ul style="">
+
+                                    <!-- 表情按钮及表示内容 -->
+                                    <li id="emoji-face-btn">
+                                        <i id="im-panel-main-chat-textarea_emojiopenbtn" class="icon-chat1"></i>
+                                        <div id="im-panel-main-chat-textarea_emojipopup" class="kchat-pop emoji-face-box" tabindex="-1">   
+                                        </div>
+                                    </li>
+
+                                    <!-- 普通大文文件发送按钮 -->
+                                    <li id="upload-file">
+                                        <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                        <i class="icon-chat2" onclick="$('#upload-file-input').click();" title="发送文件"></i>
+                                        <input type="file" id="upload-file-input" style="display: none;">
+
+                                    </li>
+
+                                    <!-- 图片文件发送按钮 -->
+                                    <li id="upload-image">
+                                        <i class="icon-chat2" onclick="$('#upload-image-input').click();" title="发送图片"></i>
+                                        <input type="file" id="upload-image-input" style="display: none;">
+
+                                        
+                                    </li>
+
+                                    <li id="upload-video" >
+                                        <i class="icon-chat2" onclick="$('#upload-video-input').click();" title="发送视频"></i>
+                                        <input type="file" id="upload-video-input" style="display: none;">
+                                    </li>
+
+                                    <li id="send-redpag" style="display:none">
+                                        <i class="icon-chat2"  id="send-redpag-pack" title="发送红包" ></i>
+                                    </li>
+                                    <li>
+                                        <i id="im-panel-main-chat-textarea_clearbtn" class="icon-talk3" title="点击清空聊天界面！"></i>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- 聊天消息文本输入框 -->
+                            <textarea class="im-panel-inputcontent ember-text-area js-message-content"  placeholder="输入聊天信息，按 Enter 键快速发送 …"></textarea>
+                            <textarea id="pic-copy-input" style="display:none"></textarea>
+                            <!-- 聊天消息输入框下方的发送按钮功能区 -->
+                            <div class="bottom-bar js-drag-handle ui-draggable-handle" style="height: 50px;">
+                                <!-- "发送"按钮功能 -->
+                                <div class="send">
+                                    <a id="im-panel-sendbutton">发送</a>
+
+                                    <!-- 快捷消息下拉小箭头 -->
+                                    <span id="im-panel-main-chatcontentpane-shortwordsbtn">
+                                        <i class="icon-expand-more"></i>
+                                    </span>
+
+                                    <!-- 快快捷消息菜单项 -->
+                                    <div id="im-panel-main-chatcontentpane-shortwords" class="send-pop kchat-pop" style="display:none;" tabindex="-1">
+                                        <ul>
+                                            <li id="im-panel-main-chatcontentpane-shortwords-1">快捷回复：“正在处理紧急事情”</li>
+                                            <li id="im-panel-main-chatcontentpane-shortwords-2">快捷回复：“有事先离开一会儿”</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                                <div class="send_hint">
+                                    <span>按 Ctrl+Enter 换行，按 Enter 发送</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_info" id="container_info">
+                <div class="right_con">
+                    <!-- 右侧详情信息显示区（可以显示一些附加信息，比如好友个人信息等等） -->
+                    <div id="im-panel-main-rightdetail-toplevel" class="kchat-im-panel-main-info" style="position:unset !important">
+                        <style type="text/css">.fix-full-height { height: 100%; }</style>
+
+                        <div id="right_con_closure">
+                            <img src="images/im_b_img/guanbi.png" alt="">
+                        </div>
+
+                        <div id="im-panel-main-rightdetail-contentwrap" class="fix-full-height" style="display: block;">
+                            <div id="im-panel-main-rightdetail-content" class="chat-user-info scrollbar-auto">
+
+                            </div>
+
+                            <div id="im-panel-main-rightdetail-bottom" class="prohibition">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="left_con"></div>
+                </div>
+        </div>
+        <!--弹窗-->
+        <div id="pop_ups">
+            <div class="chat_top">
+                <div class="chat_top_l" id="pop_ups_back"><img id="left_jt" src="images/im_b_img/left_jt_3_0.png" alt=""></div>
+                <div class="chat_top_c" id="pop_ups_name"></div>
+                <div class="chat_top_r"></div>
+            </div>
+            <div class="container_pop_ups"></div>
+        </div>
+
+       
+        <!--        轮播图-->
+        <!-- <div class="container_z">
+            <div class="container"></div>
+            
+            <div class="featured_c">
+                <img src="./images/guanbi.png" alt="">
+            </div>
+            <div class="slider-nav">
+                <span class="left prev"></span>
+                <span class="right next"></span>
+            </div>
+            <div class="container_controls">
+                <img class="suoxiao" src="./images/suoxiao.png" alt="">
+                <img class="fangda" src="./images/fangda.png" alt="">
+            </div>
+        </div> -->
+        <!--        轮播視頻-->
+        <!-- <div class="container_z_v">
+            <div id="container_z_video"></div>
+            <div class="featured_c">
+                <img src="./images/guanbi.png" alt="">
+            </div>
+            <div class="slider-nav">
+                <span class="left prev_video"></span>
+                <span class="right next_video"></span>
+            </div>
+        </div> -->
+
+        <!-- ***************************************** 手机版底部导航栏 START ************************************ -->
+        <footer id="footer_i">
+           <div class="footer_dom">
+               <div class="dom_item active">
+                   <img id="img_0" src="images/im_b_img/tab_0_1.png" alt="">
+                   <div>消息</div>
+               </div>
+               <div class="dom_item">
+                   <img id="img_1" src="images/im_b_img/tab_1_0.png" alt="">
+                   <div>联系</div>
+               </div>
+               <div class="dom_item">
+                   <img id="img_2" src="images/im_b_img/tab_2_0.png" alt="">
+                   <div>群组</div>
+               </div>
+               <div class="dom_item">
+                   <img id="img_3" src="images/im_b_img/tab_3_0.png" alt="">
+                   <div>我的</div>
+               </div>
+           </div>
+        </footer>
+        <!-- ***************************************** 手机版底部导航栏 END ************************************** -->
+
+
+        <!-- 在此测试一些前端html样式 -->
+        <script src="https://testchat.imnono.net/socket.io/socket.io.js"></script>
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
+        <script src="js/common/crypto-js.min.js"></script>
+        <script src="js/common/base64.js"></script>
+        <script src="js/common/hls.min.js"></script>
+        <script src="js/common/flv.min.js"></script>
+        <script src="js/common/DPlayer.min.js"></script>
+        <script src="js/common/cos-js-sdk-v5.min.js"></script>
+
+        <script src="js/libs/mobileimsdk_web_client/thirdpart/jquery-1.8.3.min.js"></script>
+        <script src="js/common/jquery.pagebar.1.0.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/thirdpart/uuid.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/thirdpart/hashmap.js"></script>
+      
+        <script src="js/libs/mobileimsdk_web_client/core/mbw-constants.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/core/mbw-utils.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/core/mbw_daemon_qos_send.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/core/mbw_daemon_qos_recieve.js"></script>
+        <script src="js/libs/mobileimsdk_web_client/mobileimsdk-client-sdk.js"></script>
+        <script src="js/libs/jquery.qrcode.js"></script>
+        <script src="js/libs/html2canvas.js"></script>
+        <script src="js/libs/jquery.cookie.js"></script>
+        <script src="js/libs/jquery.jsonp-2.4.0.js"></script>
+        <!--<script src="js/libs/jquery.contextmenu.r2.js"></script>-->
+        <script src="js/libs/uploadify5/jquery.uploadifive.js" type="text/javascript"></script>
+        <!-- 高德地图 -->
+        <!-- <script src="//webapi.amap.com/maps?v=2.0&key=d72a65ae137a7980d49870d08191357f&plugin=AMap.ToolBar,AMap.Scale,AMap.ControlBar,AMap.Geolocation,AMap.Geocoder"></script> -->
+
+        <script src="js/common/rbchat_config.js"></script>
+        <script src="js/common/rbchat_cache.js"></script>
+        <script src="js/common/rbchat_rest_helper.js"></script>
+        <script src="js/common/rbchat_message_helper.js"></script>
+        <script src="js/common/rbchat_utils.js"></script>
+        <script src="js/common/rbchat_widgets.js"></script>
+
+        <script src="js/logic/rbchat_ui_main_window.js"></script>
+        <script src="js/logic/rbchat_ui_local_user.js"></script>
+        <script src="js/logic/rbchat_ui_roster.js"></script>
+        <script src="js/logic/rbchat_ui_chat_groups.js"></script>
+        <script src="js/logic/rbchat_ui_alarms.js"></script>
+        <script src="js/logic/rbchat_ui_chatting_content_pane.js"></script>
+        <script src="js/logic/rbchat_ui_right_detail_pane.js"></script>
+        <script src="js/logic/rbchat_ui_dialog_helper.js"></script>
+        <script src="js/logic/rbchat_ui_group_member_chooser.js"></script>
+        <script src="js/logic/rbchat_ui_user_chooser.js"></script>
+        <script src="js/logic/rbchat_ui_msg_location_chooser.js"></script>
+        <script src="js/logic/rhchat_ui_module.js"></script>
+        <script src="js/logic/rbchat_revoke_msg.js"></script>
+        <script src="js/logic/rbchat_ui_small_window.js"></script>
+        <script src="js/logic/rbchat_ui_msg_cache.js"></script>
+        <script src="js/logic/rbchat_ui_group_send.js"></script>
+
+        <!-- <script src="js/rbchat_main.js?v=969"></script> -->
+           <script src="js/rbchat_main.js"></script>
+
+        <!-- 启动IM START -->
+        <script type="text/javascript">
+            /* 启动Web端IM */
+            window.RBChatMainUI.doLoginIMServer();
+        </script>
+        <!-- 启动IM END -->
+
+    </body>
+</html>
