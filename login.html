@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="email=no"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"
+              name="viewport">
+        <title>元友-在元友,去畅聊</title>
+<!--        <link rel="stylesheet" href="css/login.css"/>-->
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="css/sweetalert.css"/>
+
+    </head>
+
+    <body style="display: none">
+        <!--<div class="bad-network hide tc radius5px" id="rbchat-errorNetwork">已与服务器断开，请检查网络连接</div>-->
+
+        <div id="center_box">
+            <div class="webim-loading hide" id="rbchat-wrapper-loadding">
+                <img src="images/login_loading.gif">
+                <!--<span data-reactid=".0.0.4.1"></span>-->
+            </div>
+
+            <div class="wrapper hide" id="rbchat-wrapper-login">
+                <div>
+                    <div class="row_1">请输入你的ID</div>
+                    <div class="row mt_tc tc" style="text-align:left;margin-left:20px">
+                        <select id="longinType">
+                            <option value="0">ID登录</option>
+                            <option value="1">手机号登录</option>
+                        </select>
+                        <select id="contry">
+                            <option value="+86">中国</option>
+                            <option value="+852">香港</option>
+                            <option value="+853">澳门</option>
+                            <option value="+886">台湾</option>
+                            <option value="+84">越南</option>
+                            <option value="+95">缅甸</option>
+                            <option value="+60">马来西亚</option>
+                        </select>
+                    </div>
+                </div>
+                <form class="login_form" action="/" method="post">
+
+                    <div class="row tc">
+                        <img src="images/login_user.png">
+                        <input type="text" class="radius5px w90 box-sizing" id="rbchat-form-loginname" autofocus="autofocus" autocomplete="on"
+                               placeholder="请输入ID号"/>
+                    </div>
+                    <div class="row tc">
+                        <img src="images/login_lock_icon.png" style="top: 8px;">
+                        <input type="password" class="radius5px w90 box-sizing" id="rbchat-form-loginpsw" placeholder="请您输入登录密码"/>
+                    </div>
+
+                </form>
+                <div class="bottom_box_check">
+                    <div class="bottom_check">
+                        <div class="tips_dom">
+                            <div class="tips">
+                                <div class="tick">
+                                    <img src="images/bg01.png" alt="">
+                                </div>
+                                <div class="tick_val">已经阅读同意 <span><a href="http://rbchat.52im.net:7080/rainbowchat_pro/clause/agreement_cn.html" target="_blank">服务条款</a></span></div>
+                                <div class="tips_val" id="tips_val">
+                                    请阅读并勾选页面协议
+                                    <div class="tips_val_b"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row sf_04">
+                            <div class="error-msg hide" id="rbchat-form-errorMsg">密码错误</div>
+                        </div>
+                        <div class="row sf_01 smallfont">
+                            <label>
+                                <!-- <input id="rbchat-form-rememberPswCb" class="radio-or-checkbox" type="checkbox" checked="checked">记住密码</label> -->
+                                <a href="#" id="rbchat-form-gotoForgotBtn" style="float: right;margin: 0 20px 0 0px;">忘记密码？</a>
+                            </label>
+                        </div>
+                        <div class="row sf_02 tc">
+                            <button type="button" class="btn btn-login" id="rbchat-form-loginBtn">登录</button>
+                        </div>
+                        <!-- <div class="u-redirect sf_03"><a href="#" id="rbchat-form-gotoRigisterBtn">注册</a></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper m-register hide" id="rbchat-wrapper-register">
+                <div>
+                    <div class="phone_register_title">注册账号</div>
+                </div>
+                <form action="/" method="post">
+                    <div class="row p_c r-row">
+                        <select id="r-contry">
+                            <option value="+86">中国</option>
+                            <option value="+852">香港</option>
+                            <option value="+853">澳门</option>
+                            <option value="+886">台湾</option>
+                            <option value="+84">越南</option>
+                            <option value="+95">缅甸</option>
+                            <option value="+60">马来西亚</option>
+                        </select>
+                        <input type="tel" class="radius5px w70 pl15 box-sizing t_number" id="rbchat-form-register-tel"  maxlength="20" placeholder="注册手机号 *"/>
+                    </div>
+                    <div class="row r-row">
+                        <span id="send-ems-code">发送验证码</span>
+                    </div>
+                    <div class="row tc">
+                        <span class="type sdzw">验证码：</span>
+                        <input type="tel" class="radius5px w90 pl70 box-sizing" id="rbchat-form-register-emscode"  maxlength="40" placeholder="请输入您的短信验证码 *"/>
+                    </div>
+                    <div class="row smallfont" style="margin-bottom: 4px;color:#ff6600">
+                        <label>* 密码长度最少6位！</label>
+                    </div>
+                    <div class="row tc">
+                        <span class="type">密码：</span>
+                        <input type="password" class="radius5px w90 pl55 box-sizing" id="rbchat-form-register-loginpsw" maxlength="16" placeholder="您的登陆密码 *"/>
+                    </div>
+                    <div class="row tc">
+                        <span class="type">确认：</span>
+                        <input type="password" class="radius5px w90 pl55 box-sizing" id="rbchat-form-register-confirmpsw" maxlength="16" placeholder="确认您的密码 *"/>
+                    </div>
+                    <div class="row smallfont">
+                        <label style="margin-right:2px;">
+                            <input id="rbchat-form-register-isagree" class="radio-or-checkbox" type="checkbox" checked="checked">我已阅读并接受</label>
+                        <a href="http://rbchat.52im.net:7080/rainbowchat_pro/clause/agreement_cn.html" target="_blank">服务条款</a>
+                    </div>
+                    <div class="row">
+                        <div class="error-msg hide" id="rbchat-form-register-errorMsg">密码错误</div>
+                    </div>
+                </form>
+                <div class="bottom_box_check">
+                    <div class="bottom_check">
+                        <div class="row tc">
+                            <button type="button" class="btn btn-login" id="rbchat-form-register-submitBtn">注册</button>
+                        </div>
+                        <div class="u-redirect"><a href="#" id="rbchat-form-register-gotoLoginBtn">已有帐号？直接登录</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper m-forgot hide" id="rbchat-wrapper-forgot">
+                <div class="row_1_forgot">找回密码</div>
+                <form action="/" method="post">
+                    <div class="row _24" style="font-size: 14px;margin-bottom: 8px;margin-top: 10px;">
+                        <label>通过手机验证码找回密码</label>
+                    </div>
+                    <div class="row p_c r-row" id="forgot-div-1">
+                        <select id="f-contry">
+                            <option value="+86">中国</option>
+                            <option value="+852">香港</option>
+                            <option value="+853">澳门</option>
+                            <option value="+886">台湾</option>
+                            <option value="+84">越南</option>
+                            <option value="+95">缅甸</option>
+                            <option value="+60">马来西亚</option>
+                        </select>
+                        <input type="tel" class="radius5px w70 pl15 box-sizing" id="rbchat-form-forgot-stel"  maxlength="20" placeholder="注册手机号 *"/>
+
+                    </div>
+                    <div class="row r-row" id="forgot-div-2">
+                        <span id="f-send-ems-code">发送验证码</span>
+                    </div>
+                    <div class="row tc" id="forgot-div-3">
+                        <input type="text" class="radius5px w90 pl15 box-sizing" id="rbchat-form-forgot-semscode" autofocus="autofocus" autocomplete="on"
+                               placeholder="请输入验证码"/>
+                    </div>
+                    <div class="row tc" id="forgot-p-new-pwd-div">
+                        <input type="password" class="radius5px w90 pl15 box-sizing" id="rbchat-form-forgot-new-pwd" autofocus="autofocus" autocomplete="on"
+                               placeholder="请输入新密码"/>
+                    </div>
+                    <div class="row tc" id="forgot-p-new-agin-pwd-div">
+                        <input type="password" class="radius5px w90 pl15 box-sizing" id="rbchat-form-forgot-agin-new-pwd" autofocus="autofocus" autocomplete="on"
+                               placeholder="请再次输入新密码"/>
+                    </div>
+
+                </form>
+                <div class="bottom_box_check">
+                    <div class="row tc">
+                        <button type="button" class="btn btn-login" id="rbchat-form-forgot-sendForgotMailBtn">下一步</button>
+                    </div>
+                    <div class="bottom_check">
+                        <div class="u-redirect"><a href="#" id="rbchat-form-forgot-backLogonBtn">返回登陆界面</a></div>
+                    </div>
+            </div>
+
+        </div>
+        </div>
+
+         <div id="rbchat-wrapper-footer" class="footer tc">
+                <p>确保使用Chrome、FireFox、Safari、IE10、360等新式浏览器，以便获得更好地体验。</p>
+                <p>&copy; 2022 <a href="http://www.52im.net">52im.net</a>版权所有</p>
+            </div>
+
+        <script type="text/javascript" src="js/libs/mobileimsdk_web_client/thirdpart/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.jsonp-2.4.0.js"></script>
+
+        <script type="text/javascript" src="js/common/rbchat_config.js"></script>
+        <script type="text/javascript" src="js/common/rbchat_rest_helper.js"></script>
+        <script type="text/javascript" src="js/common/rbchat_utils.js"></script>
+
+        <script type="text/javascript" src="js/rbchat_login.js"></script>
+        <script type="text/javascript" src="js/sweetalert.js"></script>
+        <!-- <script type="text/javascript" src="js/rbchat_login.js?v=738"></script> -->
+
+    </body>
+</html>
