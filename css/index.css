@@ -492,7 +492,7 @@ pre, code { word-break: break-word }
 .select-child-list li > a:hover:after { border-color: #ced6d8 }
 .select-child-list .active > a::after { background: #21d376; border-color: #21d376 !important }
 progress { width: 70px; border: 0; background-color: #21b1d3; color: #21d376 }
-.scrollbar-auto { overflow-y: auto; position: absolute; bottom: 0; left: 0; top: 0; right: 0 }
+.scrollbar-auto { overflow-y: auto; bottom: 0; left: 0; top: 0; right: 0 }
 .scrollbar-auto-phone { overflow-y: auto;  }
 
 progress::-moz-progress-bar { background: #21b1d3 }
@@ -2238,7 +2238,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-msg-state { position: absolute; right: 15px; font-size: 13px; top: 50%; margin-top: -7px }
 .kchat-msg-state a { margin-left: 4px; color: #666 }
 .kchat-msg-state .regular { color: #ffa900; font-size: 15px }
-.kchat-im-panel-userlist { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; height: 100%;  top: 0 }
+.kchat-im-panel-userlist { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; height: 800px;  top: 0 }
 .kchat-im-panel-userlist .f-list-number-label {color: #f26c4f;}
 .kchat-im-panel-userlist .f-list-iconbtn {float: right;width: 18px;text-align: center;height: 30px;width: 18px;line-height: 30px;font-size: 20px;color: rgba(255, 255, 255, 1);}
 .kchat-im-panel-userlist .f-list-iconbtn i{color: #28a0ff;font-size: 18px;}
@@ -2469,7 +2469,7 @@ lesshat-selector { -lh-property: 0 }
 #im-user-chooser-list-wrapper .kchat-talk-list-group li .info i.weui-icon-success {color: #28a0ff !important;}
 /* 20200312: 以下css样式专为优化在dialog中显示的用户选择框列表的UI END */
 
-.kchat-im-panel-main { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 100%;display: none;}
+.kchat-im-panel-main { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 100%;}
 .kchat-im-panel-main .chat-box { padding: 20px 20px 5px }
 .kchat-im-panel-main.empty .kchat-im-panel-main-chat, .kchat-im-panel-main.empty .kchat-im-panel-main-info { display: none }
 
@@ -2793,8 +2793,8 @@ lesshat-selector { -lh-property: 0 }
 .kchat-queue h3 .f-list-toggle-label {color: #999b9f;}
 
 	/* 20181029去掉了后面的下拉小箭头 */
-/*.kchat-queue h3:after { content: ""; display: inline-block; vertical-align: middle; margin-left: 4px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #666; position: relative; top: -1px }*/
-.kchat-queue .kchat-pop { font-size: 13px; left: 10px; top: 32px; z-index: 10; display: none;box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px;border-radius: 8px;/*border: 1px solid rgb(231, 231, 231);*/ }
+/*.kchat-queue h3:after { content: ""; display: inline-blocrightk; vertical-align: middle; margin-left: 4px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #666; position: relative; top: -1px }*/
+.kchat-queue .kchat-pop { font-size: 13px; right: 10px; top: 32px; z-index: 10; display: none;box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px;border-radius: 8px;/*border: 1px solid rgb(231, 231, 231);*/ }
 .kchat-queue .kchat-pop ul { padding: 8px 0;border-radius: 8px; }
 .kchat-queue .kchat-pop li { border-bottom: 0; height: auto; padding: 8px 15px;}
 .kchat-queue .kchat-pop .bottom_border {border-bottom: 1px solid #eff2f6;}
@@ -5864,7 +5864,6 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	background: #FFFFFF;
 	box-shadow: 0 2px 3px 0 rgb(4 5 13 / 23%);
 	border-top: 1px solid #F1F3F6;
-	display: none;
 }
 .footer_dom{
 	width: 100%;
@@ -6550,7 +6549,7 @@ ul {
 }
 
 body {
-	background-color: #2A2A2A;
+	background-color: #fff;
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 13px;
 	line-height: 18px;
