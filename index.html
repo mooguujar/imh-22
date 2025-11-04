@@ -21,7 +21,7 @@
         </style>
     </head>
      <body>
-         <div id="im-panel-loginbox">
+         <!-- <div id="im-panel-loginbox">
                 <div style="width:390px;margin:200px auto;">
                     <div style="text-align: center; padding: 20px;border: 1px solid #efefef;border-radius: 10px;background: #f7f7f7;">
                   <span style="font-size: 16px;color: #00aef0;text-shadow: 0px 1px 0 rgba(255,255,255,1);text-align: center;">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
          <!-- For IM-主功能区-头部 UI START  -->
                 <header id="im-panel-header" class="kchat-im-panel-header">
                     <div style="border: 1px solid #ddd; padding: 5px 10px; border-radius: 15px;color:#4ACCF0;">一键已读</div>
@@ -220,6 +220,167 @@
                     </div>
                 </div>
                 <!-- For IM-主功能区-body UI END  -->
+                 <!--        聊天详情-->
+                <div id="phone_chat">
+                    <div class="chat_top">
+                        <div class="chat_top_l" id="chat_top_back"><img id="left_jt" src="images/im_b_img/left_jt_3.png" alt=""></div>
+                        <div class="chat_top_c" id="chat_top_name"></div>
+                        <div class="chat_top_r" id="chat_top_detail"><img class="head_san" src="images/im_b_img/geng_3.png" alt=""></div>
+                    </div>
+                    <div class="container_chat">
+                        <div class="kchat-im-panel-main" style="height: 100%;width: auto !important">
+                            <!-- 中间聊天内容显示区（也是IM中最重要的信息区） -->
+                            <div id="im-panel-main-chatcontentpane-toplevel" class="kchat-im-panel-main-chat list1">
+                                <div class="im-panel-main-toBottom-content">
+                                    <img class="im-panel-main-toBottom-content-icon" src="/images/new_msg.png">
+                                    <span class="im-panel-main-toBottom-nums">7条新消息</span>
+                                    <img class="im-panel-main-toBottom-content-icon2"  src="/images/arrow_bottom.png">
+                                </div>
+                                <div class="tip-my-root" id="im-panel-main-chat-tip-me"
+                                >
+                                    <div id="tip-num" class="tip-num">0</div>
+                                    <img src="/images/group-tip.png"/>
+                                </div>
+                                <!-- 聊天内容显示列表 -->
+                                <div id="im-panel-main-chatcontentpane-wrap" class="kchat-im-panel-main-chat-content scrollbar-auto">
+                                    <div id="IM-chat-visitorName" class="IM-chat-navbar-title" style="display:none;"></div>
+                                    <!-- 动态组织的数据UI -->
+                                    <div id="im-panel-main-chatcontentpane" class="chat-box chat-style1">
+                                    </div>
+                                </div>
+                                <!-- 整个消息发送区域布局 -->
+                                <div class="kchat-im-panel-main-chat-textarea"  id="kchat-im-panel-main-chat-textarea">
+                                    <div class="chat-box_alert" id="im-panel-main-chat-replay-ui"
+                                    style="display:none;font-size: 18px;color: #fff;padding: 5px;"></div>
+
+                                    <!-- 发送区上方的信息提示ui，可用于文件上传进度提示等 -->
+                                    <div class="chat-box_alert im-panel-main-chat-textarea_fileuphint"
+                                        style="display:none;background: #5bc648;font-size: 12px;color: #fff;padding: 5px;">文件上传中...</div>
+
+                                    <!-- 各消息功能按钮，比如：表情、文件等 -->
+                                    <div class="top-bar">
+                                        <ul style="">
+
+                                            <!-- 表情按钮及表示内容 -->
+                                            <li id="emoji-face-btn">
+                                                <i id="im-panel-main-chat-textarea_emojiopenbtn" class="icon-chat1"></i>
+                                                <div id="im-panel-main-chat-textarea_emojipopup" class="kchat-pop emoji-face-box" tabindex="-1">
+                                                    <!--
+                                                    <ul>
+                                                        <li class="emoji_li" id="[emoji_angry]"><span class="emoji emoji1f47f"></span></li>
+                                                        <li class="emoji_li" id="[emoji_blush]"><span class="emoji emoji1f60a"></span></li>
+                                                        <li class="emoji_li" id="[emoji_tongue]"><span class="emoji emoji1f60b"></span></li>
+                                                        <li class="emoji_li" id="[emoji_sleep]"><span class="emoji emoji1f60c"></span></li>
+                                                        <li class="emoji_li" id="[emoji_love]"><span class="emoji emoji1f60d"></span></li>
+                                                        <li class="emoji_li" id="[emoji_cool]"><span class="emoji emoji1f60e"></span></li>
+                                                        <li class="emoji_li" id="[emoji_smirk]"><span class="emoji emoji1f60f"></span></li>
+                                                        <li class="emoji_li" id="[emoji_shame]"><span class="emoji emoji1f61a"></span></li>
+                                                        <li class="emoji_li" id="[emoji_cute]"><span class="emoji emoji1f61b"></span></li>
+                                                        <li class="emoji_li" id="[emoji_cute2]"><span class="emoji emoji1f61c"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f61d]"><span class="emoji emoji1f61d"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f61e]"><span class="emoji emoji1f61e"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f61f]"><span class="emoji emoji1f61f"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f62a]"><span class="emoji emoji1f62a"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f62b]"><span class="emoji emoji1f62b"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f62c]"><span class="emoji emoji1f62c"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f62d]"><span class="emoji emoji1f62d"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f62e]"><span class="emoji emoji1f62e"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f62f]"><span class="emoji emoji1f62f"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f600]"><span class="emoji emoji1f600"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f601]"><span class="emoji emoji1f601"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f602]"><span class="emoji emoji1f602"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f603]"><span class="emoji emoji1f603"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f604]"><span class="emoji emoji1f604"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f605]"><span class="emoji emoji1f605"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f606]"><span class="emoji emoji1f606"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f607]"><span class="emoji emoji1f607"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f608]"><span class="emoji emoji1f608"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f609]"><span class="emoji emoji1f609"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f610]"><span class="emoji emoji1f610"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f611]"><span class="emoji emoji1f611"></span></li>
+                                                        <li class="emoji_li" id="[emoji_1f612]"><span class="emoji emoji1f612"></span></li>
+                                                    </ul>
+                                                    -->
+                                                </div>
+                                            </li>
+
+                                            <!-- 普通大文文件发送按钮 -->
+                                            <li id="upload-file">
+                                                <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                                <i class="icon-chat2" onclick="$('#upload-file-input').click();" title="发送文件"></i>
+                                                <input type="file" id="upload-file-input" style="display: none;">
+
+                                                <!-- <input type="file" name="im-panel-main-chat-textarea-filemsg-uploadify"
+                                                    id="im-panel-main-chat-textarea-filemsg-uploadify" /> -->
+                                                <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                            </li>
+
+                                            <!-- 图片文件发送按钮 -->
+                                            <li id="upload-image">
+                                                <i class="icon-chat2" onclick="$('#upload-image-input').click();" title="发送图片"></i>
+                                                <input type="file" id="upload-image-input" style="display: none;">
+
+                                                <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                                <!-- <input type="file" name="im-panel-main-chat-textarea-imagemsg-uploadify"
+                                                    id="im-panel-main-chat-textarea-imagemsg-uploadify" /> -->
+                                                <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                            </li>
+
+                                            <li id="upload-video" >
+                                                <i class="icon-chat2" onclick="$('#upload-video-input').click();" title="发送视频"></i>
+                                                <input type="file" id="upload-video-input" style="display: none;">
+
+                                                <!-- ## add by js: for UPLOADIFY(1/3) START -->
+                                                <!-- <input type="file" name="im-panel-main-chat-textarea-imagemsg-uploadify"
+                                                    id="im-panel-main-chat-textarea-imagemsg-uploadify" /> -->
+                                                <!-- ## add by js: for UPLOADIFY(1/3) END -->
+                                            </li>
+
+                                            <li id="send-redpag" style="display:none">
+                                                <i class="icon-chat2"  id="send-redpag-pack" title="发送红包" ></i>
+                                            </li>
+                                            <li>
+                                                <i id="im-panel-main-chat-textarea_clearbtn" class="icon-talk3" title="点击清空聊天界面！"></i>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <!-- 聊天消息文本输入框 -->
+                                    <textarea class="im-panel-inputcontent ember-text-area js-message-content"  placeholder="输入聊天信息，按 Enter 键快速发送 …"></textarea>
+                                    <textarea id="pic-copy-input" style="display:none"></textarea>
+                                    <!-- 聊天消息输入框下方的发送按钮功能区 -->
+                                    <div class="bottom-bar js-drag-handle ui-draggable-handle" style="height: 50px;">
+                                        <!-- "发送"按钮功能 -->
+                                        <div class="send">
+                                            <a id="im-panel-sendbutton">发送</a>
+
+                                            <!-- 快捷消息下拉小箭头 -->
+                                            <span id="im-panel-main-chatcontentpane-shortwordsbtn">
+                                                <i class="icon-expand-more"></i>
+                                            </span>
+
+                                            <!-- 快快捷消息菜单项 -->
+                                            <div id="im-panel-main-chatcontentpane-shortwords" class="send-pop kchat-pop" style="display:none;" tabindex="-1">
+                                                <ul>
+                                                    <li id="im-panel-main-chatcontentpane-shortwords-1">快捷回复：“正在处理紧急事情”</li>
+                                                    <li id="im-panel-main-chatcontentpane-shortwords-2">快捷回复：“有事先离开一会儿”</li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="send_hint">
+                                            <span>按 Ctrl+Enter 换行，按 Enter 发送</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
          <!-- ***************************************** 手机版底部导航栏 START ************************************ -->
                 <footer id="footer_i">
                         <div class="footer_dom">
