@@ -161,78 +161,13 @@ var RBChatMainWindowUI = (function () {
      * 初始化主界面左侧用户列表顶端的tab标签切换事件处理。
      */
     UIModule1.prototype.initSwitchUserListTabsUI = function () {
-        var that = this;
-        var titleName = document.getElementById('title_name');
-        // 取出所有的子tab对象（就是nav下的所有<a>元素）
-        var $allUserListTabs = $('nav.kchat-im-panel-userlist-nav a');
-        if ($allUserListTabs) {
-            // 循环为每一个tab添加点击事件
-            for (var i = 0; i < $allUserListTabs.length; i++) {
-                var $tabCell = $($allUserListTabs[i]);
-
-                // 点击事件
-                $tabCell.click(function () {
-
-                    /*alert('点击的是$(this).attr='+($(this).attr('data'))
-                        +', this.json='+JSON.stringify(this)
-                        +', $(this).json='+JSON.stringify($(this)));*/
-
-                    /** 第一步：先设置tab的选中状态 */
-                    // 先其它其它tab的选中状态（jquery对象支持对一个数组的所有
-                    // 元素进行设置，所以最简单的办法就是给数据所有对象取消选中状态）
-                    $allUserListTabs.removeClass('active');
-                    // 设置当前tab为选中状态（注意：this为JS原先DOM对象，而$(this)才
-                    // 是jQuery对象，因为这个点击事件是由JS自已的事件机制调用，跟jQuery
-                    // 无关，所以这个this就是原生DOM而非jQuery对象）
-                    $(this).addClass('active');
-
-
-                    // 取出各tab存放于tabident属性的标识值（用于区分当前点击的到底是什么tab嘛）
-                    var tabident = $(this).attr('tabident');
-                    
-                    //alert('tabindex='+tabindex);
-
-
-                    /** 第二步：再设置各tab对应列表UI的显示，以及选中tab后要额外做的事（即调用disSelect... 方法） */
-                    // 先简单的调用此id通配符方式来隐藏列表ui（这样方便，省的要一个一个判断哪个列表当前处
-                    // 于已显示状态并设置不隐藏，下面具体的tab判断代码会具体再设置要显示哪个列表ui）
-                    $("div[id^=im-panel-userlist-wrap-]").hide();// 查出以此id为开头的所有对象
-
-                    // 如果点击的是“消息”tab
-                    if (tabident == 0) {// 注意：因取出的tabident是字符串，此处不能用===判断哦
-                        $('#im-panel-userlist-wrap-alarms').show();
-                        that.didSelectAlarmsTab();
-                        that.switchThreeDaysChat('show')
-                        $('#im-panel-userlist-wrap-alarms-search-input').val('');
-                        titleName.textContent = '消息';
-                        
-                    }
-                    else if (tabident == 1) {
-
-                          $('#im-panel-userlist-wrap-roster').show();
-                        that.didSelectRosterTab();
-                        if (!window._lastRequestTime || window._lastRequestTime + 30 * 1000 < Date.now()) {
-                            RBChatRosterUI.deal_fen_local_to_last(function(){
-                                window._lastRequestTime = Date.now()
-                                RBChatRosterUI.countGroupUI();
-                            })
-                        }
-                         titleName.textContent = '好友';
-                    }
-                    else if (tabident == 2) {
-                         $('#im-panel-userlist-wrap-groups').show();
-                          titleName.textContent = '群组';
-                        that.didSelecGroupsTab();
-                      
-                    }
-                    else if (tabident == 3) {
-                       $('#im-panel-userlist-wrap-mine').show();
-                       that.didSelectMyTab();
-                        titleName.textContent = '我的';
-                    }
-                });
-            }
-        }
+         var that = this;
+         var titleName = document.getElementById('title_name');
+          $('#im-panel-userlist-wrap-alarms').show();
+        //   that.didSelectAlarmsTab();
+        //   that.switchThreeDaysChat('show')
+          $('#im-panel-userlist-wrap-alarms-search-input').val('');
+          titleName.textContent = '消息';
     };
 
     /**
@@ -765,30 +700,38 @@ var RBChatMainWindowUI = (function () {
         RBChatDialogHelper.showMyMinAppInfo();
     })
 
+     var that = this;
     // 移动端footer点击效果
     $('.dom_item').click(function () {
         var _index = $(this).index();
-        $('.first-my-minapp').hide();
+        // $('.first-my-minapp').hide();
+       
+        var titleName = document.getElementById('title_name');
         if (_index == 0) {
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('消息')
-            if($('.first-my-minapp-row2').children().length > 0){
-                $('.first-my-minapp').show();
-            }
-            RBChatUtils.showFirstPageMinApp();
+             $('#im-panel-userlist-wrap-alarms').show();
+              $('#im-panel-userlist-wrap-groups').hide();
+               $('#im-panel-userlist-wrap-mine').hide();
+             $('#im-panel-userlist-wrap-roster').hide();
+              titleName.textContent = '消息';
         } else if (_index == 1) {
-            $('#kchat-im-panel-userlist-roster-phone li').css('display', '')
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('联系')
+             $('#im-panel-userlist-wrap-alarms').hide();
+             $('#im-panel-userlist-wrap-groups').hide();
+             $('#im-panel-userlist-wrap-mine').hide();
+             $('#im-panel-userlist-wrap-roster').show();
+                titleName.textContent = '好友';
         } else if (_index == 2) {
-            $('#kchat-im-panel-userlist-groups-phone li').css('display', '')
-            $('#phone_center').css({ 'display': 'none' })
-            $('.search').css({ 'display': 'block' })
-            $('.nav_bar_t').html('群组')
+            $('#im-panel-userlist-wrap-groups').show();
+             $('#im-panel-userlist-wrap-alarms').hide();
+              $('#im-panel-userlist-wrap-mine').hide();
+             $('#im-panel-userlist-wrap-roster').hide();
+             titleName.textContent = '群组';
+           
         } else {
-            $('#phone_center').css({ 'display': 'block' })
+             $('#im-panel-userlist-wrap-mine').show();
+              $('#im-panel-userlist-wrap-roster').hide();
+                $('#im-panel-userlist-wrap-groups').hide();
+                 $('#im-panel-userlist-wrap-alarms').hide();
+             titleName.textContent = '我的';
         }
         window.tab_select = _index;
         showCenter(_index);
@@ -807,13 +750,13 @@ var RBChatMainWindowUI = (function () {
             }
         });
         // 控制顶部导航栏右侧按钮
-        $.each($('.nav_bar_r'), function (index, value) {
-            if (_index == index) {
-                $(`#nav_bar_r_${index}`).removeClass('hidden');
-            } else {
-                $(`#nav_bar_r_${index}`).addClass('hidden');
-            }
-        });
+        // $.each($('.nav_bar_r'), function (index, value) {
+        //     if (_index == index) {
+        //         $(`#nav_bar_r_${index}`).removeClass('hidden');
+        //     } else {
+        //         $(`#nav_bar_r_${index}`).addClass('hidden');
+        //     }
+        // });
     })
 
     // 添加搜索绑定事件
