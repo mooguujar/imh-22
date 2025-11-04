@@ -164,8 +164,8 @@ var RBChatMainWindowUI = (function () {
          var that = this;
          var titleName = document.getElementById('title_name');
           $('#im-panel-userlist-wrap-alarms').show();
-          that.didSelectAlarmsTab();
-          that.switchThreeDaysChat('show')
+        //   that.didSelectAlarmsTab();
+        //   that.switchThreeDaysChat('show')
           $('#im-panel-userlist-wrap-alarms-search-input').val('');
           titleName.textContent = '消息';
     };

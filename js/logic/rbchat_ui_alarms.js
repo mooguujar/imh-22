@@ -873,7 +873,7 @@ var RBChatAlarmsUI = (function () {
         } catch (err) {}
 
         let isShow = true
-        const _tab = document.querySelector('.kchat-im-panel-userlist-nav a.active').getAttribute('tabident')
+        const _tab = $('.dom_item.active').attr('tabident');//document.querySelector('.kchat-im-panel-userlist-nav a.active').getAttribute('tabident')
         if (_tab == 1) {
             if (alarmMessageType != 4) {
                 isShow = false
@@ -1651,7 +1651,9 @@ var RBChatAlarmsUI = (function () {
      * @returns {number}
      */
     UIModule4.prototype.getAlarmsCount = function () {
-        const _tab = document.querySelector('.kchat-im-panel-userlist-nav a.active').getAttribute('tabident')
+       // const _tab = document.querySelector('.kchat-im-panel-userlist-nav a.active').getAttribute('tabident')
+     // var dom_item = document.querySelector('dom_item');
+      const _tab = $('.dom_item').attr('tabident');
         if (_tab == 1) {
             let _nums = 0
             const _els = this.$notEmptyUIRoot.children()
