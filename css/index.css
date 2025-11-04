@@ -2473,11 +2473,11 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main .chat-box { padding: 20px 20px 5px }
 .kchat-im-panel-main.empty .kchat-im-panel-main-chat, .kchat-im-panel-main.empty .kchat-im-panel-main-info { display: none }
 
-.kchat-im-panel-main-chat { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-right: 1px solid #e2e4e8; /*width: 470px;*/width: 540px; position: relative; background: #fff }
+.kchat-im-panel-main-chat { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-right: 1px solid #e2e4e8; /*width: 470px;*/width: 540px;background: #fff }
 /* add by js 20190302：增加了以下行，目的是实现聊天窗口全屏时，聊天消息区能自动占满余下宽度 */
 #kchat-im-panel.expand .kchat-im-panel-main-chat {width: 100% !important;}
 .kchat-im-panel-main-chat.list1 { padding-bottom: 170px }
-.kchat-im-panel-main-chat.list1 > .scrollbar-box, .kchat-im-panel-main-chat.list1 .scrollbar-auto { position: absolute; left: 0; right: 0; top: 0; bottom: 170px; height: auto }
+.kchat-im-panel-main-chat.list1 > .scrollbar-box, .kchat-im-panel-main-chat.list1 .scrollbar-auto {height: 800px }
 .kchat-im-panel-main-chat.list2 { padding-bottom: 51px }
 .kchat-im-panel-main-chat.list2 > .scrollbar-box, .kchat-im-panel-main-chat.list2 .scrollbar-auto { position: absolute; left: 0; right: 0; top: 0; bottom: 51px; height: auto }
 .kchat-im-panel-main-chat.list2 .kchat-im-panel-main-chat-textarea { border-top: 0 }
@@ -6027,9 +6027,9 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	left: 0;
 	min-width: 328px;
 	background: #FFFFFF;
-	padding-bottom: 12px;
-	display: none;
+	/* padding-bottom: 12px; */
 	height: 100%;
+	display: none;
 }
 .chat_top{
 	display: flex;
@@ -6074,7 +6074,6 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	bottom:0;
 	z-index:996;
 	height:100%;
-	display: none;
 	width: 100%;
 }
 .right_con{

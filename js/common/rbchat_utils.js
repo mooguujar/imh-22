@@ -1285,7 +1285,7 @@
      * 显示会话详情
      */
     var _showChatDetail = function () {
-        if (_isMobile()) {
+      //  if (_isMobile()) {
             $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
@@ -1327,7 +1327,7 @@
                 }
                 open = !open
             })
-        }
+       // }
     }
 
     /**

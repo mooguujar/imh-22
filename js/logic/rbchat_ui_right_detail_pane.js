@@ -300,9 +300,9 @@ var RBChatRightDetailUI = (function () {
             obj.remove()
         }
 
-        if(RBChatUtils.isMobile()){
+       // if(RBChatUtils.isMobile()){
             $('#chat_top_name').text(RBChatUtils.getNickNameWithRemark(ree))
-        }
+      //  }
 
         const deviceMapping = {
             '0': '安卓',
@@ -677,9 +677,9 @@ var RBChatRightDetailUI = (function () {
             obj.remove()
         }
 
-        if(RBChatUtils.isMobile()){
+       // if(RBChatUtils.isMobile()){
             $('#chat_top_name').text(gname)
-        }
+        // }
         const hasOp = RBChatUtils.getOpAdmin()
         // var head_photo = ge.group_avatar_file_name&&ge.group_avatar_file_name.length > 0 ?'https://oss.nongzhiw.cn/head/'+ge.group_avatar_file_name:'';
         var head_photo = ge.group_avatar_file_name&&ge.group_avatar_file_name.length > 0 ? RBChatConfig.FILE_HTTPS_URL + '/head/'+ge.group_avatar_file_name:'';

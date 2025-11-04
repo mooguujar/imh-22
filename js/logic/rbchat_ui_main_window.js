@@ -615,9 +615,9 @@ var RBChatMainWindowUI = (function () {
     }
 
     // 判断是否是手机
-    if (_isMobile()) {
-        $('#header_i').css({ 'display': 'block' })
-        $('#footer_i').css({ 'display': 'block' })
+   // if (_isMobile()) {
+        $('#header_i').css({ 'display': 'block' });
+        $('#footer_i').css({ 'display': 'block' });
         $('#pc-kchat-im-panel-main').empty();
         $('#im-panel-header-setup-popup').empty();
         $('.chat-user-info').css({ 'padding-top': '70px' });
@@ -625,11 +625,11 @@ var RBChatMainWindowUI = (function () {
         $('.container_info').css({ 'background': 'rgba(0, 0, 0, .45)' });
         $('.send_hint').hide();
         $('#left_con').css({ 'background': 'rgba(0, 0, 0, .45)' });
-    } else {
-        $('#phone_chat').empty();
-        $('.mine_box').empty();
+    // } else {
+    //     $('#phone_chat').empty();
+    //     $('.mine_box').empty();
 
-    }
+    // }
     setTimeout(() => {
         $('body').css({ 'display': 'block' });
     }, 500)
@@ -700,7 +700,6 @@ var RBChatMainWindowUI = (function () {
         RBChatDialogHelper.showMyMinAppInfo();
     })
 
-     var that = this;
     // 移动端footer点击效果
     $('.dom_item').click(function () {
         var _index = $(this).index();
