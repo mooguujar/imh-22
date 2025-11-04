@@ -993,29 +993,29 @@
      * 显示首页app
      */
     var _showFirstPageMinApp = function () {
-        // var localUserUid = LocalUserInfo.getUid();
-        // RBChatRestHelper.MyMinAppListFromServer(localUserUid, function (res) {
-        //     const list = JSON.parse(res)
-        //     if (list && list.length > 0) {
-        //         $('.first-my-minapp').show();
-        //         $('.first-my-minapp-row2').empty();
-        //         window.minappJump = function (url, appId) {
-        //             if (confirm("您所选小程序即将在浏览器新窗口打开")) {
-        //                 window.open(url, '_blank')
-        //             }
-        //         }
-        //         var contentHTML = '';
-        //         list.forEach(item => {
-        //             contentHTML = contentHTML + "<div class='my-min-app-item' onclick=\"javascript:minappJump('" + item.appletUrl + "','" + item.appletId + "')\"> <img src='" + item.appletImage + "'/> <span>" + item.appletName + "</span></div>"
-        //         })
-        //         $('.first-my-minapp-row2').append(contentHTML)
-        //     } else {
-        //         $('.first-my-minapp').hide();
-        //     }
+        var localUserUid = LocalUserInfo.getUid();
+        RBChatRestHelper.MyMinAppListFromServer(localUserUid, function (res) {
+            const list = JSON.parse(res)
+            if (list && list.length > 0) {
+                $('.first-my-minapp').show();
+                $('.first-my-minapp-row2').empty();
+                window.minappJump = function (url, appId) {
+                    if (confirm("您所选小程序即将在浏览器新窗口打开")) {
+                        window.open(url, '_blank')
+                    }
+                }
+                var contentHTML = '';
+                list.forEach(item => {
+                    contentHTML = contentHTML + "<div class='my-min-app-item' onclick=\"javascript:minappJump('" + item.appletUrl + "','" + item.appletId + "')\"> <img src='" + item.appletImage + "'/> <span>" + item.appletName + "</span></div>"
+                })
+                $('.first-my-minapp-row2').append(contentHTML)
+            } else {
+                $('.first-my-minapp').hide();
+            }
 
-        // }, function (error) {
+        }, function (error) {
 
-        // })
+        })
     }
 
 

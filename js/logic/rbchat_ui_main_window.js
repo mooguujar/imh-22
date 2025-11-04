@@ -712,18 +712,21 @@ var RBChatMainWindowUI = (function () {
               $('#im-panel-userlist-wrap-groups').hide();
                $('#im-panel-userlist-wrap-mine').hide();
              $('#im-panel-userlist-wrap-roster').hide();
+             $('#first-my-minapp').show();
               titleName.textContent = '消息';
         } else if (_index == 1) {
              $('#im-panel-userlist-wrap-alarms').hide();
              $('#im-panel-userlist-wrap-groups').hide();
              $('#im-panel-userlist-wrap-mine').hide();
              $('#im-panel-userlist-wrap-roster').show();
+              $('#first-my-minapp').hide();
                 titleName.textContent = '好友';
         } else if (_index == 2) {
             $('#im-panel-userlist-wrap-groups').show();
              $('#im-panel-userlist-wrap-alarms').hide();
               $('#im-panel-userlist-wrap-mine').hide();
              $('#im-panel-userlist-wrap-roster').hide();
+              $('#first-my-minapp').hide();
              titleName.textContent = '群组';
            
         } else {
@@ -731,6 +734,7 @@ var RBChatMainWindowUI = (function () {
               $('#im-panel-userlist-wrap-roster').hide();
                 $('#im-panel-userlist-wrap-groups').hide();
                  $('#im-panel-userlist-wrap-alarms').hide();
+                  $('#first-my-minapp').hide();
              titleName.textContent = '我的';
         }
         window.tab_select = _index;
