@@ -162,12 +162,12 @@ var RBChatMainWindowUI = (function () {
      */
     UIModule1.prototype.initSwitchUserListTabsUI = function () {
          var that = this;
-         var titleName = document.getElementById('title_name');
+       //  var titleName = document.getElementById('title_name');
           $('#im-panel-userlist-wrap-alarms').show();
         //   that.didSelectAlarmsTab();
         //   that.switchThreeDaysChat('show')
           $('#im-panel-userlist-wrap-alarms-search-input').val('');
-          titleName.textContent = '消息';
+        //  titleName.textContent = '消息';
     };
 
     /**
@@ -712,21 +712,21 @@ var RBChatMainWindowUI = (function () {
                $('#im-panel-userlist-wrap-mine').hide();
              $('#im-panel-userlist-wrap-roster').hide();
              $('#first-my-minapp').show();
-              titleName.textContent = '消息';
+          //    titleName.textContent = '消息';
         } else if (_index == 1) {
              $('#im-panel-userlist-wrap-alarms').hide();
              $('#im-panel-userlist-wrap-groups').hide();
              $('#im-panel-userlist-wrap-mine').hide();
              $('#im-panel-userlist-wrap-roster').show();
               $('#first-my-minapp').hide();
-                titleName.textContent = '好友';
+              //  titleName.textContent = '好友';
         } else if (_index == 2) {
             $('#im-panel-userlist-wrap-groups').show();
              $('#im-panel-userlist-wrap-alarms').hide();
               $('#im-panel-userlist-wrap-mine').hide();
              $('#im-panel-userlist-wrap-roster').hide();
               $('#first-my-minapp').hide();
-             titleName.textContent = '群组';
+           //  titleName.textContent = '群组';
            
         } else {
              $('#im-panel-userlist-wrap-mine').show();
@@ -734,7 +734,7 @@ var RBChatMainWindowUI = (function () {
                 $('#im-panel-userlist-wrap-groups').hide();
                  $('#im-panel-userlist-wrap-alarms').hide();
                   $('#first-my-minapp').hide();
-             titleName.textContent = '我的';
+            // titleName.textContent = '我的';
         }
         window.tab_select = _index;
         showCenter(_index);

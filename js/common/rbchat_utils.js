@@ -1286,7 +1286,7 @@
      */
     var _showChatDetail = function () {
       //  if (_isMobile()) {
-            $('#phone_chat').show()
+           // $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
                 $('#phone_chat').hide();

@@ -2240,8 +2240,8 @@ lesshat-selector { -lh-property: 0 }
 .kchat-msg-state .regular { color: #ffa900; font-size: 15px }
 .kchat-im-panel-userlist { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; height: 800px;  top: 0 }
 .kchat-im-panel-userlist .f-list-number-label {color: #f26c4f;}
-.kchat-im-panel-userlist .f-list-iconbtn {float: right;width: 18px;text-align: center;height: 30px;width: 18px;line-height: 30px;font-size: 20px;color: rgba(255, 255, 255, 1);}
-.kchat-im-panel-userlist .f-list-iconbtn i{color: #28a0ff;font-size: 18px;}
+/* .kchat-im-panel-userlist .f-list-iconbtn {float: right;width: 18px;text-align: center;height: 30px;width: 18px;line-height: 30px;font-size: 20px;color: rgba(255, 255, 255, 1);}
+.kchat-im-panel-userlist .f-list-iconbtn i{color: #28a0ff;font-size: 18px;} */
 .kchat-im-panel-userlist .kchat-talk-list-group li .info .msg-num { padding: 0 5px; color: #fff; border-radius: 40px; background: #ff4d4f; line-height: 18px; font-size: 12px; position: absolute; right: 0; top: 50%; margin-top: -9px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; min-width: 18px; text-align: center }
 /* 20210327：因美华未读数ui，将原“left: 2px;”改为了现值 */
 .kchat-im-panel-userlist .kchat-talk-list-group .close:before { content: "\e6c0"; font-family: rbchat; position: absolute; left: 0px; top: 50%; font-size: 12px; color: #999; margin-top: -6px }
@@ -2477,7 +2477,7 @@ lesshat-selector { -lh-property: 0 }
 /* add by js 20190302：增加了以下行，目的是实现聊天窗口全屏时，聊天消息区能自动占满余下宽度 */
 #kchat-im-panel.expand .kchat-im-panel-main-chat {width: 100% !important;}
 .kchat-im-panel-main-chat.list1 { padding-bottom: 170px }
-.kchat-im-panel-main-chat.list1 > .scrollbar-box, .kchat-im-panel-main-chat.list1 .scrollbar-auto {height: 800px }
+.kchat-im-panel-main-chat.list1 > .scrollbar-box, .kchat-im-panel-main-chat.list1 .scrollbar-auto {   height: 700px }
 .kchat-im-panel-main-chat.list2 { padding-bottom: 51px }
 .kchat-im-panel-main-chat.list2 > .scrollbar-box, .kchat-im-panel-main-chat.list2 .scrollbar-auto { position: absolute; left: 0; right: 0; top: 0; bottom: 51px; height: auto }
 .kchat-im-panel-main-chat.list2 .kchat-im-panel-main-chat-textarea { border-top: 0 }
@@ -6082,7 +6082,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	bottom: 0;
 	z-index: 999;
 	height: 100%;
-	width: 264px;
+	width: 100%;
 }
 
 

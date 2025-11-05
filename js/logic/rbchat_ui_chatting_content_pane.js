@@ -4798,7 +4798,6 @@ var RBChatChattingContentPaneUI = (function () {
 
         //判断是否是小程序指令
         var isMinApp = false;
-        debugger
         if (message && message.length > 0) {
             const t = message.toLowerCase().substr(0, 4)
             if (t == 'app:') {

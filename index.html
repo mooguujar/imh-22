@@ -40,23 +40,24 @@
                 <header id="im-panel-header" class="kchat-im-panel-header">
                     <div style="border: 1px solid #ddd; padding: 5px 10px; border-radius: 15px;color:#4ACCF0;">一键已读</div>
                     <p style="color: #323038; font-size: 18px;position: absolute; margin: auto; top:20px; left: 0; right: 0;text-align: center;font-weight: 500;" id="title_name">消息</p>
-                     <div style="display: flex; align-items: center;gap: 10px;">
+                     <div style="display: flex; gap: 15px;">
                         <span style="background-image: url('/images/sousuo.png'); width: 16px; height: 16px;"></span>
                          <div class="kchat-queue">
                                 <h3>
                                    <a id="im-panel-userlist-wrap-roster-addfriend" class="f-list-iconbtn" title="添加好友">
-                                    <i style="color: #333; font-size: 28px;margin-top: 15px;">+</i>
+                                    <i style="color: #333; font-size: 28px;">+</i>
                                     </a>
                                 </h3>
                                 <div id="im-panel-userlist-wrap-restore-add-popup" class="kchat-pop" >
                                     <ul>
-                                    <li id="im-panel-userlist-wrap-roster-add-popup-addfriend" class="bottom_border">添加好友</li><!--active-->
+                                    <li id="im-panel-userlist-wrap-roster-add-popup-addfriend" class="bottom_border">添加好友</li>
                                         <li id="im-panel-userlist-wrap-roster-add-popup-addgroup">创建分组</li>
                                     </ul>
                                 </div>
                          </div>
                     </div>
-                </header>
+                </header> 
+          
                <div class="first-my-minapp" id="first-my-minapp">
                     <div class="first-my-minapp-row1">
                         <span>我的小程序</span>
@@ -379,6 +380,31 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container_info" id="container_info">
+                        <div class="right_con">
+                            <!-- 右侧详情信息显示区（可以显示一些附加信息，比如好友个人信息等等） -->
+                            <div id="im-panel-main-rightdetail-toplevel" class="kchat-im-panel-main-info">
+                                <style type="text/css">.fix-full-height { height: 100%; }</style>
+
+                                <div id="right_con_closure">
+                                    <img src="images/im_b_img/guanbi.png" alt="">
+                                </div>
+
+                                <div id="im-panel-main-rightdetail-contentwrap" class="fix-full-height" style="display: block;">
+                                    <div id="im-panel-main-rightdetail-content" class="chat-user-info scrollbar-auto">
+
+                                    </div>
+
+                                    <div id="im-panel-main-rightdetail-bottom" class="prohibition">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div id="left_con"></div>
+                        </div> -->
+                      </div>
                 </div>
                 
          <!-- ***************************************** 手机版底部导航栏 START ************************************ -->
@@ -390,11 +416,11 @@
                             </div>
                             <div class="dom_item" tabident="1">
                                 <img id="img_1" src="images/im_b_img/tab_1_0.png" alt="">
-                                <div>联系</div>
+                                <div>好友</div>
                             </div>
                             <div class="dom_item" tabident="2">
                                 <img id="img_2" src="images/im_b_img/tab_2_0.png" alt="">
-                                <div>群组</div>
+                                <div>群聊</div>
                             </div>
                             <div class="dom_item" tabident="3">
                                 <img id="img_3" src="images/im_b_img/tab_3_0.png" alt="">
