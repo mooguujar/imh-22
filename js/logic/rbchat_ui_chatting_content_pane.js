@@ -4606,9 +4606,9 @@ var RBChatChattingContentPaneUI = (function () {
     };
 
     UIModule5.prototype.showRightChatContent = function () {
-        $('.kchat-im-panel-main').css({
-            'display': 'flex'
-        });
+        // $('.kchat-im-panel-main').css({
+        //     'display': 'flex'
+        // });
 
         //$('.im-panel-right-mainImage, .im-panel-right-mainTitle').css({
         //    'display': 'none'
@@ -4727,7 +4727,7 @@ var RBChatChattingContentPaneUI = (function () {
     UIModule5.prototype.scrollToBottom4IM = function (chatId, type) {
         setTimeout(() => {
             var t = RBChatSmallWindowUI.getWindowDom('#im-panel-main-chatcontentpane-wrap', null, chatId)
-            console.log('ttt 滚动判断', t, t.scrollHeight, type)
+           // console.log('ttt 滚动判断', t, t.scrollHeight, type)
             if (t.scrollHeight) {
                 t.scrollTop = t.scrollHeight;
             } else if (type == 'clickChat') { // 第一次没拿到消息渲染后高度，再重新拉取

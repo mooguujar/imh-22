@@ -887,7 +887,7 @@ var RBChatAlarmsUI = (function () {
             }
         }
 
-        const windowSwitch = alarmMessageType == 9 ? " <img class='smallWindow-swtich' src='/images/smallWindow.png' />" : ''
+        //const windowSwitch = alarmMessageType == 9 ? " <img class='smallWindow-swtich' src='/images/smallWindow.png' />" : ''
         //** 准备好item的html
         const isActive = RBChatMainUI.getCurrentSelectedAlarmDataId() == dataId ? ' active' : ''
         var html=
@@ -912,7 +912,6 @@ var RBChatAlarmsUI = (function () {
             + "                  <span id=\'alarms_li_msgcontent_" + alarmMessageType + "_" + dataId + "\' title=\'" + contentToShow + "\'>"
             + RBChatUtils.replacePlaceholderForAlarmsItemContent(RBChatChattingContentPaneUI.replaceEmojiPlaceholderToHTML(contentToShow))//+contentToShow
             + "</span>"
-            + windowSwitch
             + "              </p>"
             + "            </div>"
             + "        </div>"
@@ -1093,7 +1092,11 @@ var RBChatAlarmsUI = (function () {
             //// 取出vid值
             ////var vid = $("#online_li_vid_"+visitorId).attr('im-date');
             that.clickChatItem(alarmMessageType, dataId);
-             $('#phone_chat').show();//展示聊天界面
+
+            /***allen新加  点击消息显示发消息页面并隐藏底部切换菜单 */
+             $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'block' });
+              $('#footer_i').css({ 'display': 'none' });
+              $('#chat_top_name').text(title);
         });
 
         //** 刷新当前的消息数UI显示

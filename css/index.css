@@ -2069,7 +2069,7 @@ a { cursor: pointer }
   justify-content: space-between;
   padding: 0 15px;
   box-sizing: border-box; }
-.drag-handle { position: absolute; left: 0; top: 0; width: 100%; height: 100%; cursor: default }
+.drag-handle { position: absolute; left: 0; top: 0; width: 100%; height: 56px; cursor: default }
 .kchat-alert { padding: 0 20px; height: 34px; line-height: 34px; width: 350px; border-radius: 0 0 3px 3px; position: absolute; top: -34px; left: 50%; margin-left: -195px; font-size: 13px; text-align: center; z-index: 10 }
 .kchat-alert.warning { background: #FFF0EB; color: #ea2828 }
 .kchat-alert.success { background: #DBFFE5; color: #008f30 }
@@ -2099,7 +2099,7 @@ lesshat-selector { -lh-property: 0 }
 	90% { -webkit-transform: translate3d(0, 34px, 0); -moz-transform: translate3d(0, 34px, 0); -ms-transform: translate3d(0, 34px, 0); transform: translate3d(0, 34px, 0); opacity: 1 }
 	100% { -webkit-transform: translate3d(0, 34px, 0); -moz-transform: translate3d(0, 34px, 0); -ms-transform: translate3d(0, 34px, 0); transform: translate3d(0, 34px, 0); opacity: 0 }
 }
-.kchat-im-panel-header-user {width: 240px; /*width: 220px;*/ background-color: #1648a0;box-shadow: 1px 0 15px rgba(0, 0, 0, .16);position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 7px; height: 56px; -webkit-flex-shrink: 0; flex-shrink: 0 }
+.kchat-im-panel-header-user {width: 100%; background-color: #1648a0;box-shadow: 1px 0 15px rgba(0, 0, 0, .16);position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 7px; height: 56px; -webkit-flex-shrink: 0; flex-shrink: 0 }
 .kchat-im-panel-header-user .avatar-wrapper {float: left;margin-right: 10px;height: 40px;width: 40px;border-radius: 100%; ;display: inline-block/* add 20190103 */;}
 /* 20181217: 新的本地用户头像显示逻辑实施后，暂停了原先的img css样式，只启用最简单的width 和height */
 .kchat-im-panel-header-user img {height: 40px; width: 40px; border-radius: 100%;position: absolute; /*float: left; margin-right: 10px; border: 1px solid rgba(255, 255, 255, 1);*/  }/*box-shadow: 0 0 3px rgba(255, 255, 255, 0.5)*/
@@ -2195,8 +2195,8 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-header-operation .right-top-btn .expand-open, .kchat-im-panel-header-operation .right-top-btn .expand-mini { font-size: 13px; width: 18px; text-align: center }
 .kchat-im-panel-header-operation .right-top-btn .expand-mini { font-size: 14px; display: none }
 .kchat-im-panel-header-operation .right-top-btn .audio-prompt-switch-ison, .kchat-im-panel-header-operation .right-top-btn .audio-prompt-switch-isoff {font-size: 18px; width: 18px; text-align: center;}
-.kchat-im-panel-body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; height: calc(100% - 56px);height: -webkit-calc(100% - 56px); height: -moz-calc(100% - 56px); display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 100%; -webkit-box-align: stretch; -moz-box-align: stretch; -webkit-align-items: stretch; -ms-flex-align: stretch; align-items: stretch }
-.kchat-im-panel-body-left { width: 100%; position: relative; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-direction: normal; -moz-box-direction: normal; -webkit-box-orient: vertical; -moz-box-orient: vertical; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; border-right: 1px solid #e2e4e8; -webkit-flex-shrink: 0; flex-shrink: 0 }
+.kchat-im-panel-body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; height: calc(100% - 56px);height: -webkit-calc(100% - 56px); height: -moz-calc(100% - 56px);width: 100%; -webkit-box-align: stretch; -moz-box-align: stretch; -webkit-align-items: stretch; -ms-flex-align: stretch; align-items: stretch }
+.kchat-im-panel-body-left {position: absolute; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-direction: normal; -moz-box-direction: normal; -webkit-box-orient: vertical; -moz-box-orient: vertical; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; border-right: 1px solid #e2e4e8; width: 100%;height: 100%; }
 .kchat-talk-list-empty { text-align: center; padding-top: 50px; padding-bottom: 50px;position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 50%; height: 30%; margin: auto; }
 .kchat-talk-list-empty i { font-size: 90px; color: #eff2f6; margin-bottom: 10px; display: block }
 .kchat-talk-list-empty p { font-size: 12px; color: #999b9f; margin-bottom: 15px;line-height: 1.8em; }
@@ -2205,7 +2205,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-talk-list-empty a { color: #28a0ff; margin: 0 5px }
 .kchat-talk-list-empty a:hover { color: #48b6d7 }
 .kchat-im-panel-visitor { padding-bottom: 36px }
-.kchat-im-panel-userlist-nav { width: 100%; height: 82px; z-index: 2; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-shrink: 0; flex-shrink: 0;position: absolute;bottom:0; }
+.kchat-im-panel-userlist-nav { width: 100%; height: 82px; z-index: 2; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-shrink: 0; flex-shrink: 0;bottom:0;}
 /* 20210401：不了配合主页tab改图标的ui新样式，而将原“color: #28a0ff”改为了现值 */
 .kchat-im-panel-userlist-nav a { position: relative; -webkit-box-flex: 1; -moz-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; line-height: 82px; height: 100%; text-align: center; border-right: 1px solid #e2e4e8; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: #eff2f6; border-bottom: 1px solid #e2e4e8; color: #626468 }
 .kchat-im-panel-userlist-nav a:hover { color: #48b6d7 }
@@ -2238,7 +2238,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-msg-state { position: absolute; right: 15px; font-size: 13px; top: 50%; margin-top: -7px }
 .kchat-msg-state a { margin-left: 4px; color: #666 }
 .kchat-msg-state .regular { color: #ffa900; font-size: 15px }
-.kchat-im-panel-userlist { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; height: 800px;  top: 0 }
+.kchat-im-panel-userlist { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%;height: 100%;}
 .kchat-im-panel-userlist .f-list-number-label {color: #f26c4f;}
 /* .kchat-im-panel-userlist .f-list-iconbtn {float: right;width: 18px;text-align: center;height: 30px;width: 18px;line-height: 30px;font-size: 20px;color: rgba(255, 255, 255, 1);}
 .kchat-im-panel-userlist .f-list-iconbtn i{color: #28a0ff;font-size: 18px;} */
@@ -2473,7 +2473,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main .chat-box { padding: 20px 20px 5px }
 .kchat-im-panel-main.empty .kchat-im-panel-main-chat, .kchat-im-panel-main.empty .kchat-im-panel-main-info { display: none }
 
-.kchat-im-panel-main-chat { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-right: 1px solid #e2e4e8; /*width: 470px;*/width: 540px;background: #fff }
+.kchat-im-panel-main-chat { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-right: 1px solid #e2e4e8; background: #fff;position: absolute;width: 100%;}
 /* add by js 20190302：增加了以下行，目的是实现聊天窗口全屏时，聊天消息区能自动占满余下宽度 */
 #kchat-im-panel.expand .kchat-im-panel-main-chat {width: 100% !important;}
 .kchat-im-panel-main-chat.list1 { padding-bottom: 170px }
@@ -2487,7 +2487,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main-chat-content { background: #f5f7fa; box-sizing: border-box }
 .kchat-im-panel-main-chat-content.history { height: -webkit-calc(100% - 50px); height: -moz-calc(100% - 50px); height: calc(100% - 50px); border-bottom: 0 }
 .kchat-im-panel-main-chat-content.empty { height: 100%; border-bottom: 0 }
-.kchat-im-panel-main-chat-textarea { background: #fff; position: absolute; bottom: 0; left: 0; right: 0; border-top: 1px solid #e2e4e8 }
+.kchat-im-panel-main-chat-textarea { background: #fff;  bottom: 0; left: 0; right: 0; border-top: 1px solid #e2e4e8 }
 /* 20170112 modifide by js 由原“height: 35px; line-height: 35px;”改为现值 */
 .kchat-im-panel-main-chat-textarea .top-bar { position: relative; z-index: 1; padding: 0 20px; height: 26px; line-height: 26px; background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9InJnYigyMzgsIDIzOCwgMjM4KSIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9InJnYigyMzgsIDIzOCwgMjM4KSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=); background-image: -webkit-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: -moz-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: -o-linear-gradient(top, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%); background-image: linear-gradient(to bottom, rgba(238, 238, 238, .2) 0, rgba(238, 238, 238, 0) 100%) }
 /* 20170112 modifide by js 由原“line-height: 35px;”改为现值 */
@@ -2524,8 +2524,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-main-chat-textarea .bottom-bar .send_hint {float: right;position: relative;line-height: 50px;margin-right: 10px;}
 .kchat-im-panel-main-chat-textarea .bottom-bar .send_hint span {color: #bbbdc1;font-size: 12px;}
 
-.kchat-pop, .select-pop { position: absolute; background: #fff; border-radius: 8px; box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px;/*border: 1px solid rgb(231, 231, 231);*/ outline: 0 }
-.kchat-pop:after, .select-pop:after { content: ""; display: inline-block; height: 10px; width: 10px; /*border: 1px solid #D0D0D0;*/ box-shadow: 1px 0 4px rgba(0, 0, 0, .12); -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); position: absolute; left: 50%; margin-left: -5px; bottom: -6px; background: #fff }
+.kchat-pop, .select-pop { position: absolute; background: #fff; border-radius: 8px; box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px; width: 100px;text-align: center;outline: 0 }
 .kchat-pop ul, .select-pop ul { background: #fff; position: relative; z-index: 2; border-radius: 8px;}
 .kchat-pop li, .select-pop li { border-bottom: 1px solid #eff2f6; cursor: pointer }
 .kchat-pop li:last-of-type, .select-pop li:last-of-type { border-bottom: 0 }
@@ -2539,7 +2538,7 @@ lesshat-selector { -lh-property: 0 }
 .select-pop li { color: #333; font-size: 13px; padding: 5px 10px; line-height: 20px }
 .select-pop input { margin-right: 5px }
 
-.kchat-im-panel-main-info { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-flex-shrink: 0; flex-shrink: 0; position: relative; /*width: 334px */width: 264px}
+.kchat-im-panel-main-info { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-flex-shrink: 0; flex-shrink: 0; position: relative;display: none;}
 .kchat-im-panel-main-info:before { content: ""; position: absolute; height: 56px; width: 1px; background: #255aad/*#33A4CE*/; left: -1px; top: -56px; z-index: 10 }
 /* 20200315由原“background: #fafbf6”改为了现值 */
 /* 20210324由原“background: #FBFdFf”改为了现值 */

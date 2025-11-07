@@ -1289,7 +1289,9 @@
            // $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
-                $('#phone_chat').hide();
+               // $('#phone_chat').hide();
+              $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'none' });
+              $('#footer_i').css({ 'display': 'block' });
             })
 
             $('#chat_top_detail').unbind('click');
@@ -1610,60 +1612,60 @@
      * @param {*} gid 
      */
     var _updateGroupAvatar = function (gid, isGroup = true) {
-        // const url = isGroup ? RBChatUtils.getGroupAvatarDownloadURL(gid, false) : RBChatUtils.getUserAvatarDownloadURL(gid, false)
-        // // 群组列表
-        // if (isGroup) {
-        //     const errorTxt = $("#kchat-im-panel-userlist-groups li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('onerror');
-        //     if (errorTxt) {
-        //         $("#kchat-im-panel-userlist-groups li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('src', url)
-        //     } else {
-        //         const t = $("#kchat-im-panel-userlist-groups li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(0)
+        const url = isGroup ? RBChatUtils.getGroupAvatarDownloadURL(gid, false) : RBChatUtils.getUserAvatarDownloadURL(gid, false)
+        // 群组列表
+        if (isGroup) {
+            const errorTxt = $("#kchat-im-panel-userlist-groups li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('onerror');
+            if (errorTxt) {
+                $("#kchat-im-panel-userlist-groups li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('src', url)
+            } else {
+                const t = $("#kchat-im-panel-userlist-groups li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(0)
 
-        //         t.after("<img  src=\'" + url + "\' onerror='javascript:$(this).remove()' >")
-        //     }
-        //     //更新当前群的头像
-        //     var dom = document.getElementById('im-panel-main-rightdetail-content-group-default-avatar-' + gid);
-        //     if (dom) {
-        //         const lt = $('#im-panel-main-rightdetail-content-group-default-avatar-' + gid).parent().children();
-        //         if (lt.length > 1) {
-        //             lt.eq(1).attr('src', url)
-        //         } else {
-        //             $('#im-panel-main-rightdetail-content-group-default-avatar-' + gid).after("<img  src=\'" + url + "\' onerror='javascript:groupTTnotFound($(this))' >")
-        //         }
-        //     }
+                t.after("<img  src=\'" + url + "\' onerror='javascript:$(this).remove()' >")
+            }
+            //更新当前群的头像
+            var dom = document.getElementById('im-panel-main-rightdetail-content-group-default-avatar-' + gid);
+            if (dom) {
+                const lt = $('#im-panel-main-rightdetail-content-group-default-avatar-' + gid).parent().children();
+                if (lt.length > 1) {
+                    lt.eq(1).attr('src', url)
+                } else {
+                    $('#im-panel-main-rightdetail-content-group-default-avatar-' + gid).after("<img  src=\'" + url + "\' onerror='javascript:groupTTnotFound($(this))' >")
+                }
+            }
 
-        //     //好友头像
-        // } else {
-        //     const errorTxt = $("#kchat-im-panel-userlist-roster li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('onerror');
-        //     if (errorTxt) {
-        //         $("#kchat-im-panel-userlist-roster li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('src', url)
-        //     } else {
-        //         const t = $("#kchat-im-panel-userlist-roster li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(0)
+            //好友头像
+        } else {
+            const errorTxt = $("#kchat-im-panel-userlist-roster li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('onerror');
+            if (errorTxt) {
+                $("#kchat-im-panel-userlist-roster li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('src', url)
+            } else {
+                const t = $("#kchat-im-panel-userlist-roster li[im-date='" + gid + "'] div[class='avatar-source human']").children().eq(0)
 
-        //         t.after("<img  src=\'" + url + "\' onerror='javascript:$(this).remove()' >")
-        //     }
-        //     //更新当前用户头像
-        //     var dom = document.getElementById('im-panel-main-rightdetail-content-user-default-avatar-' + gid);
-        //     if (dom) {
-        //         const lt = $('#im-panel-main-rightdetail-content-user-default-avatar-' + gid).parent().children().eq(1);
-        //         lt.attr('href', url)
-        //         if (lt.children().length > 0) {
-        //             lt.children().eq(0).attr('src', url)
-        //         } else {
-        //             lt.append("<img  src=\'" + url + "\' onerror=\'javascript:userActttnotFound($(this))\' >")
-        //         }
-        //     }
-        // }
+                t.after("<img  src=\'" + url + "\' onerror='javascript:$(this).remove()' >")
+            }
+            //更新当前用户头像
+            var dom = document.getElementById('im-panel-main-rightdetail-content-user-default-avatar-' + gid);
+            if (dom) {
+                const lt = $('#im-panel-main-rightdetail-content-user-default-avatar-' + gid).parent().children().eq(1);
+                lt.attr('href', url)
+                if (lt.children().length > 0) {
+                    lt.children().eq(0).attr('src', url)
+                } else {
+                    lt.append("<img  src=\'" + url + "\' onerror=\'javascript:userActttnotFound($(this))\' >")
+                }
+            }
+        }
 
-        // // 会话列表
-        // const errorTxt2 = $("#kchat-im-panel-userlist-alarms li[im-dataid='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('onerror');
-        // if (errorTxt2) {
-        //     $("#kchat-im-panel-userlist-alarms li[im-dataid='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('src', url)
-        // } else {
-        //     const t = $("#kchat-im-panel-userlist-alarms li[im-dataid='" + gid + "'] div[class='avatar-source human']").children().eq(0)
+        // 会话列表
+        const errorTxt2 = $("#kchat-im-panel-userlist-alarms li[im-dataid='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('onerror');
+        if (errorTxt2) {
+            $("#kchat-im-panel-userlist-alarms li[im-dataid='" + gid + "'] div[class='avatar-source human']").children().eq(1).attr('src', url)
+        } else {
+            const t = $("#kchat-im-panel-userlist-alarms li[im-dataid='" + gid + "'] div[class='avatar-source human']").children().eq(0)
 
-        //     t.after("<img src=\'" + url + "\' onerror='javascript:$(this).remove()' >")
-        // }
+            t.after("<img src=\'" + url + "\' onerror='javascript:$(this).remove()' >")
+        }
     }
 
     /**
