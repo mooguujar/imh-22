@@ -18,6 +18,7 @@ var RBChatLocalUserUI = (function () {
             this.$nickname = $('#im-panel-header-user-showname');
             // 个人签名ui组件
             this.$whatsUp = $('#im-panel-header-user-whatsup');
+            this.$userUid = $('#im-panel-header-user-uid');
         }
        
     };
@@ -92,6 +93,7 @@ var RBChatLocalUserUI = (function () {
             var whatsUpShow = (localUserInfo.whatsUp?localUserInfo.whatsUp:'编辑个性签名');
             this.$whatsUp.text(whatsUpShow);
             this.$whatsUp.attr('title', '[个性签名] '+whatsUpShow);
+            this.$userUid.text('ID: ' + localUserInfo.user_uid);
         }
     };
 

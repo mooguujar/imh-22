@@ -627,7 +627,7 @@ var RBChatMainWindowUI = (function () {
         $('#left_con').css({ 'background': 'rgba(0, 0, 0, .45)' });
     } else {
        $('#phone_chat').empty();
-       $('.mine_box').empty();
+       // $('.mine_box').empty();
      }
     setTimeout(() => {
         $('body').css({ 'display': 'block' });
@@ -708,31 +708,31 @@ var RBChatMainWindowUI = (function () {
         if (_index == 0) {
              $('#im-panel-userlist-wrap-alarms').show();
               $('#im-panel-userlist-wrap-groups').hide();
-               $('#im-panel-userlist-wrap-mine').hide();
+                $('#phone_center').hide();
              $('#im-panel-userlist-wrap-roster').hide();
-             $('#first-my-minapp').show();
+           //  $('#first-my-minapp').show();
               //titleName.textContent = '消息';
         } else if (_index == 1) {
              $('#im-panel-userlist-wrap-alarms').hide();
              $('#im-panel-userlist-wrap-groups').hide();
-             $('#im-panel-userlist-wrap-mine').hide();
+              $('#phone_center').hide();
              $('#im-panel-userlist-wrap-roster').show();
-              $('#first-my-minapp').hide();
+            //  $('#first-my-minapp').hide();
              // titleName.textContent = '好友';
         } else if (_index == 2) {
             $('#im-panel-userlist-wrap-groups').show();
              $('#im-panel-userlist-wrap-alarms').hide();
-            $('#im-panel-userlist-wrap-mine').hide();
+             $('#phone_center').hide();
             $('#im-panel-userlist-wrap-roster').hide();
-            $('#first-my-minapp').hide();
+          //  $('#first-my-minapp').hide();
          //   titleName.textContent = '群组';
 
         } else {
-             $('#im-panel-userlist-wrap-mine').show();
+             $('#phone_center').show();
               $('#im-panel-userlist-wrap-roster').hide();
                 $('#im-panel-userlist-wrap-groups').hide();
                  $('#im-panel-userlist-wrap-alarms').hide();
-                  $('#first-my-minapp').hide();
+               //  $('#first-my-minapp').hide();
             // titleName.textContent = '我的';
         }
         window.tab_select = _index;

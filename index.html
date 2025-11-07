@@ -359,6 +359,108 @@
                                         <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
                                     </ul>
                                 </div>
+
+                                 <!--        个人中心-->
+                                <div id="phone_center" style="display: none;">
+                                    <header>
+                                        <div class="nav_bar">
+                                            <div class="nav_bar_l">                    
+                                            </div>
+                                            <div class="nav_bar_t">我的</div>
+                                            <div id="nav_bar_r_0" class="nav_bar_r">
+                                                <img class="head_geng" src="images/im_b_img/geng_3.png" alt="">
+                                            </div>
+                                            <div id="nav_bar_r_1" class="nav_bar_r hidden">
+                                                <img class="head_geng" src="images/im_b_img/lianxi_3.png" alt="">
+                                            </div>
+                                            <div id="nav_bar_r_2" class="nav_bar_r hidden">
+                                                <img class="head_geng" src="images/im_b_img/jia_3.png" alt="">
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <!--我的-->
+                                    <div class="mine">
+                                        <div class="mine_top">
+                                            <div class="main_header">
+                                            <img src="images/im_b_img/she_3.png" alt="">
+                                        </div>
+                                        <div class="user_info">
+                                            <div class="user_info_l">
+                                                <div class="kchat-im-panel-header-user" style="box-shadow: none;background-color:transparent !important">
+                                                    <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
+                                                    <div class="avatar-wrapper">
+                                                        <a id="im-panel-header-user-avatar-parent-phone">
+                                                            <div id="im-panel-header-user-avatar-default"></div>
+                                                            <img id="im-panel-header-user-avatar-phone" onerror='javascript:$(this).css("display","none")'>
+                                                        </a>
+                                                        <a id="im-panel-header-user-status-phone" class="user-status offline"></a>
+                                                    </div>
+                            
+                            
+                                                    <div class="info">
+                                                        <!--LocalUserInfo.getObj().user_uid -->
+                                                        <h4><a id="im-panel-header-user-showname" style="color: #000;">-</a></h4>
+                                                         <h4><a id="im-panel-header-user-uid" style="color: #000;">-</a></h4>
+                                                        <!-- <div class="whatsup">
+                                                            <a id="im-panel-header-user-whatsup">-</a>
+                                                        </div>
+                                                        <div class="clear"></div> -->
+                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="user_info_r">
+                                                <img src="images/im_b_img/right_3.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mine_box">
+                                        <div class="first-my-minapp">
+                                            <div class="first-my-minapp-row1">
+                                                <span>我的小程序</span>
+                                                <span id="query-my-minapp-all">查看全部 ></span>
+                                            </div>
+                                            <div class="first-my-minapp-row2">
+                                            </div>
+                                        </div>
+                                         <div class="mine_box_item" id="im-panel-header-setup-popup-action-qb">
+                                            <div class="mine_box_item_l" >
+                                                <!-- <img src="images/im_b_img/hotbac_3.png" alt=""> -->
+                                                我的钱包
+                                            </div>
+                                            <div class="mine_box_item_r">
+                                                <img src="images/im_b_img/right_3.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="mine_box_item">
+                                            <div class="mine_box_item_l" >
+                                                <!-- <img src="images/im_b_img/hotbac_3.png" alt=""> -->
+                                                意见反馈
+                                            </div>
+                                            <div class="mine_box_item_r">
+                                                <img src="images/im_b_img/right_3.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="mine_box_item" id="im-panel-header-setup-popup-action-modifypsw">
+                                            <div class="mine_box_item_l" >
+                                                <!-- <img src="images/im_b_img/xiugaimima01.png" alt=""> -->
+                                                修改密码
+                                            </div>
+                                            <div class="mine_box_item_r">
+                                                <img src="images/im_b_img/right_3.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="mine_box_item"  id="im-panel-header-setup-popup-action-exit">
+                                            <div class="mine_box_item_l">
+                                                <!-- <img src="images/im_b_img/tuichudenglu.png" alt=""> -->
+                                                退出登录
+                                            </div>
+                                            <div class="mine_box_item_r">
+                                                <img src="images/im_b_img/right_3.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -576,82 +678,7 @@
             <!-- For IM-主功能区 UI END  -->
         </div>
         <!-- ***************************************** IM可移动主体区 START ************************************* -->
-        <!--        个人中心-->
-        <div id="phone_center">
-            <!--我的-->
-            <div class="mine">
-                <div class="mine_top">
-                    <div class="main_header">
-                        <img src="images/im_b_img/she_3.png" alt="">
-                    </div>
-                    <div class="user_info">
-                        <div class="user_info_l">
-                            <div class="kchat-im-panel-header-user" style="box-shadow: none;background-color:transparent !important">
-                                <div class="drag-handle js-drag-handle ui-draggable-handle"></div>
-                                <div class="avatar-wrapper">
-                                    <a id="im-panel-header-user-avatar-parent-phone">
-                                        <div id="im-panel-header-user-avatar-default"></div>
-                                        <img id="im-panel-header-user-avatar-phone" onerror='javascript:$(this).css("display","none")'>
-                                    </a>
-                                    <a id="im-panel-header-user-status-phone" class="user-status offline"></a>
-                                </div>
-        
-        
-                                <div class="info">
-                                    <h4><a id="im-panel-header-user-showname-phone" style="color:#333">-</a></h4>
-                                    <div class="whatsup">
-                                        <a id="im-panel-header-user-whatsup-phone">-</a>
-                                        <!--<span class="icon-edit"></span>-->
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user_info_r">
-                            <img src="images/im_b_img/right_3.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="mine_box">
-                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-qb">
-                        <div class="mine_box_item_l" >
-                            <img src="images/im_b_img/hotbac_3.png" alt="">
-                            我的钱包
-                        </div>
-                        <div class="mine_box_item_r">
-                            <img src="images/im_b_img/right_3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-minapp">
-                        <div class="mine_box_item_l" >
-                            <img src="images/im_b_img/xiaochengxu.png" alt="">
-                            我的小程序
-                        </div>
-                        <div class="mine_box_item_r">
-                            <img src="images/im_b_img/right_3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="mine_box_item" id="im-panel-header-setup-popup-action-modifypsw">
-                        <div class="mine_box_item_l" >
-                            <img src="images/im_b_img/xiugaimima01.png" alt="">
-                            修改密码
-                        </div>
-                        <div class="mine_box_item_r">
-                            <img src="images/im_b_img/right_3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="mine_box_item"  id="im-panel-header-setup-popup-action-exit">
-                        <div class="mine_box_item_l">
-                            <img src="images/im_b_img/tuichudenglu.png" alt="">
-                            退出登录
-                        </div>
-                        <div class="mine_box_item_r">
-                            <img src="images/im_b_img/right_3.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!--        聊天详情-->
         <div id="phone_chat">
             <div class="chat_top">

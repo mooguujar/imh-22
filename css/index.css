@@ -5902,7 +5902,6 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 }
 
 #phone_center{
-	display: none;
 	z-index: 13;
 	top: 0;
 	margin: 0;
