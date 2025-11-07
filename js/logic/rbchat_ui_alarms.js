@@ -4,7 +4,7 @@ var RBChatAlarmsUI = (function () {
     // 构造器（相当于java里的构造方法）
     var UIModule4 = function (argument) {
 
-        if(RBChatUtils.isMobile()){
+       if(RBChatUtils.isMobile()){
             // 没有数据时显示的空数据提示ui根对象
             this.$emptyUIRoot = $('#kchat-im-panel-userlist-empty-alarms-phone');
             // 有数据时正常显示数据的ui根对象
@@ -771,12 +771,12 @@ var RBChatAlarmsUI = (function () {
             // titleFlag = "<span class=\'msg_title_flag\' title=\'陌生人\' >陌</span>";
         }
         else if (alarmMessageType == AlarmMessageType.groupChatMessage) {
-            titleFlag = "<span class=\'msg_title_flag_group\' title=\'群聊\'>群</span>";
+           // titleFlag = "<span class=\'msg_title_flag_group\' title=\'群聊\'>群</span>";
         }
-        // 添加维护
-        if(amd.alarmMessageType -0 == 4 && amd.weihu - 0 == 0){
-            titleFlag = titleFlag+ "<span class=\'user-weihu\' title=\'维护\'>维</span>";
-        }
+        // // 添加维护
+        // if(amd.alarmMessageType -0 == 4 && amd.weihu - 0 == 0){
+        //     titleFlag = titleFlag+ "<span class=\'user-weihu\' title=\'维护\'>维</span>";
+        // }
         
         const defaultColor = RBChatUtils.getBgColor(dataId)
         const show_t = title && title.length > 0 ? title.substr(0, 1).toUpperCase():'陌';
@@ -814,31 +814,31 @@ var RBChatAlarmsUI = (function () {
         var l_html = '';
         if(isLevel){
             var haveV =false;
-            level_html = "<p class='other-tip-"+dataId+"' style='font-size:8px !important;' cmoney='"+(amd.cmoney || '')+"' noPayDate='"+(amd.noPayDate || '')+"' noTime='"+(amd.noTime || '')+"' level='"+(amd.level == undefined ? '': amd.level) +"' lastloginTime='"+(amd.lastLoginTime || '')+"' >"
+          //  level_html = "<p class='other-tip-"+dataId+"' style='font-size:8px !important;' cmoney='"+(amd.cmoney || '')+"' noPayDate='"+(amd.noPayDate || '')+"' noTime='"+(amd.noTime || '')+"' level='"+(amd.level == undefined ? '': amd.level) +"' lastloginTime='"+(amd.lastLoginTime || '')+"' >"
             
-            if(amd.noPayDate && amd.noPayDate.length > 0){
-                level_html = level_html+ "<span><font color='red'>"+ RBChatUtils.dateDiff(amd.noTime, amd.noPayDate)+"</font></span>"
-                haveV = true;
-            }
+            // if(amd.noPayDate && amd.noPayDate.length > 0){
+            //     level_html = level_html+ "<span><font color='red'>"+ RBChatUtils.dateDiff(amd.noTime, amd.noPayDate)+"</font></span>"
+            //     haveV = true;
+            // }
             
-            if(amd.level  && amd.level .length > 0 && amd.level - 0 > -1){
-                level_html = level_html+ " <span><font color='black'>"+RBChatUtils.leveName(amd.level)+"</font></span>"
-                haveV = true;
-            }
+            // if(amd.level  && amd.level .length > 0 && amd.level - 0 > -1){
+            //     level_html = level_html+ " <span><font color='black'>"+RBChatUtils.leveName(amd.level)+"</font></span>"
+            //     haveV = true;
+            // }
 
-            if(amd.cmoney  && amd.cmoney.length > 0){
-                level_html = level_html+ " <span><font color='black'>"+RBChatUtils.formatMoney(amd.cmoney)+"</font></span>"
-                haveV = true;
-            }
+            // if(amd.cmoney  && amd.cmoney.length > 0){
+            //     level_html = level_html+ " <span><font color='black'>"+RBChatUtils.formatMoney(amd.cmoney)+"</font></span>"
+            //     haveV = true;
+            // }
 
             /* if(amd.lastLoginTime && amd.lastLoginTime.length > 0 && !amd.online){
                 level_html = level_html + " <span>" + RBChatUtils.dateDiff(amd.noTime, amd.lastLoginTime)+'前</span>'
                 haveV = true;
             } */
-            if(amd.lastLoginTime && amd.lastLoginTime.length > 0 && !(amd.isOnline == 1 || amd.onlineWeb == 1)){
-                level_html = level_html + " <span>" + RBChatUtils.dateDiff(amd.noTime, amd.lastLoginTime)+'前</span>'
-                haveV = true;
-            }
+            // if(amd.lastLoginTime && amd.lastLoginTime.length > 0 && !(amd.isOnline == 1 || amd.onlineWeb == 1)){
+            //     level_html = level_html + " <span>" + RBChatUtils.dateDiff(amd.noTime, amd.lastLoginTime)+'前</span>'
+            //     haveV = true;
+            // }
 
             /* if(!haveV && amd.online){
                 level_html = level_html+ " <span><font color='#57dc2d'>在线</font></span>"
@@ -849,11 +849,11 @@ var RBChatAlarmsUI = (function () {
                 haveV = true;
             }
 
-            if (!haveV) {
-                level_html = "<p class='other-tip-"+dataId+"' style='font-size:8px !important;overflow: initial;' cmoney='"+(amd.cmoney || '')+"' noPayDate='"+(amd.noPayDate || '')+"' noTime='"+(amd.noTime || '')+"' level='"+(amd.level == undefined ? '': amd.level) +"' lastloginTime='"+(amd.lastLoginTime || '')+"' >"
-            }
-        
-            level_html += " <img class='smallWindow-swtich' src='/images/smallWindow.png' />"
+            // if (!haveV) {
+            //     level_html = "<p class='other-tip-"+dataId+"' style='font-size:8px !important;overflow: initial;' cmoney='"+(amd.cmoney || '')+"' noPayDate='"+(amd.noPayDate || '')+"' noTime='"+(amd.noTime || '')+"' level='"+(amd.level == undefined ? '': amd.level) +"' lastloginTime='"+(amd.lastLoginTime || '')+"' >"
+            // }
+
+            // level_html += " <img class='smallWindow-swtich' src='/images/smallWindow.png' />"
             level_css = " style = 'height:50px !important;"+(is2Top?'background:rgba(0,0,0,0.1);':'')+"'"
             l_html = level_html+'</p>'
         }
@@ -887,7 +887,7 @@ var RBChatAlarmsUI = (function () {
             }
         }
 
-        const windowSwitch = alarmMessageType == 9 ? " <img class='smallWindow-swtich' src='/images/smallWindow.png' />" : ''
+        //const windowSwitch = alarmMessageType == 9 ? " <img class='smallWindow-swtich' src='/images/smallWindow.png' />" : ''
         //** 准备好item的html
         const isActive = RBChatMainUI.getCurrentSelectedAlarmDataId() == dataId ? ' active' : ''
         var html=
@@ -912,7 +912,6 @@ var RBChatAlarmsUI = (function () {
             + "                  <span id=\'alarms_li_msgcontent_" + alarmMessageType + "_" + dataId + "\' title=\'" + contentToShow + "\'>"
             + RBChatUtils.replacePlaceholderForAlarmsItemContent(RBChatChattingContentPaneUI.replaceEmojiPlaceholderToHTML(contentToShow))//+contentToShow
             + "</span>"
-            + windowSwitch
             + "              </p>"
             + "            </div>"
             + "        </div>"
@@ -1092,7 +1091,12 @@ var RBChatAlarmsUI = (function () {
             }
             //// 取出vid值
             ////var vid = $("#online_li_vid_"+visitorId).attr('im-date');
-            that.clickChatItem(alarmMessageType, dataId)
+            that.clickChatItem(alarmMessageType, dataId);
+
+            /***allen新加  点击消息显示发消息页面并隐藏底部切换菜单 */
+             $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'block' });
+              $('#footer_i').css({ 'display': 'none' });
+              $('#chat_top_name').text(title);
         });
 
         //** 刷新当前的消息数UI显示
