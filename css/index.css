@@ -2672,10 +2672,10 @@ lesshat-selector { -lh-property: 0 }
 .kchat-talk-list-group .danger:hover { background: rgba(255, 0, 0, .15) }
 .kchat-talk-list-group .warning { background: rgba(255, 165, 0, .2) }
 .kchat-talk-list-group .warning:hover { background: rgba(255, 165, 0, .25) }
-.kchat-talk-list-group h3 { height: 30px; line-height: 30px; background: #fff; border-bottom: 1px solid #e2e4e8; padding-left: 15px; /*font-size: 13px;*/font-size: 12px; position: -webkit-sticky; position: -moz-sticky; position: -ms-sticky; position: sticky; top: 100px }
-.kchat-talk-list-group h3:before { content: ""; display: inline-block; width: 0; height: 0; border-top: 5px solid transparent; border-left: 5px solid #C9C9C9; border-bottom: 5px solid transparent; margin-right: 8px; -webkit-transition: all ease .4s; -moz-transition: all ease .4s; -o-transition: all ease .4s; transition: all ease .4s; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -ms-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg) }
+.kchat-talk-list-group h3 { height: 30px; line-height: 30px; padding-left: 15px; /*font-size: 13px;*/font-size: 12px; position: sticky; top: 100px }
+/* .kchat-talk-list-group h3:before { content: ""; display: inline-block; width: 0; height: 0; border-top: 5px solid transparent; border-left: 5px solid #C9C9C9; border-bottom: 5px solid transparent; margin-right: 8px; -webkit-transition: all ease .4s; -moz-transition: all ease .4s; -o-transition: all ease .4s; transition: all ease .4s; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -ms-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg) }
 .kchat-talk-list-group h3.close:before { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg) }
-.kchat-talk-list-group h3:hover .kchat-talk-toggle { display: inline }
+.kchat-talk-list-group h3:hover .kchat-talk-toggle { display: inline } */
 .kchat-talk-list-group .kchat-talk-toggle { float: right; margin-right: 15px; font-size: 12px; color: #666; display: none }
 .kchat-talk-list-group .kchat-talk-toggle:hover { color: #333 }
 /* 20161227 by js: 为美化item样式修改了“height:24px;”为现值 */
@@ -2793,7 +2793,7 @@ lesshat-selector { -lh-property: 0 }
 
 	/* 20181029去掉了后面的下拉小箭头 */
 /*.kchat-queue h3:after { content: ""; display: inline-blocrightk; vertical-align: middle; margin-left: 4px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #666; position: relative; top: -1px }*/
-.kchat-queue .kchat-pop { font-size: 13px; right: 10px; top: 32px; z-index: 10; display: none;box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px;border-radius: 8px;/*border: 1px solid rgb(231, 231, 231);*/ }
+.kchat-queue .kchat-pop { font-size: 13px; right: 0; top: 32px; z-index: 10; display: none;box-shadow: rgb(0 0 0 / 12%) 0px 2px 30px 10px;border-radius: 8px;/*border: 1px solid rgb(231, 231, 231);*/ }
 .kchat-queue .kchat-pop ul { padding: 8px 0;border-radius: 8px; }
 .kchat-queue .kchat-pop li { border-bottom: 0; height: auto; padding: 8px 15px;}
 .kchat-queue .kchat-pop .bottom_border {border-bottom: 1px solid #eff2f6;}
@@ -2809,8 +2809,8 @@ lesshat-selector { -lh-property: 0 }
 
 
 /* 20190102: 添加用于修正首页“消息”列表右上方的“+”按钮弹出菜单的箭头位置，添加了以下3项 */
-#im-panel-userlist-wrap-alarms .kchat-queue .kchat-pop {left: 62%;}
-#im-panel-userlist-wrap-alarms .kchat-queue .kchat-pop:after {left: 67px;}
+/* #im-panel-userlist-wrap-alarms .kchat-queue .kchat-pop {left: 62%;} */
+/* #im-panel-userlist-wrap-alarms .kchat-queue .kchat-pop:after {left: 67px;} */
 #im-panel-userlist-wrap-alarms-add-popup li:last-child {margin-bottom: 0px;}
 #im-panel-userlist-wrap-alarms-add-popup-phone li:last-child {margin-bottom: 0px;}
 
@@ -5709,6 +5709,15 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 .nav_bar_r{
 	text-align: right;
 }
+.nav_bar_read{
+	text-align: center;
+	border: 1px solid #3FCDD6;
+	color: #3FCDD6;
+	border-radius: 12px;
+	width: 80px;
+	font-size: 15px;
+	font-family: PingFangSC-Medium;
+}
 .head_name{
 	margin-left: 2.1%;
 	font-family: PingFangSC-Medium;
@@ -5733,8 +5742,10 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 44px;
+	height: 88px;
 	padding: 1.2% 4.8% 2.3% 4.8%;
+	background: #f5f5f5;
+	border-bottom: 1px solid #F1F3F6;
 }
 
 .search{
@@ -5830,9 +5841,9 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	display: flex;
 	align-items: center;
 }
-.nav_bar div{
+/* .nav_bar div{
 	width: 33%;
-}
+} */
 .nav_bar_l{
 	display: flex;
 	align-items: center;

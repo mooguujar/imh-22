@@ -6963,6 +6963,90 @@ var RBChatDialogHelper = (function () {
         dialog.showWithDialog();
     };
 
+      /**
+     * 一键已读对话框。
+     */
+    UIModule7.prototype.markAllMessagesAsRead = function () {
+        var that = this;
+        // 读取个人信息
+        var localUserInfoRee = LocalUserInfo.getObj();
+
+        if (localUserInfoRee) {
+            // 对话框id，为了防止全局取id对象发生冲突，建议必须使用
+            var dialogId = this.nextDialogId();
+
+            // 个人信息主要可以修改字段
+            var uid = localUserInfoRee.user_uid;
+            var whatsup = localUserInfoRee.whatsUp;         // 修改前的个性签名
+            // 点击保存按钮要执行的回调函数
+            var fn_submitCallback = function () {
+
+                // 新的个性签名
+                var newWhatsup = $.trim($("#dialog-editwhatsup-form-whatsup-" + dialogId).val());
+
+                // 如果内容没有改变，就不需要提交服务器了
+                if (whatsup == newWhatsup) {
+                    // 先关闭当前修改对话框
+                    that.closeDialog(dialogId);
+                    return;
+                }
+
+                // 调用HTTP REST接口：“【接口1008-1-22】修改用户What'sUp（个性签名）”，具体参数和返回值，详见接口文档或服务端代码。
+                RBChatRestHelper.submitUserWhatsUpModifiyToServer(uid, newWhatsup
+                    // 成功后的回调
+                    , function (returnValue) {
+
+                        if (returnValue) {
+
+                            // 返回值为1 表示更新成功，否则失败（详见http rest 手册中的“【接口1008-1-22】”的返回值说明）
+                            if ('1' == returnValue) {
+
+                                // 先关闭当前修改对话框
+                                that.closeDialog(dialogId);
+
+                                //alert('个人信息修改成功！');
+                                // RBChatToastHelper.showToast_OK('修改成功', null);
+
+                                // 修改成功后，将数据更新到缓存中
+                                localUserInfoRee.whatsUp = newWhatsup;
+                                // 刷新本地缓存
+                                LocalUserInfo.update(localUserInfoRee);
+
+                                // 刷新界面显示
+                                RBChatLocalUserUI.refresh();
+
+                                return;
+                            }
+                            else {
+                                //alert('个人信息修改失败，请稍后再试！');
+                                RBChatDialogHelper.showAlertDialog_ERROR('修改失败', '个性签名修改失败，请稍后再试！');
+                            }
+                        }
+                    }
+                    // 失败后的回调
+                    , function (errorThrownStr) {
+                        //alert('个人信息修改失败了，原因是：'+errorThrownStr);
+                        RBChatDialogHelper.showAlertDialog_ERROR('修改失败', '个性签名修改失败，可能是网络故障，请稍后再试！');
+                    }
+                );
+            };
+
+            // 显示对话框
+            that.showDialog("确认操作"
+                , "取消"
+                , "保存"
+                ,  '<p style="padding: 10px;">将清除所有所有未读消息标记,包括未读数,红点(但不会删除消息本身),确定要这样做吗?</p>'
+                , dialogId
+                , null
+                , fn_submitCallback
+                , true
+                , "min-width: 0px;"
+                , null
+                , false
+                , false);
+        }
+    };
+
     /**
      * 显示聊天“位置”消息的地图查看对话框。
      *

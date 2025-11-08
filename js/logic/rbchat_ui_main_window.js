@@ -186,6 +186,7 @@ var RBChatMainWindowUI = (function () {
         var menuItem6Obj = $('#im-panel-header-setup-popup-action-profile');
         var menuItem7Obj = $('#im-panel-header-setup-popup-action-minapp');
         var menuItem8Obj = $('#im-panel-header-setup-popup-action-hs');
+        var menuItem9Obj = $('#nav_bar_read');
 
 
         var $setlixi = $('#im-panel-header-lixian');
@@ -403,7 +404,13 @@ var RBChatMainWindowUI = (function () {
             $setupPopup.hide();
             RBChatDialogHelper.showSetFriendsGroup();
         })
-
+        // 一键已读
+        
+        menuItem9Obj.click(function(){  
+            // 显用本地用户信息
+            RBChatDialogHelper.markAllMessagesAsRead();
+            $setupPopup.hide();
+        })
         setTimeout(() => {
             if (LocalUserInfo.getObj()) {
                 const isManager = LocalUserInfo.getObj().isAdmin - 0 == 1;
