@@ -1,5 +1,6 @@
 
 var RBChatGroupsUI = (function () {
+    const eventBus = window.App.EventBus;
 
     // 构造器（相当于java里的构造方法）
     var UIModule3_2 = function (argument){
@@ -149,10 +150,10 @@ var RBChatGroupsUI = (function () {
 
         // 添加到群组列表
         if(toFirst){
-            this.$notEmptyUIRoot.prepend(html);
+            // this.$notEmptyUIRoot.prepend(html);
         }
         else{
-            this.$notEmptyUIRoot.append(html);
+            // this.$notEmptyUIRoot.append(html);
         }
 
         // 点击事件
@@ -170,6 +171,14 @@ var RBChatGroupsUI = (function () {
             })
             //alert('打开群组的聊天界面功能稍后实现！！！');
         });
+
+        eventBus.emit('conversations:add1', {
+            ge,
+            ...ge, html, toFirst,
+            gid, gname, g_member_count, g_owner_user_uid, create_time,
+            localUserIsGroupOwner, defaultColor, show_t, avatarUrl
+         });
+
 
         // 刷新当前群组数量的UI显示，并决定内容面板的显示与否
         this.refreshGroupsItemCountShow();

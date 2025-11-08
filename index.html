@@ -358,6 +358,9 @@
                                     <ul id="kchat-im-panel-userlist-groups">
                                         <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
                                     </ul>
+                                    <ul id="ChatPage">
+
+                                    </ul>
                                 </div>
 
                                  <!--        个人中心-->
@@ -924,6 +927,9 @@
         <script src="js/libs/uploadify5/jquery.uploadifive.js" type="text/javascript"></script>
         <!-- 高德地图 -->
         <!-- <script src="//webapi.amap.com/maps?v=2.0&key=d72a65ae137a7980d49870d08191357f&plugin=AMap.ToolBar,AMap.Scale,AMap.ControlBar,AMap.Geolocation,AMap.Geocoder"></script> -->
+        
+        <!-- 工具类  -->
+        <script src="js/common/EventBus.js"></script>
 
         <script src="js/common/rbchat_config.js"></script>
         <script src="js/common/rbchat_cache.js"></script>
@@ -950,6 +956,19 @@
         <script src="js/logic/rbchat_ui_group_send.js"></script>
 
         <script src="js/rbchat_main.js"></script>
+        
+        
+        <!-- 数据层 -->
+        <script src="js/components/chat_store.js"></script>
+        
+        <!-- 组件层 - 顺序加载 -->
+        <script src="js/components/group_chat/ConversationItem.js"></script>
+        <script src="js/components/group_chat/ConversationList.js"></script>
+        <script src="js/components/group_chat/MessageItem.js"></script>
+        <script src="js/components/group_chat/MessageList.js"></script>
+
+        <!-- 页面层 -->
+        <script src="js/components/chat_page.js"></script>
 
         <!-- 启动IM START -->
         <script type="text/javascript">
