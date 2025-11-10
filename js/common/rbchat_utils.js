@@ -1289,11 +1289,19 @@
            // $('#phone_chat').show()
             $('#chat_top_back').unbind('click');
             $('#chat_top_back').click(function () {
-               // $('#phone_chat').hide();
               $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'none' });
               $('#footer_i').css({ 'display': 'block' });
             })
 
+             $('#chat_top_back_myGroup').click(function () {
+                $('#im-panel-userlist-wrap-groups').css({ 'display': 'none' });
+                $('#im-panel-userlist-wrap-roster').css({ 'display': 'block' });
+            })
+            
+              $('#chat_top_back_findusers').click(function () {
+                 $('#findusers').hide();
+                 $('#kchat-im-panel').show();
+            })
             $('#chat_top_detail').unbind('click');
             var open = false;
             $('#container_info').hide();

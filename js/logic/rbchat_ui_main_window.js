@@ -187,7 +187,8 @@ var RBChatMainWindowUI = (function () {
         var menuItem7Obj = $('#im-panel-header-setup-popup-action-minapp');
         var menuItem8Obj = $('#im-panel-header-setup-popup-action-hs');
         var menuItem9Obj = $('#nav_bar_read');
-
+        var menuItem10Obj = $('#mine_box_myGroup');//我的群组
+        var menuItem11Obj = $('#nav_bar_searchfriend');//我的好友
 
         var $setlixi = $('#im-panel-header-lixian');
 
@@ -410,6 +411,16 @@ var RBChatMainWindowUI = (function () {
             // 显用本地用户信息
             RBChatDialogHelper.markAllMessagesAsRead();
             $setupPopup.hide();
+        })
+        menuItem10Obj.click(function(){
+            // $('#im-panel-userlist-wrap-alarms').hide();
+             $('#im-panel-userlist-wrap-groups').show();
+             $('#phone_center').hide();
+             $('#im-panel-userlist-wrap-roster').hide();
+        })
+        menuItem11Obj.click(function(){
+            $('#findusers').show();
+            $('#kchat-im-panel').hide();
         })
         setTimeout(() => {
             if (LocalUserInfo.getObj()) {
@@ -709,38 +720,21 @@ var RBChatMainWindowUI = (function () {
     // 移动端footer点击效果
     $('.dom_item').click(function () {
         var _index = $(this).index();
-        // $('.first-my-minapp').hide();
-       
-        var titleName = document.getElementById('title_name');
         if (_index == 0) {
              $('#im-panel-userlist-wrap-alarms').show();
-              $('#im-panel-userlist-wrap-groups').hide();
-                $('#phone_center').hide();
+             $('#im-panel-userlist-wrap-groups').hide();
+             $('#phone_center').hide();
              $('#im-panel-userlist-wrap-roster').hide();
-           //  $('#first-my-minapp').show();
-              //titleName.textContent = '消息';
         } else if (_index == 1) {
              $('#im-panel-userlist-wrap-alarms').hide();
              $('#im-panel-userlist-wrap-groups').hide();
-              $('#phone_center').hide();
-             $('#im-panel-userlist-wrap-roster').show();
-            //  $('#first-my-minapp').hide();
-             // titleName.textContent = '好友';
-        } else if (_index == 2) {
-            $('#im-panel-userlist-wrap-groups').show();
-             $('#im-panel-userlist-wrap-alarms').hide();
              $('#phone_center').hide();
-            $('#im-panel-userlist-wrap-roster').hide();
-          //  $('#first-my-minapp').hide();
-         //   titleName.textContent = '群组';
-
+             $('#im-panel-userlist-wrap-roster').show();
         } else {
              $('#phone_center').show();
-              $('#im-panel-userlist-wrap-roster').hide();
-                $('#im-panel-userlist-wrap-groups').hide();
-                 $('#im-panel-userlist-wrap-alarms').hide();
-               //  $('#first-my-minapp').hide();
-            // titleName.textContent = '我的';
+             $('#im-panel-userlist-wrap-roster').hide();
+             $('#im-panel-userlist-wrap-groups').hide();
+             $('#im-panel-userlist-wrap-alarms').hide();
         }
         window.tab_select = _index;
         showCenter(_index);
@@ -787,9 +781,6 @@ var RBChatMainWindowUI = (function () {
         $('.search_y').css({ 'display': 'none' })
         $('.search_n').css({ 'display': 'flex' })
     })
-
-
-
 
     // 新建本模块对象
     var thisModule = new UIModule1();

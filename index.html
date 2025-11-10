@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <!--<meta name="_csrf" value="54608fb909f4ba2a854e5cb2f975c56086af6a32">-->
         <title>元友-在元友,去畅聊</title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
@@ -21,125 +20,9 @@
         </style>
     </head>
 
-    <body style="display: none">
-        <!-- ***************************************** 整个网页头部区域 START ************************************ -->
-        <header id="header">
-            <h1 id="logo">
-                <a href="#" style="font-size: 22px;color: #fff;width: 244px;text-indent: 0;">
-                    <span id="logo_img"></span>
-                </a>
-            </h1>
-            <div class="header-flex-box">
-                <nav class="header-tag">
-
-                </nav>
-                <div class="header-notification">
-                    <ul class="notification-menu">
-                        <li class="active">
-                            <a class="cbutton cbutton--effect-jagoda" id="im-header-notification-menu-imbtn">
-                                <i class="icon-textsms"></i>
-                            </a>
-                            <div id="chat-section" class="plat-pane from-top at-right kca-pane"></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-        <!-- ***************************************** 整个网页头部区域 END ************************************** -->
-
-        <!-- ***************************************** 手机版顶部导航栏 START ************************************ -->
-        <header id="header_i">
-            <div class="nav_bar">
-                <div class="nav_bar_l">                    
-                </div>
-                <div class="nav_bar_t">消息</div>
-                <div id="nav_bar_r_0" class="nav_bar_r">
-                    <img class="head_geng" src="images/im_b_img/geng_3.png" alt="">
-                </div>
-                <div id="nav_bar_r_1" class="nav_bar_r hidden">
-                    <img class="head_geng" src="images/im_b_img/lianxi_3.png" alt="">
-                </div>
-                <div id="nav_bar_r_2" class="nav_bar_r hidden">
-                    <img class="head_geng" src="images/im_b_img/jia_3.png" alt="">
-                </div>
-            </div>
-            <div class="search">
-               <div class="search_n">
-                   <img src="images/im_b_img/sea_3.png" alt="">
-                   <span>搜索</span>
-               </div>
-               <div class="search_y">
-                   <input id="focus" type="text" placeholder="请输入...">
-                   <span id="cancel">取消</span>
-               </div>
-            </div>
-            <div class="first-my-minapp">
-                    <div class="first-my-minapp-row1">
-                        <span>我的小程序</span>
-                        <span id="query-my-minapp-all">查看全部 ></span>
-                    </div>
-                    <div class="first-my-minapp-row2">
-                    </div>
-            </div>
-            <div class="container_i  kchat-talk-list-group flex-d" id="phone-conversation-list">
-                <div class="kchat-queue" style="position:initial !important">
-                    <style type="text/css">.kchat-pop.db { display: block; }
-                    a.f-list-toggle-label:focus { outline: none; }</style>
-                    <div id="im-panel-userlist-wrap-alarms-add-popup-phone" class="kchat-pop" style="left: unset !important;
-                    right: 0px;
-                    top: 45px;">
-                        <ul>
-                            <li id="im-panel-userlist-wrap-alarms-add-popup-addfriend-phone" class="bottom_border">添加好友</li><!--active-->
-                            <li id="im-panel-userlist-wrap-alarms-add-popup-addgroup-phone">创建群聊</li>
-                        </ul>
-                    </div>
-                </div>
-                <div  id="kchat-im-panel-userlist-empty-alarms-phone" class="kchat-talk-list-empty">
-                    <i class="icon-talk1" style="font-size: 60px;"></i>
-                    <p>
-                        暂无消息数据
-                    </p>
-                </div>
-
-                <!-- 动态组织的数据UI -->
-                <ul id="kchat-im-panel-userlist-alarms-phone">
-                    <!-- jQuery动态添加 --><!-- TODO 消息列表   -->
-                </ul>
-            </div>
-            <div class="container_i kchat-talk-list-group offline flex-d" id="phone-friends-list" style="display:none">
-                   <!-- 当列表数据为空时要显示的提示信息 -->
-                   <div id="kchat-im-panel-userlist-empty-roster-phone" class="kchat-talk-list-empty">
-                    <i class="icon-talk1" style="font-size: 60px;"></i>
-                    <p>
-                        还没有添加好友
-                    </p>
-                </div>
-
-                <!-- 动态组织的数据UI -->
-                <ul id="kchat-im-panel-userlist-roster-phone">
-                    <!-- jQuery动态添加 --><!-- TODO 好友列表   -->
-                </ul>
-            </div>
-            <div class="container_i kchat-talk-list-group offline flex-d" id="phone-group-list" style="display:none">
-                <!-- 当列表数据为空时要显示的提示信息 -->
-                <div  id="kchat-im-panel-userlist-empty-groups-phone" class="kchat-talk-list-empty">
-                    <i class="icon-talk1" style="font-size: 60px;"></i>
-                    <p>
-                        暂未加入群组
-                    </p>
-                </div>
-
-                <!-- 动态组织的数据UI -->
-                <ul id="kchat-im-panel-userlist-groups-phone">
-                    <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
-                </ul>
-            </div>
-        </header>
-        <!-- ***************************************** 手机版顶部导航栏 END ************************************** -->
-
+    <body>
         <!-- ***************************************** IM可移动主体区 START ************************************* -->
-        <div id="kchat-im-panel" class="ui-draggable" style="display:none;">
-
+        <div id="kchat-im-panel" class="ui-draggable">
             <!-- For IM-网络连接提示UI START  -->
             <div id="im-panel-loginbox">
                 <div style="width:390px;margin:200px auto;">
@@ -162,7 +45,7 @@
                     <!-- IM-主功能区-body-左tab列表区 -->
                     <div class="kchat-im-panel-body-left">
                         <!-- 左侧tab对应的数据列表 -->
-                        <div id="ember1963" class="kchat-im-panel-userlist scrollbar-auto">
+                        <div id="ember1963" class="kchat-im-panel-userlist">
                                 <!-- 首页"消息"列表 -->
                                 <div id="im-panel-userlist-wrap-alarms" class="kchat-talk-list-group flex-d">
                                        <!-- 聊天区顶部的本地用户信息显示区 -->
@@ -276,13 +159,7 @@
                                             <div class="nav_bar_l">                    
                                             </div>
                                             <div class="nav_bar_t">好友</div>
-                                            <div id="nav_bar_r_0" class="nav_bar_r">
-                                                <img class="head_geng" src="images/im_b_img/geng_3.png" alt="">
-                                            </div>
-                                            <div id="nav_bar_r_1" class="nav_bar_r hidden">
-                                                <img class="head_geng" src="images/im_b_img/lianxi_3.png" alt="">
-                                            </div>
-                                            <div id="nav_bar_r_2" class="nav_bar_r hidden">
+                                            <div id="nav_bar_searchfriend" class="nav_bar_r">
                                                 <img class="head_geng" src="images/im_b_img/jia_3.png" alt="">
                                             </div>
                                         </div>
@@ -302,11 +179,6 @@
                                             </ul>
                                         </div>
                                     </div> -->
-
-                                    <!-- <div class="im-panel-userlist-wrap-alarms-search">
-                                        <input id = 'kchat-im-panel-userlist-empty-roster-input' placeholder="请输入好友昵称"/>
-                                    </div> -->
-
                                     <!-- 当列表数据为空时要显示的提示信息 -->
                                     <div id="kchat-im-panel-userlist-empty-roster" class="kchat-talk-list-empty">
                                         <i class="icon-talk1" style="font-size: 60px;"></i>
@@ -317,7 +189,7 @@
                                      <div class="mine_box">
                                          <div class="mine_box_item" >
                                             <div class="mine_box_item_l" >
-                                                <!-- <img src="images/im_b_img/hotbac_3.png" alt=""> -->
+                                                <img src="images/im_b_img/firendres.png" alt="">
                                                 好友请求
                                             </div>
                                             <div class="mine_box_item_r">
@@ -326,16 +198,16 @@
                                         </div>
                                         <div class="mine_box_item">
                                             <div class="mine_box_item_l" >
-                                                <!-- <img src="images/im_b_img/hotbac_3.png" alt=""> -->
+                                                <img src="images/im_b_img/addfirend.png" alt="">
                                                 添加好友
                                             </div>
                                             <div class="mine_box_item_r">
                                                 <img src="images/im_b_img/right_3.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="mine_box_item">
+                                        <div class="mine_box_item" id="mine_box_myGroup">
                                             <div class="mine_box_item_l" >
-                                                <!-- <img src="images/im_b_img/hotbac_3.png" alt=""> -->
+                                                <img src="images/im_b_img/mygroup.png" alt="">
                                                 我的群聊
                                             </div>
                                             <div class="mine_box_item_r">
@@ -344,7 +216,7 @@
                                         </div>
                                     </div>
                                     <!-- 动态组织的数据UI -->
-                                    <ul id="kchat-im-panel-userlist-roster" style="padding-bottom:50px;">
+                                    <ul id="kchat-im-panel-userlist-roster" style="padding-bottom:50px;overflow-y:auto;">
                                         <!-- jQuery动态添加 --><!-- TODO 好友列表   -->
                                     </ul>
                                 </div>
@@ -353,18 +225,9 @@
                                 <div id="im-panel-userlist-wrap-groups" class="kchat-talk-list-group offline flex-d" style="display:none;">
                                      <header>
                                         <div class="nav_bar">
-                                            <div class="nav_bar_l">                    
-                                            </div>
-                                            <div class="nav_bar_t">群聊</div>
-                                            <div id="nav_bar_r_0" class="nav_bar_r">
-                                                <img class="head_geng" src="images/im_b_img/geng_3.png" alt="">
-                                            </div>
-                                            <div id="nav_bar_r_1" class="nav_bar_r hidden">
-                                                <img class="head_geng" src="images/im_b_img/lianxi_3.png" alt="">
-                                            </div>
-                                            <div id="nav_bar_r_2" class="nav_bar_r hidden">
-                                                <img class="head_geng" src="images/im_b_img/jia_3.png" alt="">
-                                            </div>
+                                            <div class="chat_top_l" id="chat_top_back_myGroup"><img id="left_jt" src="images/im_b_img/left_jt_3.png" alt=""></div>
+                                            <div class="nav_bar_t">我的群聊</div>
+                                           <div></div>
                                         </div>
                                     </header>
                                     <!-- 列表上部的数据汇总信息、操作按钮区 -->
@@ -391,7 +254,7 @@
                                     </div>
 
                                     <!-- 动态组织的数据UI -->
-                                    <ul id="kchat-im-panel-userlist-groups">
+                                    <ul id="kchat-im-panel-userlist-groups" class="overflow-y:auto">
                                         <!-- jQuery动态添加 --><!-- TODO 群组列表   -->
                                     </ul>
                                     <ul id="ChatPage">
@@ -510,7 +373,7 @@
                             <!-- 聊天区顶部的本地用户信息显示区 -->
                            <div class="chat_top">
                                 <div class="chat_top_l" id="chat_top_back"><img id="left_jt" src="images/im_b_img/left_jt_3.png" alt=""></div>
-                                <div class="chat_top_c" id="chat_top_name">qqqqqqqq</div>
+                                <div class="chat_top_c" id="chat_top_name"></div>
                                 <div class="chat_top_r" id="chat_top_detail"><img class="head_san" src="images/im_b_img/geng_3.png" alt=""></div>
                             </div>
                             <div class="im-panel-main-toBottom-content">
@@ -923,17 +786,24 @@
                    <div>好友</div>
                </div>
                <div class="dom_item">
-                   <img id="img_2" src="images/im_b_img/tab_2_0.png" alt="">
-                   <div>群聊</div>
-               </div>
-               <div class="dom_item">
                    <img id="img_3" src="images/im_b_img/tab_3_0.png" alt="">
                    <div>我的</div>
                </div>
            </div>
         </footer>
         <!-- ***************************************** 手机版底部导航栏 END ************************************** -->
-
+        <!-------------------------------新加开始-------------------------->
+        <div id="findusers" style="display: none;width: 100%; height: 100%;"></div>
+        <script>
+             // 加载公共部分
+             async function loadHTML(id, file) {
+                const res = await fetch(file);
+                const text = await res.text();
+                document.getElementById(id).innerHTML = text;
+             }
+              loadHTML("findusers", "findusers.html");
+        </script>
+         <!-------------------------------新加结束-------------------------->
 
         <!-- 在此测试一些前端html样式 -->
         <script src="https://testchat.imnono.net/socket.io/socket.io.js"></script>

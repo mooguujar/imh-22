@@ -2666,7 +2666,7 @@ lesshat-selector { -lh-property: 0 }
 .avatar-source.sdk { background: #ffa900 }
 .avatar-source.sdk:after { content: "SDK"; font-family: rbchat; display: inline-block; font-size: 12px; vertical-align: top }
 .avatar-source.transfer:before { content: "\e66b"; font-family: rbchat; height: 18px; width: 18px; position: absolute; border: 1px solid #fff; border-radius: 100%; right: -5px; bottom: -3px; color: #fff; background: #F09A0D; line-height: 18px; text-align: center; font-size: 14px }
-.kchat-talk-list-group { min-height: 300px }
+.kchat-talk-list-group { min-height: 300px; }
 .flex-d{ display: flex ; flex-direction: column;}
 .kchat-talk-list-group .danger { background: rgba(255, 0, 0, .1) }
 .kchat-talk-list-group .danger:hover { background: rgba(255, 0, 0, .15) }
@@ -2780,12 +2780,11 @@ lesshat-selector { -lh-property: 0 }
 
 .kchat-queue { position: relative; }
 
-.im-panel-userlist-wrap-alarms-search { position: relative }
+.im-panel-userlist-wrap-alarms-search { position: relative;margin-top: 35%;text-align: center;}
 .im-panel-userlist-wrap-alarms-search input{
 	height: 30px;
-    width: 90%;
-    margin: 10px 15px;
-	padding-left: 3px;
+    width: 80%;
+   border-radius: 20px;
 }
 .kchat-queue h3 { cursor: default;padding-right: 15px;}/* 20181029 add by js: 添加了padding-right: 15px;*/
 .kchat-queue h3:before { display: none }
