@@ -55,7 +55,8 @@ var RBChatLocalUserUI = (function () {
         }else{
             $('#im-panel-header-user-avatar-parent').click(fun);
             // 点击用本地用户的昵称
-            $('#im-panel-header-user-showname').click(fun);
+            // $('#im-panel-header-user-showname').click(fun);
+            $('#im-panel-header-user-info').click(fun);
         }
       
     };
