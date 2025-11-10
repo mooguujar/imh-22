@@ -439,10 +439,10 @@ var RBChatGroupsUI = (function () {
             RBChatChattingContentPaneUI.loadCacheHistoryFromCache2(_selectedAlarmType, gid)
 
             // // 载入存放在本地JS缓存中的当前visitor的聊天记录
-            // RBChatChattingContentPaneUI.loadChatHistoryFromLocalCache(_selectedAlarmType, gid);
+            RBChatChattingContentPaneUI.loadChatHistoryFromLocalCache(_selectedAlarmType, gid);
 
             // // 尝试从服务端加载该用户的聊天历史记录
-            // RBChatChattingContentPaneUI.loadChattingHistoryFromServer(_selectedAlarmType, gid);
+            RBChatChattingContentPaneUI.loadChattingHistoryFromServer(_selectedAlarmType, gid);
 
             // 加载右边的详情查看功能
             RBChatRightDetailUI.showTabsForSelectedAlarm(AlarmMessageType.groupChatMessage, gid);
