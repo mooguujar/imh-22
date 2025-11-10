@@ -46,6 +46,15 @@ var RBChatRosterUI = (function () {
              pop.hide();
              event.stopPropagation();  //阻止冒泡
         })
+        // 群聊
+        $('#im-panel-userlist-mygroup').click(function(event){
+            // 显示群聊
+            $('#im-panel-userlist-wrap-groups').show();
+            $('#im-panel-userlist-wrap-alarms').hide();
+            $('#phone_center').hide();
+            $('#im-panel-userlist-wrap-roster').hide();
+            event.stopPropagation();  //阻止冒泡
+        })
         // 创建分组
         $('#im-panel-userlist-wrap-roster-add-popup-addgroup').click(function(event){
             pop.hide();
