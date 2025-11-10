@@ -192,9 +192,6 @@ var RBChatRosterUI = (function () {
                                 const item = group_list[i];
                                 // 创建分组
                                 that.createFenzu(item.groupId, item.groupName, item.groupType, 0, item.list.length, false, false);
-                                // if(i==0){
-                                //     that.showFriendsUI(item.groupId)
-                                // }
                             }
                         }
                         // 刷新当前好友数量的UI显示，并决定内容面板的显示与否

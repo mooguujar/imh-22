@@ -5859,7 +5859,7 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	height: 4px;
 }
 .head_geng{
-	width: 24px;
+	width: 16px;
 	object-fit: cover;
 }
 #footer_i {
@@ -6007,11 +6007,12 @@ button.ui-datepicker-close:hover { background: #A5A5A5; color: #fff; }
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 2.8% 4.8%;
+	padding: 3.8% 4.8%;
 	font-family: PingFangSC-Regular;
 	font-size: 15px;
 	color: #333333;
 	font-weight: 400;
+	border-bottom:1px solid rgba(241,241,241,1);
 }
 .mine_box_item_l{
 	display: flex;
