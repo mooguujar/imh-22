@@ -150,10 +150,10 @@ var RBChatGroupsUI = (function () {
 
         // 添加到群组列表
         if(toFirst){
-            // this.$notEmptyUIRoot.prepend(html);
+            this.$notEmptyUIRoot.prepend(html);
         }
         else{
-            // this.$notEmptyUIRoot.append(html);
+            this.$notEmptyUIRoot.append(html);
         }
 
         // 点击事件
@@ -169,15 +169,20 @@ var RBChatGroupsUI = (function () {
             setTimeout(() => {
                 document.querySelector('.im-panel-inputcontent')?.focus()
             })
+
+
+            $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'block' });
+            $('#footer_i').css({ 'display': 'none' });
+            $('#chat_top_name').text(gname);
             //alert('打开群组的聊天界面功能稍后实现！！！');
         });
 
-        eventBus.emit('conversations:add1', {
-            ge,
-            ...ge, html, toFirst,
-            gid, gname, g_member_count, g_owner_user_uid, create_time,
-            localUserIsGroupOwner, defaultColor, show_t, avatarUrl
-         });
+        // eventBus.emit('conversations:add1', {
+        //     ge,
+        //     ...ge, html, toFirst,
+        //     gid, gname, g_member_count, g_owner_user_uid, create_time,
+        //     localUserIsGroupOwner, defaultColor, show_t, avatarUrl
+        //  });
 
 
         // 刷新当前群组数量的UI显示，并决定内容面板的显示与否

@@ -4606,13 +4606,13 @@ var RBChatChattingContentPaneUI = (function () {
     };
 
     UIModule5.prototype.showRightChatContent = function () {
-        // $('.kchat-im-panel-main').css({
-        //     'display': 'flex'
-        // });
+        $('.kchat-im-panel-main').css({
+            'display': 'flex'
+        });
 
-        //$('.im-panel-right-mainImage, .im-panel-right-mainTitle').css({
-        //    'display': 'none'
-        //});
+        $('.im-panel-right-mainImage, .im-panel-right-mainTitle').css({
+           'display': 'none'
+        });
     };
 
     /**
