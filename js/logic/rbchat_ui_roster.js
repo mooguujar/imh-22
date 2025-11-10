@@ -136,86 +136,12 @@ var RBChatRosterUI = (function () {
             }
         }else{
             // console.log('好友列表信息', reeObjs)
-            RBChatRestHelper.queryFenzu(
-                // 数据读取成功后的回调
-                function (returnValue) {
-                    if(returnValue){
-                      // 过滤需要显示的分组
-                        const server_group_list = returnValue ?  JSON.parse(returnValue):[];
-                        const _group_list = server_group_list.map(item=>{
-                            return {
-                                groupId: item[0],
-                                groupName: item[1],
-                                groupType: item[2],
-                                list: []
-                            }
-                        });
-                        const noFenzuItem = {
-                            groupId: '0',
-                            groupName: '未分组',
-                            list: []
-                        }
-                        const group_list = []
-                        const _cacheFenzuSort = [...new Set(JSON.parse(localStorage.getItem('local_fenzuSort') || '[]'))]
-                        _group_list.forEach(item => {
-                            if (!_cacheFenzuSort.includes(item.groupId)) {
-                                group_list.push(item)
-                            }
-                        })
-                        _cacheFenzuSort.forEach(groupId => {
-                            const obj = _group_list.find(item => item.groupId == groupId)
-                            if (obj) {
-                                group_list.push(obj)
-                            } else if (groupId == '0') {
-                                group_list.push(noFenzuItem)
-                            }
-                        })
-                        if (!group_list.find(item => item.groupId == '0')) {
-                            // 设置默认未分组
-                            group_list.push(noFenzuItem)
-                        }
-                        if(reeObjs && reeObjs.length > 0){
-                            for(var i = 0; i<reeObjs.length;i++){
-                                var ree = reeObjs[i];
-                                const groupId = ree.groupId || '0';
-                                const groupName = ree.groupName || '未分组';
-                                let groupInfo = group_list.find(item => item.groupId == groupId);
-                                // 没有找到分组
-                                if(!groupInfo){
-                                    groupInfo = {
-                                        groupId,
-                                        groupName,
-                                        list:[]
-                                    }
-                                    group_list.push(groupInfo)
-                                }
-                                groupInfo.list.push(ree)
-                            }
-                        }
-                        window.friends_group_list = group_list || [];
-                        that.reFlash_count_online_ui();
-                        //绘制分组及好友
-                        if(group_list.length > 0){
-                            const len = group_list.length;
-                            for(var i = 0; i<len;i++){
-                                const item = group_list[i];
-                                // 创建分组
-                                that.createFenzu(item.groupId, item.groupName, item.groupType, 0, item.list.length, false, false);
-                            }
-                        }
-                        // 刷新当前好友数量的UI显示，并决定内容面板的显示与否
-                        that.refreshRosterItemCountShow();
-                        that.initGroupFenzuDragEvent();
-                    }
+             if(reeObjs && reeObjs.length > 0){
+                for(var i = 0; i<reeObjs.length;i++){
+                    var ree = reeObjs[i];
+                    that.add(ree, false);
                 }
-                // 数据读取失败后的回调
-                , function (errorThrownStr) {
-                    //alert('用户的基本信息数据加载出错，原因是：'+errorThrownStr);
-                    RBChatDialogHelper.showAlertDialog_WARN('加载失败', '用户分组列表加载出错，可能是网络故障，请稍后再试！');
-                }
-                , true
-                , null
-            );
+            }
         }
     };
 
@@ -361,110 +287,110 @@ var RBChatRosterUI = (function () {
             this.$notEmptyUIRoot.append(group_html);
         }
         // 默认展开第一个分组
-        setTimeout(()=>{
-            that.showGroupUI(groupId,isFirstGroup);
-            that.countGroupUI(groupId);
-        },250)
+        // setTimeout(()=>{
+        //     that.showGroupUI(groupId,isFirstGroup);
+        //     that.countGroupUI(groupId);
+        // },250)
        
         // 添加点击事件
-        $("#rstore-group-"+groupId).click(function(){
-            const status = $(this).attr('status')
-            that.showGroupUI(groupId,status - 0 == 0, 'check')
-        })
+        // $("#rstore-group-"+groupId).click(function(){
+        //     const status = $(this).attr('status')
+        //     that.showGroupUI(groupId,status - 0 == 0, 'check')
+        // })
 
-        if(groupId - 0  != 0){
+       // if(groupId - 0  != 0){
             // 添加右键修改名称
-            $("#rstore-group-"+groupId).bind('contextmenu', function (e) {
+           // $("#rstore-group-"+groupId).bind('contextmenu', function (e) {
                 // 右键菜单主div层
-                var popupId = "im-panel-msg-popupmenu";
-                var oldPopupObj = $("#" + popupId);
+            //    var popupId = "im-panel-msg-popupmenu";
+           //     var oldPopupObj = $("#" + popupId);
                 // 如果已经存在则先删除之（jq里选择器选回对象的Length>0表示该元素是存在的）
-                if (oldPopupObj.length > 0)
-                    oldPopupObj.remove();
-                
-                const hasUser = window.friends_group_list.find(item=> item.groupId- groupId == 0)?.list?.length
+            //    if (oldPopupObj.length > 0)
+                   // oldPopupObj.remove();
+              //  
+             //   const hasUser = window.friends_group_list.find(item=> item.groupId- groupId == 0)?.list?.length
                     // 构建菜单html内容
-                var html =
-                '<div id="' + popupId + '" style="display: none;">'
-                + '   <div class="kchat-pop ">'
-                + '       <ul>'
-                +'<li id="im-panel-msg-popupmenu-modify-group-name">修改名称</li>'
-                + (groupId - 0  != 0 ? '<li id="im-panel-msg-popupmenu-delete-group">删除分组</li>':'')
-                + (hasUser ? '<li id="im-panel-msg-popupmenu-move-group">全部移动</li>':'')
-                + '       </ul>'
-                + '   </div>'
-                + '</div>';
+                // var html =
+                // '<div id="' + popupId + '" style="display: none;">'
+                // + '   <div class="kchat-pop ">'
+                // + '       <ul>'
+                // +'<li id="im-panel-msg-popupmenu-modify-group-name">修改名称</li>'
+                // + (groupId - 0  != 0 ? '<li id="im-panel-msg-popupmenu-delete-group">删除分组</li>':'')
+                // + (hasUser ? '<li id="im-panel-msg-popupmenu-move-group">全部移动</li>':'')
+                // + '       </ul>'
+                // + '   </div>'
+                // + '</div>';
 
-                $(html).appendTo('body');
+              //  $(html).appendTo('body');
                 // 菜单对象
-                var newPopupObj = $("#" + popupId);
+             //   var newPopupObj = $("#" + popupId);
                 // 鼠标点击坐标
                 // var x = e.originalEvent.x || e.originalEvent.layerX || 0;
                 // var y = e.originalEvent.y || e.originalEvent.layerY || 0;
-                var x = e.clientX;
-                var y = e.clientY;
+               // var x = e.clientX;
+              //  var y = e.clientY;
                 // 在鼠标点击的位置显示菜单
-                newPopupObj.css("top", y + "px");
-                newPopupObj.css("left", x + "px");
-                newPopupObj.show();
+                //newPopupObj.css("top", y + "px");
+               // newPopupObj.css("left", x + "px");
+               // newPopupObj.show();
 
                 // 点击空白处的事件处理（希望点空白，能自动隐藏菜单层的显示）
-                $("body").click(function (event) {
-                    newPopupObj.remove();
-                });
+                // $("body").click(function (event) {
+                //     newPopupObj.remove();
+                // });
 
                 // 修改群组名称功能
-                $('#im-panel-msg-popupmenu-modify-group-name').click(function(e){
-                    const _groupType = $(`#rstore-group-${groupId}`).attr('groupType')
-                    newPopupObj.remove();
-                    RBChatDialogHelper.showGroupModifyNameForm(groupId,groupName,_groupType);
+                // $('#im-panel-msg-popupmenu-modify-group-name').click(function(e){
+                //     const _groupType = $(`#rstore-group-${groupId}`).attr('groupType')
+                //     newPopupObj.remove();
+                //     RBChatDialogHelper.showGroupModifyNameForm(groupId,groupName,_groupType);
 
-                })
+                // })
                 // 删除分组
-                $('#im-panel-msg-popupmenu-delete-group').click(function(){
-                    var result = confirm('是否删除该分组?');
-                    if(result){
-                        RBChatRestHelper.deleteFenzu(groupId,
-                            // 数据读取成功后的回调
-                            function (returnValue) {
-                                if(returnValue){
-                                    // 添加分组
-                                    that.deal_fen_local_to_last(function(){
-                                        newPopupObj.remove();
-                                        $("#rstore-group-"+groupId).remove();
-                                        $("li[bgroup='"+groupId+"']").remove();
-                                        $("div[bgroup='"+groupId+"']").remove();
-                                        that.countGroupUI('0');
-                                        that.showGroupUI('0',true)
-                                    });
+                // $('#im-panel-msg-popupmenu-delete-group').click(function(){
+                //     var result = confirm('是否删除该分组?');
+                //     if(result){
+                //         RBChatRestHelper.deleteFenzu(groupId,
+                //             // 数据读取成功后的回调
+                //             function (returnValue) {
+                //                 if(returnValue){
+                //                     // 添加分组
+                //                     that.deal_fen_local_to_last(function(){
+                //                         newPopupObj.remove();
+                //                         $("#rstore-group-"+groupId).remove();
+                //                         $("li[bgroup='"+groupId+"']").remove();
+                //                         $("div[bgroup='"+groupId+"']").remove();
+                //                         that.countGroupUI('0');
+                //                         that.showGroupUI('0',true)
+                //                     });
                                    
-                                }
+                //                 }
             
-                            },function(){});
-                    }
-                })
+                //             },function(){});
+                //     }
+                // })
 
                 // 移动分组
-                $('#im-panel-msg-popupmenu-move-group').click(function(){
-                    RBChatDialogHelper.showGroupSelectForm(groupId,function(group_id){
-                        const obj =  window.friends_group_list.find(item=> item.groupId- groupId == 0);
-                        const _uids = obj.list.map(item => item.user_uid).join(',')
-                        RBChatRestHelper.cmd_1008_2_70(group_id, _uids,function(){
-                            that.deal_fen_local_to_last(function(){
-                                that.countGroupUI(groupId);
-                                that.countGroupUI(group_id);
-                                that.showGroupUI(groupId, false)
-                            });
-                        },function(){
+                // $('#im-panel-msg-popupmenu-move-group').click(function(){
+                //     RBChatDialogHelper.showGroupSelectForm(groupId,function(group_id){
+                //         const obj =  window.friends_group_list.find(item=> item.groupId- groupId == 0);
+                //         const _uids = obj.list.map(item => item.user_uid).join(',')
+                //         RBChatRestHelper.cmd_1008_2_70(group_id, _uids,function(){
+                //             that.deal_fen_local_to_last(function(){
+                //                 that.countGroupUI(groupId);
+                //                 that.countGroupUI(group_id);
+                //                 that.showGroupUI(groupId, false)
+                //             });
+                //         },function(){
                             
-                        });                   
-                    }, '该操作会将该分组下所有会员移动至其他分组');
-                })
+                //         });                   
+                //     }, '该操作会将该分组下所有会员移动至其他分组');
+                // })
 
 
-                return false;
-            });
-        }
+             //   return false;
+          // });
+       // }
     };
 
     /**
@@ -692,8 +618,8 @@ var RBChatRosterUI = (function () {
         var hasAvatar = (!RBChatUtils.isStringEmpty(avartarFileName));
         var hasWhatsup = (!RBChatUtils.isStringEmpty(whatsup));
 
-        var contentToShow1 = (hasWhatsup?"[签名] "+whatsup:"UID："+uid+ree.lastBit);
-        var contentToShow2 = (hasWhatsup?"[个人签名] "+whatsup:"UID："+uid+ree.lastBit);
+      // var contentToShow1 = (hasWhatsup?"[签名] "+whatsup:"UID："+uid+ree.lastBit);
+      //  var contentToShow2 = (hasWhatsup?"[个人签名] "+whatsup:"UID："+uid+ree.lastBit);
 
         var that = this;
 
@@ -705,27 +631,27 @@ var RBChatRosterUI = (function () {
         let level_html = '';
         var l_html = '';
         if(isLevel){
-            level_html = "<p class='other-tip-"+uid+"' noPayDate='"+ree.uedLastRechargeDate+"' noTime='"+ree.nowTime+"' level='"+ree.uedLevel +"' lastloginTime='"+ree.latestOfflineTime+"' >"
+           // level_html = "<p class='other-tip-"+uid+"' noPayDate='"+ree.uedLastRechargeDate+"' noTime='"+ree.nowTime+"' level='"+ree.uedLevel +"' lastloginTime='"+ree.latestOfflineTime+"' >"
             var haveV =false;
 
-            if(ree.uedLastRechargeDate && ree.uedLastRechargeDate.length > 0){
-                level_html = level_html+ "<span><font color='red'>"+ RBChatUtils.dateDiff2(ree.uedLastRechargeDate)+"</font></span>"
-                haveV = true;
-            }
-            if(ree.uedLevel - 0 > -1){
-                level_html = level_html+ " <span><font color='black'>"+RBChatUtils.leveName(ree.uedLevel)+"</font></span>"
-                haveV = true;
-            }
+            // if(ree.uedLastRechargeDate && ree.uedLastRechargeDate.length > 0){
+            //     level_html = level_html+ "<span><font color='red'>"+ RBChatUtils.dateDiff2(ree.uedLastRechargeDate)+"</font></span>"
+            //     haveV = true;
+            // }
+            // if(ree.uedLevel - 0 > -1){
+            //     level_html = level_html+ " <span><font color='black'>"+RBChatUtils.leveName(ree.uedLevel)+"</font></span>"
+            //     haveV = true;
+            // }
 
-            if(ree.latestOfflineTime && ree.latestOfflineTime.length > 0 && !ree.online){
-                level_html = level_html + " <span>"+ RBChatUtils.dateDiff2(ree. latestOfflineTime)+'前</span>'
-                haveV = true;
-            }
+            // if(ree.latestOfflineTime && ree.latestOfflineTime.length > 0 && !ree.online){
+            //     level_html = level_html + " <span>"+ RBChatUtils.dateDiff2(ree. latestOfflineTime)+'前</span>'
+            //     haveV = true;
+            // }
 
-            if(!haveV && ree.online){
-                level_html = level_html+ " <span><font color='#57dc2d'>在线</font></span>"
-                haveV = true;
-            }
+            // if(!haveV && ree.online){
+            //     level_html = level_html+ " <span><font color='#57dc2d'>在线</font></span>"
+            //     haveV = true;
+            // }
             
             level_css = " style = 'height:50px !important;'"
             l_html = level_html+'</p>'
@@ -743,24 +669,24 @@ var RBChatRosterUI = (function () {
         const _groupname = $(`#rstore-group-name-${groupId}`).text()
         var html =
             "<li id=\'roster_li_uid_"+uid+"\'  "+level_css+" title=\'UID: "+uid+"\' im-date=\'"+uid+"\'  bgroup="+groupId+" online='"+(ree.online ? '1':'0')+"'>"
-            +"<input type='checkbox' class='fenzu-checkbox' uid=\'"+uid+"\' nickname=\'"+_nickname+"\' groupname=\'"+_groupname+"\' data-fenzu-groupid=\'"+groupId+"\'>"
+            // +"<input type='checkbox' class='fenzu-checkbox' uid=\'"+uid+"\' nickname=\'"+_nickname+"\' groupname=\'"+_groupname+"\' data-fenzu-groupid=\'"+groupId+"\'>"
             +"       <div>"
             +"            <a class=\'top-tag\' title=\'Current Tag\'></a>"
-            +"            <a class=\'close\' title=\'删除好友\' id=\'roster_del_uid_"+uid+ree.lastBit+"\'></a>"
+            // +"            <a class=\'close\' title=\'删除好友\' id=\'roster_del_uid_"+uid+ree.lastBit+"\'></a>"
             +"            <div class=\'avatar-source human\'>"
             +"                 <div style='background:"+defaultColor+"'>"+show_t+" </div>"
             +                (false ?"<img onerror='javascript:$(this).remove()' src=\'"+avatarUrl+"\'>":"")
-            + "    <div  class='lixian-tip "+beDelClass+"' bd-flag='bd-"+uid+"'>删</div>"
+            // + "    <div  class='lixian-tip "+beDelClass+"' bd-flag='bd-"+uid+"'>删</div>"
             +"                 <span id=\'roster_li_unreadflag_"+uid+"\' class=\'im-left-unreadmsg-flagnum\' style=\'display:none;\'>0</span>"
-            // +"                  <div  class='online_status_"+uid+"' style='height:10px;width:10px;background: "+(ree.online ? '#57dc2d':'#f26c4f')+"; border-radius: 50%;'></div>"
+            // +"           
             +"                  <div  class='online_status_"+uid+"' style='height:10px;width:10px;background: "+((ree.isOnline == 1 || ree.onlineWeb == 1) ? '#57dc2d':'#f26c4f')+"; border-radius: 50%;'></div>"
             +"            </div>"
             +"            <div class=\'info\'>"
-            +"              <h4 id=\'roster_li_nickname_"+uid+"\'>"+(ree.protectFlag - 0 == 0 ?"<span class=\'user-weihu\' title=\'维护\'>维</span>":"")+_nickname+"</h4>"
+            +"              <h4 id=\'roster_li_nickname_"+uid+"\'>"+_nickname+"</h4>"
             +l_html
             +"              <p>"
             // +"                  <img class=\'smallreddot\' src=\'../../images/roster_list_item_reddot_icon2.png\'>"
-            +"                  <span id=\'roster_li_content_"+uid+"\' title=\'"+contentToShow2+"\'>"+contentToShow1+"</span>"
+            // +"                  <span id=\'roster_li_content_"+uid+"\' title=\'"+contentToShow2+"\'>"+contentToShow1+"</span>"
             +"              </p>"
             +"            </div>"
             +"        </div>"
@@ -782,15 +708,6 @@ var RBChatRosterUI = (function () {
                 this.$notEmptyUIRoot.append(html);
             }
         } 
-
-        // 为该好友的“删除”图标添加点击事件
-        $("#roster_del_uid_"+uid).click(function(){
-            // 执行“删除”操作
-            that.deleteWithConfirm(uid,nickname);
-            //阻止点击事件继续冒泡（防止点击删除图标的同时，又触发selectItem事件的处理，感觉不够爽）
-            event.stopPropagation();
-        });
-
         // item点击事件
         $("#roster_li_uid_"+uid).click(function(){
             // 取出uid值
@@ -801,10 +718,15 @@ var RBChatRosterUI = (function () {
             RBChatChattingContentPaneUI.showRightChatContent();
             RBChatChattingContentPaneUI.scrollToBottom4IM(uid);
 
-            setTimeout(() => {
-                document.querySelector('.im-panel-inputcontent')?.focus()
-            })
+            // setTimeout(() => {
+            //     document.querySelector('.im-panel-inputcontent')?.focus()
+            // })
             //alert('打开好友的聊天界面功能稍后实现！！！');
+
+             /***allen新加  点击消息显示发消息页面并隐藏底部切换菜单 */
+             $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'block' });
+              $('#footer_i').css({ 'display': 'none' });
+              $('#chat_top_name').text(_nickname);
         });
 
         if(!RBChatUtils.isMobile()){
