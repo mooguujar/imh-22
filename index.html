@@ -20,7 +20,7 @@
         </style>
     </head>
 
-    <body>
+    <body style="display: none">
         <!-- ***************************************** IM可移动主体区 START ************************************* -->
         <div id="kchat-im-panel" class="ui-draggable">
             <!-- For IM-网络连接提示UI START  -->
@@ -187,8 +187,8 @@
                                         </p>
                                     </div>
                                      <div class="mine_box">
-                                         <div class="mine_box_item" >
-                                            <div class="mine_box_item_l" >
+                                         <div class="mine_box_item" id="nav_bar_friendrequest">
+                                            <div class="mine_box_item_l">
                                                 <img src="images/im_b_img/firendres.png" alt="">
                                                 好友请求
                                             </div>
@@ -196,7 +196,7 @@
                                                 <img src="images/im_b_img/right_3.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="mine_box_item">
+                                        <div class="mine_box_item" id="nav_bar_addfriend">
                                             <div class="mine_box_item_l" >
                                                 <img src="images/im_b_img/addfirend.png" alt="">
                                                 添加好友
@@ -205,7 +205,7 @@
                                                 <img src="images/im_b_img/right_3.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="mine_box_item" id="mine_box_myGroup" id="im-panel-userlist-mygroup">
+                                        <div class="mine_box_item" id="mine_box_myGroup">
                                             <div class="mine_box_item_l" >
                                                 <img src="images/im_b_img/mygroup.png" alt="">
                                                 我的群聊
@@ -791,6 +791,7 @@
         <!-- ***************************************** 手机版底部导航栏 END ************************************** -->
         <!-------------------------------新加开始-------------------------->
         <div id="findusers" style="display: none;width: 100%; height: 100%;"></div>
+         <div id="friendrequest" style="display: none;width: 100%; height: 100%;"></div>
         <script>
              // 加载公共部分
              async function loadHTML(id, file) {
@@ -799,6 +800,7 @@
                 document.getElementById(id).innerHTML = text;
              }
               loadHTML("findusers", "findusers.html");
+              loadHTML("friendrequest", "friendrequest.html");
         </script>
          <!-------------------------------新加结束-------------------------->
 

@@ -405,6 +405,41 @@ var RBChatMainWindowUI = (function () {
             $setupPopup.hide();
             RBChatDialogHelper.showSetFriendsGroup();
         })
+        //好友请求
+        //friendrequest
+          $('#nav_bar_friendrequest').click(function(){
+            $('#friendrequest').show();
+            $('#kchat-im-panel').hide();
+            $('#footer_i').hide();
+             $setupPopup.hide();
+        });
+        //添加好友
+          $('#nav_bar_addfriend').click(function(){
+            $('#findusers').show();
+            $('#kchat-im-panel').hide();
+            $('#footer_i').hide();
+             $setupPopup.hide();
+        });
+        //好友请求返回 chat_top_back_addfirend
+          $('#chat_top_back_addfirend').click(function () {//查找好友返回
+            $('#friendrequest').hide();
+            $('#kchat-im-panel').show();
+            $('#footer_i').show();
+            $setupPopup.hide();
+        });
+        $('#chat_top_back_myGroup').click(function () {//我的群组返回
+          $('#im-panel-userlist-wrap-groups').css({ 'display': 'none' });
+          $('#im-panel-userlist-wrap-roster').css({ 'display': 'block' });
+          $setupPopup.hide();
+        });
+            
+       $('#chat_top_back_findusers').click(function () {//查找好友返回
+            $('#findusers').hide();
+            $('#kchat-im-panel').show();
+            $('#footer_i').show();
+            $setupPopup.hide();
+        });
+        
         // 一键已读
         
         menuItem9Obj.click(function(){  
@@ -417,10 +452,13 @@ var RBChatMainWindowUI = (function () {
              $('#im-panel-userlist-wrap-groups').show();
              $('#phone_center').hide();
              $('#im-panel-userlist-wrap-roster').hide();
+              $setupPopup.hide();
         })
         menuItem11Obj.click(function(){
             $('#findusers').show();
             $('#kchat-im-panel').hide();
+            $('#footer_i').hide();
+             $setupPopup.hide();
         })
         setTimeout(() => {
             if (LocalUserInfo.getObj()) {

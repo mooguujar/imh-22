@@ -2248,7 +2248,7 @@ lesshat-selector { -lh-property: 0 }
 .kchat-im-panel-userlist .kchat-talk-list-group .close { display: none }
 .kchat-im-panel-userlist .kchat-talk-list-group .close:hover:before { color: #777 }
 .kchat-im-panel-userlist .kchat-talk-list-group li:hover .close { display: block }
-#kchat-im-panel-userlist-roster .close:before { margin-top: 2px; left: 11px; }
+#kchat-im-panel-userlist-roster{ height: 400px;}
 .kchat-talk-list-group #kchat-im-panel-userlist-roster .avatar-source div { z-index: 1; }
 .member-select-div{display:flex; align-items: center; z-index:99;display: flex; width:500px;
 	overflow: hidden;
