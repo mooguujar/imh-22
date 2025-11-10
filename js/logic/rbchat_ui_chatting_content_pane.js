@@ -2831,34 +2831,34 @@ var RBChatChattingContentPaneUI = (function () {
 
             // 判断 需要显示的vip
             var level_html = '';
-            if(window.managerIds && window.managerIds?.includes(uid)){
-                level_html = "<span class='m-right'><font color='black'>[管理]</font></span>"
-            }else{
-                if (!RBChatUtils.isMobile()) {
-                    const cacheObj = JSON.parse(localStorage.getItem(`${uid}_info`) || '{}')
-                    const _uname = cacheObj.uname || chatMsgEntity.uname
-                    const _mlevel = cacheObj.mlevel || chatMsgEntity.mlevel
-                    const _payDate = cacheObj.payDate || chatMsgEntity.payDate
-                    const _cmoney = cacheObj.cmoney || chatMsgEntity.cmoney
-                    const _nowTime = cacheObj.payDate ? RBChatUtils.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss') : chatMsgEntity.nowTime 
-                    if(_uname){
-                        if (_mlevel && _mlevel - 0 > -1) {
-                            level_html = level_html + "<span class='level-name m-right'>" + RBChatUtils.leveName(_mlevel) + "</span>";
-                        }
-                        if (_payDate && _payDate.length > 0) {
-                            level_html = level_html + "<span class='m-right'><font color='red'>" + RBChatUtils.dateDiff(_nowTime, _payDate) + "</font>未存款 </span>"
-                        }
+            // if(window.managerIds && window.managerIds?.includes(uid)){
+            //     level_html = "<span class='m-right'><font color='black'>[管理]</font></span>"
+            // }else{
+            //     if (!RBChatUtils.isMobile()) {
+            //         const cacheObj = JSON.parse(localStorage.getItem(`${uid}_info`) || '{}')
+            //         const _uname = cacheObj.uname || chatMsgEntity.uname
+            //         const _mlevel = cacheObj.mlevel || chatMsgEntity.mlevel
+            //         const _payDate = cacheObj.payDate || chatMsgEntity.payDate
+            //         const _cmoney = cacheObj.cmoney || chatMsgEntity.cmoney
+            //         const _nowTime = cacheObj.payDate ? RBChatUtils.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss') : chatMsgEntity.nowTime 
+            //         if(_uname){
+            //             if (_mlevel && _mlevel - 0 > -1) {
+            //                 level_html = level_html + "<span class='level-name m-right'>" + RBChatUtils.leveName(_mlevel) + "</span>";
+            //             }
+            //             if (_payDate && _payDate.length > 0) {
+            //                 level_html = level_html + "<span class='m-right'><font color='red'>" + RBChatUtils.dateDiff(_nowTime, _payDate) + "</font>未存款 </span>"
+            //             }
         
-                        if (_cmoney && _cmoney.length > 0) {
-                            level_html = level_html + "<span class='m-right'><font color='black'>" + RBChatUtils.formatMoney(_cmoney) + "</font></span>"
-                        }else{
-                            level_html = level_html + "<span class='m-right'><font color='black'>未充值</font></span>"
-                        }
-                    }else{
-                        level_html = "<span class='m-right'><font color='red'>未注册ued</font></span>"
-                    }
-                }
-            }
+            //             if (_cmoney && _cmoney.length > 0) {
+            //                 level_html = level_html + "<span class='m-right'><font color='black'>" + RBChatUtils.formatMoney(_cmoney) + "</font></span>"
+            //             }else{
+            //                 level_html = level_html + "<span class='m-right'><font color='black'>未充值</font></span>"
+            //             }
+            //         }else{
+            //             level_html = "<span class='m-right'><font color='red'>未注册ued</font></span>"
+            //         }
+            //     }
+            // }
            
 
             // 打开的是群信息
@@ -5793,7 +5793,7 @@ var RBChatChattingContentPaneUI = (function () {
         window.replyModel = null;
         // 复制uiui
         RBChatSmallWindowUI.getWindowDom('#im-panel-main-chat-replay-ui').empty();
-        RBChatSmallWindowUI.getWindowDom('#im-panel-main-chatcontentpane').css('padding-bottom', '20px');
+        RBChatSmallWindowUI.getWindowDom('#im-panel-main-chatcontentpane').css('padding', '20px');
         RBChatSmallWindowUI.getWindowDom('#im-panel-main-chat-replay-ui').hide();
 
         RBChatSmallWindowUI.getWindowDom('#im-panel-main-chat-tip-me').hide();
