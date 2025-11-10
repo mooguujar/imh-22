@@ -1,5 +1,6 @@
 
 var RBChatGroupsUI = (function () {
+    const eventBus = window.App.EventBus;
 
     // 构造器（相当于java里的构造方法）
     var UIModule3_2 = function (argument){
@@ -168,8 +169,21 @@ var RBChatGroupsUI = (function () {
             setTimeout(() => {
                 document.querySelector('.im-panel-inputcontent')?.focus()
             })
+
+
+            $('#im-panel-main-chatcontentpane-toplevel').css({ 'display': 'block' });
+            $('#footer_i').css({ 'display': 'none' });
+            $('#chat_top_name').text(gname);
             //alert('打开群组的聊天界面功能稍后实现！！！');
         });
+
+        // eventBus.emit('conversations:add1', {
+        //     ge,
+        //     ...ge, html, toFirst,
+        //     gid, gname, g_member_count, g_owner_user_uid, create_time,
+        //     localUserIsGroupOwner, defaultColor, show_t, avatarUrl
+        //  });
+
 
         // 刷新当前群组数量的UI显示，并决定内容面板的显示与否
         this.refreshGroupsItemCountShow();
@@ -425,10 +439,10 @@ var RBChatGroupsUI = (function () {
             RBChatChattingContentPaneUI.loadCacheHistoryFromCache2(_selectedAlarmType, gid)
 
             // // 载入存放在本地JS缓存中的当前visitor的聊天记录
-            // RBChatChattingContentPaneUI.loadChatHistoryFromLocalCache(_selectedAlarmType, gid);
+            RBChatChattingContentPaneUI.loadChatHistoryFromLocalCache(_selectedAlarmType, gid);
 
             // // 尝试从服务端加载该用户的聊天历史记录
-            // RBChatChattingContentPaneUI.loadChattingHistoryFromServer(_selectedAlarmType, gid);
+            RBChatChattingContentPaneUI.loadChattingHistoryFromServer(_selectedAlarmType, gid);
 
             // 加载右边的详情查看功能
             RBChatRightDetailUI.showTabsForSelectedAlarm(AlarmMessageType.groupChatMessage, gid);
