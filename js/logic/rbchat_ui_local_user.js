@@ -45,6 +45,9 @@ var RBChatLocalUserUI = (function () {
 
             // 显用本地用户信息
             RBChatDialogHelper.showLocalUserInfo();
+            $('#phone_center').hide();
+            $('#personalcenter').show();
+
         };
 
         // 点击本地用户的头像
@@ -55,11 +58,18 @@ var RBChatLocalUserUI = (function () {
         }else{
             $('#im-panel-header-user-avatar-parent').click(fun);
             // 点击用本地用户的昵称
-            // $('#im-panel-header-user-showname').click(fun);
             $('#im-panel-header-user-info').click(fun);
         }
       
     };
+
+    // 反馈按钮点击事件
+    $('#im-panel-header-setup-feedback').click(()=>{
+        $('#phone_center').hide();
+        $('#kchat-im-panel').hide();
+        $('#footer_i').hide();
+        $('#feedback').show();    
+    });
 
     /**
      * 点击本地用户的个性签名的事件处理。

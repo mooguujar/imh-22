@@ -91,7 +91,7 @@
 
         var localUserUid = '';
         if(window.IMSDK) {
-            localUserUid = IMSDK.getLoginInfo().loginUserId;
+            localUserUid = IMSDK.getLoginInfo()?.loginUserId;
             localUserUid = (localUserUid?localUserUid:'');
         }
         // 添加用户token
